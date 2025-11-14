@@ -1,0 +1,105 @@
+## Download Sentinel Data in ascending and descending order.
+
+Register to the open data space copernicus(if not already) and get your credentials.
+
+```
+https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&tab_id=FIiRPJeoiX4
+```
+
+Log the credentials as project secret keys as shown below
+
+```python
+# THIS NEED TO BE EXECUTED JUST ONCE
+secret0 = proj.new_secret(name="CDSETOOL_ESA_USER", secret_value="esa_username")
+secret1 = proj.new_secret(name="CDSETOOL_ESA_PASSWORD", secret_value="esa_password")
+```
+
+```python
+string_dict_data = """{
+  'satelliteParams':{
+      'satelliteType': 'Sentinel1',
+      'processingLevel': 'LEVEL1',
+      'sensorMode': 'IW',
+      'productType': 'SLC',
+      'orbitDirection': 'ASCENDING',
+      'relativeOrbitNumber': '117'
+  } ,
+  'startDate': '2020-11-01',
+  'endDate': '2020-11-14',
+  'geometry': 'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, 10.595369 45.945838, 10.595369 45.923394))',
+  'area_sampling': 'True',
+  'tmp_path_same_folder_dwl':'True',
+  'artifact_name': 's1_ascending'
+  }"""
+```
+
+Register 'download_images_s1' operation in the project. The function if of kind container runtime that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image of sentinel-tools deploved in the context of project which is a wrapper for the Sentinel download and preprocessing routine for the integration with the AIxPA platform. For more details [Click here](https://github.com/tn-aixpa/sentinel-tools/). The parameters passed for sentinel downloads includes the starts and ends dates corresponding to period of two years of data. The ouput of this step will be logged inside to the platfrom project context as indicated by parameter 'artifact_name' ('s1_ascending').Several other paramters can be configures as per requirements for e.g. relativeOrbitNumber 117 is used for satellite images in ascending order.
+
+```python
+function_s1 = proj.new_function("download_images_s1",kind="container",image="ghcr.io/tn-aixpa/sentinel-tools:latest",command="python")
+```
+
+### Run the function
+
+```python
+run = function_s1.run(
+    action="job",
+    secrets=["CDSETOOL_ESA_USER","CDSETOOL_ESA_PASSWORD"],
+    fs_group='8877',
+    args=["main.py", string_dict_data],
+    resources={"cpu": {"requests": "3", "limits": "6"},"mem":{"requests": "32Gi", "limits": "64Gi"}},
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": {
+             "size": "300Gi"
+        }
+    }])
+```
+
+Check the status of function.
+
+```python
+run.refresh().status.state
+```
+
+Likewise, download the images in descending order using relative orbit number 163 and save artifact with name
+'s1_descening'
+
+```python
+string_dict_data = """{
+  'satelliteParams':{
+      'satelliteType': 'Sentinel1',
+      'processingLevel': 'LEVEL1',
+      'sensorMode': 'IW',
+      'productType': 'SLC',
+      'orbitDirection': 'DESCENDING',
+      'relativeOrbitNumber': '168'
+  } ,
+  'startDate': '2020-11-01',
+  'endDate': '2020-11-14',
+  'geometry': 'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, 10.595369 45.945838, 10.595369 45.923394))',
+  'area_sampling': 'True',
+  'tmp_path_same_folder_dwl':'True',
+  'artifact_name': 's1_descending'
+  }"""
+list_args =  ["main.py",string_dict_data]
+```
+
+```python
+run = function_s1.run(
+    action="job",
+    secrets=["CDSETOOL_ESA_USER","CDSETOOL_ESA_PASSWORD"],
+    fs_group='8877',
+    args=["main.py", string_dict_data],
+    resources={"cpu": {"requests": "3", "limits": "6"},"mem":{"requests": "32Gi", "limits": "64Gi"}},
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": {
+             "size": "300Gi"
+        }
+    }])
+```
