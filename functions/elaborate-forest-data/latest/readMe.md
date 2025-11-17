@@ -16,6 +16,7 @@ This function performs elaboration for deforestation on Sentinel data, enhancing
 Follow project guidelines for contributions.
 
 ## Tags
+- `remote sensing`
 - `deforestation`
 - `sentinel-images`
 - `data-processing`
@@ -23,4 +24,24 @@ Follow project guidelines for contributions.
 - `reporting`
 - `elaboration`
 - `functionality`
+- `forest-loss`
+- `change-detection`
+- `land-cover`
+- `time-series-analysis`
+- `ndvi`
+- `geospatial`
+- `gis`
+- `google-earth-engine`
+- `gdal`
+- `raster-processing`
+- `classification`
+- `accuracy-assessment`
+- `validation`
+- `monitoring`
+- `conservation`
+- `sustainability`
+- `machine-learning`
+- `python`
+- `big-data`
+- `open-data`
 

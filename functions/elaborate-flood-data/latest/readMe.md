@@ -21,9 +21,36 @@ This function performs flood analysis using Sentinel satellite data to assess fl
 - Open-source and extensible for further development.
 
 ## Tags
+- `remote sensing`
+- `inundation-mapping`
+- `water-detection`
+- `ndwi`
+- `ndvi`
+- `change-detection`
+- `time-series-analysis`
+- `hydrology`
+- `flood-modelling`
+- `emergency-response`
+- `gis`
+- `raster-processing`
+- `vector-analytics`
+- `radar-imagery`
+- `optical-imagery`
+- `sentinel-1`
+- `sentinel-2`
+- `cloud-masking`
+- `machine-learning`
+- `open-data`
+- `geoprocessing`
 - `flood-analysis`
 - `sentinel-data`
-- `remote-sensing`
 - `geospatial-analysis`
 - `environmental-monitoring`
+- `data-elaboration`
+- `flood-extent-mapping`
+- `satellite-imagery`
+- `multi-temporal-analysis`
+- `hazard-assessment`
+- `impact-metrics`
+- `geospatial-data`
 

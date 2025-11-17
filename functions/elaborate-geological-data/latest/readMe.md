@@ -10,11 +10,27 @@ The Elaborate function is designed to process and analyze Sentinel satellite dat
 
 
 ## Tags
-- Landslide Monitoring
-- Sentinel Data
-- Remote Sensing
-- Data Analysis
-- Machine Learning
+- `remote sensing`
+- `geospatial analysis`
+- `InSAR / SAR Processing`
+- `gigital elevation models (DEM)`
+- `change detection`
+- `time-series Analysis`
+- `slope stability modeling`
+- `hazard assessment`
+- `risk mapping`
+- `GIS & QGIS`
+- `google earth engine`
+- `python`
+- `data visualization`
+- `cloud processing (AWS/GCP)`
+- `feature extraction`
+- `landslide monitoring`
+- `sentinel data`
+- `data analysis`
+- `machine learning`
+- `big-data`
+- `open-data`
 
 
 ## Contribution
