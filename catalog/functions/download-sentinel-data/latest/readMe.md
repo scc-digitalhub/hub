@@ -54,7 +54,7 @@ string_dict_data = """{
 
 
 list_args =  ["main.py",string_dict_data]
-function = proj.get_function("download-sentinel-data",kind="container",image="ghcr.io/tn-aixpa/sentinel-tools:0.11.7",command="python")
+function = proj.get_function("download-sentinel-data",kind="container",image="ghcr.io/tn-aixpa/sentinel-tools:latest",command="python")
 ```
 Notes: For detailed usage see the usage notebook (usage.ipynb)
 
@@ -74,6 +74,20 @@ Log the credentials as project secret keys as shown below
 # THIS NEED TO BE EXECUTED JUST ONCE
 secret0 = proj.new_secret(name="CDSETOOL_ESA_USER", secret_value="esa_username")
 secret1 = proj.new_secret(name="CDSETOOL_ESA_PASSWORD", secret_value="esa_password")
+```
+
+To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is
+executed as non root user(fs_group='8877')
+
+```
+function.run(
+    action="job",
+    secrets=["CDSETOOL_ESA_USER","CDSETOOL_ESA_PASSWORD"],
+    fs_group='8877',
+    args=["main.py", string_dict_data],
+    envs=[{"name": "TMPDIR", "value": "/app/files"}],
+    ...
+    }])
 ```
 
 ## Resources
@@ -96,8 +110,6 @@ Data volume requirements vary by scenario:
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-Plan temporary storage (`tmp_path_same_folder_dwl`) accordingly to avoid capacity issues.
-
 Recommend volume for running this function in flood analysis scenario is.
 
 
@@ -117,3 +129,4 @@ Recommend volume for running this function in flood analysis scenario is.
 ```
 
 For more detailed usage for different kind of scenario, check the <a href='usage.ipynb'>usage notebook</a>.
+
