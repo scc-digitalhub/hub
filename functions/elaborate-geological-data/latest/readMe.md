@@ -12,6 +12,9 @@ The Elaborate function is designed to process and analyze Sentinel satellite dat
 ## Tags
 - `remote sensing`
 - `geospatial analysis`
+- `synthetic aperture radar (SAR)`
+- `single look complex (SLC)`
+- `burst products`
 - `InSAR / SAR Processing`
 - `gigital elevation models (DEM)`
 - `change detection`

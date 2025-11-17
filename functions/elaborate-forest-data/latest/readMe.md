@@ -19,6 +19,9 @@ Follow project guidelines for contributions.
 - `remote sensing`
 - `deforestation`
 - `sentinel-images`
+- `thermal protection reusable (TPR)`
+- `thermal protection systems (TPS)`
+- `testing quality standards (TQS)`
 - `data-processing`
 - `analysis`
 - `reporting`
