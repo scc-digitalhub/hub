@@ -76,6 +76,20 @@ secret0 = proj.new_secret(name="CDSETOOL_ESA_USER", secret_value="esa_username")
 secret1 = proj.new_secret(name="CDSETOOL_ESA_PASSWORD", secret_value="esa_password")
 ```
 
+To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is
+executed as non root user(fs_group='8877')
+
+```
+function.run(
+    action="job",
+    secrets=["CDSETOOL_ESA_USER","CDSETOOL_ESA_PASSWORD"],
+    fs_group='8877',
+    args=["main.py", string_dict_data],
+    envs=[{"name": "TMPDIR", "value": "/app/files"}],
+    ...
+    }])
+```
+
 ## Resources
 
 Recommended resources(cpu, memory) for running this function:
@@ -95,8 +109,6 @@ Data volume requirements vary by scenario:
 - **Multi-temporal series**: Scales linearly with date range and area size
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
-
-Plan temporary storage (`tmp_path_same_folder_dwl`) accordingly to avoid capacity issues.
 
 Recommend volume for running this function in flood analysis scenario is.
 
