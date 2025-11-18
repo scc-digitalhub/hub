@@ -1,6 +1,7 @@
 # Download Sentinel Data
 
 ## Definition
+
 This function is used to download Sentinel satellite data efficiently. This function serves as the base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized. This function is configurable via a parameter object that controls the satellite data selection, temporal extent and spatial footprint. Key parameter groups:
 
 - satelliteParams
@@ -36,7 +37,7 @@ Example parameter shape (illustrative):
 
 ## Usage
 
-The function is of kind container runtime that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image of sentinel-tools deploved in the context of project which is a wrapper for the Sentinel download and preprocessing routine for the integration with the AIxPA platform. For more details [Click here](https://github.com/tn-aixpa/sentinel-tools/).
+The function is of kind container runtime that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image of sentinel-tools developed in the context of project which is a wrapper for the Sentinel download and preprocessing routine for the integration with the AIxPA platform. For more details [Click here](https://github.com/tn-aixpa/sentinel-tools/).
 
 ```python
 string_dict_data = """{
@@ -76,8 +77,7 @@ secret0 = proj.new_secret(name="CDSETOOL_ESA_USER", secret_value="esa_username")
 secret1 = proj.new_secret(name="CDSETOOL_ESA_PASSWORD", secret_value="esa_password")
 ```
 
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is
-executed as non root user(fs_group='8877')
+To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
 
 ```
 function.run(
@@ -110,7 +110,7 @@ Data volume requirements vary by scenario:
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-Recommend volume for running this function in flood analysis scenario is.
+Voume for running this function depends on the requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. for e.g. the recommended volume for running this function in flood analysis scenario is.
 
 
 ```json
