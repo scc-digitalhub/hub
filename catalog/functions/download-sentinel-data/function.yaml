@@ -12,7 +12,8 @@ metadata:
     - "framework:container-function"
 kind: python
 spec:
- args:
+ template:
+  args:
     - main.py
     - '{"satelliteParams":{"satelliteType": "Sentinel2","processingLevel":
       "S2MSI2A","bandmath": ["NDWI"]},"startDate":"2018-10-27","endDate":
