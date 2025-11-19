@@ -92,9 +92,7 @@ function.run(
 
 ## Resources
 
-The download-sentinel-data function is dependant on Sentinel Hub dataspace. It could happen that data download takes more time than usual due to various factors, including technical issues, data processing delays, and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions. The size of sentinal data payload in is normally large based on requirement of usecases scenarios and that is why a significant volume(Gi) of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenario of natural disasters event based incides requires different data payload downloads around a given event date compute pre/post windows for elaboration and analysis while the temporal analysis requires big time window data such as environmental degradation scenrios like deforestation. Inside the <a href='usage.ipynb'>usage notebook</a>, one can find more fine grained resource configuration for different kinds analysis.
-
-Recommended resources(cpu, memory) for running this function:
+The resources for running this function varies as per the envisaged elaboration scenario requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace. It could happen that data download takes more time than usual due to various factors, including technical issues, data processing delays, and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions. The size of sentinal data payload in is normally large based on requirement of usecase scenario and requires a significant block of computing resources to executed which includes number of cpu, memory(Gi), and volume(Gi). The function performance improves with significant number of cpu and memory. In general, the recommended resources(cpu, memory) for running this function:
 
 ```json
 {
@@ -105,14 +103,13 @@ Recommended resources(cpu, memory) for running this function:
 }
 ```
 
-
 Data volume requirements vary by scenario:
 - **Single scene download**: 100–500 MB (Sentinel-1 GRD), 500–1000 MB (Sentinel-2 L2A)
 - **Multi-temporal series**: Scales linearly with date range and area size
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-Voume for running this function depends on the requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. for e.g. the recommended volume for running this function in flood analysis scenario is.
+In order to run this funciton, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenario of natural disasters event based incides requires different data payload downloads around a given event date compute pre/post windows for elaboration and analysis while the temporal analysis requires big time window data such as environmental degradation scenrios like deforestation. Inside the <a href='usage.ipynb'>usage notebook</a>, one can find more fine grained resource configuration for different kinds analysis for e.g. the recommended volume for running this function in flood analysis scenario is.
 
 
 ```json
