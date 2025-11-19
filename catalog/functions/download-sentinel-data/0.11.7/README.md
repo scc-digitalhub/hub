@@ -109,8 +109,7 @@ Data volume requirements vary by scenario:
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-In order to run this funciton, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenario of natural disasters event based incides requires different data payload downloads around a given event date compute pre/post windows for elaboration and analysis while the temporal analysis requires big time window data such as environmental degradation scenrios like deforestation. Inside the <a href='usage.ipynb'>usage notebook</a>, one can find more fine grained resource configuration for different kinds analysis for e.g. the recommended volume for running this function in flood analysis scenario is.
-
+In order to run this funciton, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the <a href='usage.ipynb'>usage notebook</a>, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.
 
 ```json
 {
