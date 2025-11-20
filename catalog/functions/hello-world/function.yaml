@@ -1,0 +1,17 @@
+kind: python
+metadata:
+  name: hello-world
+  description: "Hello world with python: write a string to stdout"
+  labels: # key-value pairs to classify the function
+    - "license:apache-2.0"
+    - "domain:other"
+    - "platform:0.14"
+    - "type:job"
+name: hello-world
+spec:
+  python_version: PYTHON3_10
+  template:
+    source:
+        handler: main
+        base64: ZGVmIG1haW4oKToKICAgIHByaW50KCItLS0gSGVsbG8gd29ybGQgLS0tIikK
+        lang: python
