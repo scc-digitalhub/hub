@@ -16,7 +16,7 @@ Basic syntax of a python script used inside to the platform. It demonstrates
 ```
 def main():
     print("--- Hello world ---")
-```python
+```
 
 The function 'hello-world' is registered inside to the platform core durig the import and it can be fetched and executed
 
@@ -24,7 +24,7 @@ The function 'hello-world' is registered inside to the platform core durig the i
 func = proj.get_function(name="hello-world",
                             kind="python",
                             python_version="PYTHON3_10") 
-```python
+```
 
 This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.
 
