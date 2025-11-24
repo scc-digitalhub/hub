@@ -1,0 +1,29 @@
+metadata:
+  name: echoService
+  version: 1.0.0
+  description: A simple echo service that returns the received text.
+  labels:
+    - "license:apache-2.0"
+    - "domain:general"
+    - "application:utility"
+    - "platform:0.14"
+    - "aspect:service"
+    - "type:service"
+    - "phase:deployment"
+    - "framework:python-function"
+kind: python
+spec:
+  template:
+    source: src/serve.py
+    handler: serve
+    base64: aW1wb3J0IGpzb24KCmRlZiBpbml0KGNvbnRleHQpOgogICAgcHJpbnQoInNvbWUgaW5pdGlhbGl6YXRpb24gZnVuY3Rpb24iKQogICAgc2V0YXR0cihjb250ZXh0LCAidmFsdWUiLCAic29tZSB2YWx1ZSIpCgpkZWYgc2VydmUoY29udGV4dCwgZXZlbnQpOgoKICAgIGlmIGlzaW5zdGFuY2UoZXZlbnQuYm9keSwgYnl0ZXMpOgogICAgICAgIGJvZHkgPSBqc29uLmxvYWRzKGV2ZW50LmJvZHkpCiAgICBlbHNlOgogICAgICAgIGJvZHkgPSBldmVudC5ib2R5CiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiUmVjZWl2ZWQgZXZlbnQ6IHtib2R5fSIpCiAgICB0ZXh0ID0gYm9keVsidGV4dCJdCgogICAgcmV0dXJuIHsicmVzdWx0IjogZiJoZWxsbyB7dGV4dH0gZnJvbSAne2NvbnRleHQudmFsdWV9JyJ9
+    lang: python
+    init_function: init
+    service_type: ClusterIP
+    task: python+serve://hub/1ffc8f7054c849c39066484bdb3b2578
+    init_parameters: {}
+    inputs: {}
+    service_name: echoService
+    python_version: PYTHON3_10
+    function: python://hub/echoservice:b948902c49e94a5cbbdefcb487932de3
+local_execution: false
