@@ -1,6 +1,7 @@
 kind: python
 metadata:
   name: hello-world
+  version: 1.0.0
   description: "Hello world with python: write a string to stdout"
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
