@@ -1,3 +1,4 @@
+name: echoService
 metadata:
   name: echoService
   version: 1.0.0
@@ -19,6 +20,9 @@ spec:
    base64: aW1wb3J0IGpzb24KCmRlZiBpbml0KGNvbnRleHQpOgogICAgcHJpbnQoInNvbWUgaW5pdGlhbGl6YXRpb24gZnVuY3Rpb24iKQogICAgc2V0YXR0cihjb250ZXh0LCAidmFsdWUiLCAic29tZSB2YWx1ZSIpCgpkZWYgc2VydmUoY29udGV4dCwgZXZlbnQpOgoKICAgIGlmIGlzaW5zdGFuY2UoZXZlbnQuYm9keSwgYnl0ZXMpOgogICAgICAgIGJvZHkgPSBqc29uLmxvYWRzKGV2ZW50LmJvZHkpCiAgICBlbHNlOgogICAgICAgIGJvZHkgPSBldmVudC5ib2R5CiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiUmVjZWl2ZWQgZXZlbnQ6IHtib2R5fSIpCiAgICB0ZXh0ID0gYm9keVsidGV4dCJdCgogICAgcmV0dXJuIHsicmVzdWx0IjogZiJoZWxsbyB7dGV4dH0gZnJvbSAne2NvbnRleHQudmFsdWV9JyJ9
    lang: python
    init_function: init
-   service_type: ClusterIP
-   service_name: echoService
-   
+---
+kind: python+serve
+spec:
+  service_type: ClusterIP
+  service_name: echoService
+    

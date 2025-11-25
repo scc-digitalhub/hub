@@ -14,7 +14,10 @@ spec:
     handler: main
     base64: ZGVmIG1haW4ocGFyYW0pOgogICAgcHJpbnQoZiJIZWxsbyB7cGFyYW19IikK
     lang: python
+---
+kind: "python+job"
+spec: 
   template:
-    parameters: {"param": "World"}
-    inputs: {}
+    parameters:
+      param: World
     

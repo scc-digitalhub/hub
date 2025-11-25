@@ -1,6 +1,8 @@
+kind: container
 metadata:
   name: download-sentinel-data
   description: Function for Sentinel image download and preprocessing
+  version: 0.14.6
   labels:
     - 'license:apache-2.0'
     - 'domain:geo'
@@ -10,7 +12,12 @@ metadata:
     - 'type:job'
     - 'phase:data-preparation'
     - 'framework:container-function'
-kind: python
+name: download_images_s1
+spec:
+  image: ghcr.io/tn-aixpa/sentinel-tools:latest
+  command: python
+---
+kind: container+job
 spec:
   template:
     args:
@@ -25,21 +32,16 @@ spec:
         "[0,20]","area_sampling": "True","artifact_name":
         "sentinel2_post_flood_val_di_fassa_oct_2018","preprocess_data_only":
         "false"}
-    image: 'ghcr.io/tn-aixpa/sentinel-tools:latest'
-    volumes:
-      - name: volume-flood
-        spec:
-          size: 100Gi
-        volume_type: persistent_volume_claim
-        mount_path: /app/files
-    envs:
-      - name: TMPDIR
-        value: /app/files
-    resources:
-      cpu: '6'
-      mem: 32Gi
-    fs_group: 8877
-    secrets:
-      - CDSETOOL_ESA_USER
-      - CDSETOOL_ESA_PASSWORD
-    command: python
+  volumes:
+    - name: volume-flood
+      spec:
+        size: 100Gi
+      volume_type: persistent_volume_claim
+      mount_path: /app/files
+  envs:
+    - name: TMPDIR
+      value: /app/files
+  resources:
+    cpu: '6'
+    mem: 32Gi
+  fs_group: 8877
