@@ -1,7 +1,7 @@
 metadata:
   name: echoService
   version: 1.0.0
-  description: A simple echo service that returns the received text.
+  description: A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.
   labels:
     - "license:apache-2.0"
     - "domain:general"
