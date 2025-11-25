@@ -10,8 +10,8 @@ This function demonstrates a minimal example of a function whose sole purpose is
 The function demonstrates:
 
 Basic syntax of a python script used inside to the platform. It demonstrates
-- How to define a function
-- How to output text to the screen
+- How to define a function that takes a parameter.
+- How to output Hello {parameter} message to the screen
 
 ```
 def main(param):
