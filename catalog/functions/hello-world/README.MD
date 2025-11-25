@@ -14,8 +14,8 @@ Basic syntax of a python script used inside to the platform. It demonstrates
 - How to output text to the screen
 
 ```
-def main():
-    print("--- Hello world ---")
+def main(param):
+    print(f"Hello {param}")
 ```
 
 The function 'hello-world' is registered inside to the platform core durig the import and it can be fetched and executed
