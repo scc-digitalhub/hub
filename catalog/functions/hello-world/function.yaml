@@ -10,14 +10,11 @@ metadata:
 name: hello-world
 spec:
   python_version: PYTHON3_10
-  function: python://hub/hello-world:863cfd246d3b4488a0d120af584a85e7
-  task: python+job://hub/5692e673699d4025aee539140f4fa3dc
-  init_parameters: {}
-  parameters: {}
-  inputs: {}
-  local_execution: false
-  template:
-    source:
-        handler: main
-        base64: ZGVmIG1haW4oKToKICAgIHByaW50KCItLS0gSGVsbG8gd29ybGQgLS0tIikK
-        lang: python
+  source:
+    handler: main
+    base64: ZGVmIG1haW4ocGFyYW0pOgogICAgcHJpbnQoZiJIZWxsbyB7cGFyYW19IikK
+    lang: python
+    template:
+     parameters: {"param": "World"}
+     inputs: {}
+    
