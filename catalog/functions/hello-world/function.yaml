@@ -8,7 +8,7 @@ metadata:
     - "domain:other"
     - "platform:0.14"
     - "type:job"
-name: hello-world
+    - "phase:utility"
 spec:
   python_version: PYTHON3_10
   source:

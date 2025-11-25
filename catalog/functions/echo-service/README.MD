@@ -1,20 +1,7 @@
 # echoservice
-
-## Definition
-
 echoservice is a simple Python service that demonstrates how a simple Python function can be operationalizes as a service based on serverless container runtime feature. The service is exposed as an API responding to POST message with the text input and returns the same text back — an echo.
 
-## Usage
-
-The function demonstrates:
-
-- How to define a simple serverless python function
-- How to expose the underlying function as an API
-- How to initialize runtime service context
-- How to generate and return output
-- How to call the function
-
-
+## Definition
 ```
 import json
 
@@ -37,6 +24,17 @@ def serve(context, event):
 The init(context) method is responsible for initializing the function’s execution context.
 
 The serve(context, event) method contains the core functionality of the service, including the incoming request handling and execution logic.
+
+
+## Usage
+
+The function demonstrates:
+
+- How to define a simple serverless python function
+- How to expose the underlying function as an API
+- How to initialize runtime service context
+- How to generate and return output
+- How to call the function
 
 ### Start the service
 

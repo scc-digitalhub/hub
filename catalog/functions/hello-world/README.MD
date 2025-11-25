@@ -1,9 +1,12 @@
 # Hello world
+This function demonstrates a minimal example of a function whose sole purpose is to print the classic phrase “Hello, World!” in python. This type of function is traditionally used as an introductory exercise, as it demonstrates the most fundamental structure of a program: outputting text.
 
 ## Definition
 
-
-This function demonstrates a minimal example of a function whose sole purpose is to print the classic phrase “Hello, World!” in python. This type of function is traditionally used as an introductory exercise, as it demonstrates the most fundamental structure of a program: outputting text.
+```
+def main(param):
+    print(f"Hello {param}")
+```
 
 ## Usage
 
@@ -12,11 +15,6 @@ The function demonstrates:
 Basic syntax of a python script used inside to the platform. It demonstrates
 - How to define a function that takes a parameter.
 - How to output Hello {parameter} message to the screen
-
-```
-def main(param):
-    print(f"Hello {param}")
-```
 
 The function 'hello-world' is registered inside to the platform core durig the import and it can be fetched and executed
 
