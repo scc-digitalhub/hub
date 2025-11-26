@@ -58,4 +58,4 @@ result.json()
 {'result': "hello DigitalHub! from 'some value'"}
 ```
 
-Notes: For detailed usage, check the <a href='usage.ipynb'>usage notebook</a>.
+Notes: For detailed usage, check the <a href='notebook.ipynb'>usage notebook</a>.
