@@ -45,18 +45,17 @@ serve_run = function_echoservice.run(action='serve', wait=True)
 
 ### Send a request
 ```
-import requests
-SERVICE_URL = serve_run.refresh().status.to_dict()["service"]["url"]
-
-with requests.post(f'http://{SERVICE_URL}', data='{"text": "Test caller"}') as r:
-    res = r.content
-print(res)
+json = {
+    "text":"DigitalHub!"
+}
+serve_run.invoke(json=json)
+result.json()
 ```
 
 ### Response:
 
 ```
-b'{"result": "hello Test caller from \'some value\'"}'
+{'result': "hello DigitalHub! from 'some value'"}
 ```
 
 Notes: For detailed usage, check the <a href='usage.ipynb'>usage notebook</a>.
