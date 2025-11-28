@@ -1,0 +1,23 @@
+kind: python
+metadata:
+  name: mlflow-train-model
+  version: 1.0.0
+  description: "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework."
+  labels: # key-value pairs to classify the function
+    - "license:apache-2.0"
+    - "domain:other"
+    - "platform:0.14"
+    - "type:job"
+    - "phase:utility"
+    - "application:healthcare"
+spec:
+  python_version: PYTHON3_10
+  source:
+    handler: main
+    base64: ZGVmIG1haW4ocGFyYW0pOgogICAgcHJpbnQoZiJIZWxsbyB7cGFyYW19IikK
+    lang: python
+---
+kind: python+serve
+spec:
+  service_type: ClusterIP
+  service_name: echoService
