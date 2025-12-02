@@ -25,4 +25,3 @@ kind: python+serve
 spec:
   service_type: ClusterIP
   service_name: echoService
-    

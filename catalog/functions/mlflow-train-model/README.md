@@ -38,8 +38,9 @@ def train(project):
 The function demonstrates:
 
 Basic syntax of a python script used inside to the platform. It demonstrates
-- How to define a function that takes a parameter.
-- How to output Hello {parameter} message to the screen
+- How to define a function that takes as input 'project' object,  a context in which you can run functions and manage models,data, and artifacts.
+- How to fetch input data and train model.
+- How to save the trained model in project.
 
 The function 'mlflow-train-model' is registered inside to the platform core durig the import and it can be fetched and executed
 
