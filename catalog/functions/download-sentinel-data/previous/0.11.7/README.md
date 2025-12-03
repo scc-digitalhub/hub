@@ -57,7 +57,7 @@ string_dict_data = """{
 list_args =  ["main.py",string_dict_data]
 function = proj.get_function("download-sentinel-data",kind="container",image="ghcr.io/tn-aixpa/sentinel-tools:0.11.7",command="python")
 ```
-Notes: For detailed usage see the <a href='notebook.ipynb'>usage notebook</a>
+Notes: For detailed usage see the usage notebook.
 
 ## Environment
 
@@ -109,7 +109,7 @@ Data volume requirements vary by scenario:
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-In order to run this function, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the <a href='notebook.ipynb'>usage notebook</a>, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.
+In order to run this function, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the usage notebook, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.
 
 ```json
 {
@@ -126,5 +126,5 @@ In order to run this function, a volume of type 'persistent_volume_claim' is spe
 }
 ```
 
-For more detailed usage for different kind of scenario, check the <a href='notebook.ipynb'>usage notebook</a>.
+For more detailed usage for different kind of scenario, check the usage notebook.
 

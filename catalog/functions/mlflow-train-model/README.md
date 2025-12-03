@@ -52,6 +52,6 @@ This code fetch the created function that uses Python runtime (versione 3.10) po
 
 Then, the function can be executed on the digital hub platform or (locally) as a single job.
 
-Notes: For detailed usage, check the <a href='notebook.ipynb'>usage notebook</a>.
+Notes: For detailed usage, check the usage notebook.
 
 
