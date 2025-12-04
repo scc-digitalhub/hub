@@ -10,8 +10,7 @@ metadata:
     - "platform:0.14"
     - "aspect:service"
     - "type:service"
-    - "phase:deployment"
-    - "framework:python-function"
+    - "phase:deployment"    
 kind: python
 spec:
   python_version: PYTHON3_10
