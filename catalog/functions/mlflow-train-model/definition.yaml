@@ -8,7 +8,8 @@ metadata:
     - "domain:other"
     - "platform:0.14"
     - "type:job"
-    - "phase:utility"
+    - "phase:model-training"
+    - "framework:sklearn"
     - "application:healthcare"
 spec:
   python_version: PYTHON3_10

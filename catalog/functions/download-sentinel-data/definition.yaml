@@ -8,7 +8,6 @@ metadata:
     - 'domain:geo'
     - 'application:pa'
     - 'platform:0.14'
-    - 'aspect:data-engineering'
     - 'type:job'
     - 'phase:data-preparation'    
 name: download_images_s1

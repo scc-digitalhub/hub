@@ -5,12 +5,11 @@ metadata:
   description: A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.
   labels:
     - "license:apache-2.0"
-    - "domain:general"
-    - "application:utility"
+    - "domain:other"
     - "platform:0.14"
-    - "aspect:service"
     - "type:service"
-    - "phase:deployment"    
+    - "phase:utility"
+    - "inference:custom"
 kind: python
 spec:
   python_version: PYTHON3_10
