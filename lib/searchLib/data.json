@@ -1,0 +1,141 @@
+{
+  "datasets": {},
+
+  "functions": {
+    "download-sentinel-data": {
+      "kind": "container",
+      "metadata": {
+        "name": "download-sentinel-data",
+        "description": "Download and preprocess raw Sentinel-2 satellite imagery.",
+        "labels": [
+          "license:apache-2.0",
+          "domain:geo",
+          "application:pa",
+          "platform:0.14",
+          "aspect:data-engineering",
+          "type:job",
+          "phase:data-preparation",
+          "framework:container-function"
+        ],
+        "version": "0.14.6"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/sentinel-tools:latest",
+        "command": "python"
+      }
+    },
+
+    "echo-service": {
+      "kind": "container",
+      "metadata": {
+        "name": "echo-service",
+        "description": "Simple debugging utility that echoes input parameters.",
+        "labels": [
+          "license:mit",
+          "domain:utility",
+          "application:test",
+          "platform:0.14",
+          "type:service",
+          "framework:container-function"
+        ],
+        "version": "1.0.0"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/echo-service:latest",
+        "command": "node"
+      }
+    },
+
+    "elaborate-flood-data": {
+      "kind": "container",
+      "metadata": {
+        "name": "elaborate-flood-data",
+        "description": "Compute flood impact metrics using satellite and terrain data.",
+        "labels": [
+          "license:gpl-3.0",
+          "domain:hydro",
+          "application:civil-protection",
+          "platform:0.14",
+          "aspect:analytics",
+          "type:job",
+          "phase:analysis",
+          "framework:container-function"
+        ],
+        "version": "2.1.0"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/flood-analysis:stable",
+        "command": "python"
+      }
+    },
+
+    "elaborate-forest-data": {
+      "kind": "container",
+      "metadata": {
+        "name": "elaborate-forest-data",
+        "description": "Forestry analysis pipeline for wildfire risk estimation.",
+        "labels": [
+          "license:apache-2.0",
+          "domain:environment",
+          "application:forestry",
+          "aspect:analytics",
+          "type:job",
+          "phase:analysis",
+          "framework:container-function"
+        ],
+        "version": "1.3.2"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/forest-tools:v1",
+        "command": "python"
+      }
+    },
+
+    "elaborate-geological-data": {
+      "kind": "container",
+      "metadata": {
+        "name": "elaborate-geological-data",
+        "description": "Geological risk model integrating multisource geospatial data.",
+        "labels": [
+          "license:gpl-3.0",
+          "domain:geology",
+          "application:risk-analysis",
+          "aspect:modeling",
+          "type:job",
+          "platform:0.14",
+          "framework:container-function"
+        ],
+        "version": "0.9.0"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/geology-engine:latest",
+        "command": "python"
+      }
+    },
+
+    "hello-world": {
+      "kind": "container",
+      "metadata": {
+        "name": "hello-world",
+        "description": "Basic example function used for testing.",
+        "labels": [
+          "license:bsd-2",
+          "domain:utility",
+          "application:demo",
+          "type:service",
+          "platform:0.14",
+          "framework:container-function"
+        ],
+        "version": "0.1.0"
+      },
+      "spec": {
+        "image": "ghcr.io/tn-aixpa/hello-world:latest",
+        "command": "sh"
+      }
+    }
+  },
+
+  "models": {
+    "test": {}
+  }
+}
