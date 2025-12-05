@@ -1,46 +1,160 @@
-# Elaborate Function for Landslide Monitoring Sentinel Data
+# Elaborate Geological Data
 
-## Overview
-The Elaborate function is designed to process and analyze Sentinel satellite data for effective landslide monitoring. This function utilizes advanced algorithms to detect, assess, and visualize landslide-prone areas, providing valuable insights for researchers and decision-makers.
+This function performs a complete preprocessing and analysis on geological Sentinel satellite data to extract information relevant to terrain composition, structural features, and surface variability. It detects and monitor ground deformation associated with landslides using Sentinel-1 Level-2A imagery. 
+The function computes, for both ascending and descending directions, the interferometry between couples of images acquired every six days and derives the total displacement, coherence map, and local incident angle. It derives the horizontal and vertical displacement components from these products and merges them to obtain their cumulative sum and the displacement between each couple of images. The coherence maps are averaged, and the results are used to filter out the areas with the lowest coherence.
 
-## Features
-- **Data Processing**: Efficiently handles large datasets from Sentinel satellites.
-- **Landslide Detection**: Implements machine learning techniques to identify potential landslide areas.
-- **Visualization**: Generates maps and graphs for better understanding and presentation of data.
+The function output GeoTiff Raster files containing:
+- Cumulative sum and temporal variation of the horizontal displacement ;
+- Cumulative sum and temporal variation of the vertical displacement;
+- Cumulative sum and temporal variation of the total displacement of ascending and descending Sentinel-1 images;
+- Cumulative sum of the horizontal displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;
+- Cumulative sum of the vertical displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;
+- Mean and temporal variation of the coherence maps;
+- Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;
+- Temporal variation of the C coefficient map representing the ratio of effective displacement computed in ascending and descending orbits;
 
-
-## Tags
-- `remote sensing`
-- `geospatial analysis`
-- `synthetic aperture radar (SAR)`
-- `single look complex (SLC)`
-- `burst products`
-- `InSAR / SAR Processing`
-- `gigital elevation models (DEM)`
-- `change detection`
-- `time-series Analysis`
-- `slope stability modeling`
-- `hazard assessment`
-- `risk mapping`
-- `GIS & QGIS`
-- `google earth engine`
-- `python`
-- `data visualization`
-- `cloud processing (AWS/GCP)`
-- `feature extraction`
-- `landslide monitoring`
-- `sentinel data`
-- `data analysis`
-- `machine learning`
-- `big-data`
-- `open-data`
+## Definition
+The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel-1 data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.
 
 
-## Contribution
-Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.
+| Position | Value                                                                 | Description                                                                                                               |
+|----------|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| 1        | `/shared/launch.sh`                                                    | Entry-point script executed inside the Docker container. Handles download and preprocessing workflow.                    |
+| 2        | `s1_ascending_landslide`                          | Name of artifact inside platform that contains Sentinel-1 ascending orbit cquisitions.                   |
+| 3        | `s1_descending_landslide`                         | Name of artifact inside platform that contains Sentinel-1 descending orbit acquisitions.                                         |
+| 4        | `2021-10-01`                                                            | Start date of monitoring period window.                                                                              |
+| 5        | `2022-01-01`                                                            | End date of monitoring period window.                                                                                |
+| 6        | `landslide_2021-10-01_2022-01-01`                                       | Name of output artifact.                                      |
+| 7        | `Shapes_TN`                                                             | Name of artifact inside platform containing regional shapefiles (e.g., Trentino region).                                                         |
+| 8        | `ammprv_v.shp`                                                          | Name of specific shapefile inside to the artifact 'Shapes_TN' used for spatial clipping/filtering.                                                                   |
+| 9        | `Map`                                                                   | Name of artificat containing processing mode or output format label based on the workflow’s internal logic.                                           |
+| 10       | `POLYGON ((10.595369 45.923394, 10.644894 45.923394, ...) )`           | WKT polygon defining the Area of Interest (AOI).                                                                          |
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The function aims at downloading all the geological inputs specified in argument(s1_ascending_landslide, s1_descending_landslide, Shapes_TN) from project context and perform the complex task of geological elaboration.
 
-## Contact
-For further inquiries, please reach out to [your_email@example.com](mailto:your_email@example.com).
+Example
+
+The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.
+
+```
+run_el = function_rs.run(
+    action="job",
+    fs_group='8877',
+    resources={
+        "cpu": {"requests": "6", "limits": "12"},
+        "mem": {"requests": "32Gi", "limits": "64Gi"}
+    },
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": { "size": "600Gi" }
+    }],
+    args=[
+        '/shared/launch.sh',
+        's1_ascending',
+        's1_descending',
+        '2021-03-01',
+        '2021-07-30',
+        'landslide_2020-11-01_2020-11-14',
+        'Shapes_TN',
+        'ammprv_v.shp',
+        'Map',
+        'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
+                   10.595369 45.945838, 10.595369 45.923394))'
+    ]
+)
+
+```
+
+## Usage
+
+```
+%%writefile "launch.sh"
+#!/bin/bash
+ls -la /shared
+cd ~
+pwd
+source .bashrc
+export PATH="/home/nonroot/miniforge3/snap/bin:$PATH"
+export PROJ_LIB=/home/nonroot/miniforge3/share/proj
+export GDAL_DATA=/home/nonroot/miniforge3/share/gdal
+export GDAL_DRIVER_PATH=/home/nonroot/miniforge3/lib/gdalplugins
+export PROJ_DATA=/home/nonroot/miniforge3/share/proj
+cd /app
+echo "{'s1_ascending': '$1', 's1_descending': '$2', 'startDate':'$3', 'endDate':'$4', 'outputArtifactName': '$5', 'shapeArtifactName': '$6', 'shapeFileName': '$7', 'mapArtifactName': '$8', 'geomWKT':'$9'}"
+#export PATH="/home/nonroot/miniforge3/snap/.snap/auxdata/gdal/gdal-3-0-0/bin/:$PATH"
+echo "GDAL DATA AFTER EXPORT:"
+echo $GDAL_DATA
+echo "PROJ_LIB AFTER EXPORT"
+echo $PROJ_LIB
+python main.py "{'s1_ascending': '$1', 's1_descending': '$2', 'startDate':'$3', 'endDate':'$4', 'outputArtifactName': '$5', 'shapeArtifactName': '$6', 'shapeFileName': '$7', 'mapArtifactName': '$8', 'geomWKT':'$9'}"
+exit
+```
+
+```
+function_elaborate = proj.new_function("elaborate",kind="container", image="ghcr.io/tn-aixpa/rs-landslide-monitoring:0.14.6", command="/bin/bash", code_src="launch.sh")
+```
+Notes: For detailed usage see the usage notebook.
+
+
+## Environment
+
+The runtime environment of function consist of properties which are configured in the bash script created in previous section
+- PATH
+- PROJ_LIB
+- GDAL_DATA
+- GDAL_DRIVER_PATH
+- PROJ_DATA
+
+
+```
+function_elaborate.run(
+    action="job",
+    fs_group='8877',
+    resources={
+        "cpu": {"requests": "6", "limits": "12"},
+        "mem": {"requests": "32Gi", "limits": "64Gi"}
+    },
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": { "size": "600Gi" }
+    }],
+    args=[
+        '/shared/launch.sh',
+        's1_ascending',
+        's1_descending',
+        '2021-03-01',
+        '2021-07-30',
+        'landslide_2020-11-01_2020-11-14',
+        'Shapes_TN',
+        'ammprv_v.shp',
+        'Map',
+        'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
+                   10.595369 45.945838, 10.595369 45.923394))'
+    ]
+)
+```
+To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
+
+
+## Resources
+
+These settings define the resource requests and limits for the container runtime.
+
+| Resource   | Requests | Limits | Description                                            |
+| ---------- | -------- | ------ | ------------------------------------------------------ |
+| **CPU**    | `6`      | `12`   | Minimum and maximum CPU cores allocated to the job.    |
+| **Memory** | `32Gi`   | `64Gi` | Minimum and maximum memory available to the container. |
+
+The job mounts a persistent storage volume used for reading/writing large datasets (e.g., Sentinel images).
+
+| Field         | Value                     | Description                                                 |
+| ------------- | ------------------------- | ----------------------------------------------------------- |
+| `volume_type` | `persistent_volume_claim` | Indicates a persistent storage resource.                    |
+| `name`        | `volume-land`             | Volume identifier.                                          |
+| `mount_path`  | `/app/files`              | Directory inside the container where the volume is mounted. |
+| `size`        | `600Gi`                   | Allocated storage capacity.                                 |
+
