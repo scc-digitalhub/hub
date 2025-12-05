@@ -25,12 +25,12 @@ The function accepts a list of positional arguments that are passed directly to 
 | 4        | `2021-10-01`                                                            | Start date of monitoring period window.                                                                              |
 | 5        | `2022-01-01`                                                            | End date of monitoring period window.                                                                                |
 | 6        | `landslide_2021-10-01_2022-01-01`                                       | Name of output artifact.                                      |
-| 7        | `Shapes_TN`                                                             | Name of artifact inside platform containing regional shapefiles (e.g., Trentino region).                                                         |
-| 8        | `ammprv_v.shp`                                                          | Name of specific shapefile inside to the artifact 'Shapes_TN' used for spatial clipping/filtering.                                                                   |
+| 7        | `Shapes_AOI`                                                             | Name of artifact inside platform containing regional shapefiles (e.g., Trentino region).                                                         |
+| 8        | `ammprv_v.shp`                                                          | Name of specific shapefile inside to the artifact 'Shapes_AOI' used for spatial clipping/filtering.                                                                   |
 | 9        | `Map`                                                                   | Name of artificat containing processing mode or output format label based on the workflow’s internal logic.                                           |
 | 10       | `POLYGON ((10.595369 45.923394, 10.644894 45.923394, ...) )`           | WKT polygon defining the Area of Interest (AOI).                                                                          |
 
-The function aims at downloading all the geological inputs specified in argument(s1_ascending_landslide, s1_descending_landslide, Shapes_TN) from project context and perform the complex task of geological elaboration.
+The function aims at downloading all the geological inputs specified in argument(s1_ascending_landslide, s1_descending_landslide, Shapes_AOI) from project context and perform the complex task of geological elaboration.
 
 Example
 
@@ -57,7 +57,7 @@ run_el = function_rs.run(
         '2021-03-01',
         '2021-07-30',
         'landslide_2020-11-01_2020-11-14',
-        'Shapes_TN',
+        'Shapes_AOI',
         'ammprv_v.shp',
         'Map',
         'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
@@ -129,7 +129,7 @@ function_elaborate.run(
         '2021-03-01',
         '2021-07-30',
         'landslide_2020-11-01_2020-11-14',
-        'Shapes_TN',
+        'Shapes_AOI',
         'ammprv_v.shp',
         'Map',
         'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
