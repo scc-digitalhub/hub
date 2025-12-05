@@ -12,7 +12,7 @@ metadata:
     - 'phase:data-preparation'    
 name: download_images_s1
 spec:
-  image: ghcr.io/tn-aixpa/sentinel-tools:latest
+  image: ghcr.io/tn-aixpa/sentinel-tools:0.14.6
   command: python
 ---
 kind: container+job

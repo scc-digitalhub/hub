@@ -1,8 +1,10 @@
 # Download Sentinel Data
 
+This function is used to download Sentinel satellite data efficiently. This function serves as the base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized. 
+
 ## Definition
 
-This function is used to download Sentinel satellite data efficiently. This function serves as the base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized. This function is configurable via a parameter object that controls the satellite data selection, temporal extent and spatial footprint. Key parameter groups:
+This function is implemented as a Docker container and executed at runtime with user-configurable parameters. The function takes as input a parameter object that controls the satellite data selection, temporal extent, and spatial footprint. Key parameter groups include:
 
 - satelliteParams
     - satelliteType: Sentinel product family (e.g., "Sentinel-1", "Sentinel-2").
