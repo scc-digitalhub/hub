@@ -1,6 +1,6 @@
 kind: python
 metadata:
-  name: cancer-classfier-training-mlflow-example
+  name: Cancer classfier Training (MLFlow example)
   version: 1.0.0
   description: "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework."
   labels: # key-value pairs to classify the function
@@ -11,6 +11,7 @@ metadata:
     - "phase:model-training"
     - "framework:sklearn"
     - "application:healthcare"
+name: cancer-classfier-training-mlflow-example
 spec:
   python_version: PYTHON3_10
   source:

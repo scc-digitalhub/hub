@@ -1,6 +1,6 @@
 kind: python
 metadata:
-  name: hello-world
+  name: Hello world
   version: 1.0.0
   description: "Hello world with python: write a string to stdout"
   labels: # key-value pairs to classify the function
@@ -9,6 +9,7 @@ metadata:
     - "platform:0.14"
     - "type:job"
     - "phase:utility"
+name: hello-world
 spec:
   python_version: PYTHON3_10
   requirements:

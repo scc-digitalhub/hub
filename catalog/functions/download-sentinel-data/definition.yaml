@@ -1,6 +1,6 @@
 kind: container
 metadata:
-  name: download-sentinel-data
+  name: Download Sentinel Data
   description: Function for Sentinel image download and preprocessing
   version: 0.14.6
   labels:
@@ -10,7 +10,7 @@ metadata:
     - 'platform:0.14'
     - 'type:job'
     - 'phase:data-preparation'    
-name: download_images_s1
+name: download-sentinel-data
 spec:
   image: ghcr.io/tn-aixpa/sentinel-tools:0.14.6
   command: python
