@@ -13,6 +13,8 @@ The function output GeoTiff Raster files containing:
 - Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;
 - Temporal variation of the C coefficient map representing the ratio of effective displacement computed in ascending and descending orbits;
 
+The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and confirgured. It further runs the launch instructions specified by 'launch.sh' file. 
+
 ## Definition
 The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel-1 data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.
 
@@ -68,6 +70,8 @@ run_el = function_rs.run(
 ```
 
 ## Usage
+
+The function expect a entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. 
 
 ```
 %%writefile "launch.sh"
@@ -157,5 +161,6 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `name`        | `volume-land`             | Volume identifier.                                          |
 | `mount_path`  | `/app/files`              | Directory inside the container where the volume is mounted. |
 | `size`        | `600Gi`                   | Allocated storage capacity.                                 |
+
 
 'elaboration' consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 300Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.
