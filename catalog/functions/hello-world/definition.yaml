@@ -1,6 +1,6 @@
 kind: python
 metadata:
-  name: Hello world
+  name: Hello World
   version: 1.0.0
   description: "Hello world with python: write a string to stdout"
   labels: # key-value pairs to classify the function

@@ -1,6 +1,6 @@
 name: echoService
 metadata:
-  name: echo Service
+  name: Echo Service
   version: 1.0.0
   description: A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.
   labels:
