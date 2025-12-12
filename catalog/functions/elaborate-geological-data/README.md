@@ -43,8 +43,8 @@ run_el = function_rs.run(
     action="job",
     fs_group='8877',
     resources={
-        "cpu": {"requests": "6", "limits": "12"},
-        "mem": {"requests": "32Gi", "limits": "64Gi"}
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
         "volume_type": "persistent_volume_claim",
@@ -117,8 +117,8 @@ function_elaborate.run(
     action="job",
     fs_group='8877',
     resources={
-        "cpu": {"requests": "6", "limits": "12"},
-        "mem": {"requests": "32Gi", "limits": "64Gi"}
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
         "volume_type": "persistent_volume_claim",
@@ -148,10 +148,10 @@ To avoid capacity issues the environment variable "TMPDIR" for this function exe
 
 These settings define the resource requests and limits for the container runtime.
 
-| Resource   | Requests | Limits | Description                                            |
-| ---------- | -------- | ------ | ------------------------------------------------------ |
-| **CPU**    | `6`      | `12`   | Minimum and maximum CPU cores allocated to the job.    |
-| **Memory** | `32Gi`   | `64Gi` | Minimum and maximum memory available to the container. |
+| Resource   | Requests| Description                                            |
+| ---------- | --------| ------------------------------------------------------ |
+| **CPU**    | `12`    | CPU cores allocated to the job.    |
+| **Memory** | `64Gi`  | Memory available to the container. |
 
 The job mounts a persistent storage volume used for reading/writing large datasets (e.g., Sentinel images).
 
