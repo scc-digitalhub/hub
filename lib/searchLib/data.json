@@ -1,8 +1,10 @@
 {
-  "datasets": {},
+  "datasets": [],
 
-  "functions": {
-    "download-sentinel-data": {
+  "functions": [
+    {
+      "name": "download-sentinel-data",
+      "path": "functions/download-sentinel-data",
       "kind": "container",
       "metadata": {
         "name": "download-sentinel-data",
@@ -25,7 +27,9 @@
       }
     },
 
-    "echo-service": {
+    {
+      "name": "echo-service",
+      "path": "functions/echo-service",
       "kind": "container",
       "metadata": {
         "name": "echo-service",
@@ -46,7 +50,9 @@
       }
     },
 
-    "elaborate-flood-data": {
+    {
+      "name": "elaborate-flood-data",
+      "path": "functions/elaborate-flood-data",
       "kind": "container",
       "metadata": {
         "name": "elaborate-flood-data",
@@ -69,7 +75,9 @@
       }
     },
 
-    "elaborate-forest-data": {
+    {
+      "name": "elaborate-forest-data",
+      "path": "functions/elaborate-forest-data",
       "kind": "container",
       "metadata": {
         "name": "elaborate-forest-data",
@@ -91,7 +99,9 @@
       }
     },
 
-    "elaborate-geological-data": {
+    {
+      "name": "elaborate-geological-data",
+      "path": "functions/elaborate-geological-data",
       "kind": "container",
       "metadata": {
         "name": "elaborate-geological-data",
@@ -113,7 +123,9 @@
       }
     },
 
-    "hello-world": {
+    {
+      "name": "hello-world",
+      "path": "functions/hello-world",
       "kind": "container",
       "metadata": {
         "name": "hello-world",
@@ -133,9 +145,7 @@
         "command": "sh"
       }
     }
-  },
+  ],
 
-  "models": {
-    "test": {}
-  }
+  "models": []
 }
