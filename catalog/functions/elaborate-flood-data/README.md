@@ -5,13 +5,13 @@ This function performs flood analysis using Sentinel satellite data to assess fl
 The function provides complete workflow for
 - Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.
 - Perform elaboration
-- Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.z
+- Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.
 - Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data
 - Combine both results from Sentinel-1 and Sentinel-2 to have one flood prediction layer.
 - Post-process change maps to improve the results by masking permanent water bodies.
 - Log results as GeoTIFF raster files Raster and vector outputs.
 
-The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and confirgured. It further runs the launch instructions specified by 'launch.sh' file. 
+The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. 
 
 ## Definition
 The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.
@@ -21,16 +21,16 @@ These arguments define inputs, geospatial filters, auxiliary data, processing pa
 | Pos | Value                     | Description                                                         |
 | --- | ------------------------- | ------------------------------------------------------------------- |
 | 1   | `/shared/launch.sh`       | Entrypoint script executed in the container.                        |
-| 2   | `sentinel1_GRD_preflood`  | Sentinel-1 GRD dataset for the pre-flood period.                    |
-| 3   | `sentinel1_GRD_postflood` | Sentinel-1 GRD dataset for the post-flood period.                   |
-| 4   | `sentinel2_pre_flood`     | Sentinel-2 optical dataset for the pre-flood period.                |
-| 5   | `sentinel2_post_flood`    | Sentinel-2 optical dataset for the post-flood period.               |
+| 2   | `sentinel1_GRD_preflood`  | Sentinel-1 GRD logged artifact name for the pre-flood period.       |
+| 3   | `sentinel1_GRD_postflood` | Sentinel-1 GRD logged artifact name for the post-flood period.      |
+| 4   | `sentinel2_pre_flood`     | Sentinel-2 logged artifact name for the pre-flood period.           |
+| 5   | `sentinel2_post_flood`    | Sentinel-2 logged artifact name for the post-flood period.          |
 | 6   | `POLYGON ((...))`         | WKT geometry defining AOI for flood analysis.                       |
-| 7   | `Slopes_TN`               | Artifact of slope map resources.                                    |
+| 7   | `Slopes_TN`               | Logged artifact name of slope map resources.                        |
 | 8   | `trentino_slope_map.tif`  | Name of Slope raster file inside 'Slopes_TN' artifact.              |
-| 9   | `Lakes_TN`                | Artifact for lake datasets.                                         |
+| 9   | `Lakes_TN`                | Loggged Artifact name for lake datasets.                            |
 | 10  | `idrspacq.shp`            | Name of specific Lake shapefile inside 'Lakes_TN' artifact          |
-| 11  | `Rivers_TN`               | Artifact for river datasets.                                        |
+| 11  | `Rivers_TN`               | Logged artifact name for river datasets.                            |
 | 12  | `cif_pta2022_v.shp`       | Name of River network shapefile inside 'Rivers_TN' artifact.        |
 | 13  | `garda_oct_2020`          | output name                                                         |
 | 14  | `2020-10-02`              | Event date of flood.                               |
@@ -89,7 +89,7 @@ run_el = function_rs.run(
 
 ## Usage
 
-The function expect a entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. 
+The function expects an entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. 
 
 ```
 %#!/bin/bash
@@ -192,4 +192,4 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `100Gi`                   | Allocated storage capacity.                                 |
 
 
-'elaboration' function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is whay a volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data)which is the default period.
+'elaboration' function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.

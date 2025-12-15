@@ -1,7 +1,7 @@
 kind: container
 metadata:
   name: Elaborate Flood Data
-  description: Function to elaborate using flood data using Sentinel-1 and Sentinel-2 imagery
+  description: Function to elaborate flood data using Sentinel-1 and Sentinel-2 imagery
   version: 0.14.6  
   labels:
     - 'license:apache-2.0'
@@ -47,7 +47,7 @@ spec:
   volumes:
     - name: volume-flood
       spec:
-        size: 200Gi
+        size: 100Gi
       volume_type: persistent_volume_claim
       mount_path: /app/data
   envs:

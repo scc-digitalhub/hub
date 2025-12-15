@@ -13,7 +13,7 @@ The function output GeoTiff Raster files containing:
 - Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;
 - Temporal variation of the C coefficient map representing the ratio of effective displacement computed in ascending and descending orbits;
 
-The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and confirgured. It further runs the launch instructions specified by 'launch.sh' file. 
+The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. 
 
 ## Definition
 The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel-1 data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.
