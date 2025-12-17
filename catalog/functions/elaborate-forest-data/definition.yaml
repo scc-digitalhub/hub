@@ -1,20 +1,30 @@
-name: elaborate-forest-data
-kind: container+job:run
+kind: container
 metadata:
-  name: elaborate-forest-data
-  description: "Function to elaborate deforestation data using Sentinel-2 imagery"
-  version: latest
+  name: Elaborate Deforestation Data
+  description: Function to elaborate deforestation data using Sentinel-2 imagery
+  version: 0.14.6  
   labels:
-    - Deforestation Mapping
-    - Remote Sensing
+    - 'license:apache-2.0'
+    - 'domain:geo'
+    - 'application:pa'
+    - 'aspect:security'
+    - 'platform:0.14'
+    - 'type:job'
+    - 'phase:feature-extraction'
+name: elaborate-forest-data
 spec:
-  args:
-    - /shared/launch.sh
-    - bosco
-    - data_s2_2018_19_tps
-    - "[2018,2019]"
-    - deforestation_2018_19_tps
   image: ghcr.io/tn-aixpa/rs-deforestation:0.14.6
+  command: /bin/bash
+---
+kind: container+job
+spec:
+  template:
+     args:
+       - /shared/launch.sh
+       - bosco
+       - data_s2_2018_19_tps
+       - "[2018,2019]"
+       - deforestation_2018_19_tps
   volumes:
     - name: volume-deforestation
       spec:
@@ -27,9 +37,5 @@ spec:
   resources:
     cpu: "6"
     mem: 64Gi
-  source:
-    source: launch.sh
-    base64: IyEvYmluL2Jhc2gKbHMgLWxhIC9zaGFyZWQKY2Qgfgpwd2QKc291cmNlIC5iYXNocmMKZWNobyAiR0RBTCB2ZXJzaW9uOiIKZ2RhbC1jb25maWcgLS12ZXJzaW9uCnB5dGhvbiAtLXZlcnNpb24KZWNobyAiR0RBTCBEQVRBOiIKZWNobyAkR0RBTF9EQVRBCmVjaG8gIlBST0pfTElCIgplY2hvICRQUk9KX0xJQgpjZCAvYXBwCmVjaG8gInsnc2hhcGVBcnRpZmFjdE5hbWUnOiAnJDEnLCAnZGF0YUFydGlmYWN0TmFtZSc6ICckMicsICd5ZWFycyc6JDMsICdvdXRwdXRBcnRpZmFjdE5hbWUnOiAnJDQnfSIKZXhwb3J0IFBST0pfTElCPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmV4cG9ydCBHREFMX0RBVEE9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL3NoYXJlL2dkYWwKI2V4cG9ydCBQQVRIPSIvaG9tZS9ub25yb290L21pbmlmb3JnZTMvc25hcC8uc25hcC9hdXhkYXRhL2dkYWwvZ2RhbC0zLTAtMC9iaW4vOiRQQVRIIgplY2hvICJHREFMIERBVEEgQUZURVIgRVhQT1JUOiIKZWNobyAkR0RBTF9EQVRBCmVjaG8gIlBST0pfTElCIEFGVEVSIEVYUE9SVCIKZWNobyAkUFJPSl9MSUIKcHl0aG9uIG1haW4ucHkgInsnc2hhcGVBcnRpZmFjdE5hbWUnOiAnJDEnLCAnZGF0YUFydGlmYWN0TmFtZSc6ICckMicsICd5ZWFycyc6JDMsICdvdXRwdXRBcnRpZmFjdE5hbWUnOiAnJDQnfSIKZXhpdA==
   fs_group: 8877
   command: /bin/bash
-  local_execution: false

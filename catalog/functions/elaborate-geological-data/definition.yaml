@@ -14,7 +14,7 @@ metadata:
 name: elaborate-geological-data
 spec:
   image: ghcr.io/tn-aixpa/rs-landslide-monitoring:0.14.6
-  command: python
+  command: /bin/bash
 ---
 kind: container+job
 spec:
