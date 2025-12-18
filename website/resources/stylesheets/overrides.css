@@ -1,0 +1,15 @@
+.md-grid {
+    max-width: 90%;
+}
+
+.md-sidebar--secondary {
+    display:none !important;
+}
+
+.jp-Notebook {
+    padding: 0 !important;
+}
+
+.jp-InputPrompt {
+    display: none !important;
+}

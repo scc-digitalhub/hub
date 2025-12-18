@@ -1,5 +1,5 @@
 //
-// Utility: raggruppa i valori delle labels
+// Utility: Groups label values together
 //
 export function getLabelGroups(functions) {
     const groups = {};
@@ -12,13 +12,13 @@ export function getLabelGroups(functions) {
         });
     });
 
-    // Converti Set -> array
+    // Convert Set -> array
     Object.keys(groups).forEach(k => groups[k] = [...groups[k]]);
     return groups;
 }
 
 //
-// Ricerca full text
+// Full text search
 //
 export function searchByText(functions, text) {
     if (!text.trim()) return functions;
@@ -31,37 +31,37 @@ export function searchByText(functions, text) {
 }
 
 //
-// Filtri AND/OR
+// AND/OR filters
 // selected = {
 //    domain: ["geo", "hydro"],
 //    license: ["apache-2.0"],
 //    ...
 // }
-// Logica SCELTA A:
-//   OR dentro un gruppo
-//   AND tra gruppi
+// Logic:
+//   OR within a group
+//   AND between groups
 //
 export function filterByLabels(functions, selected) {
 
     return functions.filter(fn => {
 
-        // Per ogni gruppo dei filtri (domain, license, ...)
+        // For each group filter (domain, license, ...)
         return Object.entries(selected).every(([key, values]) => {
 
-            // Cerca  le chiavi nelle labels del tipo "labels":
+            // Search keys in labels:
             //  ["license:apache-2.0","domain:geo",...
             const fnValues = fn.metadata.labels
                 .filter(l => l.startsWith(key + ":"))
                 .map(l => l.split(":")[1]);
 
-            // OR interno al gruppo:
+            // OR within a group:
             return values.some(v => fnValues.includes(v));
         });
     });
 }
 
 //
-//  ricerca + filtri
+//  Search and filters
 //
 export function applySearch(functions, text, selectedLabels) {
     let results = searchByText(functions, text);
