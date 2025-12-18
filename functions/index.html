@@ -530,7 +530,7 @@
       const json = await res.json();
 
       const pathname = window.location.pathname
-      const resources = pathname.substring(1, pathname.lastIndexOf('/'));
+      const resources = pathname.substring('/hub/'.length, pathname.lastIndexOf('/'));
       console.log(resources)
 
       allData = json[resources];
