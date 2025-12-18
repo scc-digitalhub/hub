@@ -1,0 +1,188 @@
+{
+    "datasets": [],
+    "functions": [
+        {
+            "kind": "python",
+            "metadata": {
+                "name": "Cancer Classfier Training (MLFlow example)",
+                "version": "1.0.0",
+                "description": "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework.",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:other",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:model-training",
+                    "framework:sklearn",
+                    "application:healthcare"
+                ]
+            },
+            "name": "cancer-classfier-training-mlflow-example",
+            "spec": {
+                "python_version": "PYTHON3_10",
+                "source": "src/train.py"
+            },
+            "path": "cancer-classfier-training-mlflow-example"
+        },
+        {
+            "kind": "container",
+            "metadata": {
+                "name": "Download Sentinel Data",
+                "description": "Function for Sentinel image download and preprocessing",
+                "version": "0.14.6",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:geo",
+                    "application:pa",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:data-preparation"
+                ]
+            },
+            "name": "download-sentinel-data",
+            "spec": {
+                "image": "ghcr.io/tn-aixpa/sentinel-tools:0.14.6",
+                "command": "python"
+            },
+            "path": "download-sentinel-data"
+        },
+        {
+            "name": "echoService",
+            "metadata": {
+                "name": "Echo Service",
+                "version": "1.0.0",
+                "description": "A simple python-based API responding to a POST message with the \"text\" field. The function exposes an API using \"serve\" task.",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:other",
+                    "platform:0.14",
+                    "type:service",
+                    "phase:utility",
+                    "inference:custom"
+                ]
+            },
+            "kind": "python",
+            "spec": {
+                "python_version": "PYTHON3_10",
+                "source": {
+                    "handler": "serve",
+                    "base64": "aW1wb3J0IGpzb24KCmRlZiBpbml0KGNvbnRleHQpOgogICAgcHJpbnQoInNvbWUgaW5pdGlhbGl6YXRpb24gZnVuY3Rpb24iKQogICAgc2V0YXR0cihjb250ZXh0LCAidmFsdWUiLCAic29tZSB2YWx1ZSIpCgpkZWYgc2VydmUoY29udGV4dCwgZXZlbnQpOgoKICAgIGlmIGlzaW5zdGFuY2UoZXZlbnQuYm9keSwgYnl0ZXMpOgogICAgICAgIGJvZHkgPSBqc29uLmxvYWRzKGV2ZW50LmJvZHkpCiAgICBlbHNlOgogICAgICAgIGJvZHkgPSBldmVudC5ib2R5CiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiUmVjZWl2ZWQgZXZlbnQ6IHtib2R5fSIpCiAgICB0ZXh0ID0gYm9keVsidGV4dCJdCgogICAgcmV0dXJuIHsicmVzdWx0IjogZiJoZWxsbyB7dGV4dH0gZnJvbSAne2NvbnRleHQudmFsdWV9JyJ9",
+                    "lang": "python",
+                    "init_function": "init"
+                }
+            },
+            "path": "echo-service"
+        },
+        {
+            "kind": "container",
+            "metadata": {
+                "name": "Elaborate Flood Data",
+                "description": "Function to elaborate flood data using Sentinel-1 and Sentinel-2 imagery",
+                "version": "0.14.6",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:geo",
+                    "application:pa",
+                    "aspect:security",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:feature-extraction"
+                ]
+            },
+            "name": "elaborate-flood-data",
+            "spec": {
+                "image": "ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6",
+                "command": "/bin/bash",
+                "source": {
+                    "source": "launch.sh",
+                    "base64": "IyEvYmluL2Jhc2gKbHMgLWxhIC9zaGFyZWQKY2Qgfgpwd2QKc291cmNlIC5iYXNocmMKZXhwb3J0IFBBVEg9Ii9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zbmFwL2JpbjokUEFUSCIKZXhwb3J0IFBST0pfTElCPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmV4cG9ydCBHREFMX0RBVEE9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL3NoYXJlL2dkYWwKZXhwb3J0IEdEQUxfRFJJVkVSX1BBVEg9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL2xpYi9nZGFscGx1Z2lucwpleHBvcnQgUFJPSl9EQVRBPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmdkYWwtY29uZmlnIC0tdmVyc2lvbgpweXRob24gLS12ZXJzaW9uCmVjaG8gIkdEQUwgREFUQSBBRlRFUiBFWFBPUlQ6IgplY2hvICRHREFMX0RBVEEKZWNobyAiUFJPSl9MSUIgQUZURVIgRVhQT1JUIgplY2hvICRQUk9KX0xJQgplY2hvICJSdW5uaW5nIGZsb29kIG1hcHBpbmcgc2NyaXB0IHdpdGggcGFyYW1ldGVyczoiCmVjaG8gInsnczFQcmVGbG9vZCc6ICckMScsICdzMVBvc3RGbG9vZCc6JyQyJywgJ3MyUHJlRmxvb2QnOickMycsJ3MyUG9zdEZsb29kJzonJDQnLCdnZW9tV0tUJzonJDUnLCdzbG9wZUFydGlmYWN0JzonJDYnLCdzbG9wZUZpbGVOYW1lJzonJDcnLCdsYWtlU2hhcGVBcnRpZmFjdE5hbWUnOickOCcsJ2xha2VTaGFwZUZpbGVOYW1lJzonJDknLCdyaXZlclNoYXBlQXJ0aWZhY3ROYW1lJzonJHsxMH0nLCdyaXZlclNoYXBlRmlsZU5hbWUnOickezExfScsJ291dHB1dCc6JyR7MTJ9JywnZXZlbnREYXRlJzonJHsxM30nLCd0YXJnZXRDUlMnOickezE0fScsJ3BvbGFyaXphdGlvbic6JHsxNX0sJ2RlbV90aHJlc2hvbGQnOiR7MTZ9LCdzbG9wZV90aHJlc2hvbGQnOiR7MTd9LCdub2lzZV9taW5fcGl4ZWxzJzokezE4fSwncml2ZXJfYnVmZmVyX21ldGVycyc6JHsxOX19LCAnYW9pX25hbWUnOickezIwfSd9IgpjZCAvYXBwCnB5dGhvbiBtYWluLnB5ICJ7J3MxUHJlRmxvb2QnOickMScsICdzMVBvc3RGbG9vZCc6JyQyJywgJ3MyUHJlRmxvb2QnOickMycsJ3MyUG9zdEZsb29kJzonJDQnLCdnZW9tV0tUJzonJDUnLCdzbG9wZUFydGlmYWN0JzonJDYnLCdzbG9wZUZpbGVOYW1lJzonJDcnLCdsYWtlU2hhcGVBcnRpZmFjdE5hbWUnOickOCcsJ2xha2VTaGFwZUZpbGVOYW1lJzonJDknLCdyaXZlclNoYXBlQXJ0aWZhY3ROYW1lJzonJHsxMH0nLCdyaXZlclNoYXBlRmlsZU5hbWUnOickezExfScsJ291dHB1dCc6JyR7MTJ9JywnZXZlbnREYXRlJzonJHsxM30nLCd0YXJnZXRDUlMnOickezE0fScsJ3BvbGFyaXphdGlvbic6JHsxNX0sJ2RlbV90aHJlc2hvbGQnOiR7MTZ9LCdzbG9wZV90aHJlc2hvbGQnOiR7MTd9LCdub2lzZV9taW5fcGl4ZWxzJzokezE4fSwncml2ZXJfYnVmZmVyX21ldGVycyc6JHsxOX0sICdhb2lfbmFtZSc6JyR7MjB9J30iCmV4aXQ="
+                }
+            },
+            "path": "elaborate-flood-data"
+        },
+        {
+            "kind": "container",
+            "metadata": {
+                "name": "Elaborate Deforestation Data",
+                "description": "Function to elaborate deforestation data using Sentinel-2 imagery",
+                "version": "0.14.6",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:geo",
+                    "application:pa",
+                    "aspect:security",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:feature-extraction"
+                ]
+            },
+            "name": "elaborate-forest-data",
+            "spec": {
+                "image": "ghcr.io/tn-aixpa/rs-deforestation:0.14.6",
+                "command": "/bin/bash",
+                "source": {
+                    "source": "launch.sh",
+                    "base64": "IyEvYmluL2Jhc2gKbHMgLWxhIC9zaGFyZWQKY2Qgfgpwd2QKc291cmNlIC5iYXNocmMKZWNobyAiR0RBTCB2ZXJzaW9uOiIKZ2RhbC1jb25maWcgLS12ZXJzaW9uCnB5dGhvbiAtLXZlcnNpb24KZWNobyAiR0RBTCBEQVRBOiIKZWNobyAkR0RBTF9EQVRBCmVjaG8gIlBST0pfTElCIgplY2hvICRQUk9KX0xJQgpjZCAvYXBwCmVjaG8gInsnc2hhcGVBcnRpZmFjdE5hbWUnOiAnJDEnLCAnZGF0YUFydGlmYWN0TmFtZSc6ICckMicsICd5ZWFycyc6JDMsICdvdXRwdXRBcnRpZmFjdE5hbWUnOiAnJDQnfSIKZXhwb3J0IFBST0pfTElCPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmV4cG9ydCBHREFMX0RBVEE9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL3NoYXJlL2dkYWwKI2V4cG9ydCBQQVRIPSIvaG9tZS9ub25yb290L21pbmlmb3JnZTMvc25hcC8uc25hcC9hdXhkYXRhL2dkYWwvZ2RhbC0zLTAtMC9iaW4vOiRQQVRIIgplY2hvICJHREFMIERBVEEgQUZURVIgRVhQT1JUOiIKZWNobyAkR0RBTF9EQVRBCmVjaG8gIlBST0pfTElCIEFGVEVSIEVYUE9SVCIKZWNobyAkUFJPSl9MSUIKcHl0aG9uIG1haW4ucHkgInsnc2hhcGVBcnRpZmFjdE5hbWUnOiAnJDEnLCAnZGF0YUFydGlmYWN0TmFtZSc6ICckMicsICd5ZWFycyc6JDMsICdvdXRwdXRBcnRpZmFjdE5hbWUnOiAnJDQnfSIKZXhpdA=="
+                }
+            },
+            "path": "elaborate-forest-data"
+        },
+        {
+            "kind": "container",
+            "metadata": {
+                "name": "Elaborate Geological Data",
+                "description": "Function to elaborate landslide monitoring data using Sentinel-1 imagery",
+                "version": "0.14.6",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:geo",
+                    "application:pa",
+                    "aspect:security",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:feature-extraction"
+                ]
+            },
+            "name": "elaborate-geological-data",
+            "spec": {
+                "image": "ghcr.io/tn-aixpa/rs-landslide-monitoring:0.14.6",
+                "command": "/bin/bash",
+                "source": {
+                    "source": "launch.sh",
+                    "base64": "IyEvYmluL2Jhc2gKbHMgLWxhIC9zaGFyZWQKY2Qgfgpwd2QKc291cmNlIC5iYXNocmMKZXhwb3J0IFBBVEg9Ii9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zbmFwL2JpbjokUEFUSCIKZXhwb3J0IFBST0pfTElCPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmV4cG9ydCBHREFMX0RBVEE9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL3NoYXJlL2dkYWwKZXhwb3J0IEdEQUxfRFJJVkVSX1BBVEg9L2hvbWUvbm9ucm9vdC9taW5pZm9yZ2UzL2xpYi9nZGFscGx1Z2lucwpleHBvcnQgUFJPSl9EQVRBPS9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zaGFyZS9wcm9qCmNkIC9hcHAKZWNobyAieydzMV9hc2NlbmRpbmcnOiAnJDEnLCAnczFfZGVzY2VuZGluZyc6ICckMicsICdzdGFydERhdGUnOickMycsICdlbmREYXRlJzonJDQnLCAnb3V0cHV0QXJ0aWZhY3ROYW1lJzogJyQ1JywgJ3NoYXBlQXJ0aWZhY3ROYW1lJzogJyQ2JywgJ3NoYXBlRmlsZU5hbWUnOiAnJDcnLCAnbWFwQXJ0aWZhY3ROYW1lJzogJyQ4JywgJ2dlb21XS1QnOickOSd9IgojZXhwb3J0IFBBVEg9Ii9ob21lL25vbnJvb3QvbWluaWZvcmdlMy9zbmFwLy5zbmFwL2F1eGRhdGEvZ2RhbC9nZGFsLTMtMC0wL2Jpbi86JFBBVEgiCmVjaG8gIkdEQUwgREFUQSBBRlRFUiBFWFBPUlQ6IgplY2hvICRHREFMX0RBVEEKZWNobyAiUFJPSl9MSUIgQUZURVIgRVhQT1JUIgplY2hvICRQUk9KX0xJQgpweXRob24gbWFpbi5weSAieydzMV9hc2NlbmRpbmcnOiAnJDEnLCAnczFfZGVzY2VuZGluZyc6ICckMicsICdzdGFydERhdGUnOickMycsICdlbmREYXRlJzonJDQnLCAnb3V0cHV0QXJ0aWZhY3ROYW1lJzogJyQ1JywgJ3NoYXBlQXJ0aWZhY3ROYW1lJzogJyQ2JywgJ3NoYXBlRmlsZU5hbWUnOiAnJDcnLCAnbWFwQXJ0aWZhY3ROYW1lJzogJyQ4JywgJ2dlb21XS1QnOickOSd9IgpleGl0"
+                }
+            },
+            "path": "elaborate-geological-data"
+        },
+        {
+            "kind": "python",
+            "metadata": {
+                "name": "Hello World",
+                "version": "1.0.0",
+                "description": "Hello world with python: write a string to stdout",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:other",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:utility"
+                ]
+            },
+            "name": "hello-world",
+            "spec": {
+                "python_version": "PYTHON3_10",
+                "requirements": [
+                    "scikit-learn==1.5.0",
+                    "mlflow==2.15.1"
+                ],
+                "source": {
+                    "handler": "train",
+                    "base64": "ZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgpmcm9tIGRpZ2l0YWxodWIgaW1wb3J0IGZyb21fbWxmbG93X3J1bgppbXBvcnQgbWxmbG93Cgpmcm9tIHNrbGVhcm4gaW1wb3J0IGRhdGFzZXRzLCBzdm0KZnJvbSBza2xlYXJuLm1vZGVsX3NlbGVjdGlvbiBpbXBvcnQgR3JpZFNlYXJjaENWCgpAaGFuZGxlcigpCmRlZiB0cmFpbihwcm9qZWN0KToKICAgIG1sZmxvdy5za2xlYXJuLmF1dG9sb2cobG9nX2RhdGFzZXRzPVRydWUpCgogICAgaXJpcyA9IGRhdGFzZXRzLmxvYWRfaXJpcygpCiAgICBwYXJhbWV0ZXJzID0geyJrZXJuZWwiOiAoImxpbmVhciIsICJyYmYiKSwgIkMiOiBbMSwgMTBdfQogICAgc3ZjID0gc3ZtLlNWQygpCiAgICBjbGYgPSBHcmlkU2VhcmNoQ1Yoc3ZjLCBwYXJhbWV0ZXJzKQoKICAgIGNsZi5maXQoaXJpcy5kYXRhLCBpcmlzLnRhcmdldCkKICAgIHJ1bl9pZCA9IG1sZmxvdy5sYXN0X2FjdGl2ZV9ydW4oKS5pbmZvLnJ1bl9pZAoKICAgICMgdXRpbGl0eSB0byBtYXAgbWxmbG93IHJ1biBhcnRpZmFjdHMgdG8gbW9kZWwgbWV0YWRhdGEKICAgIG1vZGVsX3BhcmFtcyA9IGZyb21fbWxmbG93X3J1bihydW5faWQpCgogICAgcHJvamVjdC5sb2dfbW9kZWwoCiAgICAgICAgbmFtZT0ibW9kZWwtbWxmbG93IiwKICAgICAgICBraW5kPSJtbGZsb3ciLAogICAgICAgICoqbW9kZWxfcGFyYW1zCik=",
+                    "lang": "python"
+                }
+            },
+            "path": "hello-world"
+        }
+    ],
+    "models": []
+}
