@@ -7,7 +7,7 @@ The function output GeoTiff Raster files containing:
 - Cumulative sum and temporal variation of the horizontal displacement ;
 - Cumulative sum and temporal variation of the vertical displacement;
 - Cumulative sum and temporal variation of the total displacement of ascending and descending Sentinel-1 images;
-- Cumulative sum of the horizontal displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;
+- Cumulative sum of the horizontal displacement of the areas whaere the cumulative sum of the ascending and descending displacements has an opposite sign;
 - Cumulative sum of the vertical displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;
 - Mean and temporal variation of the coherence maps;
 - Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;
