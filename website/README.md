@@ -4,7 +4,24 @@ This directory is dedicated to generating the website for the hub.
 
 ## Generate website files
 
+First, convert *Jupyter* notebook files to HTML. Install *Jupyter*:
+
+```
+pip install jupyter
+```
+
+Then, run the following from the root of the repository:
+
+```
+jupyter nbconvert ./**/notebook.ipynb --to html
+```
+
 The **generate-docs.py** file is a Python script that will create a directory called `generated`, containing a *MkDocs* website for the hub.
+
+```
+cd website
+python generate-docs.py
+```
 
 You will need *MkDocs* and the *mkdocs-material* theme to run the website locally. Install them as follows:
 
@@ -13,7 +30,14 @@ pip install mkdocs
 pip install mkdocs-material
 ```
 
-After running the script, `cd` to that directory and execute `mkdocs serve`, you will find the website at `http://localhost:8000`.
+Now, start the website:
+
+```
+cd generated
+mkdocs serve
+```
+
+You will find the website at `http://localhost:8000`.
 
 ## Files involved in the website generation
 
