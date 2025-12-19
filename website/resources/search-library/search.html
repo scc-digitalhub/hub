@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Funzioni Search</title>
+  <title>Search</title>
 
   <style>
     body {
@@ -14,6 +14,7 @@
     }
 
     #sidebar {
+      float: left;
       width: 280px;
       background: #f7f7f7;
       border-right: 1px solid #ccc;
@@ -60,7 +61,7 @@
       margin-bottom: 8px;
     }
 
-    /* CHIPS STILE UNIFORMATO */
+    /* CHIPS UNIFORM STYLE */
     .chip {
       display: inline-block;
       background: #e7e7e7;
@@ -72,7 +73,7 @@
       border: 1px solid #ccc;
     }
 
-    /* CHIP CHE MATCHA IL FILTRO */
+    /* CHIP MATCHING THE FILTER */
     .chip.match {
       background: #dfe7ff;
       color: #1a3d8f;
@@ -108,7 +109,7 @@
 
   <!-- SIDEBAR -->
   <div id="sidebar">
-    <input id="search" placeholder="Cerca nome o descrizione…" />
+    <input id="search" placeholder="Search by name or description" />
 
     <div id="filterGroups"></div>
   </div>
@@ -127,15 +128,20 @@
     import {
       getLabelGroups,
       applySearch
-    } from "./searchLibrary.js";
+    } from "../javascripts/searchLibrary.js";
 
     let allData = [];
     let selectedLabels = {};
 
     async function init() {
-      const res = await fetch("./data.json");
+      const res = await fetch("../data.json");
       const json = await res.json();
-      allData = json.functions;
+
+      const pathname = window.location.pathname
+      const resources = pathname.substring(1, pathname.lastIndexOf('/'));
+      console.log(resources)
+
+      allData = json[resources];
 
       buildFilters(allData);
       updateResults();
@@ -219,15 +225,15 @@
             border: 1px solid #e0e0e0;
             border-radius: 8px;
         ">
-            Nessun risultato trovato. Prova a cambiare i filtri.
+            No results found. Try different filters.
         </div>
     `;
         return;
       }
 
       list.innerHTML = results.map(fn => `
-        <div class="result-card">
-          <h2>${fn.metadata.name}</h2>
+          <div class="result-card">
+          <a style="font-size: 140%" href=${fn.path}>${fn.metadata.name}</a>
           <div class="subtitle">${fn.name}</div>
           <p>${fn.metadata.description}</p>
           <div>
