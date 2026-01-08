@@ -1,0 +1,204 @@
+/* ===== Layout ===== */
+
+.search-layout {
+    display: flex;
+    height: 100%;
+  }
+  
+  #sidebar {
+    flex: 0 0 280px;
+    padding: 12px 20px 20px;
+    overflow-y: auto;
+    background: var(--md-default-bg-color);
+    border-right: 1px solid var(--md-default-fg-color--lighter);
+  }
+  
+  #content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 20px 20px;
+    overflow-y: auto;
+  }
+  
+  /* ===== Filters ===== */
+  
+  #search {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--md-default-fg-color--lighter);
+    margin-bottom: 20px;
+  }
+  
+  .filter-group {
+    margin-bottom: 15px;
+  }
+  
+  .filter-group summary {
+    cursor: pointer;
+    padding: 6px 8px;
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+    list-style: none;
+    border-radius: 4px;
+  }
+  
+  .filter-group summary:hover {
+    background: var(--md-accent-fg-color--transparent);
+  }
+  
+  .filter-group summary::marker,
+  .filter-group summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .filter-group summary::before {
+    content: "▸";
+    margin-right: 6px;
+    color: var(--md-accent-fg-color);
+    transition: transform .2s ease;
+  }
+  
+  .filter-group[open] summary::before {
+    transform: rotate(90deg);
+  }
+  
+  /* ===== Checkbox ===== */
+  
+  .filter-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    border: 2px solid var(--md-primary-fg-color);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .filter-checkbox:checked {
+    background: var(--md-primary-fg-color);
+  }
+  
+  .filter-checkbox:checked::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: -1px;
+    left: 2px;
+  }
+  
+  .filter-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 4px;
+    cursor: pointer;
+  }
+  
+  /* ===== Active Filters ===== */
+  
+  #activeFilters {
+    display: none;
+    margin: 12px 0 16px;
+  }
+  
+  .filter-group-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .filter-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--md-accent-fg-color--transparent);
+    border: 1px solid var(--md-accent-fg-color);
+    color: var(--md-accent-fg-color);
+}
+  
+  /* ===== Results ===== */
+  
+  .result-card {
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lighter);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: var(--md-shadow-z1);
+  }
+  
+  .result-card a {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .result-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .subtitle {
+    font-size: 13px;
+    color: var(--md-default-fg-color--light);
+  }
+  
+  /* ===== Chips ===== */
+  
+.chip {
+  display: inline-block;
+  padding: 3px 8px;
+  margin: 2px;
+  border-radius: 12px;
+  font-size: 12px;
+  background: #e7e7e7;            
+  border: 1px solid #ccc;           
+  color: #333;       
+}
+
+.chip.match {
+  background: var(--md-accent-fg-color--transparent);  
+  border-color: var(--md-accent-fg-color);            
+  font-weight: 600;
+  color: var(--md-accent-fg-color);                   
+}
+  
+  /* ===== Empty state ===== */
+  
+  .no-results {
+    padding: 20px;
+    font-size: 16px;
+    color: var(--md-default-fg-color--light);
+    background: var(--md-default-bg-color);
+    border: 1px solid var(--md-default-fg-color--lighter);
+    border-radius: 8px;
+  }
+  
+  .md-typeset details {
+    border: .05rem solid var(--md-primary-fg-color);
+    padding: 0;
+    ;
+  }
+
+  .md-typeset summary {
+    background: transparent;
+    margin: 0;
+    padding: 6px 8px;
+    font-weight: 600;
+    color: var(--md-primary-fg-color);
+  }
+
+  .md-typeset summary::before {
+    content: none !important;
+  }
+  .version-badge {
+    margin-left: 8px;
+    font-family: monospace;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--md-default-fg-color--lighter);
+  }
