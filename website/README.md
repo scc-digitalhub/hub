@@ -13,7 +13,7 @@ pip install jupyter
 Then, run the following from the root of the repository:
 
 ```
-jupyter nbconvert ./**/notebook.ipynb --to html
+jupyter nbconvert ./**/**/**/notebook.ipynb --to html
 ```
 
 The **generate-docs.py** file is a Python script that will create a directory called `generated`, containing a *MkDocs* website for the hub.

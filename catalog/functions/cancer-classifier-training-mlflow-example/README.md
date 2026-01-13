@@ -38,6 +38,7 @@ def train(project):
 The function demonstrates:
 
 Basic syntax of a python script used inside to the platform. It demonstrates
+
 - How to define a function that takes as input 'project' object,  a context in which you can run functions and manage models,data, and artifacts.
 - How to fetch input data and train model.
 - How to save the trained model in project.

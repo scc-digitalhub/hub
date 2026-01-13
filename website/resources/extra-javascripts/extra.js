@@ -16,3 +16,30 @@ function openTab(tabName) {
     selectedTabButton.classList.remove("tab-button-not-selected");
     selectedTabButton.classList.add("tab-button-selected");
 }
+
+function toggleRef() {
+    const clickedClass = "hub-ref-button-clicked";
+    const iconExpand = "&#x25BC;";
+    const iconCollapse = "&#x25B2;";
+
+    let button = document.getElementById('hub-ref-text');
+    let buttonIcon = document.getElementById('hub-ref-icon');
+    let ref = document.getElementById("hub-ref-link");
+    
+    if (button.classList.contains(clickedClass)) {
+        // Collapse
+        button.classList.remove(clickedClass);
+        buttonIcon.innerHTML = iconExpand;
+        ref.style.display = "none";
+    } else {
+        // Expand
+        button.classList.add(clickedClass);
+        buttonIcon.innerHTML = iconCollapse;
+        ref.style.display = "block";
+    }
+}
+
+function copyRef() {
+    let ref = document.getElementById('hub-ref-link-text');
+    navigator.clipboard.writeText(ref.innerHTML);
+}

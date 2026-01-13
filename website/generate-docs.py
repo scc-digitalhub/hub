@@ -14,6 +14,9 @@ gn_dir = 'generated'
 gn_docs_dir = f'{gn_dir}/docs'
 resources_dir = 'resources'
 
+repo_catalog = 'https://github.com/scc-digitalhub/hub/tree/main/catalog'
+repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog'
+
 # Remove pre-existing generated website and initialize the new one
 def initialize_website():
     if os.path.isdir(gn_dir):
@@ -42,8 +45,29 @@ def md_label(label):
     return f'<span class="{classes}">{value}</span>'
 
 # Create metadata div for template page
-def template_page_metadata(metadata):
+def template_page_metadata(metadata, category, template):
     contents = '<div id="template-metadata">'
+
+    # Interactive element in top right
+    contents += '<div id=template-metadata-right>'
+
+    contents += f'<a class="md-cell-right" id=md-repo-directory href="{repo_catalog}/{category}/{template}">View directory</a>'
+    contents += f'<a class="md-cell-right" id=md-repo-definition href="{repo_definition_base}/{category}/{template}/{definition_filename}">Definition</a>'
+
+    # Button to copy hub reference
+    contents += '<div id="hub-ref" class="md-cell-right">'
+    contents += '<button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button>'
+
+    hub_ref = f'hub://{category}/{template}'
+    if 'version' in metadata:
+        hub_ref += f':{metadata["version"]}'
+    contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hub_ref}</span><button id=hub-ref-link-button onclick="copyRef()">Copy</button></div>'
+    contents += '</div>'
+
+    contents += '</div>'
+    
+    # Main metadata
+    contents += '<div id=template-metadata-left>'
     if 'name' in metadata:
         contents += '<div class=md-cell>'
         contents += '<div class=md-cell-title>Name</div>'
@@ -67,6 +91,8 @@ def template_page_metadata(metadata):
             contents += md_label(label)
         contents += '</div>'
         contents += '</div>'
+    contents += '</div>'
+
     contents += '</div>'
     return contents
 
@@ -134,13 +160,18 @@ def main():
                         # Create template's own page
                         template_path = f'./{gn_docs_dir}/{c}/{t}.md'
 
+                        template_title = t
+                        if 'metadata' in definition and 'name' in definition['metadata']:
+                            template_title = definition['metadata']['name']
+
                         with open(template_path, 'w') as template_file:
-                            template_file.write(f'<div id="template-title">{t}</div>')
+                            template_file.write(f'<div id="template-title">{template_title}</div>')
 
                             template_file.write('<div id="template-content" markdown="1">')
 
                             # Metadata
-                            template_file.write(template_page_metadata(definition['metadata']))
+                            if 'metadata' in definition:
+                                template_file.write(template_page_metadata(definition['metadata'], c, t))
 
                             # Tabs for usage and notebook
                             tab_toolbar = '<div id="template-tab-buttons">'
