@@ -15,7 +15,7 @@ async function init() {
   const json = await res.json();
 
   const path = location.pathname;
-  const key = path.substring(1, path.lastIndexOf("/"));
+  const key = path.substring('/hub/'.length, path.lastIndexOf('/'));
 
   allData = json[key] || [];
   buildFilters(allData);
