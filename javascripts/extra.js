@@ -39,7 +39,16 @@ function toggleRef() {
     }
 }
 
-function copyRef() {
+async function copyRef() {
     let ref = document.getElementById('hub-ref-link-text');
     navigator.clipboard.writeText(ref.innerHTML);
+
+    let iconCopy = document.getElementById('hub-ref-copy-clipboard');
+    let iconCopied = document.getElementById('hub-ref-copy-copied');
+
+    iconCopy.style.opacity = 0;
+    iconCopied.style.opacity = 1;
+    await new Promise(r => setTimeout(r, 2000));
+    iconCopied.style.opacity = 0;
+    iconCopy.style.opacity = 1;
 }
