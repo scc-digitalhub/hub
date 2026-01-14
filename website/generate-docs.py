@@ -61,7 +61,7 @@ def template_page_metadata(metadata, category, template):
     hub_ref = f'hub://{category}/{template}'
     if 'version' in metadata:
         hub_ref += f':{metadata["version"]}'
-    contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hub_ref}</span><button id=hub-ref-link-button onclick="copyRef()">Copy</button></div>'
+    contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hub_ref}</span><button id=hub-ref-link-button onclick="copyRef()">&#10064;</button></div>'
     contents += '</div>'
 
     contents += '</div>'
