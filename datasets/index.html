@@ -48,6 +48,8 @@
     
       <link rel="stylesheet" href="../stylesheets/colors.css">
     
+      <link rel="stylesheet" href="../stylesheets/template-metadata.css">
+    
       <link rel="stylesheet" href="../stylesheets/template-page.css">
     
       <link rel="stylesheet" href="../stylesheets/overrides.css">
@@ -392,264 +394,30 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>Search</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      height: 100vh;
-    }
-
-    #sidebar {
-      float: left;
-      width: 280px;
-      background: #f7f7f7;
-      border-right: 1px solid #ccc;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    #content {
-      flex-grow: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    details {
-      margin-bottom: 15px;
-    }
-
-    details summary {
-      font-weight: bold;
-      cursor: pointer;
-      padding: 5px 0;
-    }
-
-    #search {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
-    }
-
-    .result-card {
-      background: white;
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 8px;
-    }
-
-    /* CHIPS UNIFORM STYLE */
-    .chip {
-      display: inline-block;
-      background: #e7e7e7;
-      color: #333;
-      border-radius: 12px;
-      padding: 3px 8px;
-      margin: 2px;
-      font-size: 12px;
-      border: 1px solid #ccc;
-    }
-
-    /* CHIP MATCHING THE FILTER */
-    .chip.match {
-      background: #dfe7ff;
-      color: #1a3d8f;
-      border-color: #b2c6ff;
-      font-weight: 600;
-    }
-
-    #activeFilters {
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-
-    .filter-chip {
-      display: inline-block;
-      background: #dfe7ff;
-      color: #1a3d8f;
-      border-radius: 12px;
-      padding: 4px 10px;
-      margin: 2px;
-      font-size: 12px;
-      border: 1px solid #b2c6ff;
-      font-weight: 600;
-    }
-
-    .filter-group-title {
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../stylesheets/search.css">
 </head>
 
 <body>
+  <div class="search-layout">
+    <div id="sidebar">
+      <input id="search" placeholder="Search by name or description">
+      <div id="filterGroups"></div>
+    </div>
 
-  <!-- SIDEBAR -->
-  <div id="sidebar">
-    <input id="search" placeholder="Search by name or description" />
-
-    <div id="filterGroups"></div>
+    <div id="content">
+      <div id="activeFilters"></div>
+      <div id="results"></div>
+    </div>
   </div>
 
-  <!-- MAIN -->
-  <div id="content">
-
-    <div id="activeFilters"></div>
-    <div id="results"></div>
-
-  </div>
-
-
-  <script type="module">
-
-    import {
-      getLabelGroups,
-      applySearch
-    } from "../javascripts/searchLibrary.js";
-
-    let allData = [];
-    let selectedLabels = {};
-
-    async function init() {
-      const res = await fetch("../data.json");
-      const json = await res.json();
-
-      const pathname = window.location.pathname
-      const resources = pathname.substring(1, pathname.lastIndexOf('/'));
-      console.log(resources)
-
-      allData = json[resources];
-
-      buildFilters(allData);
-      updateResults();
-    }
-
-    function buildFilters(functions) {
-      const groups = getLabelGroups(functions);
-      const sidebar = document.getElementById("filterGroups");
-
-      Object.entries(groups).forEach(([group, values]) => {
-        const details = document.createElement("details");
-        details.open = true;
-
-        const summary = document.createElement("summary");
-        summary.textContent = group;
-
-        details.appendChild(summary);
-
-        values.forEach(value => {
-          const id = `${group}-${value}`;
-
-          const label = document.createElement("label");
-          label.innerHTML = `
-              <input type="checkbox" data-group="${group}" value="${value}" />
-              ${value}
-            `;
-
-          details.appendChild(label);
-          details.appendChild(document.createElement("br"));
-        });
-
-        sidebar.appendChild(details);
-      });
-
-      sidebar.addEventListener("change", onFilterChange);
-    }
-
-    function onFilterChange(e) {
-      const cb = e.target;
-      if (cb.tagName !== "INPUT") return;
-
-      const group = cb.dataset.group;
-      const value = cb.value;
-
-      if (!selectedLabels[group]) selectedLabels[group] = [];
-
-      if (cb.checked) {
-        selectedLabels[group].push(value);
-      } else {
-        selectedLabels[group] = selectedLabels[group].filter(v => v !== value);
-        if (selectedLabels[group].length === 0) delete selectedLabels[group];
-      }
-
-      updateResults();
-    }
-
-    function updateResults() {
-      const text = document.getElementById("search").value;
-
-      const results = applySearch(allData, text, selectedLabels);
-
-      const af = document.getElementById("activeFilters");
-
-      af.innerHTML = Object.entries(selectedLabels)
-        .map(([group, values]) => `
-     <div style="margin-bottom:10px;">
-        <div class="filter-group-title">${group}</div>
-        ${values.map(v => `<span class="filter-chip">${v}</span>`).join("")}
-     </div>
-  `)
-        .join("");
-
-      const list = document.getElementById("results");
-      if (results.length === 0) {
-        list.innerHTML = `
-        <div style="
-            padding: 20px;
-            font-size: 16px;
-            color: #666;
-            background: #fafafa;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        ">
-            No results found. Try different filters.
-        </div>
-    `;
-        return;
-      }
-
-      list.innerHTML = results.map(fn => `
-          <div class="result-card">
-          <a style="font-size: 140%" href=${fn.path}>${fn.metadata.name}</a>
-          <div class="subtitle">${fn.name}</div>
-          <p>${fn.metadata.description}</p>
-          <div>
-            ${fn.metadata.labels.map(l => {
-        const [key, value] = l.split(":");
-        const isMatch =
-          selectedLabels[key] &&
-          selectedLabels[key].includes(value);
-
-        return `<span class="chip ${isMatch ? 'match' : ''}">${value}</span>`;
-      }).join("")}
-          </div>
-        </div>
-    `).join("");
-    }
-
-    document.getElementById("search").oninput = updateResults;
-
-    init();
-
-  </script>
-
+  <!-- JS -->
+  <script type="module" src="../javascripts/search.js"></script>
 </body>
-
 </html>
 
 

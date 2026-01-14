@@ -4,7 +4,7 @@
         {
             "kind": "python",
             "metadata": {
-                "name": "Cancer Classfier Training (MLFlow example)",
+                "name": "Cancer Classifier Training (MLFlow example)",
                 "version": "1.0.0",
                 "description": "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework.",
                 "labels": [
@@ -17,12 +17,12 @@
                     "application:healthcare"
                 ]
             },
-            "name": "cancer-classfier-training-mlflow-example",
+            "name": "cancer-classifier-training-mlflow-example",
             "spec": {
                 "python_version": "PYTHON3_10",
                 "source": "src/train.py"
             },
-            "path": "cancer-classfier-training-mlflow-example"
+            "path": "cancer-classifier-training-mlflow-example"
         },
         {
             "kind": "container",

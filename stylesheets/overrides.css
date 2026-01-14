@@ -6,6 +6,10 @@
     display:none !important;
 }
 
+.md-search {
+    display: none;
+}
+
 .jp-Notebook {
     padding: 0 !important;
 }
