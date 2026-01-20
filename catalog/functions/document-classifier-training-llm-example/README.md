@@ -42,6 +42,53 @@ The function is defined with the following key components:
     - Trained BERT-based classification model
     - Training metrics and evaluation results
 
+## Usage
 
+To use this function for training a document classifier:
+
+  1. Prepare your dataset in CSV format with `text` and `labels` columns
+  2. Configure the training parameters according to your requirements
+  3. Call the function with your dataset and parameters
+  4. The function will output a trained model and evaluation metrics
+
+### Example
+
+```python
+    # Import the function
+   function_doc = proj.get_function("document-classifier-training-llm-example")
+```
+```python
+   func_b = function_doc.run(action='build')   
+```
+```python
+train_run = func_b.run(
+    action="job",
+    profile="1xa100",
+    parameters={
+        "target_model_name": "document-classifier",
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 16,
+        "per_device_eval_batch_size": 16,
+        "gradient_accumulation_steps": 2,
+        "weight_decay": 0.005,
+        "learning_rate": 1e-5,
+        "lr_scheduler_type": 'linear'
+    },
+    resources={"mem": "6Gi"},
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "train-volume",
+        "mount_path": "/local-data",
+        "spec": {
+            "size": "10Gi"
+        }}],
+        envs=[
+            {"name": "HF_HOME", "value": "/local-data/huggingface"},
+            {"name": "TRANSFORMERS_CACHE", "value":  "/local-data/huggingface"}
+        ],
+        local_execution=False)
+```
+
+The trained model will be logged with the configured name 'document-classifier' and can be used for classifying new documents into the predefined categories.
 
 
