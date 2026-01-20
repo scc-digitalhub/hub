@@ -1,4 +1,4 @@
-# Introduction
+# Home
 
 This is a catalog for the platform, where you can browse templates for its resources and find instructions and examples on how to use them.
 
