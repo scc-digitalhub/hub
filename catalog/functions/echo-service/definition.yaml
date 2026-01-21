@@ -10,7 +10,7 @@ metadata:
     - "type:service"
     - "phase:utility"
     - "inference:custom"
-kind: python
+kind: python+serve
 spec:
   python_version: PYTHON3_10
   source: 

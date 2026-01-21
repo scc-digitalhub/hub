@@ -1,4 +1,4 @@
-# Document Classifier Training with LLM
+# Document Classifier Training with Bert
 
 This function provides a machine learning function for training a document classification model using BERT (Bidirectional Encoder Representations from Transformers). The classifier can categorize documents into multiple classes based on their text content.
 

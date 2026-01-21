@@ -11,7 +11,7 @@ metadata:
     - "phase:model-training"
     - "framework:pytorch"
     - "application:pa"
-name: document-classifier-training-llm-example
+name: document-classifier-train
 spec:
   python_version: PYTHON3_10
   requirements:
