@@ -1,7 +1,7 @@
 kind: container
 metadata:
-  name: Elaborate Deforestation Data
-  description: Function to elaborate deforestation data using Sentinel-2 imagery
+  name: Deforestation Analysis (Container Job)
+  description: Function to elaborate Sentinel-2 imagery data for deforestation analysis
   version: 0.14.6  
   labels:
     - 'license:apache-2.0'

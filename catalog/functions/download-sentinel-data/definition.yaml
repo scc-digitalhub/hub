@@ -1,6 +1,6 @@
 kind: container
 metadata:
-  name: Download Sentinel Data
+  name: Download Sentinel Data (Container Job)
   description: Function for Sentinel image download and preprocessing
   version: 0.14.6
   labels:

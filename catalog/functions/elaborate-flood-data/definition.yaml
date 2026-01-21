@@ -1,7 +1,7 @@
 kind: container
 metadata:
-  name: Elaborate Flood Data
-  description: Function to elaborate flood data using Sentinel-1 and Sentinel-2 imagery
+  name: Flood Mapping Analysis (Container Job)
+  description: Function to elaborate  Sentinel-2 imagery data for flood mapping analysis
   version: 0.14.6  
   labels:
     - 'license:apache-2.0'

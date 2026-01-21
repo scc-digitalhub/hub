@@ -1,7 +1,7 @@
 kind: container
 metadata:
-  name: Elaborate Geological Data
-  description: Function to elaborate landslide monitoring data using Sentinel-1 imagery
+  name: Landslide Monitoring (Container Job)
+  description: Function to elaborate Sentinel-1 imagery data for landslide monitoring
   version: 0.14.6  
   labels:
     - 'license:apache-2.0'
