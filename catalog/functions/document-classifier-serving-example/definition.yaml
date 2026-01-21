@@ -11,6 +11,7 @@ metadata:
     - "type:service"
     - "phase:utility"
     - "inference:custom"
+    - "application:pa"
 name: document-classifier-serve
 requirements:
   - numpy==2.1.3
