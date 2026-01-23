@@ -17,3 +17,7 @@
 .jp-InputPrompt {
     display: none !important;
 }
+
+.md-footer {
+    display: none;
+}

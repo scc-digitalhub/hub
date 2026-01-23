@@ -16,7 +16,7 @@
     
     
       
-        <title>Download sentinel data - DH Hub</title>
+        <title>Document classifier serving example - DH Hub</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#download-sentinel-data" class="md-skip">
+        <a href="#document-classifier-service" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Download sentinel data
+              Document classifier serving example
             
           </span>
         </div>
@@ -393,21 +393,45 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#environment" class="md-nav__link">
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-the-service" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment
+      Start the service
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#send-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Send a request
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#1.-Initialize-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Resources
+      1. Initialize the project¶
     </span>
   </a>
   
@@ -429,148 +453,232 @@
 
 
 
-<div id="template-title">Download Sentinel Data (Container Job)</div>
+<div id="template-title">Document Classifier Serving With Bert Model (Python Serve)</div>
 <div id="template-content">
 <div id="template-metadata">
-<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/download-sentinel-data">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/download-sentinel-data/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/download-sentinel-data:0.14.6</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
+<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-serving-example">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/document-classifier-serving-example/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/document-classifier-serving-example:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
 <div id="template-metadata-left">
 <div class="md-cell">
 <div class="md-cell-title">Name</div>
-<div class="md-cell-content" id="md-name">Download Sentinel Data (Container Job)</div>
+<div class="md-cell-content" id="md-name">Document Classifier Serving With Bert Model (Python Serve)</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Description</div>
-<div class="md-cell-content" id="md-description">Function for Sentinel image download and preprocessing</div>
+<div class="md-cell-content" id="md-description">Document Classifier Serving With Bert Model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Version</div>
-<div class="md-cell-content" id="md-version">0.14.6</div>
+<div class="md-cell-content" id="md-version">1.0.0</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Labels</div>
-<div class="md-cell-content" id="md-labels"><span class="md-label label-license">apache-2.0</span><span class="md-label label-domain">geo</span><span class="md-label label-application">pa</span><span class="md-label label-platform">0.14</span><span class="md-label label-type">job</span><span class="md-label label-phase">data-preparation</span></div>
+<div class="md-cell-content" id="md-labels"><span class="md-label label-license">apache-2.0</span><span class="md-label label-domain">other</span><span class="md-label label-platform">0.14</span><span class="md-label label-type">service</span><span class="md-label label-phase">utility</span><span class="md-label label-inference">custom</span><span class="md-label label-application">pa</span></div>
 </div>
 </div>
 </div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="download-sentinel-data">Download Sentinel Data</h1>
-<p>This function is used to download Sentinel satellite data efficiently. This function serves as the base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized. </p>
+<h1 id="document-classifier-service">Document Classifier Service</h1>
+<p>This function demonstrates how a document classifier model can be operationalizes as a service based on serverless container runtime feature. The service is exposed as an API responding to POST message with the text input and returns the same text back — an echo.</p>
 <h2 id="definition">Definition</h2>
-<p>This function is implemented as a Docker container and executed at runtime with user-configurable parameters. The function takes as input a parameter object that controls the satellite data selection, temporal extent, and spatial footprint. Key parameter groups include:</p>
-<ul>
-<li>
-<p>satelliteParams</p>
-<ul>
-<li>satelliteType: Sentinel product family (e.g., "Sentinel-1", "Sentinel-2").</li>
-<li>processingLevel: desired processing stage ("LEVEL1", "LEVEL2", ...).</li>
-<li>sensorMode / polarization: sensor acquisition mode or polarization settings (mode names depend on satellite).</li>
-<li>productType: product format (e.g., "SLC", "GRD", "L2A").</li>
-<li>orbitDirection: pass "ASCENDING" or "DESCENDING".</li>
-<li>relativeOrbitNumber: numeric orbit track identifier (optional).</li>
-</ul>
-</li>
-<li>
-<p>temporal and spatial</p>
-<ul>
-<li>startDate / endDate: ISO date strings (YYYY-MM-DD) defining the search window.</li>
-<li>geometry: spatial footprint in WKT or GeoJSON (polygon or bbox).</li>
-<li>area_sampling: boolean toggle to enable area-level sampling.</li>
-</ul>
-</li>
-<li>
-<p>storage and runtime</p>
-<ul>
-<li>tmp_path_same_folder_dwl: boolean to control temporary download placement.</li>
-<li>artifact_name: name used for storing the downloaded artifact in the project context.</li>
-</ul>
-</li>
-</ul>
-<p>Notes and tips:
-- Date ranges should be chosen to limit result sets; large ranges may require increased compute and storage.
-- Use relativeOrbitNumber to filter by specific orbit tracks when needed.
-- For Sentinel-2 searches you can also supply cloudCoverage thresholds; for Sentinel-1 specify polarization/product specifics.
-- Ensure valid Copernicus credentials are available to the runtime via secrets before launching jobs.</p>
-<p>Example parameter shape (illustrative):
-{
-    "satelliteParams": { "satelliteType": "Sentinel-1", "processingLevel": "LEVEL1", "productType": "SLC", "orbitDirection": "DESCENDING" },
-    "startDate": "2021-01-01", "endDate": "2021-01-15",
-    "geometry": "<WKT or GeoJSON>",
-    "artifact_name": "download_output"
-}</p>
+<div class="highlight"><pre><span></span><code>from transformers import AutoTokenizer, AutoConfig, AutoModelForSequenceClassification
+import json
+import pandas as pd
+import numpy as np
+
+import torch
+from torch import nn
+from torch.utils.data import DataLoader
+from torch.optim import AdamW
+from torchmetrics.classification import MulticlassF1Score, Accuracy
+
+from transformers import AutoModelForSequenceClassification, AutoModel
+from transformers import PreTrainedModel
+from transformers.modeling_outputs import SequenceClassifierOutput
+
+class BertForSentenceClassification(PreTrainedModel):
+
+    &quot;&quot;&quot;
+    BERT architecture is intended to be from &quot;dbmdz/bert-base-italian-xxl-cased&quot;
+    but other models can be tried.
+    &quot;&quot;&quot;
+
+
+    def __init__(self, config, model_name, num_labels, class_weights=None):
+        super().__init__(config)
+        self.num_labels = num_labels
+        self.bert = AutoModel.from_pretrained(model_name)
+        self.classifier = nn.Linear(self.bert.config.hidden_size, num_labels)
+        self.class_weights = class_weights
+        self.accuracy = Accuracy(num_classes=num_labels, task=&#39;multiclass&#39;)
+        self.f1 = MulticlassF1Score(num_classes=num_labels, average=&#39;micro&#39;) # changed weight
+
+    def forward(self, input_ids, attention_mask=None, labels=None):
+        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        logits = self.classifier(outputs.last_hidden_state[:, 0, :])
+
+        loss = None
+        if labels is not None:
+
+            loss_fct = nn.CrossEntropyLoss(label_smoothing=0.1) #,weight=self.class_weights
+            loss = loss_fct(logits, labels)
+
+            f1_score = self.f1(logits.argmax(dim=1), labels)
+            accuracy_score = self.accuracy(logits.argmax(dim=1), labels)
+
+        return SequenceClassifierOutput(loss=loss, logits=logits)
+
+def init(context):
+    model_name = &quot;document-classifier&quot;
+
+    model = context.project.get_model(model_name)
+    local_path_model = model.download(overwrite=True)
+
+    tokenizer = AutoTokenizer.from_pretrained(local_path_model)
+    config = AutoConfig.from_pretrained(local_path_model)
+
+    mm = BertForSentenceClassification.from_pretrained(
+        local_path_model,
+        config=config,
+        model_name=&quot;dbmdz/bert-base-italian-xxl-cased&quot;,
+        num_labels=config.num_labels
+    ) 
+
+    label_mapping = {
+        0: 0,
+        1: 2,
+        2: 4,
+        3: 7,
+        4: 8,
+        5: 10,  
+        6: 11,
+        7: 15,
+        8: 16,
+        9: 17,
+        10: 20,
+        11: 22,
+        12: 25,
+        13: 27,
+        14: 28,
+        15: 29,
+        16: 36,
+        17: 39,
+        18: 45,
+        19: 50,
+        20: 51,
+        21: 53,
+        22: 54,
+        23: 55,
+        24: 56,
+        25: 57,
+        26: 61,
+        27: 62,
+        28: 63,
+        29: 64,
+        30: 65,
+        31: 67,
+        32: 68,
+        33: 69,
+        34: 72,
+        35: 74,
+        36: 81,
+        37: 88,
+        38: 89,
+        39: 91,
+        40: 96,
+        41: 102,
+        42: 107,
+        43: 108,
+        44: 109,
+        45: 112,
+        46: 113,
+        47: 115,
+        48: 116,
+        49: 119,
+        50: 120,
+        51: 126,
+        52: 130,
+        53: 133,
+        54: 134,
+        55: 195
+    }
+
+    setattr(context, &quot;model&quot;, mm)
+    setattr(context, &quot;tokenizer&quot;, tokenizer)
+    setattr(context, &quot;label_mapping&quot;, label_mapping)
+
+def serve(context, event):
+
+    context.logger.info(f&quot;Received event: {event}&quot;)
+
+    if isinstance(event.body, bytes):
+        body = json.loads(event.body)
+    else:
+        body = event.body
+
+    inference_input = body[&quot;inference_input&quot;]
+
+    pdf = pd.DataFrame(inference_input, index=[0])
+    k = int(pdf[&#39;k&#39;])
+    inputs = context.tokenizer(str(pdf[&#39;text&#39;]), return_tensors=&quot;pt&quot;, truncation=True, padding=True, return_token_type_ids=False)
+    context.logger.info(f&quot;k received: {k}&quot;)
+
+    with torch.no_grad():
+        logits = context.model(**inputs).logits
+        sigmoid = torch.nn.Sigmoid()
+        probs = sigmoid(logits.squeeze().cpu())
+        indices_above_threshold = (probs &gt;= 0.6).nonzero(as_tuple=True)[0]
+        probs_above_threshold = probs[indices_above_threshold]
+        sorted_indices = probs_above_threshold.argsort(descending=True)
+        top_k_indices = indices_above_threshold[sorted_indices][:k]
+        result = [context.label_mapping[int(idx)] + 1 for idx in top_k_indices]
+        context.logger.info(f&quot;result: {result}&quot;)
+
+    # Convert the result to a json string.
+    jsonstr = &#39;{&quot;results&quot;: &#39; + str(list(result)) + &#39;}&#39;
+
+    return json.loads(jsonstr)
+</code></pre></div>
+<p>The init(context) method is responsible for initializing the function’s execution context.</p>
+<p>The serve(context, event) method contains the core functionality of the service, including the incoming request handling and execution logic.</p>
 <h2 id="usage">Usage</h2>
-<p>The function is of kind container runtime that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image of sentinel-tools developed in the context of project which is a wrapper for the Sentinel download and preprocessing routine for the integration with the AIxPA platform. For more details <a href="https://github.com/tn-aixpa/sentinel-tools/">Click here</a>.</p>
-<p><div class="highlight"><pre><span></span><code><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;{</span>
-<span class="s2">     &quot;satelliteParams&quot;:{</span>
-<span class="s2">        &quot;satelliteType&quot;: &quot;Sentinel2&quot;,</span>
-<span class="s2">        &quot;bandmath&quot;: [&quot;NDWI&quot;]</span>
-<span class="s2">     },</span>
-<span class="s2">     &quot;startDate&quot;: &quot;2023-12-12&quot;,</span>
-<span class="s2">     &quot;endDate&quot;: &quot;2019-12-30&quot;,</span>
-<span class="s2">     &quot;geometry&quot;: &quot;POLYGON((10.88558452267069 46.2069331490752, 11.02591468396198 46.2069331490752, 11.02591468396198 46.288250617785245, 10.88558452267069 46.288250617785245, 10.88558452267069 46.2069331490752))&quot;,</span>
-<span class="s2">     &quot;cloudCover&quot;: &quot;[0,5]&quot;,</span>
-<span class="s2">     &quot;area_sampling&quot;: &quot;True&quot;,</span>
-<span class="s2">     &quot;artifact_name&quot;: &quot;sentinel2_ndwi_area_sampling_2018&quot;</span>
-<span class="s2"> }&quot;&quot;&quot;</span>
-
-
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;main.py&quot;</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;download-sentinel-data&quot;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span><span class="n">image</span><span class="o">=</span><span class="s2">&quot;ghcr.io/tn-aixpa/sentinel-tools:latest&quot;</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<p>The function demonstrates:</p>
+<ul>
+<li>How to define a simple serverless python functionfor document classification using BERT</li>
+<li>How to load a pre-trained model and tokenizer from the project</li>
+<li>How to implement custom model architecture with BertForSentenceClassification</li>
+<li>How to process inference requests with text input and return top-k predictions</li>
+<li>How to use label mapping for classification results</li>
+<li>How to expose the underlying function as an API</li>
+<li>How to initialize runtime service context</li>
+<li>How to generate and return output</li>
+<li>How to call the function</li>
+</ul>
+<h3 id="start-the-service">Start the service</h3>
+<div class="highlight"><pre><span></span><code>function_doc_serve = proj.get_function(&quot;document-classifier-serve&quot;)
+serve_run = function_doc_serve.run(
+    action=&quot;serve&quot;,
+    resources={&quot;mem&quot;: &quot;6Gi&quot;},
+    volumes=[{
+        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
+        &quot;name&quot;: &quot;train-volume&quot;,
+        &quot;mount_path&quot;: &quot;/shared&quot;,
+        &quot;spec&quot;: {
+            &quot;size&quot;: &quot;5Gi&quot;
+        }}],
+)
 </code></pre></div>
-Notes: For detailed usage see the usage notebook.</p>
-<h2 id="environment">Environment</h2>
-<p>The runtime environment of function consist of properties like
-- CDSETOOL_ESA_PASSWORD
-- CDSETOOL_ESA_USER</p>
-<p>Register to the open data space copernicus(if not already) and get your credentials.</p>
-<p>https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&amp;tab_id=FIiRPJeoiX4</p>
-<p>Log the credentials as project secret keys as shown below</p>
-<div class="highlight"><pre><span></span><code># THIS NEED TO BE EXECUTED JUST ONCE
-secret0 = proj.new_secret(name=&quot;CDSETOOL_ESA_USER&quot;, secret_value=&quot;esa_username&quot;)
-secret1 = proj.new_secret(name=&quot;CDSETOOL_ESA_PASSWORD&quot;, secret_value=&quot;esa_password&quot;)
+<h3 id="send-a-request">Send a request</h3>
+<div class="highlight"><pre><span></span><code>inputs = {&quot;text&quot;: &#39;trasporto wifi &#39;, &quot;k&quot;: 1}
+serve_run.invoke(json={&quot;inference_input&quot;: inputs}).text
 </code></pre></div>
-<p>To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
-<div class="highlight"><pre><span></span><code>function.run(
-    action=&quot;job&quot;,
-    secrets=[&quot;CDSETOOL_ESA_USER&quot;,&quot;CDSETOOL_ESA_PASSWORD&quot;],
-    fs_group=&#39;8877&#39;,
-    args=[&quot;main.py&quot;, string_dict_data],
-    envs=[{&quot;name&quot;: &quot;TMPDIR&quot;, &quot;value&quot;: &quot;/app/files&quot;}],
-    ...
-    }])
+<h3 id="response">Response:</h3>
+<div class="highlight"><pre><span></span><code>&#39;{&quot;results&quot;: [46]}&#39;
 </code></pre></div>
-<h2 id="resources">Resources</h2>
-<p>The resources for running this function varies as per the envisaged elaboration scenario requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace. It could happen that data download takes more time than usual due to various factors, including technical issues, data processing delays, and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions. The size of sentinal data payload in is normally large based on requirement of usecase scenario and requires a significant block of computing resources to executed which includes number of cpu, memory(Gi), and volume(Gi). The function performance improves with significant number of cpu and memory. In general, the recommended resources(cpu, memory) for running this function:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;mem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;32Gi&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Data volume requirements vary by scenario:
-- <strong>Single scene download</strong>: 100–500 MB (Sentinel-1 GRD), 500–1000 MB (Sentinel-2 L2A)
-- <strong>Multi-temporal series</strong>: Scales linearly with date range and area size
-- <strong>Large geographic areas</strong>: May require 10+ GB for month-long searches
-- <strong>Band math / preprocessing</strong>: Adds 20–30% overhead to storage needs</p>
-<p>In order to run this function, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the usage notebook, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;volumes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;volume_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;volume-flood&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;mount_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/app/files&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;spec&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100Gi&quot;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>For more detailed usage for different kind of scenario, check the usage notebook.</p>
+<p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <p><div class="template-info-tab" id="template-notebook"><div><style type="text/css">
     pre { line-height: 125%; }
@@ -8080,18 +8188,6 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <!-- End of mermaid configuration -->
 <p></head></p>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d468ee04">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="How-to-prepare-data-for-download">How to prepare data for download<a class="anchor-link" href="#How-to-prepare-data-for-download">¶</a></h1><p>To prepare the geological data, it is required to log the data in the project context</p>
-</div>
-</div>
-</body>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db437dfe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8101,6 +8197,7 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context: data download project if not created already. Project is a placeholder for the code, data, and management of the data operations.</p>
 </div>
 </div>
+</body>
 </div>
 </div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22976efc-003a-4170-bcf0-6a33ac84e76a">
@@ -8120,126 +8217,46 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f207c763">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note: Make sure to replace &lt;YOUR_PROJECT_NAME&gt; with the actual name of your project before running the code.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=71d0c9bf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="2--Generate-Model">2- Generate Model<a class="anchor-link" href="#2--Generate-Model">¶</a></h2><p>Please note that this function 'document-classifier-serve' depends on Document classifier Model, which must be trained and logged in to the project context(if not already). For more detailed information, please refer to the catalog function <a href="https://scc-digitalhub.github.io/hub/functions/document-classifier-train-example">document-classifier-train</a></p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Preparation-guidelines-and-examples">2. Preparation guidelines and examples<a class="anchor-link" href="#2.-Preparation-guidelines-and-examples">¶</a></h2>
+<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c55b5bbf">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98bc1125">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This section describes required fields, recommended practices, and example payloads (stringified JSON) to prepare Sentinel data downloads. Use these payloads as the <code>string_dict_data</code> argument when calling the download function in this notebook.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1880563e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>As indicated in README.MD file register and store Copernicus CDSETOOL credentials in the project context as shown below</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=772dba33">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">proj</span><span class="o">.</span><span class="n">set_secret</span><span class="p">(</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span> <span class="s2">"&lt;YOUR_COPERNICUS_USERNAME&gt;"</span><span class="p">)</span>
-<span class="n">proj</span><span class="o">.</span><span class="n">set_secret</span><span class="p">(</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">,</span> <span class="s2">"&lt;YOUR_COPERNICUS_PASSWORD&gt;"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e84a2202">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>In the following sections, one can find usage examples for different kinds of geo data.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfb435f0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="1--Natural-disaster-events-data">1- Natural disaster events data<a class="anchor-link" href="#1--Natural-disaster-events-data">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=93fa224f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This section demonstrates the date fetch process in case of natural disaster tragedy like geological hazards, alluvion, flood etc, the data is fetched for a given event date compute pre/post windows for elaboration and analysis. The data is prepared for those dates (ISO format) in different payloads(one per sensor/window) with distinct 'artifact' names inside to the project context.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bd8be96b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Example payload (stringified JSON)</span>
-<span class="p">{</span>
- <span class="s2">"satelliteParams"</span><span class="p">:{</span>
-    <span class="s2">"satelliteType"</span><span class="p">:</span> <span class="s2">"Sentinel2"</span><span class="p">,</span>
-    <span class="s2">"processingLevel"</span><span class="p">:</span> <span class="s2">"S2MSI2A"</span><span class="p">,</span>
-    <span class="s2">"bandmath"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"NDWI"</span><span class="p">]</span>
- <span class="p">},</span>
- <span class="s2">"startDate"</span><span class="p">:</span> <span class="s2">"2020-10-02"</span><span class="p">,</span>
- <span class="s2">"endDate"</span><span class="p">:</span> <span class="s2">"2020-10-22"</span><span class="p">,</span>
- <span class="s2">"geometry"</span><span class="p">:</span> <span class="s2">"POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))"</span><span class="p">,</span>
- <span class="s2">"cloudCover"</span><span class="p">:</span> <span class="s2">"[0,20]"</span><span class="p">,</span>
- <span class="s2">"area_sampling"</span><span class="p">:</span> <span class="s2">"True"</span><span class="p">,</span>
- <span class="s2">"tmp_path_same_folder_dwl"</span><span class="p">:</span> <span class="s2">"True"</span><span class="p">,</span>
- <span class="s2">"artifact_name"</span><span class="p">:</span> <span class="s2">"sentinel2_post_event"</span><span class="p">,</span>
- <span class="s2">"preprocess_data_only"</span><span class="p">:</span> <span class="s2">"false"</span>
- <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c05c045">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Example workflow: For flood analysis four datasets are prepared (e.g. <code>sentinel2_pre_flood</code>, <code>sentinel2_post_flood</code>, <code>sentinel1_GRD_preflood</code>, <code>sentinel1_GRD_postflood</code>). The four datasets: Sentinel‑2 imagery for the 20‑day pre‑ and post‑event windows, and Sentinel‑1 SAR for the 7‑day pre‑ and post‑event windows. Accordingly, the section below demonstrates four separate runs of the "download-sentinel-data" function — one per sensor/time window. Example payload (stringified JSON)</p>
-<p>Fetch the "download-sentinel-data" operation in the project.</p>
+<p>Fetch the "serve" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8252,230 +8269,7 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_data</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"download-sentinel-data"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c28682af">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Post-Flood-Sentinel2-Data-+20days">Post Flood Sentinel2 Data +20days<a class="anchor-link" href="#Post-Flood-Sentinel2-Data-+20days">¶</a></h4><p>The parameters passed for sentinel downloads includes the starts and ends dates corresponding flood event. The ouput of this step will be logged inside to the platfrom project context as indicated by parameter "artifact_name" ("sentinel2_post_flood").Several other paramters can be configures as per requirements for e.g. geometry, cloud cover percentage etc</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f733293">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1bc5ada8-eb30-4a8b-b04e-a7bfb8a2b730">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Example payload (stringified JSON)</span>
-
-<span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2"> "satelliteParams":{</span>
-<span class="s2">    "satelliteType": "Sentinel2",</span>
-<span class="s2">    "processingLevel": "S2MSI2A",</span>
-<span class="s2">   "bandmath": ["NDWI"]</span>
-<span class="s2"> },</span>
-<span class="s2"> "startDate": "2020-10-02",</span>
-<span class="s2"> "endDate": "2020-10-22",</span>
-<span class="s2"> "geometry": "POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))",</span>
-<span class="s2"> "cloudCover": "[0,20]",</span>
-<span class="s2"> "area_sampling": "True",</span>
-<span class="s2"> "tmp_path_same_folder_dwl": "True",</span>
-<span class="s2"> "artifact_name": "sentinel2_post_flood",</span>
-<span class="s2"> "preprocess_data_only": "false"</span>
-<span class="s2"> }"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function. As a result the post flood sentinel-2 data is logged as project artifact("sentinel2_post_flood")</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-<span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-<span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-<span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-<span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-<span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-    <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-flood"</span><span class="p">,</span>
-    <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-    <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-        <span class="p">}</span>
-    <span class="p">}]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=22932c9d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Pre-Flood-Sentinel2-Data--20-days">Pre Flood Sentinel2 Data -20 days<a class="anchor-link" href="#Pre-Flood-Sentinel2-Data--20-days">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=437aaa88">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2">     "satelliteParams":{</span>
-<span class="s2">        "satelliteType": "Sentinel2",</span>
-<span class="s2">        "processingLevel": "S2MSI2A",</span>
-<span class="s2">       "bandmath": ["NDWI"]</span>
-<span class="s2">     },</span>
-<span class="s2">     "startDate": "2020-09-12",</span>
-<span class="s2">     "endDate": "2020-10-02",</span>
-<span class="s2">     "geometry": "POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))",</span>
-<span class="s2">     "cloudCover": "[0,20]",</span>
-<span class="s2">     "area_sampling": "True",</span>
-<span class="s2">     "tmp_path_same_folder_dwl": "True",</span>
-<span class="s2">     "artifact_name": "sentinel2_pre_flood",</span>
-<span class="s2">     "preprocess_data_only": "false"</span>
-<span class="s2">     }"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=140bc195">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function again. As a result the pre flood sentinel-2 data is logged as project artifact("sentinel2_post_flood")</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=93715f3e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-flood"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-            <span class="p">}</span>
-    <span class="p">}]</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8d7c3f57">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Post-Flood-Sentinel1-Data-+7days">Post Flood Sentinel1 Data +7days<a class="anchor-link" href="#Post-Flood-Sentinel1-Data-+7days">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9d67682">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The parameters passed for sentinel-1 downloads includes the starts and ends dates corresponding to period of 7 days from flood event date. The ouput of this step will be logged inside to the platfrom project context as indicated by parameter "artifact_name" ("sentinel1_GRD_postflood").Several other paramters can be configures as per requirements for e.g. geometry, cloud cover percentage etc.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6fa7878d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2">"satelliteParams": {</span>
-<span class="s2">  "satelliteType": "Sentinel1",</span>
-<span class="s2">  "processingLevel": "LEVEL1",</span>
-<span class="s2">  "sensorMode": "IW",</span>
-<span class="s2">  "productType": "GRD"</span>
-<span class="s2">},</span>
-<span class="s2">"startDate": "2020-10-02",</span>
-<span class="s2">"endDate": "2020-10-09",</span>
-<span class="s2">"geometry": "POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))",</span>
-<span class="s2">"area_sampling": "True",</span>
-<span class="s2">"tmp_path_same_folder_dwl":"True",</span>
-<span class="s2">"artifact_name": "sentinel1_GRD_postflood"</span>
-<span class="s2">}"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_doc_serve</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-serve"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8488,12 +8282,12 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function. As a result the post flood sentinel-2 data is logged as project artifact("sentinel2_post_flood")</p>
+<p>Run the function with default configuration</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=68546631">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8501,114 +8295,46 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_doc_serve</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
         <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-flood"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
+        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/shared"</span><span class="p">,</span>
         <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-        <span class="p">}}])</span>
+            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"5Gi"</span>
+        <span class="p">}}],</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=360e0651">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Pre-Flood-Sentinel1-Data--7days">Pre Flood Sentinel1 Data -7days<a class="anchor-link" href="#Pre-Flood-Sentinel1-Data--7days">¶</a></h4><p>Similary download the sentine-1 data pre flood event.</p>
+<p>Note: using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=731af167">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2">  "satelliteParams": {</span>
-<span class="s2">          "satelliteType": "Sentinel1",</span>
-<span class="s2">          "processingLevel": "LEVEL1",</span>
-<span class="s2">          "sensorMode": "IW",</span>
-<span class="s2">          "productType": "GRD"</span>
-<span class="s2">      },</span>
-<span class="s2">      "startDate": "2020-09-25",</span>
-<span class="s2">      "endDate": "2020-10-02",</span>
-<span class="s2">      "geometry": "POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))",</span>
-<span class="s2">      "area_sampling": "True",</span>
-<span class="s2">      "tmp_path_same_folder_dwl":"True",</span>
-<span class="s2">      "artifact_name": "sentinel1_GRD_preflood"</span>
-<span class="s2">  }"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bef1c9c2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-    <span class="n">envs</span><span class="o">=</span><span class="p">{},</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-flood"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-        <span class="p">}}])</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d14e0aaf">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c63fb2fb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Another example of natural disaster even is the geological hazard or landslide montioring scenario. For landslide monitoring, the "download-sentinel-data" function is used to fetch Sentinel‑1 SLC scenes that cover the specified AOI geometry and time window. Retrieved images are split by orbit direction — ascending acquisitions are stored in an ascending artifact and descending acquisitions in a descending artifact — allowing independent processing workflows (e.g., SLC stacking or InSAR) for each orbit geometry. The example cells below show submitting one job per orbit direction and saving the results as project artifacts.</p>
+<h2 id="4.-Test-the-service">4. Test the service<a class="anchor-link" href="#4.-Test-the-service">¶</a></h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0037e4bb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Landslide-Sentinel-1-Data-acquistion-(Ascending)">Landslide Sentinel 1 Data acquistion (Ascending)<a class="anchor-link" href="#Landslide-Sentinel-1-Data-acquistion-(Ascending)">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cf638685">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8616,34 +8342,14 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">s1_ascending</span> <span class="o">=</span> <span class="s2">"s1_ascending_landslide_2020-10-01_2020-01-14"</span>
-<span class="n">startDate</span> <span class="o">=</span> <span class="s2">"2020-10-01"</span>
-<span class="n">endDate</span> <span class="o">=</span> <span class="s2">"2020-10-14"</span>
-<span class="n">geometry</span> <span class="o">=</span> <span class="s2">"POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, 10.595369 45.945838, 10.595369 45.923394))"</span>
-<span class="n">string_dict_data_asc</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2">    "satelliteParams":{</span>
-<span class="s2">        "satelliteType": "Sentinel1",</span>
-<span class="s2">        "processingLevel": "LEVEL1",</span>
-<span class="s2">        "sensorMode": "IW","productType": "SLC",</span>
-<span class="s2">        "orbitDirection": "ASCENDING",</span>
-<span class="s2">        "relativeOrbitNumber": "117"</span>
-<span class="s2">        },</span>
-<span class="s2">    "startDate": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">startDate</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "endDate": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">endDate</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "geometry": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">geometry</span>  <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "area_sampling": "True",</span>
-<span class="s2">    "tmp_path_same_folder_dwl":"True",</span>
-<span class="s2">    "artifact_name": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">s1_ascending</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span>
-<span class="s2">    }</span>
-<span class="s2">"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data_asc</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f6312479">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8651,221 +8357,8 @@ void Promise.all([...diagrams].map(renderOneMarmaid));
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-    <span class="n">envs</span><span class="o">=</span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TMPDIR"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">}],</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-land"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-        <span class="p">}}]</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=33e75f59">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Landslide-Sentinel-1-Data-acquistion-(Descending)">Landslide Sentinel 1 Data acquistion (Descending)<a class="anchor-link" href="#Landslide-Sentinel-1-Data-acquistion-(Descending)">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fd21c3b7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">s1_descending</span> <span class="o">=</span> <span class="s2">"s1_descending_landslide_2020-10-01_2010-01-14"</span>
-<span class="n">startDate</span> <span class="o">=</span> <span class="s2">"2010-01-01"</span>
-<span class="n">endDate</span> <span class="o">=</span> <span class="s2">"2010-01-14"</span>
-<span class="n">geometry</span> <span class="o">=</span> <span class="s2">"POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, 10.595369 45.945838, 10.595369 45.923394))"</span>
-<span class="n">string_dict_data_des</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2">    "satelliteParams":{</span>
-<span class="s2">        "satelliteType": "Sentinel1",</span>
-<span class="s2">        "processingLevel": "LEVEL1",</span>
-<span class="s2">        "sensorMode": "IW",</span>
-<span class="s2">        "productType": "SLC",</span>
-<span class="s2">        "orbitDirection": "DESCENDING",</span>
-<span class="s2">        "relativeOrbitNumber": "168"</span>
-<span class="s2">        },</span>
-<span class="s2">    "startDate": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">startDate</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "endDate": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">endDate</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "geometry": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">geometry</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span><span class="s2">,</span>
-<span class="s2">    "tmp_path_same_folder_dwl":"True",</span>
-<span class="s2">    "area_sampling": "True","artifact_name": </span><span class="se">\"</span><span class="s2">"""</span> <span class="o">+</span> <span class="n">s1_descending</span> <span class="o">+</span> <span class="s2">"""</span><span class="se">\"</span>
-<span class="s2">    }"""</span>
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data_des</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d485689f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-    <span class="n">envs</span><span class="o">=</span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TMPDIR"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">}],</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-land"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"100Gi"</span>
-        <span class="p">}}]</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7254949e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="2.-Environmental-Degradation-Data.">2. Environmental Degradation Data.<a class="anchor-link" href="#2.-Environmental-Degradation-Data.">¶</a></h3><p>This section demonstrates the data-fetch process for environmental degradation monitoring (e.g., deforestation, vegetation loss). It explains required inputs, provides a sample payload for Sentinel-2, and lists recommended steps and best practices to obtain consistent baseline and change-detection datasets.</p>
-<p>Purpose</p>
-<ul>
-<li>Acquire time-series optical imagery to compute vegetation and burn/change indices (NDVI, NBR, BSI) for baseline and monitoring windows.</li>
-<li>Produce artifacts per time window (e.g., baseline, disturbance, post-disturbance) to support analysis (change detection, classification, trend analysis).</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5873a994">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Example payload (stringified JSON)</span>
-<span class="p">{</span>
-    <span class="s2">"satelliteParams"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"satelliteType"</span><span class="p">:</span> <span class="s2">"Sentinel2"</span><span class="p">,</span>
-        <span class="s2">"processingLevel"</span><span class="p">:</span> <span class="s2">"S2MSI2A"</span><span class="p">,</span>
-        <span class="s2">"bandmath"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"NDVI"</span><span class="p">,</span><span class="s2">"NBR"</span><span class="p">,</span><span class="s2">"BSI"</span><span class="p">]</span>
-    <span class="p">},</span>
-    <span class="s2">"startDate"</span><span class="p">:</span> <span class="s2">"2018-06-01"</span><span class="p">,</span>
-    <span class="s2">"endDate"</span><span class="p">:</span> <span class="s2">"2018-08-31"</span><span class="p">,</span>
-    <span class="s2">"geometry"</span><span class="p">:</span> <span class="s2">"POLYGON ((...))"</span><span class="p">,</span>
-    <span class="s2">"cloudCover"</span><span class="p">:</span> <span class="s2">"[0,20]"</span><span class="p">,</span>
-    <span class="s2">"area_sampling"</span><span class="p">:</span> <span class="s2">"True"</span><span class="p">,</span>
-    <span class="s2">"tmp_path_same_folder_dwl"</span><span class="p">:</span> <span class="s2">"True"</span><span class="p">,</span>
-    <span class="s2">"artifact_name"</span><span class="p">:</span> <span class="s2">"sentinel2_envdeg_baseline"</span><span class="p">,</span>
-    <span class="s2">"preprocess_data_only"</span><span class="p">:</span> <span class="s2">"false"</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=05bbf6e9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Example workflow: For deforestation analysis, temporal Sentinel‑2 Level‑2A imagery spanning one to two years is required to build monthly time‑series (e.g., NDVI, BSI), enable trend and seasonality modeling, and detect change events using methods like BFAST. The temporal dataset is prepared and logged as artifact (data_s2_deforestation) inside to the project context. Accordinly, the section below demontrates a run of the 'download-sentinel-data' function.</p>
-<p>Fetch the "download-sentinel-data" operation in the project.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1120ef05">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_data</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"download-sentinel-data"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=127ecaaa">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">"""{</span>
-<span class="s2"> "satelliteParams":{</span>
-<span class="s2">     "satelliteType": "Sentinel2"</span>
-<span class="s2"> },</span>
-<span class="s2"> "startDate": "2018-01-01",</span>
-<span class="s2"> "endDate": "2018-12-31",</span>
-<span class="s2"> "geometry": "POLYGON((10.968432350469937 46.093829019481056,10.968432350469937 46.09650743619973, 10.97504139531014 46.09650743619973,10.97504139531014 46.093829019481056, 10.968432350469937 46.093829019481056))",</span>
-<span class="s2"> "area_sampling": "true",</span>
-<span class="s2"> "cloudCover": "[0,5]",</span>
-<span class="s2"> "artifact_name": "data_s2_deforestation"</span>
-<span class="s2"> }"""</span>
-
-<span class="n">list_args</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"main.py"</span><span class="p">,</span><span class="n">string_dict_data</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=79cd652f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_data</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"CDSETOOL_ESA_USER"</span><span class="p">,</span><span class="s2">"CDSETOOL_ESA_PASSWORD"</span><span class="p">],</span>
-    <span class="n">fs_group</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">args</span><span class="o">=</span><span class="n">list_args</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"6"</span><span class="p">,</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"32Gi"</span><span class="p">},</span>
-    <span class="n">envs</span><span class="o">=</span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TMPDIR"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">}],</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-deforestation"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/files"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"50Gi"</span>
-        <span class="p">}}]</span>
-    <span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s1">'trasporto wifi '</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">serve_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"inference_input"</span><span class="p">:</span> <span class="n">inputs</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
 </div>
 </div>
