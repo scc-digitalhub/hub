@@ -1,5 +1,14 @@
 # DBT-Transform
-DBT-Transform is a simple DBT transformation operation example that converts the input file (employee table dataitem) to another table using a SQL-based transformation.  Run it with e.g. inputs={"employees": di.key}, and  outputs={"output_table": "department-60"}
+This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named 'employees'. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a foundational template for building more complex DBT transformations within your data workflows.
+
+## Features
+
+- Simple SQL-based data transformation using DBT
+- Filters employee records by department ID
+- Integrates with digitalhub dataitem management
+- Supports parameterized inputs and outputs
+- Suitable as a template for complex ETL workflows
+
 
 ## Definition
 
