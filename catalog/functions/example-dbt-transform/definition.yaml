@@ -2,7 +2,7 @@ kind: dbt
 metadata:
   name: Example DBT Transform (DBT Job)
   version: 1.0.0
-  description: "DBT transform example using Python function. This function demonstrates how to integrate DBT transformations. It collects some data regarding organizations, analyzes and transforms it, then exposes the resulting dataset. "
+  description: "This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named 'employees'. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a foundational template for building more complex DBT transformations within your data workflows." 
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
     - "domain:tabular"
