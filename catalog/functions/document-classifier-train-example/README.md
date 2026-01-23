@@ -18,7 +18,7 @@ It demonstrate how to train classification model with BERT (Bidirectional Encode
 |0|text1....| 11
 |1|text2....| 12
 
-You can use the provided [sample train dataset](/src/train_data.csv). It is also used in the embedded script as training and validation dataset. Ensure that your dataset includes a `text` column containing the document content and a `labels` column with the corresponding category labels. The dataset should be balanced, meaning each label should have a similar number of examples to avoid bias during training.
+You can use the provided [sample train dataset](https://raw.githubusercontent.com/tn-aixpa/document-classifier/refs/heads/main/src/train_data.csv). It is also used in the embedded script as training and validation dataset. Ensure that your dataset includes a `text` column containing the document content and a `labels` column with the corresponding category labels. The dataset should be balanced, meaning each label should have a similar number of examples to avoid bias during training.
 
 
 ## Definition

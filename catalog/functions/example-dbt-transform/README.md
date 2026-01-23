@@ -26,9 +26,10 @@ function = project.new_function(
 ```
 
 The parameters are:
-    - name is the identifier of the function.
-    - kind is the type of the function. Must be dbt.
-    - code contains the code that is the SQL we'll execute in the function.
+
+- name is the identifier of the function.
+- kind is the type of the function. Must be dbt.
+- code contains the code that is the SQL we'll execute in the function.
 
 ## Fetching the Function
 
