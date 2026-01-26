@@ -14,6 +14,7 @@ This function demonstrates how to create an extract transform load procedure tha
 ## Definition
 
 ```python
+# function.py
 import pandas as pd
 from digitalhub_runtime_python import handler
 
@@ -33,7 +34,7 @@ def download_and_process():
 function = project.new_function(
     name="example-etl",
     kind="python",
-    source={"source": "example-etl/function.py", "handler": "download_and_process"},
+    source={"source": "function.py", "handler": "download_and_process"},
 )
 ```
 
