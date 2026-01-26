@@ -250,7 +250,7 @@
             "metadata": {
                 "name": "Example DBT Transform (DBT Job)",
                 "version": "1.0.0",
-                "description": "DBT transform example using Python function. This function demonstrates how to integrate DBT transformations. It collects some data regarding organizations, analyzes and transforms it, then exposes the resulting dataset. ",
+                "description": "This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named 'employees'. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a foundational template for building more complex DBT transformations within your data workflows.",
                 "labels": [
                     "license:apache-2.0",
                     "domain:tabular",
@@ -268,6 +268,30 @@
                 }
             },
             "path": "example-dbt-transform"
+        },
+        {
+            "kind": "python",
+            "metadata": {
+                "name": "Example ETL (Python Job)",
+                "version": "1.0.0",
+                "description": "A simple extract transform load (ETL) procedure in Python that downloads a csv file and then returns the result as a dataframe that is stored in the project repository as table(data-item).",
+                "labels": [
+                    "license:apache-2.0",
+                    "domain:tabular",
+                    "platform:0.14",
+                    "type:job",
+                    "phase:data-preparation"
+                ]
+            },
+            "name": "example-etl",
+            "spec": {
+                "python_version": "PYTHON3_10",
+                "source": {
+                    "base64": "aW1wb3J0IHBhbmRhcyBhcyBwZApmcm9tIGRpZ2l0YWxodWJfcnVudGltZV9weXRob24gaW1wb3J0IGhhbmRsZXIKClVSTD0iaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2RhdGFzZXRzL3dvcmxkLWNpdGllcy9yZWZzL2hlYWRzL21haW4vZGF0YS93b3JsZC1jaXRpZXMuY3N2IgoKQGhhbmRsZXIob3V0cHV0cz1bIndvcmxkLWNpdGllcyJdKQpkZWYgZG93bmxvYWRfYW5kX3Byb2Nlc3MoKToKICAgIGRmID0gcGQucmVhZF9jc3YoVVJMKQogICAgZGYucmVzZXRfaW5kZXgoaW5wbGFjZT1UcnVlKQogICAgcmV0dXJuIGRm",
+                    "lang": "python"
+                }
+            },
+            "path": "example-etl"
         },
         {
             "kind": "python",
