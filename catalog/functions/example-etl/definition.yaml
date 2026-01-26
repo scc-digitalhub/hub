@@ -1,6 +1,6 @@
 kind: python
 metadata:
-  name: Example ETL 
+  name: Example ETL (Python Job)
   version: 1.0.0
   description: "A simple extract transform load (ETL) procedure in Python that downloads a csv file and then returns the result as a dataframe that is stored in the project repository as table." 
   labels: # key-value pairs to classify the function
