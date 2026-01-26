@@ -41,7 +41,7 @@ function = project.new_function(
 To use an existing ETL transform function as in this example, retrieve it from the project context.
 
 ```python
-function_dbt = proj.get_function("example-etl")
+function = proj.get_function("example-etl")
 ```
 
 ### Run the function
