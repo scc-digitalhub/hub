@@ -7,8 +7,7 @@ metadata:
     - "license:apache-2.0"
     - "platform:0.14"
     - "type:service"
-    - "phase:utility"
-    - "inference:custom"
+    - "phase:utility"    
 kind: python+serve
 spec:
   python_version: PYTHON3_10
