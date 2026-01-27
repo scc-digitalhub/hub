@@ -18,11 +18,9 @@ This function demonstrates how to create an extract transform load procedure tha
 import pandas as pd
 from digitalhub_runtime_python import handler
 
-URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
-
 @handler(outputs=["world-cities"])
-def download_and_process():
-    df = pd.read_csv(URL)
+def download_and_process(url):
+    df = pd.read_csv(url)
     df.reset_index(inplace=True)
     return df
 ```
@@ -46,7 +44,9 @@ function = proj.get_function("example-etl")
 ```
 
 ### Run the function
-run = function.run("job", wait=True)
+URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
+run = function.run(action="job", parameters={"url": URL, "output_table": "world-cities"}, wait=True)
+
 
 ### Access the data
 dataset_di = proj.get_dataitem("world-cities")

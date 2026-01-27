@@ -7,7 +7,6 @@ metadata:
     - 'license:apache-2.0'
     - 'domain:geo'
     - 'application:pa'
-    - 'aspect:security'
     - 'platform:0.14'
     - 'type:job'
     - 'phase:feature-extraction'
