@@ -5,7 +5,6 @@ metadata:
   description: "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework."
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
-    - "domain:other"
     - "platform:0.14"
     - "type:job"
     - "phase:model-training"

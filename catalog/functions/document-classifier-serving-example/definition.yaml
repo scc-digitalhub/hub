@@ -6,7 +6,6 @@ metadata:
   description: Document Classifier Serving With Bert Model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
     - "license:apache-2.0"
-    - "domain:other"
     - "platform:0.14"
     - "type:service"
     - "phase:utility"

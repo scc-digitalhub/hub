@@ -5,7 +5,6 @@ metadata:
   description: A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.
   labels:
     - "license:apache-2.0"
-    - "domain:other"
     - "platform:0.14"
     - "type:service"
     - "phase:utility"

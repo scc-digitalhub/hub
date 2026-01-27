@@ -5,7 +5,6 @@ metadata:
   description: "Hello world with python: write a string to stdout"
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
-    - "domain:other"
     - "platform:0.14"
     - "type:job"
     - "phase:utility"
