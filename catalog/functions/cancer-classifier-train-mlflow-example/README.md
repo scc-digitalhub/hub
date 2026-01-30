@@ -46,7 +46,7 @@ Basic syntax of a python script used inside to the platform. It demonstrates
 The function 'mlflow-train-model' is registered inside to the platform core durig the import and it can be fetched and executed
 
 ```
-func = proj.get_function(name="cancer-classfier-training-mlflow-example") 
+func = proj.get_function(name="cancer-classfier-train-mlflow-example") 
 ```
 
 This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.

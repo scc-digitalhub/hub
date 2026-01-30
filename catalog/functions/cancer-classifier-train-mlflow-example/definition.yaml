@@ -10,7 +10,7 @@ metadata:
     - "phase:model-training"
     - "framework:sklearn"
     - "application:healthcare"
-name: cancer-classifier-training-mlflow-example
+name: cancer-classifier-train-mlflow-example
 spec:
   python_version: PYTHON3_10
   source:
