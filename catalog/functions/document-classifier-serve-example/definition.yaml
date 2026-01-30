@@ -1,9 +1,9 @@
 
 kind: python+serve
 metadata:
-  name: Document Classifier Serving With Bert Model (Python Serve)
+  name: Document Classifier Serve With Bert Model (Python Serve)
   version: 1.0.0
-  description: Document Classifier Serving With Bert Model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
+  description: Document Classifier Serve With Bert Model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
@@ -39,4 +39,4 @@ spec:
   resources:
     mem: 6Gi
   service_type: ClusterIP
-  service_name: Document Classifier Serving With Bert Model (Python Serve)
+  service_name: Document Classifier Serve With Bert Model (Python Serve)
