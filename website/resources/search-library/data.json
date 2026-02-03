@@ -9,7 +9,6 @@
                 "description": "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework.",
                 "labels": [
                     "license:apache-2.0",
-                    "domain:other",
                     "platform:0.14",
                     "type:job",
                     "phase:model-training",
@@ -54,7 +53,6 @@
                 "description": "A simple python-based API responding to a POST message with the \"text\" field. The function exposes an API using \"serve\" task.",
                 "labels": [
                     "license:apache-2.0",
-                    "domain:other",
                     "platform:0.14",
                     "type:service",
                     "phase:utility",
@@ -178,7 +176,6 @@
                 "description": "Hello world with python: write a string to stdout",
                 "labels": [
                     "license:apache-2.0",
-                    "domain:other",
                     "platform:0.14",
                     "type:job",
                     "phase:utility"

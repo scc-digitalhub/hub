@@ -33,16 +33,6 @@ def initialize_website():
     # Copy MkDocs yaml file and home page file
     shutil.copyfile(f'{resources_dir}/base-mkdocs.yml', f'{gn_dir}/mkdocs.yml')
     shutil.copyfile(f'{resources_dir}/homepage.md', f'{gn_docs_dir}/index.md')
-    
-# Create label for metadata dib
-def md_label(label):
-    classes = 'md-label'
-    value = label
-    if ':' in label:
-        label_info = label.split(':', 1)
-        classes += f' label-{label_info[0]}'
-        value = label_info[1]
-    return f'<span class="{classes}">{value}</span>'
 
 # Create metadata div for template page
 def template_page_metadata(metadata, category, template):
@@ -91,7 +81,7 @@ def template_page_metadata(metadata, category, template):
         contents += '<div class=md-cell-title>Labels</div>'
         contents += '<div class=md-cell-content id=md-labels>'
         for label in metadata['labels']:
-            contents += md_label(label)
+            contents += f'<span class="md-label">{label}</span>'
         contents += '</div>'
         contents += '</div>'
     contents += '</div>'
