@@ -1,4 +1,4 @@
-# Cancer classfier Serve (MLFlow example)
+# Cancer classifier Serve (MLFlow example)
 
 This function demonstrates how to serve a trained model using Scikit-learn with the DigitalHub SDK. The function will deploy a model as a REST API service.
 

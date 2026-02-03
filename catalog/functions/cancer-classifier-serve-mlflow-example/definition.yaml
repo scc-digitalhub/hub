@@ -1,9 +1,8 @@
-
 kind: sklearnserve
 metadata:
-  name: Example Cancer Classifier Serve With MLFLow (Python Serve)
+  name: Example Cancer classifier Serve (Sklearn Serve)
   version: 1.0.0
-  description: Cancer Classifier Serving With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
+  description: Cancer Classifier Sklearn Serve With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
