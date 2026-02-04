@@ -61,10 +61,10 @@ run = function.run(action="job", inputs={"di": di.key}, wait=True)
 # Retrieve validation report
 report = run.output("report")
 ```
-```
 
 
 ### Access the data
+```
 report = proj.get_artifact("my-table-report.json")
 ```
 
