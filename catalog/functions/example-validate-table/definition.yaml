@@ -1,0 +1,24 @@
+kind: python
+metadata:
+  name: Example Validate Table (Python Job)
+  version: 1.0.0
+  description: "A simple example function that downloads a CSV file from a given URL, validate its content, and loads the report into a specified output table."
+  labels: # key-value pairs to classify the function
+    - "license:apache-2.0"
+    - "domain:tabular"
+    - "platform:0.14"
+    - "type:job"
+    - "phase:data-preparation"
+name: example-validate-table
+spec:
+  python_version: PYTHON3_10
+  requirements:
+    - frictionless
+    - frictionless[parquet] 
+  source:
+    base64: aW1wb3J0IGRpZ2l0YWxodWIgYXMgZGgKZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCmZyb20gZnJpY3Rpb25sZXNzIGltcG9ydCBDaGVja2xpc3QsIHZhbGlkYXRlCmltcG9ydCBvcwoKQGhhbmRsZXIob3V0cHV0cz1bInJlcG9ydCJdKQpkZWYgbWFpbihwcm9qZWN0LCBkaSk6CiAgICAjIGRvd25sb2FkIGFzIGxvY2FsIGZpbGUKICAgIHBhdGggPSBkaS5kb3dubG9hZChvdmVyd3JpdGU9VHJ1ZSkKICAgICMgdmFsaWRhdGUKICAgIHJlcG9ydCA9IHZhbGlkYXRlKHBhdGgpCiAgICAjIHVwZGF0ZSBhcnRpZmFjdCB3aXRoIGxhYmVsICAgIAogICAgbGFiZWwgPSAiVkFMSUQiIGlmIHJlcG9ydC52YWxpZCBlbHNlICJJTlZBTElEIgogICAgZGkubWV0YWRhdGEubGFiZWxzID0gZGkubWV0YWRhdGEubGFiZWxzLmFwcGVuZChsYWJlbCkgaWYgZGkubWV0YWRhdGEubGFiZWxzIGVsc2UgW2xhYmVsXQogICAgZGkuc2F2ZSh1cGRhdGU9VHJ1ZSkgICAgCiAgICAjY2xlYW51cAogICAgb3MucmVtb3ZlKHBhdGgpIAoKICAgIHdpdGggb3BlbigicmVwb3J0Lmpzb24iLCAidyIpIGFzIGY6CiAgICAgIGYud3JpdGUocmVwb3J0LnRvX2pzb24oKSkKCiAgICBwcm9qZWN0LmxvZ19hcnRpZmFjdChraW5kPSJhcnRpZmFjdCIsIG5hbWU9ZiJ7ZGkubmFtZX1fdmFsaWRhdGlvbi1yZXBvcnQuanNvbiIsIHNvdXJjZT0icmVwb3J0Lmpzb24iKQogICAgICAgIAogICAgIyBwZXJzaXN0IHJlcG9ydAogICAgcmV0dXJuIHJlcG9ydC50b19qc29uKCk=
+    lang: python
+---
+kind: "python+job"
+spec: 
+  template:    
