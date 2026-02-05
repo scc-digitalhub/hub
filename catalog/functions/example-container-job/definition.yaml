@@ -1,0 +1,17 @@
+kind: python
+metadata:
+  name: Example Container Job (Python Job)
+  version: 1.0.0
+  description: "A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for building custom container jobs within the platform."
+  labels: # key-value pairs to classify the function
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:job"
+    - "phase:utility"
+name: example-container-job
+spec:
+  image: hello-world:latest  
+---
+kind: "python+job"
+spec: 
+  template:    
