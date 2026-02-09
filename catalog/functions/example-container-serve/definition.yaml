@@ -1,0 +1,23 @@
+kind: python
+metadata:
+  name: Example Container Serve (Python Serve)
+  version: 1.0.0
+  description: "A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for serving containerized functions within the platform."
+  labels: # key-value pairs to classify the function
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "phase:utility"
+name: example-container-serve
+spec:
+  image: hashicorp/http-echo:latest
+---
+kind: python+serve
+spec:
+  service_ports:
+    - port: 5678
+    - target_port: 5678
+  service_type: ClusterIP
+  service_name: http-echo
+  replicas: 2
+  run_as_user: 8877
