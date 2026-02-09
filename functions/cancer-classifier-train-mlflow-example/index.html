@@ -47,11 +47,13 @@
     
       <link rel="stylesheet" href="../../stylesheets/colors.css">
     
+      <link rel="stylesheet" href="../../stylesheets/overrides.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/search.css">
+    
       <link rel="stylesheet" href="../../stylesheets/template-metadata.css">
     
       <link rel="stylesheet" href="../../stylesheets/template-page.css">
-    
-      <link rel="stylesheet" href="../../stylesheets/overrides.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cancer-classfier-training-mlflow-example" class="md-skip">
+        <a href="#cancer-classifier-training-mlflow-example" class="md-skip">
           Skip to content
         </a>
       
@@ -463,14 +465,6 @@
           
             <div class="md-content" data-md-component="content">
               
-                
-
-
-
-  
-
-
-              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -505,7 +499,7 @@
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="cancer-classfier-training-mlflow-example">Cancer classfier Training (MLFlow example)</h1>
+<h1 id="cancer-classifier-training-mlflow-example">Cancer classifier Training (MLFlow example)</h1>
 <p>This function demonstrates a minimal example of a how to train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework..</p>
 <h2 id="definition">Definition</h2>
 <div class="highlight"><pre><span></span><code>from digitalhub_runtime_python import handler
@@ -545,7 +539,7 @@ def train(project):
 <li>How to save the trained model in project.</li>
 </ul>
 <p>The function 'mlflow-train-model' is registered inside to the platform core durig the import and it can be fetched and executed</p>
-<div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classfier-train-mlflow-example&quot;) 
+<div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classifier-train-mlflow-example&quot;) 
 </code></pre></div>
 <p>This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.</p>
 <p>Then, the function can be executed on the digital hub platform or (locally) as a single job.</p>
@@ -8435,7 +8429,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">func_mlflow_train_model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"cancer-classfier-train-mlflow-example"</span><span class="p">)</span> 
+<pre><span></span><span class="n">func_mlflow_train_model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"cancer-classifier-train-mlflow-example"</span><span class="p">)</span> 
 </pre>
 </div>
 </div>
@@ -8672,7 +8666,7 @@ a.anchor-link {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.path", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

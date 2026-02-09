@@ -19,7 +19,7 @@
     
     
       
-        <title>Example etl - DH Hub</title>
+        <title>Example container serve - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract-transform-load-function" class="md-skip">
+        <a href="#container-function" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example etl
+              Example container serve
             
           </span>
         </div>
@@ -441,45 +441,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fetching-the-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fetching the Function
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-the-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run the function
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-the-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access the data
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -487,17 +448,6 @@
     <span class="md-ellipsis">
       
         1. Initialize the project¶
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#Data-Source-Setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Source Setup¶
       
     </span>
   </a>
@@ -532,20 +482,20 @@
 
 
 
-<div id="template-title">Example ETL (Python Job)</div>
+<div id="template-title">Example Container Serve (Python Serve)</div>
 <div id="template-content">
 <div id="template-metadata">
-<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-etl">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-etl/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-etl:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
+<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-container-serve/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-container-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
 <div id="template-metadata-left">
 <div class="md-cell">
 <div class="md-cell-title">Name</div>
-<div class="md-cell-content" id="md-name">Example ETL (Python Job)</div>
+<div class="md-cell-content" id="md-name">Example Container Serve (Python Serve)</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Description</div>
-<div class="md-cell-content" id="md-description">A simple extract transform load (ETL) procedure in Python that downloads a csv file and then returns the result as a dataframe that is stored in the project repository as table(data-item).</div>
+<div class="md-cell-content" id="md-description">A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for serving containerized functions within the platform.</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Version</div>
@@ -553,53 +503,49 @@
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Labels</div>
-<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">domain:tabular</span><span class="md-label">platform:0.14</span><span class="md-label">type:job</span><span class="md-label">phase:data-preparation</span></div>
+<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div>
 </div>
 </div>
 </div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="extract-transform-load-function">Extract Transform Load Function</h1>
-<p>This function demonstrates how to create an extract transform load procedure that downloads a CSV file from a remote URL, processes it using pandas, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your digitalhub project environment.</p>
+<h1 id="container-function">Container Function</h1>
+<p>The DigitalHub Platform  Container runtime enables launching services on Kubernetes. It registers function kind 'container' and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to serve a 'job' that can be run in a containerized environment using predefined base images. The function act as a template for serving custom container within the platform. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
 <h2 id="features">Features</h2>
 <ul>
-<li>Downloads CSV data from remote URLs</li>
-<li>Processes data using pandas DataFrame operations</li>
-<li>Automatically stores results as dataitems in your project</li>
-<li>Demonstrates basic ETL pattern for data ingestion</li>
-<li>Supports integration with digitalhub runtime environment</li>
+<li><strong>Kubernetes-based deployment</strong>: Run containerized workloads on Kubernetes infrastructure</li>
+<li><strong>Service hosting</strong>: Deploy and serve applications using the <code>serve</code> action</li>
+<li><strong>Customizable configuration</strong>: Configure replicas, service ports, and service names</li>
+<li><strong>Security-first</strong>: Runs as non-root user (fs_group='8877') following best practices</li>
+<li><strong>Pre-built image support</strong>: Use existing container images like <code>hashicorp/http-echo</code></li>
+<li><strong>Flexible port mapping</strong>: Configure both internal and external port mappings for network access</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># function.py</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 
-<span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;world-cities&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">download_and_process</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
-</code></pre></div>
-<h2 id="usage">Usage</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create the function</span>
+<span class="c1"># Initialize project</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create function</span>
 <span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;example-etl&quot;</span><span class="p">,</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="n">source</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;function.py&quot;</span><span class="p">,</span> <span class="s2">&quot;handler&quot;</span><span class="p">:</span> <span class="s2">&quot;download_and_process&quot;</span><span class="p">},</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_container_function_serve&quot;</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hashicorp/http-echo:latest&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-<h3 id="fetching-the-function">Fetching the Function</h3>
-<p>To use an existing ETL transform function as in this example, retrieve it from the project context.</p>
-<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;example-etl&quot;</span><span class="p">)</span>
+<h2 id="usage">Usage</h2>
+<p>The <code>serve</code> action starts a web server to host and serve your application or content. It accepts parameters to configure the deployment including the number of replicas, service ports for network access, a custom service name. The <code>port</code> is the external port exposed by the Kubernetes service for external access for incoming traffic to service, while <code>target_port</code> is the internal port where the container application is listening for requests i.e port numer where traffic routed to pod.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run the container function as a job</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
+    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
+    <span class="n">service_name</span><span class="o">=</span><span class="s2">&quot;http-echo&quot;</span><span class="p">,</span>
+    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">&quot;8877&quot;</span><span class="p">,</span>
+    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>
-<h3 id="run-the-function">Run the function</h3>
-<p>URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
-run = function.run(action="job", parameters={"url": URL, "output_table": "world-cities"}, wait=True)</p>
-<h3 id="access-the-data">Access the data</h3>
-<p>dataset_di = proj.get_dataitem("world-cities")
-dataset_di.as_df().head()
-```</p>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
@@ -8452,41 +8398,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=289ee237">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Data-Source-Setup">Data Source Setup<a class="anchor-link" href="#Data-Source-Setup">¶</a></h2><p>We'll create a data item that points to world cities database. # The world cities database contains the following columns:</p>
-<ul>
-<li>name: Name of the city</li>
-<li>country: Country where the city is located</li>
-<li>subcountry: Subdivision (state/province/region) of the country</li>
-<li>geonameid: Unique identifier for the city in the GeoNames database</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0df8d415">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3">
-<pre><span></span><span class="n">URL</span><span class="o">=</span><span class="s2">"https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8508,12 +8419,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "example-etc" operation in the project.</p>
+<p>Fetch the "example-container-serve" operation in the project.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8522,7 +8432,41 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function_etl</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-etl"</span><span class="p">)</span> 
+<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-container-serve"</span><span class="p">)</span> 
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b081d826">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Alternatively, one can create new function</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a7363efd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"my_container_function_serve"</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="s2">"hashicorp/http-echo:latest"</span><span class="p">,</span>
+<span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8552,7 +8496,14 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_etl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"url"</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="s2">"output_table"</span><span class="p">:</span> <span class="s2">"world-cities"</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
+    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
+    <span class="n">service_name</span><span class="o">=</span><span class="s2">"http-echo"</span><span class="p">,</span>
+    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
+    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8571,18 +8522,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7de32eda">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=724cf24d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let's examine the raw data we just downloaded:</p>
+<p>To invoke the deployed service, use the <code>invoke()</code> method on the run object. This sends a request to the running container and returns the response. You can inspect the output by printing the response text.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7bef5d60">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=592a62ae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8590,8 +8541,23 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset_di</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_dataitem</span><span class="p">(</span><span class="s2">"world-cities"</span><span class="p">)</span>
-<span class="n">dataset_di</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f758f1a7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
 </pre></div>
 </div>
 </div>

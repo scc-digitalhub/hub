@@ -19,7 +19,7 @@
     
     
       
-        <title>Example etl - DH Hub</title>
+        <title>Example hello world - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extract-transform-load-function" class="md-skip">
+        <a href="#hello-world" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example etl
+              Example hello world
             
           </span>
         </div>
@@ -411,17 +411,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#definition" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -441,45 +430,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fetching-the-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fetching the Function
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-the-function" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run the function
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#access-the-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Access the data
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -494,21 +444,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#Data-Source-Setup" class="md-nav__link">
+  <a href="#2.-Execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Data Source Setup¶
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3.-Execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Execution¶
+        2. Execution¶
       
     </span>
   </a>
@@ -532,20 +471,20 @@
 
 
 
-<div id="template-title">Example ETL (Python Job)</div>
+<div id="template-title">Example Hello World (Python Job)</div>
 <div id="template-content">
 <div id="template-metadata">
-<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-etl">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-etl/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-etl:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
+<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-hello-world">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-hello-world/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-hello-world:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
 <div id="template-metadata-left">
 <div class="md-cell">
 <div class="md-cell-title">Name</div>
-<div class="md-cell-content" id="md-name">Example ETL (Python Job)</div>
+<div class="md-cell-content" id="md-name">Example Hello World (Python Job)</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Description</div>
-<div class="md-cell-content" id="md-description">A simple extract transform load (ETL) procedure in Python that downloads a csv file and then returns the result as a dataframe that is stored in the project repository as table(data-item).</div>
+<div class="md-cell-content" id="md-description">Hello world with python: write a string to stdout</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Version</div>
@@ -553,53 +492,31 @@
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Labels</div>
-<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">domain:tabular</span><span class="md-label">platform:0.14</span><span class="md-label">type:job</span><span class="md-label">phase:data-preparation</span></div>
+<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:job</span><span class="md-label">phase:utility</span></div>
 </div>
 </div>
 </div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="extract-transform-load-function">Extract Transform Load Function</h1>
-<p>This function demonstrates how to create an extract transform load procedure that downloads a CSV file from a remote URL, processes it using pandas, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your digitalhub project environment.</p>
-<h2 id="features">Features</h2>
-<ul>
-<li>Downloads CSV data from remote URLs</li>
-<li>Processes data using pandas DataFrame operations</li>
-<li>Automatically stores results as dataitems in your project</li>
-<li>Demonstrates basic ETL pattern for data ingestion</li>
-<li>Supports integration with digitalhub runtime environment</li>
-</ul>
+<h1 id="hello-world">Hello world</h1>
+<p>This function demonstrates a minimal example of a function whose sole purpose is to print the classic phrase “Hello, World!” in python. This type of function is traditionally used as an introductory exercise, as it demonstrates the most fundamental structure of a program: outputting text.</p>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># function.py</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">digitalhub_runtime_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">handler</span>
-
-<span class="nd">@handler</span><span class="p">(</span><span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;world-cities&quot;</span><span class="p">])</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">download_and_process</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
+<div class="highlight"><pre><span></span><code>def main(param):
+    print(f&quot;Hello {param}&quot;)
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create the function</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;example-etl&quot;</span><span class="p">,</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="n">source</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;function.py&quot;</span><span class="p">,</span> <span class="s2">&quot;handler&quot;</span><span class="p">:</span> <span class="s2">&quot;download_and_process&quot;</span><span class="p">},</span>
-<span class="p">)</span>
+<p>The function demonstrates:</p>
+<p>Basic syntax of a python script used inside to the platform. It demonstrates
+- How to define a function that takes a parameter.
+- How to output Hello {parameter} message to the screen</p>
+<p>The function 'hello-world' is registered inside to the platform core durig the import and it can be fetched and executed</p>
+<div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;hello-world&quot;,
+                            kind=&quot;python&quot;,
+                            python_version=&quot;PYTHON3_10&quot;) 
 </code></pre></div>
-<h3 id="fetching-the-function">Fetching the Function</h3>
-<p>To use an existing ETL transform function as in this example, retrieve it from the project context.</p>
-<div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;example-etl&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="run-the-function">Run the function</h3>
-<p>URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
-run = function.run(action="job", parameters={"url": URL, "output_table": "world-cities"}, wait=True)</p>
-<h3 id="access-the-data">Access the data</h3>
-<p>dataset_di = proj.get_dataitem("world-cities")
-dataset_di.as_df().head()
-```</p>
+<p>This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.</p>
+<p>Then, the function can be executed on the digital hub platform or (locally) as a single job.</p>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
@@ -8452,41 +8369,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=289ee237">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Data-Source-Setup">Data Source Setup<a class="anchor-link" href="#Data-Source-Setup">¶</a></h2><p>We'll create a data item that points to world cities database. # The world cities database contains the following columns:</p>
-<ul>
-<li>name: Name of the city</li>
-<li>country: Country where the city is located</li>
-<li>subcountry: Subdivision (state/province/region) of the country</li>
-<li>geonameid: Unique identifier for the city in the GeoNames database</li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0df8d415">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3">
-<pre><span></span><span class="n">URL</span><span class="o">=</span><span class="s2">"https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8495,7 +8377,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
+<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8508,12 +8390,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "example-etc" operation in the project.</p>
+<p>Fetch the "hello-world" operation in the project.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8522,7 +8403,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function_etl</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-etl"</span><span class="p">)</span> 
+<pre><span></span><span class="n">function_hello</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"hello-world"</span><span class="p">)</span> 
 </pre>
 </div>
 </div>
@@ -8530,7 +8411,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3510f84a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8538,12 +8419,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We can now run the function and see the results. To do this we use the run method of the function.</p>
+<p>Then, execute the function (locally) as specified with (local_execution=True) flag. This will execute the function as a single job in the local context. Without the local_execution flag the job will get executed on the platform. For more details about how to create, run, and view jobs inside to the digital hub platform see the <a href="https://scc-digitalhub.github.io/docs/0.14/runtimes/python/">documentation </a></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ad829fbf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8552,9 +8433,80 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function_etl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"url"</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="s2">"output_table"</span><span class="p">:</span> <span class="s2">"world-cities"</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<pre><span></span><span class="n">function_hello</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'job'</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"param"</span><span class="p">:</span> <span class="s2">"World"</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">local_execution</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>As a result the 'hello world' message is logged.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b7181c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now, we can run the same function as a job in the platform by removing the 'local_execution' flag.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=99268427">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">function_run</span> <span class="o">=</span> <span class="n">function_hello</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'job'</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"param"</span><span class="p">:</span> <span class="s2">"World"</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a2de9bc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The logs of platform execution can be viewed running the cell below.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c69f0911">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<span class="n">logs</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">function_run</span><span class="o">.</span><span class="n">logs</span><span class="p">()[</span><span class="mi">1</span><span class="p">][</span><span class="s1">'content'</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">logs</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -8566,34 +8518,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Wait for job to finish. Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7de32eda">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let's examine the raw data we just downloaded:</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7bef5d60">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">dataset_di</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_dataitem</span><span class="p">(</span><span class="s2">"world-cities"</span><span class="p">)</span>
-<span class="n">dataset_di</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
 </div>
 </div>
 </div>

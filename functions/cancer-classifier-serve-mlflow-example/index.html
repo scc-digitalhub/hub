@@ -47,11 +47,13 @@
     
       <link rel="stylesheet" href="../../stylesheets/colors.css">
     
+      <link rel="stylesheet" href="../../stylesheets/overrides.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/search.css">
+    
       <link rel="stylesheet" href="../../stylesheets/template-metadata.css">
     
       <link rel="stylesheet" href="../../stylesheets/template-page.css">
-    
-      <link rel="stylesheet" href="../../stylesheets/overrides.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cancer-classfier-serve-mlflow-example" class="md-skip">
+        <a href="#cancer-classifier-serve-mlflow-example" class="md-skip">
           Skip to content
         </a>
       
@@ -513,21 +515,13 @@
           
             <div class="md-content" data-md-component="content">
               
-                
-
-
-
-  
-
-
-              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
 
-<div id="template-title">Example Cancer Classifier Serve With MLFLow (Python Serve)</div>
+<div id="template-title">Example Cancer classifier Serve (Sklearn Serve)</div>
 <div id="template-content">
 <div id="template-metadata">
 <div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-serve-mlflow-example">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/cancer-classifier-serve-mlflow-example/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/cancer-classifier-serve-mlflow-example:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
@@ -536,11 +530,11 @@
 <div id="template-metadata-left">
 <div class="md-cell">
 <div class="md-cell-title">Name</div>
-<div class="md-cell-content" id="md-name">Example Cancer Classifier Serve With MLFLow (Python Serve)</div>
+<div class="md-cell-content" id="md-name">Example Cancer classifier Serve (Sklearn Serve)</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Description</div>
-<div class="md-cell-content" id="md-description">Cancer Classifier Serving With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.</div>
+<div class="md-cell-content" id="md-description">Cancer Classifier Sklearn Serve With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Version</div>
@@ -555,7 +549,7 @@
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="cancer-classfier-serve-mlflow-example">Cancer classfier Serve (MLFlow example)</h1>
+<h1 id="cancer-classifier-serve-mlflow-example">Cancer classifier Serve (MLFlow example)</h1>
 <p>This function demonstrates how to serve a trained model using Scikit-learn with the DigitalHub SDK. The function will deploy a model as a REST API service.</p>
 <h2 id="definition">Definition</h2>
 <p><div class="highlight"><pre><span></span><code>serve_func = project.new_function(
@@ -8666,7 +8660,7 @@ a.anchor-link {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.path", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

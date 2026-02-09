@@ -194,6 +194,15 @@
   .md-typeset summary::before {
     content: none !important;
   }
+  
+  .category {
+    margin-left: 8px;
+    font-size: 13px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid var(--md-default-fg-color--lighter);
+  }
+  
   .version-badge {
     margin-left: 8px;
     font-family: monospace;
