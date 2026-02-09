@@ -1,5 +1,21 @@
+<div markdown="1">
 # Home
 
-This is a catalog for the platform, where you can browse templates for its resources and find instructions and examples on how to use them.
+This is the catalog for [the platform](https://scc-digitalhub.github.io/docs/), where you can browse all templates.
+<br/><br/>
+</div>
 
-To know more about the platform and its features, please visit the [official documentation](https://scc-digitalhub.github.io/docs/).
+<div class="search-layout">
+  <div id="sidebar">
+    <input id="search" placeholder="Search by name or description">
+    <div id="filterGroups"></div>
+  </div>
+
+  <div id="content">
+    <div id="activeFilters"></div>
+    <div id="results"></div>
+  </div>
+</div>
+
+<!-- JS -->
+<script type="module" src="./javascripts/search.js"></script>

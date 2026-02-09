@@ -93,7 +93,7 @@ def template_page_metadata(metadata, category, template):
 def template_usage(title, usage_path):
     content = '<div class="template-info-tab" id="template-usage" markdown="1">'
     if os.path.isfile(usage_path):
-        with open(usage_path, 'r') as usage_file:
+        with open(usage_path, 'r', encoding='utf-8') as usage_file:
             usage = usage_file.read()
         content += usage
     else:
@@ -105,7 +105,7 @@ def template_usage(title, usage_path):
 def template_notebook(notebook_path):
     content = '<div class="template-info-tab" id="template-notebook">'
     content += '<div>'
-    with open(notebook_path, 'r') as notebook_file:
+    with open(notebook_path, 'r', encoding='utf-8') as notebook_file:
         notebook_lines = notebook_file.readlines()
         notebook_content = ''.join(notebook_lines[6:-1])
         notebook_content = notebook_content.replace('<main>', '')
@@ -118,7 +118,7 @@ def main():
 
     # Generate pages based on catalog directory
     structure = {}
-    with open(f'{gn_dir}/mkdocs.yml', 'a') as mkdocs_file:
+    with open(f'{gn_dir}/mkdocs.yml', 'a', encoding='utf-8') as mkdocs_file:
         mkdocs_file.write('  - Catalogs:\n')
 
         categories = os.listdir(templates_dir)
@@ -142,7 +142,7 @@ def main():
                     # Ensure template has a definition file before proceeding
                     definition_path = f'{templates_dir}/{c}/{t}/{definition_filename}'
                     if os.path.isfile(definition_path):
-                        with open(definition_path, 'r') as definition_file:
+                        with open(definition_path, 'r', encoding='utf-8') as definition_file:
                             definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
 
                         # Entry for JSON structure file
@@ -157,7 +157,7 @@ def main():
                         if 'metadata' in definition and 'name' in definition['metadata']:
                             template_title = definition['metadata']['name']
 
-                        with open(template_path, 'w') as template_file:
+                        with open(template_path, 'w', encoding='utf-8') as template_file:
                             template_file.write(f'<div id="template-title">{template_title}</div>')
 
                             template_file.write('<div id="template-content" markdown="1">')
@@ -191,7 +191,7 @@ def main():
                             template_file.write('</div>')
 
     # Write JSON structure to file
-    with open(f'{gn_docs_dir}/{generated_json}', 'w') as json_file:
+    with open(f'{gn_docs_dir}/{generated_json}', 'w', encoding='utf-8') as json_file:
         json.dump(structure, json_file, indent=4, default=str)
 
 if __name__ == "__main__":

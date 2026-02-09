@@ -7,6 +7,7 @@ const activeFiltersEl = document.getElementById("activeFilters");
 
 let allData = [];
 let selectedLabels = {};
+let indexPage = false;
 
 init();
 
@@ -15,22 +16,59 @@ async function init() {
   const json = await res.json();
 
   const path = location.pathname;
-  const secondLastIndex = path.lastIndexOf('/', path.lastIndexOf('/')-1)
+  const secondLastIndex = path.lastIndexOf('/', path.lastIndexOf('/')-1);
   const key = path.substring(secondLastIndex+1, path.lastIndexOf("/"));
-  console.log(key)
-
-  allData = json[key] || [];
+  
+  if (path === "/" || path === "/hub/") {
+    indexPage = true
+  }
+  
+  allData = indexPage ? mergeAllCategories(json) : json[key] || [];
   buildFilters(allData);
   updateResults();
 }
 
-function buildFilters(data) {
-  const groups = getLabelGroups(data);
+function mergeAllCategories(json) {
+  let allData = [];
 
-  Object.entries(groups).forEach(([group, values]) => {
+  for (const [category, templatesArray] of Object.entries(json)) {
+    for (const template of templatesArray) {
+      template["category"] = category;
+      template.metadata.labels.push("category:" + category);
+      allData.push(template);
+    }
+  }
+  
+  return allData;
+}
+
+function buildFilters(data) {
+  const groups = getLabelGroups(data)
+  
+  const groupsArray = Object.keys(groups).map(key => ({
+    group: key,
+    values: groups[key]
+  }));
+  
+  groupsArray.sort(function(x, y) {
+    if (x["group"] == "category") {
+      return -1;
+    }
+	if (y["group"] == "category") {
+      return 1;
+    }
+    return x["group"].localeCompare(y["group"]);
+  });
+
+  groupsArray.forEach(f => {
+	const group = f["group"];
+	const values = f["values"];
+	
     const details = document.createElement("details");
     details.className = "filter-group";
-    details.open = true;
+    if (!indexPage) {
+      details.open = true;
+    }
 
     details.innerHTML = `<summary>${group}</summary>`;
 
@@ -104,12 +142,13 @@ function renderResults(results) {
   resultsEl.innerHTML = results.map(fn => `
     <div class="result-card">
       <a href="${fn.path}">${fn.metadata.name}</a>
+	  ${indexPage ? `<span class="category">${fn.category}</span>` : ""}
       ${fn.metadata.version ? `<span class="version-badge">v${fn.metadata.version}</span>` : ""}
       <div class="subtitle">${fn.name}</div>
       <p>${fn.metadata.description}</p>
       ${fn.metadata.labels.map(l => {
         const [k, v] = l.split(":");
-        return `<span class="chip ${selectedLabels[k]?.includes(v) ? "match" : ""}">${v}</span>`;
+        return k === "category" ? "" : `<span class="chip ${selectedLabels[k]?.includes(v) ? "match" : ""}">${v}</span>`;
       }).join("")}
     </div>
   `).join("");
