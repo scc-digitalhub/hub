@@ -25,7 +25,7 @@ async function init() {
 	  dataPath = "." + dataPath;
   }
   
-  const res = await fetch("../data.json");
+  const res = await fetch(dataPath);
   const json = await res.json();
   
   allData = indexPage ? mergeAllCategories(json) : json[key] || [];
