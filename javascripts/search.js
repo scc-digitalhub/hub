@@ -12,9 +12,6 @@ let indexPage = false;
 init();
 
 async function init() {
-  const res = await fetch("../data.json");
-  const json = await res.json();
-
   const path = location.pathname;
   const secondLastIndex = path.lastIndexOf('/', path.lastIndexOf('/')-1);
   const key = path.substring(secondLastIndex+1, path.lastIndexOf("/"));
@@ -22,6 +19,14 @@ async function init() {
   if (path === "/" || path === "/hub/") {
     indexPage = true
   }
+  
+  let dataPath = "./data.json";
+  if (!indexPage) {
+	  dataPath = "." + dataPath;
+  }
+  
+  const res = await fetch("../data.json");
+  const json = await res.json();
   
   allData = indexPage ? mergeAllCategories(json) : json[key] || [];
   buildFilters(allData);
