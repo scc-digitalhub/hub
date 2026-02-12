@@ -1,0 +1,30 @@
+
+kind: kubeai-text
+metadata:
+  name: LLM Ollama Serve Example (Python Serve)
+  version: 1.0.0
+  description: LLM Ollama Serve Example. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "phase:model-serving"
+    - "inference:openai"
+name: llm-ollama-serve
+python_version: PYTHON3_10
+spec:
+  features:
+    - TextGeneration
+  model_name: khurshid-model
+  engine: OLlama
+  url: ollama://llama3.2:1b
+---
+kind: kubeai-text+serve:run
+spec:
+  scaling:
+    replicas: 1
+    min_replicas: 1
+    autoscaling_disabled: false
+    target_requests: 100
+    scale_down_delay_seconds: 30
+  
