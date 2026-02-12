@@ -1,7 +1,7 @@
 
 kind: kubeai-text
 metadata:
-  name: LLM Ollama Serve Example (Python Serve)
+  name: LLM Ollama Serve Example (Kubeai-Text Serve)
   version: 1.0.0
   description: LLM Ollama Serve Example. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
