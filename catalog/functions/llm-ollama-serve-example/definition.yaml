@@ -15,7 +15,7 @@ python_version: PYTHON3_10
 spec:
   features:
     - TextGeneration
-  model_name: khurshid-model
+  model_name: model
   engine: OLlama
   url: ollama://llama3.2:1b
 ---
