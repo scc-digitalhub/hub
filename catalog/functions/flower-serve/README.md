@@ -50,6 +50,4 @@ To utilize the `flower-serve` function, follow these steps:
 
 Notes: For detailed usage, check the usage notebook. 
 
-## Client Usage
-
 In order to use the server with clients, please refer to the [flower-client](https://scc-digitalhub.github.io/hub/functions/flower-client) function in the hub. This section provides detailed instructions on how to configure and connect client nodes.
