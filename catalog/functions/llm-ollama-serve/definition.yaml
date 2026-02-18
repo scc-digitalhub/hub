@@ -1,9 +1,9 @@
 
 kind: kubeai-text
 metadata:
-  name: LLM Ollama Serve Example (Kubeai-Text Serve)
+  name: LLM Ollama Serve (Kubeai-Text Serve)
   version: 1.0.0
-  description: LLM Ollama Serve Example. This function demonstrates how to deploy and interact with the Llama 3.2 model using Ollama inside the DigitalHub platform.
+  description: LLM Ollama Serve. This function demonstrates how to deploy and interact with the Llama 3.2 model using Ollama inside the DigitalHub platform.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
