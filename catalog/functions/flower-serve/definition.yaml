@@ -1,0 +1,21 @@
+
+kind: flower-server
+metadata:
+  name: Flower Serve (flower-server)
+  version: 1.0.0
+  description: This function demonstrates how to deploy and interact with the Flower framework inside the DigitalHub platform.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "inference:openai"
+    # - "framework:flower"
+name: flower-serve
+python_version: PYTHON3_10
+spec:
+  requirements:
+    - pandas==2.2.3
+    - flwr-datasets[vision]==0.5.0
+---
+kind: flower-server+deploy:run
+spec:
