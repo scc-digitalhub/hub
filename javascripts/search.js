@@ -146,7 +146,7 @@ function renderResults(results) {
 
   resultsEl.innerHTML = results.map(fn => `
     <div class="result-card">
-      <a href="${fn.path}">${fn.metadata.name}</a>
+      <a href="${fn.category != undefined ? fn.category + "/" : ""}${fn.path}">${fn.metadata.name}</a>
 	  ${indexPage ? `<span class="category">${fn.category}</span>` : ""}
       ${fn.metadata.version ? `<span class="version-badge">v${fn.metadata.version}</span>` : ""}
       <div class="subtitle">${fn.name}</div>

@@ -19,7 +19,7 @@
     
     
       
-        <title>Echo service - DH Hub</title>
+        <title>Llm ollama serve - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#echoservice" class="md-skip">
+        <a href="#llm-ollama-serve" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Echo service
+              Llm ollama serve
             
           </span>
         </div>
@@ -411,6 +411,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#definition" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -429,45 +440,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#start-the-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start the service
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-a-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send a request
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -510,20 +482,20 @@
 
 
 
-<div id="template-title">Example Echo Service (Python Serve)</div>
+<div id="template-title">LLM Ollama Serve (Kubeai-Text Serve)</div>
 <div id="template-content">
 <div id="template-metadata">
-<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/echo-service">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/echo-service/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/echo-service:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
+<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-ollama-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-ollama-serve/definition.yaml">Definition</a><div class="md-cell-right" id="hub-ref"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-ollama-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
 <div id="template-metadata-left">
 <div class="md-cell">
 <div class="md-cell-title">Name</div>
-<div class="md-cell-content" id="md-name">Example Echo Service (Python Serve)</div>
+<div class="md-cell-content" id="md-name">LLM Ollama Serve (Kubeai-Text Serve)</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Description</div>
-<div class="md-cell-content" id="md-description">A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.</div>
+<div class="md-cell-content" id="md-description">LLM Ollama Serve. This function demonstrates how to deploy and interact with the Llama 3.2 model using Ollama inside the DigitalHub platform.</div>
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Version</div>
@@ -531,57 +503,58 @@
 </div>
 <div class="md-cell">
 <div class="md-cell-title">Labels</div>
-<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div>
+<div class="md-cell-content" id="md-labels"><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:model-serving</span><span class="md-label">inference:openai</span></div>
 </div>
 </div>
 </div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="echoservice">echoservice</h1>
-<p>echoservice is a simple Python service that demonstrates how a simple Python function can be operationalizes as a service based on serverless container runtime feature. The service is exposed as an API responding to POST message with the text input and returns the same text back — an echo.</p>
-<h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>import json
-
-def init(context):
-    print(&quot;some initialization function&quot;)
-    setattr(context, &quot;value&quot;, &quot;some value&quot;)
-
-def serve(context, event):
-
-    if isinstance(event.body, bytes):
-        body = json.loads(event.body)
-    else:
-        body = event.body
-    context.logger.info(f&quot;Received event: {body}&quot;)
-    text = body[&quot;text&quot;]
-
-    return {&quot;result&quot;: f&quot;hello {text} from &#39;{context.value}&#39;&quot;}
-</code></pre></div>
-<p>The init(context) method is responsible for initializing the function’s execution context.</p>
-<p>The serve(context, event) method contains the core functionality of the service, including the incoming request handling and execution logic.</p>
-<h2 id="usage">Usage</h2>
-<p>The function demonstrates:</p>
+<h1 id="llm-ollama-serve">LLM OLLAMA Serve</h1>
+<p>This function demonstrates how to deploy and interact with the LLM model by sending a prompt and receiving a generated response inside the digitalhub platform. The function connects to the Ollama runtime, specifies the llama3.2 model, submits user input, and returns the model’s output, illustrating how applications can integrate local LLM intelligence for secure and efficient AI-powered features.</p>
+<h2 id="features">Features</h2>
+<p>The <code>llm-ollama-serve</code> function includes the following features:</p>
 <ul>
-<li>How to define a simple serverless python function</li>
-<li>How to expose the underlying function as an API</li>
-<li>How to initialize runtime service context</li>
-<li>How to generate and return output</li>
-<li>How to call the function</li>
+<li><strong>Text Generation</strong>: Generates human-like text based on the provided prompt.</li>
+<li><strong>Model Customization</strong>: Allows users to specify different models for varied outputs.</li>
+<li><strong>Real-time Interaction</strong>: Supports real-time requests and responses for dynamic applications.</li>
+<li><strong>Integration Ready</strong>: Easily integrates with existing applications and workflows.</li>
+<li><strong>Secure Execution</strong>: Runs within the digitalhub platform for enhanced security.</li>
 </ul>
-<h3 id="start-the-service">Start the service</h3>
-<div class="highlight"><pre><span></span><code>serve_run = function_echoservice.run(action=&#39;serve&#39;, wait=True)
+<h2 id="definition">Definition</h2>
+<div class="highlight"><pre><span></span><code>llm_OLlama_func = project.new_function(
+    name=&quot;llm-ollama-serve&quot;,
+    kind=&quot;kubeai-text&quot;,
+    model_name=&quot;llm-ollama-model&quot;,
+    url=&quot;ollama://llama3.2:1b&quot;,
+    engine=&#39;OLlama&#39;,
+    features=[&#39;TextGeneration&#39;]
+)
 </code></pre></div>
-<h3 id="send-a-request">Send a request</h3>
-<div class="highlight"><pre><span></span><code>json = {
-    &quot;text&quot;:&quot;DigitalHub!&quot;
-}
-serve_run.invoke(json=json)
-result.json()
+<h2 id="usage">Usage</h2>
+<p>To use the <code>llm-ollama-serve</code> function, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
+</li>
+<li>
+<p><strong>Start the Serve</strong>: Use the following code to start</p>
+<div class="highlight"><pre><span></span><code><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="response">Response:</h3>
-<div class="highlight"><pre><span></span><code>{&#39;result&#39;: &quot;hello DigitalHub! from &#39;some value&#39;&quot;}
+</li>
+<li>
+<p><strong>Invoke the Function</strong>: Use the following code to send a request to the function and receive a response.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+
+<span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;Describe MLOps&#39;</span><span class="p">}</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/v1/completions&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:&quot;</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
+</li>
+</ol>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
@@ -8455,7 +8428,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "echoservice" operation in the project.</p>
+<p>Fetch the "llm-ollama-serve" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8468,7 +8441,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function_echoservice</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"echoservice"</span><span class="p">)</span> 
+<pre><span></span><span class="n">llm_OLlama_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'llm-ollama-serve'</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8476,7 +8449,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca54356f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8484,12 +8457,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Then, execute the function. For more details about how to create, run, and view jobs inside to the digital hub platform see the <a href="https://scc-digitalhub.github.io/docs/0.14/runtimes/python/">documentation </a></p>
+<p>Alternatively, one can create new function</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bf8a78eb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8498,7 +8471,14 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_echoservice</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'serve'</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<pre><span></span><span class="n">llm_OLlama_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"llm-ollama-serve"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"kubeai-text"</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">"llm-ollama-model"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">"ollama://llama3.2:1b"</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s1">'OLlama'</span><span class="p">,</span>
+    <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">'TextGeneration'</span><span class="p">]</span>
+<span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8514,38 +8494,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>As a result the 'echoservice' get deployed. Now fetch the URL of the service for API invocation.</p>
+<p>Run the function with default configuration</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b7181c1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now, we can run the same function as a job in the platform by removing the 'local_execution' flag.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=111b3ec9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Use the invoke api of 'run' object to invoke the service API with the following input json.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=06351438">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8554,9 +8508,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">json</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"text"</span><span class="p">:</span><span class="s2">"DigitalHub!"</span>
-<span class="p">}</span>
+<pre><span></span><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8564,7 +8516,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=d7a58d3c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1d0475f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Wait for job to finish. The state of 'serve' run can be viewed running the cell below.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3fa217ef">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8572,32 +8535,230 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Service status:"</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c69f0911">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=412f8b71">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)[</span><span class="s1">'status'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Model status:"</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6fab3f8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>{'result': "hello DigitalHub! from 'some value'"}</p>
+<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dba63fb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'service run' instance and inspect the logs using 'Logs' tab. One call also call the API using 'Client' button inside 'service run' view</p>
+<p>To fetch the deployed service URL and model ID, you can access the relevant fields from the <code>llm_run</code> object after the function has been run. The service URL is available under the <code>service</code> key, and the model ID can be found under the <code>openai</code> key in the status dictionary. Use the following code to retrieve and print these values:</p>
+<ul>
+<li><code>CHAT_URL</code> will contain the service URL.</li>
+<li><code>CHAT_MODEL</code> will contain the model ID.</li>
+</ul>
+<p>These variables can then be used for making API requests or further testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce9e1e1a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">CHAT_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
+<span class="n">CHAT_MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"openai"</span><span class="p">][</span><span class="s2">"model"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"service </span><span class="si">{</span><span class="n">CHAT_URL</span><span class="si">}</span><span class="s2"> with model </span><span class="si">{</span><span class="n">CHAT_MODEL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c63fb2fb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Test-the-API">3. Test the API<a class="anchor-link" href="#3.-Test-the-API">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a362369b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To invoke the deployed API, you need to provide the model identifier and a prompt. This is done by constructing a JSON payload with the required fields and sending it to the service endpoint.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><p>Retrieve the model name and prepare the JSON payload:</p>
+<ul>
+<li><code>model</code>: The model ID obtained from the deployment.</li>
+<li><code>prompt</code>: The text prompt you want the model to complete or respond to.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
+</pre></div>
+</li>
+<li><p>Invoke the API using the service URL and payload:</p>
+<ul>
+<li>Use the <code>.invoke()</code> method with the <code>json</code> argument and the appropriate endpoint.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</li>
+<li><p>Process and display the response as needed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Response:"</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6731bb57">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Response</span><span class="p">:</span>
+<span class="p">{</span> <span class="s1">'choices'</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">'finish_reason'</span><span class="p">:</span> <span class="s1">'stop'</span><span class="p">,</span>
+                 <span class="s1">'index'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">'text'</span><span class="p">:</span> <span class="s1">'MLOps (Machine Learning Operand Model) refers to the '</span>
+                         <span class="s1">'practice of turning machine learning models into '</span>
+                         <span class="s1">'deployable components that can be easily integrated '</span>
+                         <span class="s1">'into various applications, processes, and systems. '</span>
+                         <span class="s1">'The term "operand" implies the idea of operations or '</span>
+                         <span class="s1">'actions that can be performed on data.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'In the context of machine learning, MLOps involves a '</span>
+                         <span class="s1">'series of steps that transform a predictive model '</span>
+                         <span class="s1">'into a ready-to-apply solution:</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'1. **Model definition**: Defining the algorithm, '</span>
+                         <span class="s1">'architecture, and hyperparameters of the machine '</span>
+                         <span class="s1">'learning model.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'2. **Data preparation**: Collecting, preprocessing, '</span>
+                         <span class="s1">'and preparing the data required for training and '</span>
+                         <span class="s1">'testing the model.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'3. **Model training**: Training the machine learning '</span>
+                         <span class="s1">'model using the prepared data.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'4. **Model deployment**: Deploying the trained model '</span>
+                         <span class="s1">'into a production-ready environment, such as a cloud '</span>
+                         <span class="s1">'platform, on-premises infrastructure, or edge '</span>
+                         <span class="s1">'device.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'5. **Model monitoring**: Monitoring the performance '</span>
+                         <span class="s1">'of the deployed model in real-time and making '</span>
+                         <span class="s1">'adjustments as needed.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'6. **Model updates**: Updating the model with new '</span>
+                         <span class="s1">'data, techniques, or algorithms to improve its '</span>
+                         <span class="s1">'accuracy and performance.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'The benefits of MLOps include:</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Improved collaboration: By breaking down machine '</span>
+                         <span class="s1">'learning into smaller, manageable tasks, teams can '</span>
+                         <span class="s1">'work together more efficiently.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Faster development: MLOps enables rapid '</span>
+                         <span class="s1">'prototyping, testing, and deployment of models, '</span>
+                         <span class="s1">'reducing the time-to-market for new applications.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Increased model transparency: MLOps data flows are '</span>
+                         <span class="s1">'easily configurable and visible, making it easier to '</span>
+                         <span class="s1">'understand how the model works.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'*Reduced training time: Automated pipelines can '</span>
+                         <span class="s1">'automate many data preparation tasks, saving time '</span>
+                         <span class="s1">'and increasing productivity.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s2">"To implement MLOps effectively, you'll need:</span><span class="se">\n</span><span class="s2">"</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Good domain expertise in machine learning</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Tools like Jupyter Notebooks, TensorFlow, PyTorch, '</span>
+                         <span class="s1">'or scikit-learn</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Infrastructure for model deployment (e.g., Google '</span>
+                         <span class="s1">'Cloud AI Platform, Amazon SageMaker)</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'* Containerization technologies (e.g., Docker) to '</span>
+                         <span class="s1">'package models and their dependencies.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'By embracing MLOps principles, you can streamline '</span>
+                         <span class="s1">'your machine learning process, improve model '</span>
+                         <span class="s1">'performance, and accelerate time-to-market for new '</span>
+                         <span class="s1">'applications.'</span><span class="p">}],</span>
+  <span class="s1">'created'</span><span class="p">:</span> <span class="mi">1770724462</span><span class="p">,</span>
+  <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'cmpl-766'</span><span class="p">,</span>
+  <span class="s1">'model'</span><span class="p">:</span> <span class="s1">'model-b7f7d64f6b924b659845e9620405f86f'</span><span class="p">,</span>
+  <span class="s1">'object'</span><span class="p">:</span> <span class="s1">'text_completion'</span><span class="p">,</span>
+  <span class="s1">'system_fingerprint'</span><span class="p">:</span> <span class="s1">'fp_ollama'</span><span class="p">,</span>
+  <span class="s1">'usage'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'completion_tokens'</span><span class="p">:</span> <span class="mi">431</span><span class="p">,</span> <span class="s1">'prompt_tokens'</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">'total_tokens'</span><span class="p">:</span> <span class="mi">460</span><span class="p">}}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
