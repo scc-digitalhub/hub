@@ -1,0 +1,21 @@
+
+kind: flower-client
+metadata:
+  name: Flower Client (flower-client)
+  version: 1.0.0
+  description: This function demonstrates the Supernode client function to interact with the Flower server, how to build the corresponding image, and activates client nodes container with the dependencies and the node-specific configuration.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "inference:openai"
+    # - "framework:flower"
+name: flower-client
+python_version: PYTHON3_10
+spec:
+  requirements:
+    - pandas==2.2.3
+    - flwr-datasets[vision]==0.5.0
+---
+kind: flower-client+deploy:run
+spec:
