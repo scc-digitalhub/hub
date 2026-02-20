@@ -2,7 +2,6 @@
 
 The `flower-client` function is a federated learning client that connects to a Flower server to participate in collaborative model training. It enables distributed machine learning by allowing multiple clients to train models locally on their data partitions while only sharing model updates with the server, ensuring data privacy and reducing communication overhead. 
 
-
 It is essential to set up the `flower-serve` function before deploying the client. The server acts as the central coordinator for the federated learning process, managing the communication between clients and ensuring that model updates are aggregated correctly. Proper configuration of the server is crucial for the successful operation of the client nodes, as they rely on the server to facilitate training and data privacy. Make sure to follow the setup instructions carefully to ensure a smooth deployment of the client following the hub function [flower-serve](https://scc-digitalhub.github.io/hub/functions/flower-serve) function in the hub. This section provides detailed instructions on how to configure and deploy flower server node.
 
 ## Features

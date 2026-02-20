@@ -8,7 +8,6 @@ metadata:
     - "license:apache-2.0"
     - "platform:0.14"
     - "type:service"
-    - "inference:openai"
     # - "framework:flower"
 name: flower-client
 python_version: PYTHON3_10
