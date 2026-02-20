@@ -3,7 +3,7 @@ kind: flower-server
 metadata:
   name: Flower Serve (flower-server)
   version: 1.0.0
-  description: This function demonstrates how to deploy and interact with the Flower framework inside the DigitalHub platform.
+  description: This function serves as a demonstration of the Flower Supernode server functionality. It builds the corresponding Docker image, and activate server node containers with the necessary dependencies and specific configurations tailored for each node.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
