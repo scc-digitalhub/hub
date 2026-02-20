@@ -19,7 +19,7 @@
     
     
       
-        <title>Example container job - DH Hub</title>
+        <title>Flower client - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-function" class="md-skip">
+        <a href="#flower-client" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example container job
+              Flower client
             
           </span>
         </div>
@@ -301,34 +301,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-a-job" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Running a Job
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#building-a-job" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building a job
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -343,10 +315,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3.-Execution" class="md-nav__link">
+  <a href="#2.-Execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Execution¶
+        2. Execution¶
       
     </span>
   </a>
@@ -372,66 +344,74 @@
 
 <div id="template-content">
 <p id="browse"><a href="./../..">&lt; Browse</a></p>
-<div id="template-title">Example Container Job (Python Job)</div>
+<div id="template-title">Flower Client (flower-client)</div>
 <div id="template-metadata">
-<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-job">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-container-job/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-container-job:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
+<div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-client">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/flower-client/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/flower-client:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
-<div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Example Container Job (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for building custom container jobs within the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:job</span><span class="md-label">phase:utility</span></div></div></div>
+<div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Flower Client (flower-client)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates the Supernode client function to interact with the Flower server, how to build the corresponding image, and activates client nodes container with the dependencies and the node-specific configuration.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span></div></div></div>
 <p></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div></p>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="container-function">Container Function</h1>
-<p>The DigitalHub Platform  Container runtime enables launching pods, jobs and services on Kubernetes. It registers function kind 'container' and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to create and build a 'job' that can be run in a containerized environment using predefined base images. The function serves as a template for building custom container jobs within the platform. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
+<h1 id="flower-client">Flower Client</h1>
+<p>The <code>flower-client</code> function is a federated learning client that connects to a Flower server to participate in collaborative model training. It enables distributed machine learning by allowing multiple clients to train models locally on their data partitions while only sharing model updates with the server, ensuring data privacy and reducing communication overhead. </p>
+<p>It is essential to set up the <code>flower-serve</code> function before deploying the client. The server acts as the central coordinator for the federated learning process, managing the communication between clients and ensuring that model updates are aggregated correctly. Proper configuration of the server is crucial for the successful operation of the client nodes, as they rely on the server to facilitate training and data privacy. Make sure to follow the setup instructions carefully to ensure a smooth deployment of the client following the hub function <a href="https://scc-digitalhub.github.io/hub/functions/flower-serve">flower-serve</a> function in the hub. This section provides detailed instructions on how to configure and deploy flower server node.</p>
 <h2 id="features">Features</h2>
+<p>The <code>flower-client</code> function includes the following features:</p>
 <ul>
-<li><strong>Container-based execution</strong>: Run job in isolated containerized environments</li>
-<li><strong>Kubernetes integration</strong>: Seamlessly execute workload on Kubernetes clusters</li>
-<li><strong>Flexible runtime</strong>: Support for custom Docker images and base images</li>
-<li><strong>Job management</strong>: Track and monitor containerized job execution</li>
-<li><strong>Scalable processing</strong>: Leverage Kubernetes for distributed workload execution</li>
+<li><strong>Scalability</strong>: Supports a growing number of clients without performance degradation.</li>
+<li><strong>Data Privacy</strong>: Ensures that only model updates are shared, keeping raw data secure.</li>
+<li><strong>Flexibility</strong>: Compatible with various machine learning frameworks and models.</li>
+<li><strong>Customizable Parameters</strong>: Allows users to adjust training parameters for optimal results.</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-
-<span class="c1"># Initialize project</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
-
-<span class="c1"># Create function</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_container_function_job&quot;</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hello-world:latest&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight"><pre><span></span><code>flower_client_function = project.new_function(
+    name=&quot;flower-client&quot;,
+    kind=&quot;flower-client&quot;,
+    requirements=[&quot;pandas==2.2.3&quot;, &quot;flwr-datasets[vision]==0.5.0&quot;]
+)
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<h3 id="running-a-job">Running a Job</h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Run the container function as a job</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">&quot;8877&quot;</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<p>To utilize the <code>flower-client</code> function, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
+</li>
+<li>
+<p><strong>Build the Client</strong>: Use the following code to build the server function.</p>
+<div class="highlight"><pre><span></span><code><span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="building-a-job">Building a job</h3>
-<p>Below is an example of how to build a container function with instructions and additional dependencies:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+</li>
+<li>
+<p><strong>Deploy the Client</strong>: Deploy the client after server is up and running. Fetch the server url and start the client using the following code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_url</span> <span class="o">=</span> <span class="n">server_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:9092&#39;</span> 
 
-<span class="n">project_name</span> <span class="o">=</span> <span class="s2">&quot;my-project&quot;</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">project_name</span><span class="p">)</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_function&quot;</span><span class="p">,</span>
-    <span class="n">base_image</span><span class="o">=</span><span class="s2">&quot;python:3.11-slim&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
-    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RUN apt-get update &amp;&amp; apt-get install -y git&quot;</span><span class="p">],</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="c1"># Deploy client 1</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">})</span>
+
+<span class="c1"># Deploy client 2</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+         <span class="p">})</span>
+
+<span class="c1"># Deploy client 3</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">})</span>
 </code></pre></div>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+</li>
+</ol>
+<p>Notes: For detailed usage, check the usage notebook. </p>
+<p>In order to use the perform federated training using flower server with clients, please refer to the <a href="https://scc-digitalhub.github.io/hub/functions/flower-job">flower-job</a> function in the hub. This section provides detailed instructions on how to configure and connect client nodes with server to perform federatd training.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <div>
@@ -8291,7 +8271,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
+<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8304,7 +8284,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "example-container-job" operation in the project.</p>
+<p>Fetch the "flower-client" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8317,7 +8297,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-container-job"</span><span class="p">)</span> 
+<pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'flower-client'</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8325,7 +8305,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b081d826">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca54356f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8338,7 +8318,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a7363efd">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bf8a78eb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8347,10 +8327,10 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"my_container_function_job"</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">"hello-world:latest"</span><span class="p">,</span>
+<pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+    <span class="n">requirements</span><span class="o">=</span><span class="p">[</span><span class="s2">"pandas==2.2.3"</span><span class="p">,</span> <span class="s2">"flwr-datasets[vision]==0.5.0"</span><span class="p">]</span>
 <span class="p">)</span>
 </pre>
 </div>
@@ -8359,18 +8339,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3510f84a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We can now run the function and see the results. To do this we use the run method of the function.</p>
+<p>Build the client function with default configuration. The following code cell builds the corresponding image, and activates the server container with the dependencies.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ad829fbf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8378,153 +8358,117 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1d0475f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>After building, deploy 3 client as shown in code cell below. Note that the server is started in insecure mode as no root certificate is provided. To enable secure mode, it is necessary to specify the root_certificates attribute to each run containing the body of the public root certificate.</p>
+<p>Also the node authentication is not enabled in this scenario. The node authentication allows for controlling which nodes are allowed to communicate with the server. To achieve this, it is necessary</p>
+<p>at each node define a public-private key pair and store the values in project secrets.
+pass the secret names as public_key_secret and private_key_secret parameters to the supernode spec
+ensure the public key is included in auth_public_keys field of the server Superlink node
+Each client is started with the own set of parameters (node_config) and a reference to the superlink pointing to the superlink address (port 9092 by default).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3fa217ef">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5802336">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The server is started in insecure mode, meaning that no TLS verification is performed. While this is ok for the purpose of this tutorial, should not be used in a production federation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dba63fb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To fetch the deployed service URL, use the code cell below</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=412f8b71">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">server_url</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">':9092'</span> 
+
+<span class="n">client_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"my-flower-client"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+    <span class="n">requirements</span><span class="o">=</span><span class="p">[</span><span class="s2">"pandas==2.2.3"</span><span class="p">,</span> <span class="s2">"flwr-datasets[vision]==0.5.0"</span><span class="p">]</span>
 <span class="p">)</span>
+
+<span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Deploy client 1</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"partition-id"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"num-partitions"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"local-epochs"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">})</span>
+
+<span class="c1"># Deploy client 2</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"partition-id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"num-partitions"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"local-epochs"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">})</span>
+
+<span class="c1"># Deploy client 3</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"partition-id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">"num-partitions"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">"local-epochs"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">})</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07f745ee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Wait for job to finish. Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=724cf24d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The logs of platform execution can be viewed running the cell below.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=592a62ae">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
-<span class="n">logs</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">logs</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'content'</span><span class="p">])</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">logs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f758f1a7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Hello</span> <span class="kn">from</span><span class="w"> </span><span class="nn">Docker</span><span class="err">!</span>
-<span class="n">This</span> <span class="n">message</span> <span class="n">shows</span> <span class="n">that</span> <span class="n">your</span> <span class="n">installation</span> <span class="n">appears</span> <span class="n">to</span> <span class="n">be</span> <span class="n">working</span> <span class="n">correctly</span><span class="o">.</span>
-
-<span class="n">To</span> <span class="n">generate</span> <span class="n">this</span> <span class="n">message</span><span class="p">,</span> <span class="n">Docker</span> <span class="n">took</span> <span class="n">the</span> <span class="n">following</span> <span class="n">steps</span><span class="p">:</span>
- <span class="mf">1.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">client</span> <span class="n">contacted</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">daemon</span><span class="o">.</span>
- <span class="mf">2.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">pulled</span> <span class="n">the</span> <span class="s2">"hello-world"</span> <span class="n">image</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">Docker</span> <span class="n">Hub</span><span class="o">.</span>
-    <span class="p">(</span><span class="n">amd64</span><span class="p">)</span>
- <span class="mf">3.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">created</span> <span class="n">a</span> <span class="n">new</span> <span class="n">container</span> <span class="kn">from</span><span class="w"> </span><span class="nn">that</span> <span class="n">image</span> <span class="n">which</span> <span class="n">runs</span> <span class="n">the</span>
-    <span class="n">executable</span> <span class="n">that</span> <span class="n">produces</span> <span class="n">the</span> <span class="n">output</span> <span class="n">you</span> <span class="n">are</span> <span class="n">currently</span> <span class="n">reading</span><span class="o">.</span>
- <span class="mf">4.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">streamed</span> <span class="n">that</span> <span class="n">output</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">client</span><span class="p">,</span> <span class="n">which</span> <span class="n">sent</span> <span class="n">it</span>
-    <span class="n">to</span> <span class="n">your</span> <span class="n">terminal</span><span class="o">.</span>
-
-<span class="n">To</span> <span class="k">try</span> <span class="n">something</span> <span class="n">more</span> <span class="n">ambitious</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span> <span class="n">an</span> <span class="n">Ubuntu</span> <span class="n">container</span> <span class="k">with</span><span class="p">:</span>
- <span class="err">$</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">ubuntu</span> <span class="n">bash</span>
-
-<span class="n">Share</span> <span class="n">images</span><span class="p">,</span> <span class="n">automate</span> <span class="n">workflows</span><span class="p">,</span> <span class="ow">and</span> <span class="n">more</span> <span class="k">with</span> <span class="n">a</span> <span class="n">free</span> <span class="n">Docker</span> <span class="n">ID</span><span class="p">:</span>
- <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hub</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
-
-<span class="n">For</span> <span class="n">more</span> <span class="n">examples</span> <span class="ow">and</span> <span class="n">ideas</span><span class="p">,</span> <span class="n">visit</span><span class="p">:</span>
- <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">get</span><span class="o">-</span><span class="n">started</span><span class="o">/</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f5ef8c6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Build-Custom-Container-Function">3. Build Custom Container Function<a class="anchor-link" href="#3.-Build-Custom-Container-Function">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c644552">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The runtime enables users to build container-based functions with custom instructions and dependencies. This allows you to tailor the execution environment to your specific requirements.</p>
-<p><strong>Usage Steps:</strong></p>
-<ol>
-<li><p><strong>Create a new container function:</strong><br/>
-Use <code>proj.new_function(kind="container", ...)</code> to define your function, specifying the base image.</p>
-</li>
-<li><p><strong>Add custom build instructions:</strong><br/>
-Provide additional build steps (e.g., installing packages, copying files) using the <code>build_instructions</code> parameter.</p>
-</li>
-<li><p><strong>Specify dependencies:</strong><br/>
-List required dependencies (such as Python packages or system libraries) in your build instructions or via a requirements file.</p>
-</li>
-<li><p><strong>Run the function:</strong><br/>
-Execute your custom container job using the <code>run</code> method.</p>
-</li>
-</ol>
-<p>See the example below</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c3c701b2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
-
-
-<span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"my_function"</span><span class="p">,</span>
-    <span class="n">base_image</span><span class="o">=</span><span class="s2">"python:3.11-slim"</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span>
-    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span><span class="s2">"RUN apt-get update &amp;&amp; apt-get install -y git"</span><span class="p">],</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
+<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
 </div>
 </div>
 </div>

@@ -3,6 +3,11 @@
     margin-bottom: 20px;
 }
 
+#browse {
+	margin: 0px 0px 0px 6px;
+	font-size: 90%;
+}
+
 /* Tabs */
 .tab-button {
     padding: 20px;

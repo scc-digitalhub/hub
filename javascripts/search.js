@@ -7,7 +7,6 @@ const activeFiltersEl = document.getElementById("activeFilters");
 
 let allData = [];
 let selectedLabels = {};
-let indexPage = false;
 
 init();
 
@@ -16,19 +15,12 @@ async function init() {
   const secondLastIndex = path.lastIndexOf('/', path.lastIndexOf('/')-1);
   const key = path.substring(secondLastIndex+1, path.lastIndexOf("/"));
   
-  if (path === "/" || path === "/hub/") {
-    indexPage = true
-  }
-  
-  let dataPath = "./data.json";
-  if (!indexPage) {
-	  dataPath = "." + dataPath;
-  }
+  const dataPath = "./data.json";
   
   const res = await fetch(dataPath);
   const json = await res.json();
-  
-  allData = indexPage ? mergeAllCategories(json) : json[key] || [];
+  allData = mergeAllCategories(json)
+
   buildFilters(allData);
   updateResults();
 }
@@ -71,7 +63,7 @@ function buildFilters(data) {
 	
     const details = document.createElement("details");
     details.className = "filter-group";
-    if (!indexPage) {
+    if (group === "category") {
       details.open = true;
     }
 
@@ -147,7 +139,7 @@ function renderResults(results) {
   resultsEl.innerHTML = results.map(fn => `
     <div class="result-card">
       <a href="${fn.category != undefined ? fn.category + "/" : ""}${fn.path}">${fn.metadata.name}</a>
-	  ${indexPage ? `<span class="category">${fn.category}</span>` : ""}
+	  ${`<span class="category">${fn.category}</span>`}
       ${fn.metadata.version ? `<span class="version-badge">v${fn.metadata.version}</span>` : ""}
       <div class="subtitle">${fn.name}</div>
       <p>${fn.metadata.description}</p>
