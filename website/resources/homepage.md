@@ -1,5 +1,5 @@
 <div markdown="1">
-# Home
+# Hub
 
 This is the catalog for [the platform](https://scc-digitalhub.github.io/docs/), where you can browse all templates.
 <br/><br/>

@@ -1,5 +1,5 @@
 .md-grid {
-    max-width: 90%;
+    max-width: 80%;
 }
 
 .md-sidebar--secondary {
@@ -8,6 +8,10 @@
 
 .md-search {
     display: none;
+}
+
+.md-sidebar {
+	display: none;
 }
 
 .jp-Notebook {

@@ -31,7 +31,7 @@ def initialize_website():
     shutil.copytree(f'{resources_dir}/stylesheets', f'{gn_docs_dir}/stylesheets')
 
     # Copy MkDocs yaml file and home page file
-    shutil.copyfile(f'{resources_dir}/base-mkdocs.yml', f'{gn_dir}/mkdocs.yml')
+    shutil.copyfile(f'{resources_dir}/mkdocs.yml', f'{gn_dir}/mkdocs.yml')
     shutil.copyfile(f'{resources_dir}/homepage.md', f'{gn_docs_dir}/index.md')
 
 # Create metadata div for template page
@@ -118,77 +118,72 @@ def main():
 
     # Generate pages based on catalog directory
     structure = {}
-    with open(f'{gn_dir}/mkdocs.yml', 'a', encoding='utf-8') as mkdocs_file:
-        mkdocs_file.write('  - Catalogs:\n')
 
-        categories = os.listdir(templates_dir)
-        categories.sort()
-        for c in categories:
-            if os.path.isdir(f'{templates_dir}/{c}'):
-                structure[c] = []
+    categories = os.listdir(templates_dir)
+    categories.sort()
 
-                # Create folder for category and corresponding search page
-                category_dir = f'{gn_docs_dir}/{c}'
-                os.mkdir(category_dir)
-                shutil.copyfile(f'{resources_dir}/search-library/search.html', f'{gn_docs_dir}/{c}.md')
+    for c in categories:
+        if os.path.isdir(f'{templates_dir}/{c}'):
+            structure[c] = []
 
-                # Append entry in nav for category search page
-                mkdocs_file.write(f'    - {c.title()}: "{c}.md"\n')
+            # Create folder for category
+            category_dir = f'{gn_docs_dir}/{c}'
+            os.mkdir(category_dir)
 
-                # Create pages for all templates in category
-                category_templates = os.listdir(f'{templates_dir}/{c}')
-                category_templates.sort()
-                for t in category_templates:
-                    # Ensure template has a definition file before proceeding
-                    definition_path = f'{templates_dir}/{c}/{t}/{definition_filename}'
-                    if os.path.isfile(definition_path):
-                        with open(definition_path, 'r', encoding='utf-8') as definition_file:
-                            definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
+            # Create pages for all templates in category
+            category_templates = os.listdir(f'{templates_dir}/{c}')
+            category_templates.sort()
+            for t in category_templates:
+                # Ensure template has a definition file before proceeding
+                definition_path = f'{templates_dir}/{c}/{t}/{definition_filename}'
+                if os.path.isfile(definition_path):
+                    with open(definition_path, 'r', encoding='utf-8') as definition_file:
+                        definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
 
-                        # Entry for JSON structure file
-                        structure_entry = definition
-                        structure_entry['path'] = f'{t}'
-                        structure[c].append(structure_entry)
+                    # Entry for JSON structure file
+                    structure_entry = definition
+                    structure_entry['path'] = f'{t}'
+                    structure[c].append(structure_entry)
 
-                        # Create template's own page
-                        template_path = f'./{gn_docs_dir}/{c}/{t}.md'
+                    # Create template's own page
+                    template_path = f'./{gn_docs_dir}/{c}/{t}.md'
 
-                        template_title = t
-                        if 'metadata' in definition and 'name' in definition['metadata']:
-                            template_title = definition['metadata']['name']
+                    template_title = t
+                    if 'metadata' in definition and 'name' in definition['metadata']:
+                        template_title = definition['metadata']['name']
 
-                        with open(template_path, 'w', encoding='utf-8') as template_file:
-                            template_file.write(f'<div id="template-title">{template_title}</div>')
+                    with open(template_path, 'w', encoding='utf-8') as template_file:
+                        template_file.write('<div id="template-content" markdown="1">')
+                        template_file.write('<p id="browse"><a href="./../..">< Browse</a></p>')
+                        template_file.write(f'<div id="template-title">{template_title}</div>')
 
-                            template_file.write('<div id="template-content" markdown="1">')
+                        # Metadata
+                        if 'metadata' in definition:
+                            template_file.write(template_page_metadata(definition['metadata'], c, t))
 
-                            # Metadata
-                            if 'metadata' in definition:
-                                template_file.write(template_page_metadata(definition['metadata'], c, t))
+                        # Tabs for usage and notebook
+                        tab_toolbar = '<div id="template-tab-buttons">'
+                        tab_toolbar += '<button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab(\'usage\')">Usage</button>'
 
-                            # Tabs for usage and notebook
-                            tab_toolbar = '<div id="template-tab-buttons">'
-                            tab_toolbar += '<button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab(\'usage\')">Usage</button>'
+                        # Usage
+                        usage_path = f'{templates_dir}/{c}/{t}/{usage_filename}'
+                        contents = template_usage(t, usage_path)
 
-                            # Usage
-                            usage_path = f'{templates_dir}/{c}/{t}/{usage_filename}'
-                            contents = template_usage(t, usage_path)
+                        # Notebook
+                        notebook_path = f'{templates_dir}/{c}/{t}/{converted_notebook_filename}'
+                        if os.path.isfile(notebook_path):
+                            tab_toolbar += '<button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab(\'notebook\')">Notebook</button>'
+                            contents += template_notebook(notebook_path)
 
-                            # Notebook
-                            notebook_path = f'{templates_dir}/{c}/{t}/{converted_notebook_filename}'
-                            if os.path.isfile(notebook_path):
-                                tab_toolbar += '<button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab(\'notebook\')">Notebook</button>'
-                                contents += template_notebook(notebook_path)
+                        tab_toolbar += '</div>'
 
-                            tab_toolbar += '</div>'
-
-                            # Write tab toolbar and tabs
-                            template_file.write(tab_toolbar)
-                            template_file.write('<div id="template-info" markdown="1">')
-                            template_file.write(contents)
-                            
-                            template_file.write('</div>')
-                            template_file.write('</div>')
+                        # Write tab toolbar and tabs
+                        template_file.write(tab_toolbar)
+                        template_file.write('<div id="template-info" markdown="1">')
+                        template_file.write(contents)
+                        
+                        template_file.write('</div>')
+                        template_file.write('</div>')
 
     # Write JSON structure to file
     with open(f'{gn_docs_dir}/{generated_json}', 'w', encoding='utf-8') as json_file:
