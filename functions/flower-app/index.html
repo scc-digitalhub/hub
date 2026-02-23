@@ -290,18 +290,7 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#federated-training-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Federated Training Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Federated Training Example">
+    <nav class="md-nav" aria-label="Definition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -410,7 +399,7 @@
 <div id="template-metadata-right"><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-app">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/flower-app/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/flower-app:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div>
 </div>
 </div>
-<div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Flower App (flower-app)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function implements a Flower client application that connects to a Flower server, fetches data partitions, and sends results back to the server. It includes a sample implementation of the client-side logic for handling data partitions and communicating with the server.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span></div></div></div>
+<div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Flower App (flower-app)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function implements a Flower client application that connects to a Flower server, fetches data partitions, and sends results back to the server. It includes a sample implementation of the client-side logic for handling data partitions and communicating with the server.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">framework:flower</span></div></div></div>
 <p></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div></p>
 <div id="template-info">
@@ -425,7 +414,6 @@
 <li>Sample implementation of client-side logic</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<h2 id="federated-training-example">Federated Training Example</h2>
 <p>This section demonstrates how to implement federated training using the Flower framework. The provided code consists of two main components: the server application (<code>serverapp.py</code>) and the client application (<code>client-app.py</code>).</p>
 <h3 id="server-application-serverapppy">Server Application (<code>serverapp.py</code>)</h3>
 <p>The server application is responsible for managing the federated learning process. It initializes a <code>ServerApp</code> instance and defines the main function that orchestrates the training rounds. During each round, the server waits for a minimum number of client nodes to connect, samples a fraction of them, and sends messages requesting their local model updates. After receiving the responses, it aggregates the results to update the global model.</p>
