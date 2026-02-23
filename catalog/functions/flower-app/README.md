@@ -10,9 +10,6 @@ The Flower App is a client application designed to connect to a Flower server. I
 
 ## Definition
 
-
-## Federated Training Example
-
 This section demonstrates how to implement federated training using the Flower framework. The provided code consists of two main components: the server application (`serverapp.py`) and the client application (`client-app.py`).
 
 
