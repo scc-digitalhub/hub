@@ -142,7 +142,9 @@ def main():
 
                     # Entry for JSON structure file
                     structure_entry = definition
-                    structure_entry['path'] = f'{t}'
+                    structure_entry.pop('spec', None)
+                    structure_entry['path'] = f'{c}/{t}'
+                    structure_entry['repository'] = f'{repo_catalog}/{c}/{t}'
                     structure[c].append(structure_entry)
 
                     # Create template's own page
