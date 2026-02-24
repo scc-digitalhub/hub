@@ -143,8 +143,9 @@ def main():
                     # Entry for JSON structure file
                     structure_entry = definition
                     structure_entry.pop('spec', None)
-                    structure_entry['path'] = f'{c}/{t}'
-                    structure_entry['repository'] = f'{repo_catalog}/{c}/{t}'
+                    if 'metadata' in structure_entry:
+                        structure_entry['metadata']['path'] = f'{c}/{t}'
+                        structure_entry['metadata']['repository'] = f'{repo_catalog}/{c}/{t}'
                     structure[c].append(structure_entry)
 
                     # Create template's own page
@@ -156,7 +157,7 @@ def main():
 
                     with open(template_path, 'w', encoding='utf-8') as template_file:
                         template_file.write('<div id="template-content" markdown="1">')
-                        template_file.write('<p id="browse"><a href="./../..">< Browse</a></p>')
+                        template_file.write('<a id="browse" href="./../..">< Browse</a>')
                         template_file.write(f'<div id="template-title">{template_title}</div>')
 
                         # Metadata
