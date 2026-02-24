@@ -14,12 +14,12 @@
                     "phase:model-serving",
                     "framework:sklearn",
                     "inference:custom"
-                ]
+                ],
+                "path": "functions/cancer-classifier-serve-mlflow-example",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-serve-mlflow-example"
             },
             "name": "cancer-classifier-serve-mlflow-example",
-            "python_version": "PYTHON3_10",
-            "path": "functions/cancer-classifier-serve-mlflow-example",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-serve-mlflow-example"
+            "python_version": "PYTHON3_10"
         },
         {
             "kind": "python",
@@ -34,11 +34,11 @@
                     "phase:model-training",
                     "framework:sklearn",
                     "application:healthcare"
-                ]
+                ],
+                "path": "functions/cancer-classifier-train-mlflow-example",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-train-mlflow-example"
             },
-            "name": "cancer-classifier-train-mlflow-example",
-            "path": "functions/cancer-classifier-train-mlflow-example",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-train-mlflow-example"
+            "name": "cancer-classifier-train-mlflow-example"
         },
         {
             "kind": "python+serve",
@@ -53,7 +53,9 @@
                     "phase:model-serving",
                     "inference:custom",
                     "application:pa"
-                ]
+                ],
+                "path": "functions/document-classifier-serve-example",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-serve-example"
             },
             "name": "document-classifier-serve",
             "requirements": [
@@ -72,9 +74,7 @@
                 "base64": "CmZyb20gdHJhbnNmb3JtZXJzIGltcG9ydCBBdXRvVG9rZW5pemVyLCBBdXRvQ29uZmlnLCBBdXRvTW9kZWxGb3JTZXF1ZW5jZUNsYXNzaWZpY2F0aW9uCmltcG9ydCBqc29uCmltcG9ydCBwYW5kYXMgYXMgcGQKaW1wb3J0IG51bXB5IGFzIG5wCgppbXBvcnQgdG9yY2gKZnJvbSB0b3JjaCBpbXBvcnQgbm4KZnJvbSB0b3JjaC51dGlscy5kYXRhIGltcG9ydCBEYXRhTG9hZGVyCmZyb20gdG9yY2gub3B0aW0gaW1wb3J0IEFkYW1XCmZyb20gdG9yY2htZXRyaWNzLmNsYXNzaWZpY2F0aW9uIGltcG9ydCBNdWx0aWNsYXNzRjFTY29yZSwgQWNjdXJhY3kKCmZyb20gdHJhbnNmb3JtZXJzIGltcG9ydCBBdXRvTW9kZWxGb3JTZXF1ZW5jZUNsYXNzaWZpY2F0aW9uLCBBdXRvTW9kZWwKZnJvbSB0cmFuc2Zvcm1lcnMgaW1wb3J0IFByZVRyYWluZWRNb2RlbApmcm9tIHRyYW5zZm9ybWVycy5tb2RlbGluZ19vdXRwdXRzIGltcG9ydCBTZXF1ZW5jZUNsYXNzaWZpZXJPdXRwdXQKCmNsYXNzIEJlcnRGb3JTZW50ZW5jZUNsYXNzaWZpY2F0aW9uKFByZVRyYWluZWRNb2RlbCk6CgogICAgIiIiCiAgICBCRVJUIGFyY2hpdGVjdHVyZSBpcyBpbnRlbmRlZCB0byBiZSBmcm9tICJkYm1kei9iZXJ0LWJhc2UtaXRhbGlhbi14eGwtY2FzZWQiCiAgICBidXQgb3RoZXIgbW9kZWxzIGNhbiBiZSB0cmllZC4KICAgICIiIgoKCiAgICBkZWYgX19pbml0X18oc2VsZiwgY29uZmlnLCBtb2RlbF9uYW1lLCBudW1fbGFiZWxzLCBjbGFzc193ZWlnaHRzPU5vbmUpOgogICAgICAgIHN1cGVyKCkuX19pbml0X18oY29uZmlnKQogICAgICAgIHNlbGYubnVtX2xhYmVscyA9IG51bV9sYWJlbHMKICAgICAgICBzZWxmLmJlcnQgPSBBdXRvTW9kZWwuZnJvbV9wcmV0cmFpbmVkKG1vZGVsX25hbWUpCiAgICAgICAgc2VsZi5jbGFzc2lmaWVyID0gbm4uTGluZWFyKHNlbGYuYmVydC5jb25maWcuaGlkZGVuX3NpemUsIG51bV9sYWJlbHMpCiAgICAgICAgc2VsZi5jbGFzc193ZWlnaHRzID0gY2xhc3Nfd2VpZ2h0cwogICAgICAgIHNlbGYuYWNjdXJhY3kgPSBBY2N1cmFjeShudW1fY2xhc3Nlcz1udW1fbGFiZWxzLCB0YXNrPSdtdWx0aWNsYXNzJykKICAgICAgICBzZWxmLmYxID0gTXVsdGljbGFzc0YxU2NvcmUobnVtX2NsYXNzZXM9bnVtX2xhYmVscywgYXZlcmFnZT0nbWljcm8nKSAjIGNoYW5nZWQgd2VpZ2h0CgogICAgZGVmIGZvcndhcmQoc2VsZiwgaW5wdXRfaWRzLCBhdHRlbnRpb25fbWFzaz1Ob25lLCBsYWJlbHM9Tm9uZSk6CiAgICAgICAgb3V0cHV0cyA9IHNlbGYuYmVydChpbnB1dF9pZHM9aW5wdXRfaWRzLCBhdHRlbnRpb25fbWFzaz1hdHRlbnRpb25fbWFzaykKICAgICAgICBsb2dpdHMgPSBzZWxmLmNsYXNzaWZpZXIob3V0cHV0cy5sYXN0X2hpZGRlbl9zdGF0ZVs6LCAwLCA6XSkKCiAgICAgICAgbG9zcyA9IE5vbmUKICAgICAgICBpZiBsYWJlbHMgaXMgbm90IE5vbmU6CgogICAgICAgICAgICBsb3NzX2ZjdCA9IG5uLkNyb3NzRW50cm9weUxvc3MobGFiZWxfc21vb3RoaW5nPTAuMSkgIyx3ZWlnaHQ9c2VsZi5jbGFzc193ZWlnaHRzCiAgICAgICAgICAgIGxvc3MgPSBsb3NzX2ZjdChsb2dpdHMsIGxhYmVscykKCiAgICAgICAgICAgIGYxX3Njb3JlID0gc2VsZi5mMShsb2dpdHMuYXJnbWF4KGRpbT0xKSwgbGFiZWxzKQogICAgICAgICAgICBhY2N1cmFjeV9zY29yZSA9IHNlbGYuYWNjdXJhY3kobG9naXRzLmFyZ21heChkaW09MSksIGxhYmVscykKCiAgICAgICAgcmV0dXJuIFNlcXVlbmNlQ2xhc3NpZmllck91dHB1dChsb3NzPWxvc3MsIGxvZ2l0cz1sb2dpdHMpCgpkZWYgaW5pdChjb250ZXh0KToKICAgIG1vZGVsX25hbWUgPSAiZG9jdW1lbnQtY2xhc3NpZmllciIKICAgCiAgICBtb2RlbCA9IGNvbnRleHQucHJvamVjdC5nZXRfbW9kZWwobW9kZWxfbmFtZSkKICAgIGxvY2FsX3BhdGhfbW9kZWwgPSBtb2RlbC5kb3dubG9hZChvdmVyd3JpdGU9VHJ1ZSkKCiAgICB0b2tlbml6ZXIgPSBBdXRvVG9rZW5pemVyLmZyb21fcHJldHJhaW5lZChsb2NhbF9wYXRoX21vZGVsKQogICAgY29uZmlnID0gQXV0b0NvbmZpZy5mcm9tX3ByZXRyYWluZWQobG9jYWxfcGF0aF9tb2RlbCkKICAgIAogICAgbW0gPSBCZXJ0Rm9yU2VudGVuY2VDbGFzc2lmaWNhdGlvbi5mcm9tX3ByZXRyYWluZWQoCiAgICAgICAgbG9jYWxfcGF0aF9tb2RlbCwKICAgICAgICBjb25maWc9Y29uZmlnLAogICAgICAgIG1vZGVsX25hbWU9ImRibWR6L2JlcnQtYmFzZS1pdGFsaWFuLXh4bC1jYXNlZCIsCiAgICAgICAgbnVtX2xhYmVscz1jb25maWcubnVtX2xhYmVscwogICAgKSAKCiAgICBsYWJlbF9tYXBwaW5nID0gewogICAgICAgIDA6IDAsCiAgICAgICAgMTogMiwKICAgICAgICAyOiA0LAogICAgICAgIDM6IDcsCiAgICAgICAgNDogOCwKICAgICAgICA1OiAxMCwJCiAgICAgICAgNjogMTEsCiAgICAgICAgNzogMTUsCiAgICAgICAgODogMTYsCiAgICAgICAgOTogMTcsCiAgICAgICAgMTA6IDIwLAogICAgICAgIDExOiAyMiwKICAgICAgICAxMjogMjUsCiAgICAgICAgMTM6IDI3LAogICAgICAgIDE0OiAyOCwKICAgICAgICAxNTogMjksCiAgICAgICAgMTY6IDM2LAogICAgICAgIDE3OiAzOSwKICAgICAgICAxODogNDUsCiAgICAgICAgMTk6IDUwLAogICAgICAgIDIwOiA1MSwKICAgICAgICAyMTogNTMsCiAgICAgICAgMjI6IDU0LAogICAgICAgIDIzOiA1NSwKICAgICAgICAyNDogNTYsCiAgICAgICAgMjU6IDU3LAogICAgICAgIDI2OiA2MSwKICAgICAgICAyNzogNjIsCiAgICAgICAgMjg6IDYzLAogICAgICAgIDI5OiA2NCwKICAgICAgICAzMDogNjUsCiAgICAgICAgMzE6IDY3LAogICAgICAgIDMyOiA2OCwKICAgICAgICAzMzogNjksCiAgICAgICAgMzQ6IDcyLAogICAgICAgIDM1OiA3NCwKICAgICAgICAzNjogODEsCiAgICAgICAgMzc6IDg4LAogICAgICAgIDM4OiA4OSwKICAgICAgICAzOTogOTEsCiAgICAgICAgNDA6IDk2LAogICAgICAgIDQxOiAxMDIsCiAgICAgICAgNDI6IDEwNywKICAgICAgICA0MzogMTA4LAogICAgICAgIDQ0OiAxMDksCiAgICAgICAgNDU6IDExMiwKICAgICAgICA0NjogMTEzLAogICAgICAgIDQ3OiAxMTUsCiAgICAgICAgNDg6IDExNiwKICAgICAgICA0OTogMTE5LAogICAgICAgIDUwOiAxMjAsCiAgICAgICAgNTE6IDEyNiwKICAgICAgICA1MjogMTMwLAogICAgICAgIDUzOiAxMzMsCiAgICAgICAgNTQ6IDEzNCwKICAgICAgICA1NTogMTk1CiAgICB9CgogICAgc2V0YXR0cihjb250ZXh0LCAibW9kZWwiLCBtbSkKICAgIHNldGF0dHIoY29udGV4dCwgInRva2VuaXplciIsIHRva2VuaXplcikKICAgIHNldGF0dHIoY29udGV4dCwgImxhYmVsX21hcHBpbmciLCBsYWJlbF9tYXBwaW5nKQoKZGVmIHNlcnZlKGNvbnRleHQsIGV2ZW50KToKCiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiUmVjZWl2ZWQgZXZlbnQ6IHtldmVudH0iKQogICAgCiAgICBpZiBpc2luc3RhbmNlKGV2ZW50LmJvZHksIGJ5dGVzKToKICAgICAgICBib2R5ID0ganNvbi5sb2FkcyhldmVudC5ib2R5KQogICAgZWxzZToKICAgICAgICBib2R5ID0gZXZlbnQuYm9keQogICAgICAgIAogICAgaW5mZXJlbmNlX2lucHV0ID0gYm9keVsiaW5mZXJlbmNlX2lucHV0Il0KICAgIAogICAgcGRmID0gcGQuRGF0YUZyYW1lKGluZmVyZW5jZV9pbnB1dCwgaW5kZXg9WzBdKQogICAgayA9IGludChwZGZbJ2snXSkKICAgIGlucHV0cyA9IGNvbnRleHQudG9rZW5pemVyKHN0cihwZGZbJ3RleHQnXSksIHJldHVybl90ZW5zb3JzPSJwdCIsIHRydW5jYXRpb249VHJ1ZSwgcGFkZGluZz1UcnVlLCByZXR1cm5fdG9rZW5fdHlwZV9pZHM9RmFsc2UpCiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiayByZWNlaXZlZDoge2t9IikKICAgIAogICAgd2l0aCB0b3JjaC5ub19ncmFkKCk6CiAgICAgICAgbG9naXRzID0gY29udGV4dC5tb2RlbCgqKmlucHV0cykubG9naXRzCiAgICAgICAgc2lnbW9pZCA9IHRvcmNoLm5uLlNpZ21vaWQoKQogICAgICAgIHByb2JzID0gc2lnbW9pZChsb2dpdHMuc3F1ZWV6ZSgpLmNwdSgpKQogICAgICAgIGluZGljZXNfYWJvdmVfdGhyZXNob2xkID0gKHByb2JzID49IDAuNikubm9uemVybyhhc190dXBsZT1UcnVlKVswXQogICAgICAgIHByb2JzX2Fib3ZlX3RocmVzaG9sZCA9IHByb2JzW2luZGljZXNfYWJvdmVfdGhyZXNob2xkXQogICAgICAgIHNvcnRlZF9pbmRpY2VzID0gcHJvYnNfYWJvdmVfdGhyZXNob2xkLmFyZ3NvcnQoZGVzY2VuZGluZz1UcnVlKQogICAgICAgIHRvcF9rX2luZGljZXMgPSBpbmRpY2VzX2Fib3ZlX3RocmVzaG9sZFtzb3J0ZWRfaW5kaWNlc11bOmtdCiAgICAgICAgcmVzdWx0ID0gW2NvbnRleHQubGFiZWxfbWFwcGluZ1tpbnQoaWR4KV0gKyAxIGZvciBpZHggaW4gdG9wX2tfaW5kaWNlc10KICAgICAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYicmVzdWx0OiB7cmVzdWx0fSIpCiAgICAgICAgCiAgICAjIENvbnZlcnQgdGhlIHJlc3VsdCB0byBhIGpzb24gc3RyaW5nLgogICAganNvbnN0ciA9ICd7InJlc3VsdHMiOiAnICsgc3RyKGxpc3QocmVzdWx0KSkgKyAnfScKIAogICAgcmV0dXJuIGpzb24ubG9hZHMoanNvbnN0cikK",
                 "lang": "python",
                 "init_function": "init"
-            },
-            "path": "functions/document-classifier-serve-example",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-serve-example"
+            }
         },
         {
             "kind": "python",
@@ -90,11 +90,11 @@
                     "phase:model-training",
                     "framework:pytorch",
                     "application:pa"
-                ]
+                ],
+                "path": "functions/document-classifier-train-example",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-train-example"
             },
-            "name": "document-classifier-train",
-            "path": "functions/document-classifier-train-example",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-train-example"
+            "name": "document-classifier-train"
         },
         {
             "kind": "container",
@@ -109,11 +109,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:data-preparation"
-                ]
+                ],
+                "path": "functions/download-sentinel-data",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/download-sentinel-data"
             },
-            "name": "download-sentinel-data",
-            "path": "functions/download-sentinel-data",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/download-sentinel-data"
+            "name": "download-sentinel-data"
         },
         {
             "name": "echoService",
@@ -126,11 +126,11 @@
                     "platform:0.14",
                     "type:service",
                     "phase:utility"
-                ]
+                ],
+                "path": "functions/echo-service",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/echo-service"
             },
-            "kind": "python+serve",
-            "path": "functions/echo-service",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/echo-service"
+            "kind": "python+serve"
         },
         {
             "kind": "container",
@@ -145,11 +145,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:feature-extraction"
-                ]
+                ],
+                "path": "functions/elaborate-flood-data",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-flood-data"
             },
-            "name": "elaborate-flood-data",
-            "path": "functions/elaborate-flood-data",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-flood-data"
+            "name": "elaborate-flood-data"
         },
         {
             "kind": "container",
@@ -164,11 +164,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:feature-extraction"
-                ]
+                ],
+                "path": "functions/elaborate-forest-data",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-forest-data"
             },
-            "name": "elaborate-forest-data",
-            "path": "functions/elaborate-forest-data",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-forest-data"
+            "name": "elaborate-forest-data"
         },
         {
             "kind": "container",
@@ -183,11 +183,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:feature-extraction"
-                ]
+                ],
+                "path": "functions/elaborate-geological-data",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-geological-data"
             },
-            "name": "elaborate-geological-data",
-            "path": "functions/elaborate-geological-data",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/elaborate-geological-data"
+            "name": "elaborate-geological-data"
         },
         {
             "kind": "python",
@@ -200,11 +200,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:utility"
-                ]
+                ],
+                "path": "functions/example-container-job",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-job"
             },
-            "name": "example-container-job",
-            "path": "functions/example-container-job",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-job"
+            "name": "example-container-job"
         },
         {
             "kind": "python",
@@ -217,11 +217,11 @@
                     "platform:0.14",
                     "type:service",
                     "phase:utility"
-                ]
+                ],
+                "path": "functions/example-container-serve",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-serve"
             },
-            "name": "example-container-serve",
-            "path": "functions/example-container-serve",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-serve"
+            "name": "example-container-serve"
         },
         {
             "kind": "dbt",
@@ -235,11 +235,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:data-preparation"
-                ]
+                ],
+                "path": "functions/example-dbt-transform",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-dbt-transform"
             },
-            "name": "dbt-transform",
-            "path": "functions/example-dbt-transform",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-dbt-transform"
+            "name": "dbt-transform"
         },
         {
             "kind": "python",
@@ -253,11 +253,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:data-preparation"
-                ]
+                ],
+                "path": "functions/example-etl",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-etl"
             },
-            "name": "example-etl",
-            "path": "functions/example-etl",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-etl"
+            "name": "example-etl"
         },
         {
             "kind": "python",
@@ -270,11 +270,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:utility"
-                ]
+                ],
+                "path": "functions/example-hello-world",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-hello-world"
             },
-            "name": "hello-world",
-            "path": "functions/example-hello-world",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-hello-world"
+            "name": "hello-world"
         },
         {
             "kind": "python",
@@ -288,11 +288,11 @@
                     "platform:0.14",
                     "type:job",
                     "phase:data-preparation"
-                ]
+                ],
+                "path": "functions/example-validate-table",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-validate-table"
             },
-            "name": "example-validate-table",
-            "path": "functions/example-validate-table",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-validate-table"
+            "name": "example-validate-table"
         },
         {
             "kind": "flower-app",
@@ -305,12 +305,12 @@
                     "platform:0.14",
                     "type:service",
                     "framework:flower"
-                ]
+                ],
+                "path": "functions/flower-app",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-app"
             },
             "name": "flower-app",
-            "python_version": "PYTHON3_10",
-            "path": "functions/flower-app",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-app"
+            "python_version": "PYTHON3_10"
         },
         {
             "kind": "flower-client",
@@ -323,12 +323,12 @@
                     "platform:0.14",
                     "type:service",
                     "framework:flower"
-                ]
+                ],
+                "path": "functions/flower-client",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-client"
             },
             "name": "flower-client",
-            "python_version": "PYTHON3_10",
-            "path": "functions/flower-client",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-client"
+            "python_version": "PYTHON3_10"
         },
         {
             "kind": "flower-server",
@@ -341,12 +341,12 @@
                     "platform:0.14",
                     "type:service",
                     "framework:flower"
-                ]
+                ],
+                "path": "functions/flower-serve",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-serve"
             },
             "name": "flower-serve",
-            "python_version": "PYTHON3_10",
-            "path": "functions/flower-serve",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-serve"
+            "python_version": "PYTHON3_10"
         },
         {
             "kind": "kubeai-text",
@@ -360,12 +360,12 @@
                     "type:service",
                     "phase:model-serving",
                     "inference:openai"
-                ]
+                ],
+                "path": "functions/llm-ollama-serve",
+                "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-ollama-serve"
             },
             "name": "llm-ollama-serve",
-            "python_version": "PYTHON3_10",
-            "path": "functions/llm-ollama-serve",
-            "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-ollama-serve"
+            "python_version": "PYTHON3_10"
         }
     ],
     "models": []
