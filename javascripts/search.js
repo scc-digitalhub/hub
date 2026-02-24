@@ -19,7 +19,7 @@ async function init() {
   
   const res = await fetch(dataPath);
   const json = await res.json();
-  allData = mergeAllCategories(json)
+  allData = mergeAllCategories(json.catalog)
 
   buildFilters(allData);
   updateResults();
