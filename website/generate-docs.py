@@ -38,7 +38,7 @@ def initialize_website():
 def hub_ref(category, template, metadata):
     hr = f'hub://{category}/{template}'
     if 'version' in metadata:
-        hr += f':{metadata['version']}'
+        hr += f':{metadata["version"]}'
     return hr
 
 # Create metadata div for template page
