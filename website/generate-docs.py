@@ -14,6 +14,7 @@ gn_dir = 'generated'
 gn_docs_dir = f'{gn_dir}/docs'
 resources_dir = 'resources'
 
+license = 'Apache-2.0'
 repo_catalog = 'https://github.com/scc-digitalhub/hub/tree/main/catalog'
 repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog'
 
@@ -34,6 +35,12 @@ def initialize_website():
     shutil.copyfile(f'{resources_dir}/mkdocs.yml', f'{gn_dir}/mkdocs.yml')
     shutil.copyfile(f'{resources_dir}/homepage.md', f'{gn_docs_dir}/index.md')
 
+def hub_ref(category, template, metadata):
+    hr = f'hub://{category}/{template}'
+    if 'version' in metadata:
+        hr += f':{metadata['version']}'
+    return hr
+
 # Create metadata div for template page
 def template_page_metadata(metadata, category, template):
     contents = '<div id="template-metadata">'
@@ -48,12 +55,9 @@ def template_page_metadata(metadata, category, template):
     contents += '<div id="hub-ref" class="md-cell-right">'
     contents += '<button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button>'
 
-    hub_ref = f'hub://{category}/{template}'
-    if 'version' in metadata:
-        hub_ref += f':{metadata["version"]}'
+    hr = hub_ref(category, template, metadata)
     copy_button_contents = '<span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span>'
-    contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hub_ref}</span><button id=hub-ref-link-button onclick="copyRef()">{copy_button_contents}</button></div>'
-    
+    contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hr}</span><button id=hub-ref-link-button onclick="copyRef()">{copy_button_contents}</button></div>'
     
     contents += '</div>'
 
@@ -113,18 +117,27 @@ def template_notebook(notebook_path):
         content += notebook_content
     return content + '</div>'
 
+def init_structure():
+    structure = {}
+    structure['catalog'] = {}
+    structure['license'] = license
+    structure['catalog_url'] = f'{repo_catalog}/'
+
+    return structure
+
+
 def main():
     initialize_website()
+    structure = init_structure()
+    structure_catalog = structure['catalog']
 
     # Generate pages based on catalog directory
-    structure = {}
-
     categories = os.listdir(templates_dir)
     categories.sort()
 
     for c in categories:
         if os.path.isdir(f'{templates_dir}/{c}'):
-            structure[c] = []
+            structure_catalog[c] = []
 
             # Create folder for category
             category_dir = f'{gn_docs_dir}/{c}'
@@ -142,11 +155,11 @@ def main():
 
                     # Entry for JSON structure file
                     structure_entry = definition
-                    structure_entry.pop('spec', None)
                     if 'metadata' in structure_entry:
                         structure_entry['metadata']['path'] = f'{c}/{t}'
                         structure_entry['metadata']['repository'] = f'{repo_catalog}/{c}/{t}'
-                    structure[c].append(structure_entry)
+                        structure_entry['metadata']['relationships'] = [{'type': 'part_of', 'dest': hub_ref(c, t, structure_entry['metadata'])}]
+                    structure_catalog[c].append(structure_entry)
 
                     # Create template's own page
                     template_path = f'./{gn_docs_dir}/{c}/{t}.md'
