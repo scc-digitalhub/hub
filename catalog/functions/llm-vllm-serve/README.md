@@ -14,21 +14,10 @@ The `llm-vllm-serve` function includes the following features:
 - **Real-time inference**: Stream generated text completions as they are produced
 - **Kubernetes-native**: Containerized deployment with automatic scaling and health monitoring
 - **Batch processing**: Handle single and batched requests efficiently
+- **Data Type(dtype) support**: Choose between `float16`, `float32`, or `bfloat16` for model precision and memory optimization
 
 
 ## Definition
-
-The `llm-vllm-serve` function supports the following configuration options:
-
-- **Model Selection**: Specify any model from Hugging Face Hub using the `url` parameter (format: `hf://model-name`)
-- **Data Type (dtype)**: Choose between `float16`, `float32`, or `bfloat16` for model precision and memory optimization
-- **Quantization**: Enable quantization methods like AWQ or GPTQ for reduced memory footprint
-- **GPU Profiles**: Select appropriate GPU resources (`1xV100`, `2xA100`, `1xL40S`, etc.)
-- **Tensor Parallelism**: Distribute model inference across multiple GPUs
-- **Max Tokens**: Configure maximum generation length per request
-- **Temperature & Sampling**: Control output randomness and decoding strategy
-- **Batch Size**: Tune concurrent request handling
-- **API Port**: Customize the service endpoint port configuration
 
 ```
 llm_vllm_func = project.new_function(
