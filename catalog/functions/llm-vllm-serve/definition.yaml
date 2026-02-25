@@ -3,7 +3,7 @@ kind: kubeai-text
 metadata:
   name: LLM VLLM Serve (Kubeai-Text Serve)
   version: 1.0.0
-  description: LLM VLLM Serve. This function demonstrates how to deploy and interact with the VLLM model using the KubeAI Text Serving framework. It includes an example of how to set up the server and client applications for serving a language model, allowing users to send text generation requests and receive responses from the model.
+  description: This function demonstrates how to deploy and interact with the VLLM model using the KubeAI Text Serving framework inside the DigitalHub platform.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
