@@ -1,0 +1,34 @@
+
+kind: kubeai-text
+metadata:
+  name: LLM VLLM Serve (Kubeai-Text Serve)
+  version: 1.0.0
+  description: LLM VLLM Serve. This function demonstrates how to deploy and interact with the VLLM model using the KubeAI Text Serving framework. It includes an example of how to set up the server and client applications for serving a language model, allowing users to send text generation requests and receive responses from the model.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "phase:model-serving"
+    - "inference:openai"
+name: llm-vllm-serve
+python_version: PYTHON3_10
+spec:
+  features:
+    - TextGeneration
+  model_name: model
+  engine: VLLM
+  url: hf://Qwen/Qwen2.5-0.5B-Instruct
+---
+kind: kubeai-text+serve:run
+spec:
+  args:
+    - --dtype=float16
+  scaling:
+    replicas: 1
+    min_replicas: 1
+    autoscaling_disabled: false
+    target_requests: 100
+    scale_down_delay_seconds: 30
+    load_balancing:
+      strategy: LeastLoad
+  profile: 1xV100
