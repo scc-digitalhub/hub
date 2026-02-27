@@ -92,3 +92,31 @@ train_run = func_b.run(
 The trained model will be logged with the configured name 'document-classifier' and can be used for classifying new documents into the predefined categories.
 
 
+## Resources
+
+The function requires the following computational resources for optimal training performance:
+
+| Resource   | Recommended | Description                                            |
+| ---------- | -----------| ------------------------------------------------------ |
+| **GPU**    | `1x A100`  | High-performance GPU for accelerated BERT training.    |
+| **Memory** | `6Gi`      | Memory allocated to the training job.                  |
+
+### Storage
+
+The function uses persistent storage for caching model weights and dependencies:
+
+| Field         | Value                     | Description                                                 |
+| ------------- | ------------------------- | ----------------------------------------------------------- |
+| `volume_type` | `persistent_volume_claim` | Persistent storage resource.                               |
+| `name`        | `train-volume`            | Volume identifier for training data and models.            |
+| `mount_path`  | `/local-data`             | Directory inside the container where the volume is mounted. |
+| `size`        | `10Gi`                    | Allocated storage capacity.                                |
+
+### Environment Variables
+
+The following environment variables are configured for efficient model caching:
+
+- **HF_HOME**: `/local-data/huggingface` - Hugging Face cache directory
+- **TRANSFORMERS_CACHE**: `/local-data/huggingface` - Transformers library cache directory
+
+These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.
