@@ -31,4 +31,5 @@ spec:
     scale_down_delay_seconds: 30
     load_balancing:
       strategy: LeastLoad
+  model_name: model
   profile: 1xV100

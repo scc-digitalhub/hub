@@ -5,7 +5,7 @@ This function deploys a large language model (LLM) using the VLLM engine within 
 
 ## Features
 
-The `llm-vllm-serve` function includes the following features:
+The `vllm-kubeai-serve` function includes the following features:
 
 - **OpenAI-compatible API**: Provides a REST API endpoint compatible with OpenAI's text completion format
 - **Multiple model support**: Deploy various open-source LLMs from Hugging Face Hub
@@ -21,7 +21,7 @@ The `llm-vllm-serve` function includes the following features:
 
 ```
 llm_vllm_func = project.new_function(
-    name="llm-vllm-serve",
+    name="vllm-kubeai-serve",
     kind="kubeai-text",
     model_name="model",
     url="hf://Qwen/Qwen2.5-0.5B-Instruct",
@@ -32,7 +32,7 @@ llm_vllm_func = project.new_function(
 
 ## Usage
 
-To use the `llm-vllm-serve` function, follow these steps:
+To use the `vllm-kubeai-serve` function, follow these steps:
 
 1. **Initialize the Project**: Ensure that you have created the project and initialized the function as shown in the definition section.
 
@@ -64,4 +64,4 @@ These settings define the resource requests and limits for the runtime.
 | **GPU Type** | `V100` or `A100` | GPU accelerator for model inference. |
 
 
-The `llm-vllm-serve` function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.
+The `vllm-kubeai-serve` function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.
