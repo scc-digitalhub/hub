@@ -10,7 +10,7 @@ metadata:
     - "type:service"
     - "phase:model-serving"
     - "inference:openai"
-name: llm-vllm-serve
+name: vllm-kubeai-serve
 python_version: PYTHON3_10
 spec:
   features:
