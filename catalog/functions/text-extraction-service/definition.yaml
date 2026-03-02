@@ -1,7 +1,7 @@
 name: text-extraction-service
 kind: project
 metadata:
-  name: Text Extraction Service (Python Serve)
+  name: Text Extraction Service (Project)
   project: tika
   version: 1.0.0
   description: This project demonstrates how to deploy a text extraction service using Apache Tika in a container and a Python function to interact with it, all orchestrated within the DigitalHub platform.
