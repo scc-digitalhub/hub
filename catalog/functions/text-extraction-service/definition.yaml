@@ -4,7 +4,7 @@ metadata:
   name: Text Extraction Service (Python Serve)
   project: tika
   version: 1.0.0
-  description: A simple python-based API responding to a POST message with the "text" field. The function exposes an API using "serve" task.
+  description: This project demonstrates how to deploy a text extraction service using Apache Tika in a container and a Python function to interact with it, all orchestrated within the DigitalHub platform.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
