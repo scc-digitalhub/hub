@@ -1,0 +1,24 @@
+
+kind: kubeai-text
+metadata:
+  name: LLM VLLM Serve (vllmserve-text)
+  version: 1.0.0
+  description: This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the DigitalHub platform.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "phase:model-serving"
+    - "inference:openai"
+name: vllm-text-serve
+python_version: PYTHON3_10
+spec:
+  model_name: model
+  url: hf://Qwen/Qwen2.5-0.5B-Instruct
+---
+kind: vllmserve-text+serve:run
+spec:
+  model_name: model
+  profile: 1xV100
+  url: hf://Qwen/Qwen2.5-0.5B-Instruct
+  
