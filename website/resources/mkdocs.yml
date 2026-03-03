@@ -8,6 +8,9 @@ markdown_extensions:
 
 site_name: DH Hub
 
+repo_name: scc-digitalhub/hub
+repo_url: https://github.com/scc-digitalhub/hub
+
 extra_css:
   - stylesheets/colors.css
   - stylesheets/overrides.css
