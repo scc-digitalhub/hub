@@ -19,7 +19,7 @@
     
     
       
-        <title>Example container serve - DH Hub</title>
+        <title>Llm vllm kubeai serve - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-function" class="md-skip">
+        <a href="#vllm-serve" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example container serve
+              Llm vllm kubeai serve
             
           </span>
         </div>
@@ -328,6 +328,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1.-Initialize-the-project" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -339,10 +350,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3.-Execution" class="md-nav__link">
+  <a href="#2.-Execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Execution¶
+        2. Execution¶
       
     </span>
   </a>
@@ -370,49 +381,77 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Example Container Serve (Python Serve)</p>
+<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">LLM VLLM Serve (Kubeai-Text Serve)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-container-serve/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-container-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Example Container Serve (Python Serve)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for serving containerized functions within the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-vllm-kubeai-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-vllm-kubeai-serve/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-vllm-kubeai-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM VLLM Serve (Kubeai-Text Serve)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates how to deploy and interact with the VLLM model using the KubeAI Text Serving framework inside the DigitalHub platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:model-serving</span><span class="md-label">inference:openai</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="container-function">Container Function</h1>
-<p>The DigitalHub Platform  Container runtime enables launching services on Kubernetes. It registers function kind 'container' and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to serve a 'job' that can be run in a containerized environment using predefined base images. The function act as a template for serving custom container within the platform. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
+<h1 id="vllm-serve">VLLM Serve</h1>
+<p>This function deploys a large language model (LLM) using the VLLM engine within the digitalhub platform. It provides an OpenAI-compatible API endpoint for text generation tasks. Users can submit prompts to the deployed model and receive generated completions in real-time. The deployment is containerized and runs on Kubernetes, supporting various optimization options such as dtype specification and resource profiles for efficient inference.</p>
 <h2 id="features">Features</h2>
+<p>The <code>vllm-kubeai-serve</code> function includes the following features:</p>
 <ul>
-<li><strong>Kubernetes-based deployment</strong>: Run containerized workloads on Kubernetes infrastructure</li>
-<li><strong>Service hosting</strong>: Deploy and serve applications using the <code>serve</code> action</li>
-<li><strong>Customizable configuration</strong>: Configure replicas, service ports, and service names</li>
-<li><strong>Security-first</strong>: Runs as non-root user (fs_group='8877') following best practices</li>
-<li><strong>Pre-built image support</strong>: Use existing container images like <code>hashicorp/http-echo</code></li>
-<li><strong>Flexible port mapping</strong>: Configure both internal and external port mappings for network access</li>
+<li><strong>OpenAI-compatible API</strong>: Provides a REST API endpoint compatible with OpenAI's text completion format</li>
+<li><strong>Multiple model support</strong>: Deploy various open-source LLMs from Hugging Face Hub</li>
+<li><strong>Performance optimization</strong>: Configurable dtype (float16, float32) and quantization options</li>
+<li><strong>Resource flexibility</strong>: Support for different GPU profiles (1xV100, 2xA100, etc.) based on deployment needs</li>
+<li><strong>Real-time inference</strong>: Stream generated text completions as they are produced</li>
+<li><strong>Kubernetes-native</strong>: Containerized deployment with automatic scaling and health monitoring</li>
+<li><strong>Batch processing</strong>: Handle single and batched requests efficiently</li>
+<li><strong>Data Type(dtype) support</strong>: Choose between <code>float16</code>, <code>float32</code>, or <code>bfloat16</code> for model precision and memory optimization</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-
-<span class="c1"># Initialize project</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
-
-<span class="c1"># Create function</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_container_function_serve&quot;</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hashicorp/http-echo:latest&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight"><pre><span></span><code>llm_vllm_func = project.new_function(
+    name=&quot;vllm-kubeai-serve&quot;,
+    kind=&quot;kubeai-text&quot;,
+    model_name=&quot;model&quot;,
+    url=&quot;hf://Qwen/Qwen2.5-0.5B-Instruct&quot;,
+    engine=&#39;VLLM&#39;,
+    features=[&#39;TextGeneration&#39;]
+)
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<p>The <code>serve</code> action starts a web server to host and serve your application or content. It accepts parameters to configure the deployment including the number of replicas, service ports for network access, a custom service name. The <code>port</code> is the external port exposed by the Kubernetes service for external access for incoming traffic to service, while <code>target_port</code> is the internal port where the container application is listening for requests i.e port numer where traffic routed to pod.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Run the container function as a job</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
-    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
-    <span class="n">service_name</span><span class="o">=</span><span class="s2">&quot;http-echo&quot;</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">&quot;8877&quot;</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<p>To use the <code>vllm-kubeai-serve</code> function, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
+</li>
+<li>
+<p><strong>Start the Serve</strong>: Use the following code to start. </p>
+<div class="highlight"><pre><span></span><code><span class="n">vllm_run</span> <span class="o">=</span> <span class="n">llm_vllm_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xV100&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;--dtype=float16&quot;</span><span class="p">],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+</li>
+<li>
+<p><strong>Invoke the Function</strong>: Use the following code to send a request to the function and receive a response.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/v1/completions&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:&quot;</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ol>
 <p>Notes: For detailed usage, check the usage notebook.</p>
+<h2 id="resources">Resources</h2>
+<p>These settings define the resource requests and limits for the runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU Type</strong></td>
+<td><code>V100</code> or <code>A100</code></td>
+<td>GPU accelerator for model inference.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>vllm-kubeai-serve</code> function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <div>
@@ -8272,7 +8311,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
+<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8285,7 +8324,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "example-container-serve" operation in the project.</p>
+<p>Fetch the "vllm-kubeai-serve" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8298,7 +8337,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-container-serve"</span><span class="p">)</span> 
+<pre><span></span><span class="n">llm_vllm_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'vllm-kubeai-serve'</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8306,7 +8345,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b081d826">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca54356f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8319,7 +8358,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a7363efd">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bf8a78eb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8328,10 +8367,13 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"my_container_function_serve"</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">"hashicorp/http-echo:latest"</span><span class="p">,</span>
+<pre><span></span><span class="n">llm_vllm_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"vllm-kubeai-serve"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"kubeai-text"</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">"llm-vllm-model"</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">"hf://Qwen/Qwen2.5-0.5B-Instruct"</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="s1">'VLLM'</span><span class="p">,</span>
+    <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">'TextGeneration'</span><span class="p">]</span>
 <span class="p">)</span>
 </pre>
 </div>
@@ -8340,18 +8382,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3510f84a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We can now run the function and see the results. To do this we use the run method of the function.</p>
+<p>Run the function with default configuration,</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ad829fbf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8359,43 +8401,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
-    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
-    <span class="n">service_name</span><span class="o">=</span><span class="s2">"http-echo"</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">vllm_run</span> <span class="o">=</span> <span class="n">llm_vllm_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">"--dtype=float16"</span><span class="p">],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1d0475f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Wait for job to finish. Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+<p>Wait for job to finish. The state of 'serve' run can be viewed running the cell below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=724cf24d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To invoke the deployed service, use the <code>invoke()</code> method on the run object. This sends a request to the running container and returns the response. You can inspect the output by printing the response text.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=592a62ae">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=661a1b0d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8403,15 +8427,52 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)[</span><span class="s1">'status'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Model status:"</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f758f1a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce5a9be6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6fab3f8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dba63fb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To fetch the deployed service URL and model ID, you can access the relevant fields from the <code>vllm_run</code> object after the function has been run. The service URL is available under the <code>service</code> key, and the model ID can be found under the <code>openai</code> key in the status dictionary. Use the following code to retrieve and print these values:</p>
+<ul>
+<li><code>CHAT_URL</code> will contain the service URL.</li>
+<li><code>CHAT_MODEL</code> will contain the model ID.</li>
+</ul>
+<p>These variables can then be used for making API requests or further testing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2920de67">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8419,7 +8480,140 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Service status:"</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce9e1e1a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">CHAT_URL</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
+<span class="n">CHAT_MODEL</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"openai"</span><span class="p">][</span><span class="s2">"model"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"service </span><span class="si">{</span><span class="n">CHAT_URL</span><span class="si">}</span><span class="s2"> with model </span><span class="si">{</span><span class="n">CHAT_MODEL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c63fb2fb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Test-the-API">3. Test the API<a class="anchor-link" href="#3.-Test-the-API">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a362369b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To invoke the deployed API, you need to provide the model identifier and a prompt. This is done by constructing a JSON payload with the required fields and sending it to the service endpoint.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><p>Retrieve the model name and prepare the JSON payload:</p>
+<ul>
+<li><code>model</code>: The model ID obtained from the deployment.</li>
+<li><code>prompt</code>: The text prompt you want the model to complete or respond to.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
+</pre></div>
+</li>
+<li><p>Invoke the API using the service URL and payload:</p>
+<ul>
+<li>Use the <code>.invoke()</code> method with the <code>json</code> argument and the appropriate endpoint.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</li>
+<li><p>Process and display the response as needed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_name</span> <span class="o">=</span><span class="n">vllm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOPs'</span><span class="p">}</span>
+<span class="n">json_payload</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Response:"</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6731bb57">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Response</span><span class="p">:</span>
+<span class="p">{</span> <span class="s1">'choices'</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">'finish_reason'</span><span class="p">:</span> <span class="s1">'length'</span><span class="p">,</span>
+                 <span class="s1">'index'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="s1">'logprobs'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">'prompt_logprobs'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">'prompt_token_ids'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">'stop_reason'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="s1">'text'</span><span class="p">:</span> <span class="s1">' and how they work in the context of a specific ML '</span>
+                         <span class="s1">'model.</span><span class="se">\n</span><span class="s1">'</span>
+                         <span class="s1">'MLOps'</span><span class="p">,</span>
+                 <span class="s1">'token_ids'</span><span class="p">:</span> <span class="kc">None</span><span class="p">}],</span>
+  <span class="s1">'created'</span><span class="p">:</span> <span class="mi">1772012102</span><span class="p">,</span>
+  <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'cmpl-a589857d516958f0'</span><span class="p">,</span>
+  <span class="s1">'kv_transfer_params'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">'model'</span><span class="p">:</span> <span class="s1">'model-17499be858474e9580e4ea819730b000'</span><span class="p">,</span>
+  <span class="s1">'object'</span><span class="p">:</span> <span class="s1">'text_completion'</span><span class="p">,</span>
+  <span class="s1">'service_tier'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">'system_fingerprint'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">'usage'</span><span class="p">:</span> <span class="p">{</span> <span class="s1">'completion_tokens'</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+             <span class="s1">'prompt_tokens'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+             <span class="s1">'prompt_tokens_details'</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+             <span class="s1">'total_tokens'</span><span class="p">:</span> <span class="mi">20</span><span class="p">}}</span>
 </pre></div>
 </div>
 </div>

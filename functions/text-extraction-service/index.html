@@ -19,7 +19,7 @@
     
     
       
-        <title>Example container serve - DH Hub</title>
+        <title>Text extraction service - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#container-function" class="md-skip">
+        <a href="#text-extraction-service" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example container serve
+              Text extraction service
             
           </span>
         </div>
@@ -295,17 +295,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#definition" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -313,6 +302,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tika" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tika
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -339,13 +356,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3.-Execution" class="md-nav__link">
+  <a href="#2.-Execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Execution¶
+        2. Execution¶
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. Execution¶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#Deploy-a-text-extraction-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploy a text extraction service¶
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -370,49 +404,92 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Example Container Serve (Python Serve)</p>
+<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Text Extraction Service (Project)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/example-container-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/example-container-serve/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/example-container-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Example Container Serve (Python Serve)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>A simple example function demonstrating how to create a Python job that can be run in a containerized environment using predefined base images. This function serves as a template for serving containerized functions within the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/text-extraction-service">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/text-extraction-service/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/text-extraction-service:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Text Extraction Service (Project)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This project demonstrates how to deploy a text extraction service using Apache Tika in a container and a Python function to interact with it, all orchestrated within the DigitalHub platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="container-function">Container Function</h1>
-<p>The DigitalHub Platform  Container runtime enables launching services on Kubernetes. It registers function kind 'container' and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to serve a 'job' that can be run in a containerized environment using predefined base images. The function act as a template for serving custom container within the platform. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
-<h2 id="features">Features</h2>
-<ul>
-<li><strong>Kubernetes-based deployment</strong>: Run containerized workloads on Kubernetes infrastructure</li>
-<li><strong>Service hosting</strong>: Deploy and serve applications using the <code>serve</code> action</li>
-<li><strong>Customizable configuration</strong>: Configure replicas, service ports, and service names</li>
-<li><strong>Security-first</strong>: Runs as non-root user (fs_group='8877') following best practices</li>
-<li><strong>Pre-built image support</strong>: Use existing container images like <code>hashicorp/http-echo</code></li>
-<li><strong>Flexible port mapping</strong>: Configure both internal and external port mappings for network access</li>
-</ul>
+<h1 id="text-extraction-service">Text Extraction Service</h1>
+<p>This project implements a text extraction service using Apache Tika and Python. It provides a REST API endpoint that accepts POST requests containing file artifacts and extracts text content from them.</p>
+<p>The service consists of two main components:
+- <strong>Tika Container</strong>: Apache Tika service for document text extraction
+- <strong>Python Function</strong>: Handler that orchestrates the extraction workflow, downloads artifacts, sends them to Tika, and logs the extracted output</p>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+<h3 id="extract">Extract</h3>
+<p>The <code>extract</code> function is a Python-based handler that processes document artifacts through Apache Tika for text extraction.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="c1"># Initialize project</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
-
-<span class="c1"># Create function</span>
-<span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_container_function_serve&quot;</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hashicorp/http-echo:latest&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_text</span><span class="p">(</span><span class="n">tika_url</span><span class="p">,</span> <span class="n">artifact</span><span class="p">,</span> <span class="n">project</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading artifact </span><span class="si">{</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">artifact</span><span class="o">.</span><span class="n">as_file</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">tika_url</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;http&quot;</span><span class="p">:</span> 
+        <span class="n">tika_url</span> <span class="o">=</span> <span class="s2">&quot;http://&quot;</span><span class="o">+</span><span class="n">tika_url</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">tika_url</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>    
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">tika_url</span><span class="o">+</span><span class="s2">&quot;/tika&quot;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">},</span> <span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Extracted text with success&quot;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;/tmp/output.html&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tf</span><span class="p">:</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot;_output.html&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
 </code></pre></div>
+<p><strong>Parameters</strong>:
+- <code>tika_url</code>: URL endpoint of the Tika service
+- <code>artifact</code>: The document file to be processed
+- <code>project</code>: Project context for logging results</p>
+<p><strong>Workflow</strong>:
+1. Downloads the artifact file
+2. Ensures proper HTTP URL formatting for Tika endpoint
+3. Sends the file to Tika via PUT request with <code>Accept: text/html</code> header
+4. On success (HTTP 200), writes extracted text to <code>/tmp/output.html</code>
+5. Logs the output artifact back to the project
+6. Raises exception on extraction failure</p>
+<h3 id="tika">Tika</h3>
+<p>The Tika service is a containerized Apache Tika instance that provides document text extraction capabilities via REST API.</p>
+<p><strong>Container Image</strong>: <code>apache/tika:latest</code></p>
+<p><strong>Port</strong>: <code>9998</code></p>
+<p><strong>Endpoint</strong>: <code>PUT /tika/form</code></p>
+<p><strong>Request Headers</strong>:
+- <code>Accept: text/html</code> - Specifies HTML output format</p>
+<p><strong>Response</strong>: Extracted text content from the document</p>
+<p><strong>Supported Formats</strong>: PDF, DOCX, XLSX, PPTX, images with OCR, and other common document types</p>
 <h2 id="usage">Usage</h2>
-<p>The <code>serve</code> action starts a web server to host and serve your application or content. It accepts parameters to configure the deployment including the number of replicas, service ports for network access, a custom service name. The <code>port</code> is the external port exposed by the Kubernetes service for external access for incoming traffic to service, while <code>target_port</code> is the internal port where the container application is listening for requests i.e port numer where traffic routed to pod.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Run the container function as a job</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
-    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
-    <span class="n">service_name</span><span class="o">=</span><span class="s2">&quot;http-echo&quot;</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">&quot;8877&quot;</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<p>To use the text extraction service, follow these steps:</p>
+<ol>
+<li>
+<p><strong>Initialize the project and deploy Tika service</strong>:
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
+<span class="n">tika_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
+<span class="n">tika_run</span> <span class="o">=</span> <span class="n">tika_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">}],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">TIKA_URL</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">&quot;service&quot;</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Log a document artifact</strong>:
+    <div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;path/to/document.pdf&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Run the extraction function</strong>:
+    <div class="highlight"><pre><span></span><code><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;extract&quot;</span><span class="p">)</span>
+<span class="n">extract_run</span> <span class="o">=</span> <span class="n">extract_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;artifact&quot;</span><span class="p">:</span> <span class="n">artifact</span><span class="o">.</span><span class="n">key</span><span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tika_url&quot;</span><span class="p">:</span> <span class="n">TIKA_URL</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Retrieve the extracted output</strong>:
+    <div class="highlight"><pre><span></span><code><span class="n">output_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf_output.html&quot;</span><span class="p">)</span>
+<span class="n">output_artifact</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./artifact/output.html&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></p>
+</li>
+</ol>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <div>
@@ -8227,7 +8304,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context for the Project, if it has not already been created. The project serves as a placeholder for the code, data, and management of data operations inside the Digitalhub platform.</p>
+<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Fetch the working context: import the project 'tika'. Project is a placeholder for the code, data, and management of the data operations inside the digitalhub platform.</p>
 </div>
 </div>
 </div>
@@ -8241,7 +8318,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
 <pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"tika"</span>
 <span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </pre>
 </div>
@@ -8251,19 +8328,6 @@ a.anchor-link {
 </div>
 </body>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f207c763">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Make sure to replace &lt;YOUR_PROJECT_NAME&gt; with the actual name of your project before running the code.</p>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8272,7 +8336,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
+<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8285,7 +8349,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "example-container-serve" operation in the project.</p>
+<h3 id="Deploy-a-text-extraction-service">Deploy a text extraction service<a class="anchor-link" href="#Deploy-a-text-extraction-service">¶</a></h3><p>Fetch the "tika" operation in the project. This function will use Apache Tika, a tool for extracting text from a variety of formats.</p>
 </div>
 </div>
 </div>
@@ -8298,7 +8362,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"example-container-serve"</span><span class="p">)</span> 
+<pre><span></span><span class="n">tika_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"tika"</span><span class="p">)</span> 
 </pre>
 </div>
 </div>
@@ -8306,7 +8370,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b081d826">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8314,12 +8378,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Alternatively, one can create new function</p>
+<p>Then, execute the function. For more details about how to create, run, and view jobs inside to the digital hub platform see the <a href="https://scc-digitalhub.github.io/docs/0.14/runtimes/python/">documentation </a></p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a7363efd">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8328,11 +8392,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"my_container_function_serve"</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">"hashicorp/http-echo:latest"</span><span class="p">,</span>
-<span class="p">)</span>
+<pre><span></span><span class="n">tika_run</span> <span class="o">=</span> <span class="n">tika_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">service_ports</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">9998</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">9998</span><span class="p">}],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8340,18 +8400,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3510f84a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>We can now run the function and see the results. To do this we use the run method of the function.</p>
+<p>As a result the 'tike' extraction service get deployed.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ad829fbf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=349b56c7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8359,43 +8419,26 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
-    <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
-    <span class="n">service_name</span><span class="o">=</span><span class="s2">"http-echo"</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
-    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Service status:"</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a9d5482b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Wait for job to finish. Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+<p>Now fetch the URL of the service for API invocation.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=724cf24d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To invoke the deployed service, use the <code>invoke()</code> method on the run object. This sends a request to the running container and returns the response. You can inspect the output by printing the response text.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=592a62ae">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=92184569">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8403,15 +8446,26 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">TIKA_URL</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">TIKA_URL</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f758f1a7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b7181c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Extract-the-text">Extract the text<a class="anchor-link" href="#Extract-the-text">¶</a></h3><p>We will not fetch a python function 'extract' from the project which will read an artifact from the platform's repository and leverage the Tika service to extract the textual content and write it to a HTML file.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=726c9820">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8419,7 +8473,89 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"extract"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=111b3ec9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Create-artifact">Create artifact<a class="anchor-link" href="#Create-artifact">¶</a></h3><p>We now store the PDF file as an artifact and download it. You are free to change the address to any PDF file you prefer. For the purposes of this tutorial, the PDF file is downloaded from a local PDF folder 'documents'.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=06351438">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pdf</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">"document.pdf"</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s2">"artifact"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">"docs/document.pdf"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d7a58d3c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Then, we run the function by passing it the artifact and the URL to Tika:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=45d7b81d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">extract_run</span> <span class="o">=</span> <span class="n">extract_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"job"</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">"artifact"</span><span class="p">:</span> <span class="n">pdf</span><span class="o">.</span><span class="n">key</span><span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"tika_url"</span><span class="p">:</span> <span class="n">TIKA_URL</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c69f0911">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Let's read the file and check the content is correct:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2f98cd22">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">html_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">"document.pdf_output.html"</span><span class="p">)</span>
+<span class="n">html_artifact</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'./artifact/output.html'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
