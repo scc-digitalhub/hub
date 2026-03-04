@@ -18,6 +18,12 @@ spec:
       metadata:
         name: tika
         project: tika
+        labels:
+          - "license:apache-2.0"
+          - "domain:nlp"
+          - "platform:0.14"
+          - "type:service"
+          - "phase:data-preparation"            
       name: tika
       spec:
         image: apache/tika:latest-full
@@ -25,6 +31,11 @@ spec:
       metadata:
         name: extract
         project: tika
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.14"
+          - "type:job"
+          - "phase:utility"  
       name: extract
       project: tika
       spec:
