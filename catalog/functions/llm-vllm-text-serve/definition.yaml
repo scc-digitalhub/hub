@@ -1,5 +1,5 @@
 
-kind: kubeai-text
+kind: vllmserve-text
 metadata:
   name: LLM VLLM Serve (vllmserve-text)
   version: 1.0.0
