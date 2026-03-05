@@ -1,0 +1,111 @@
+name: rag-text-serve
+kind: project
+metadata:
+  name: RAG Text Service (Project)
+  project: rag-text-serve
+  version: 1.0.0
+  description: This project demonstrates how to deploy a RAG text serving function using a Python function within the DigitalHub platform, which interacts with a VLLMServe text serving function and an embedding function to provide retrieval-augmented generation capabilities.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.14"
+    - "type:service"
+    - "phase:utility"    
+kind: python+serve
+name: rag-text-serve
+spec:
+  functions:
+    - kind: vllmserve-text
+      metadata:
+        name: LLM VLLM Serve (vllmserve-text)
+        project: rag-text-serve
+        description: This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the DigitalHub platform.
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.14"
+          - "type:service"
+          - "phase:model-serving"
+          - "inference:openai"
+      name: vllm-text-serve
+      python_version: PYTHON3_10
+      spec:
+        model_name: model
+        url: hf://Qwen/Qwen2.5-0.5B-Instruct
+    - kind: kubeai-text
+      metadata:
+        name: embed
+        project: rag-text-serve
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.14"
+          - "type:service"
+          - "phase:model-serving"
+          - "inference:openai"
+      name: embed
+      project: rag-service
+      spec:
+        features:
+          - TextEmbedding
+        model_name: embmodel
+        engine: VLLM
+        url: hf://thenlper/gte-base
+    - kind: python
+      metadata:
+        name: embedder
+        project: rag-text-serve
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.14"
+          - "type:job"
+          - "phase:utility"
+      name: embedder
+      project: rag-text-serve
+      spec:
+        requirements:
+          - transformers==4.50.3
+          - psycopg_binary
+          - openai==2.24.0
+          - langchain-text-splitters
+          - langchain-community
+          - langgraph
+          - langchain-core
+          - langchain-huggingface
+          - langchain_postgres
+          - langchain[openai]
+          - beautifulsoup4==4.14.3
+        python_version: PYTHON3_10
+        source:
+          base64: aW1wb3J0IGJzNApmcm9tIGxhbmdjaGFpbl9jb21tdW5pdHkuZG9jdW1lbnRfbG9hZGVycyBpbXBvcnQgV2ViQmFzZUxvYWRlcgpmcm9tIGxhbmdjaGFpbl90ZXh0X3NwbGl0dGVycyBpbXBvcnQgUmVjdXJzaXZlQ2hhcmFjdGVyVGV4dFNwbGl0dGVyCmZyb20gbGFuZ2NoYWluX3Bvc3RncmVzIGltcG9ydCBQR1ZlY3RvcgppbXBvcnQgb3MKaW1wb3J0IHJlcXVlc3RzCmZyb20gbGFuZ2NoYWluX29wZW5haSBpbXBvcnQgT3BlbkFJRW1iZWRkaW5ncwpmcm9tIG9wZW5haSBpbXBvcnQgT3BlbkFJCgoKUEdfVVNFUiA9IG9zLmVudmlyb25bIkRCX1VTRVJOQU1FIl0KUEdfUEFTUyA9IG9zLmVudmlyb25bIkRCX1BBU1NXT1JEIl0KUEdfSE9TVCA9IG9zLmVudmlyb25bIkRCX0hPU1QiXQpQR19QT1JUID0gb3MuZW52aXJvblsiREJfUE9SVCJdCkRCX05BTUUgPSBvcy5lbnZpcm9uWyJEQl9EQVRBQkFTRSJdCkFDQ0VTU19UT0tFTiA9IG9zLmVudmlyb25bIkRIQ09SRV9BQ0NFU1NfVE9LRU4iXQoKCmRlZiBwcm9jZXNzKGlucHV0KToKICAgIHByaW50KGYicHJvY2VzcyBpbnB1dCB7aW5wdXQuaWR9Li4uIikKICAgIHVybCA9ICgKICAgICAgICBvcy5lbnZpcm9uWyJESENPUkVfRU5EUE9JTlQiXQogICAgICAgICsgIi9hcGkvdjEvLS8iCiAgICAgICAgKyBpbnB1dC5wcm9qZWN0CiAgICAgICAgKyAiLyIKICAgICAgICArIGlucHV0LmtpbmQKICAgICAgICArICJzLyIKICAgICAgICArIGlucHV0LmlkCiAgICAgICAgKyAiL2ZpbGVzL2Rvd25sb2FkIgogICAgKQogICAgcHJpbnQoZiJyZXF1ZXN0IGRvd25sb2FkIGxpbmsgZm9yIGlucHV0IHtpbnB1dC5pZH0gZnJvbSB7dXJsfSIpCiAgICByZXMgPSByZXF1ZXN0cy5nZXQodXJsLCBoZWFkZXJzPXsiQXV0aG9yaXphdGlvbiI6IGYiQmVhcmVyIHtBQ0NFU1NfVE9LRU59In0pCiAgICBwcmludChmIkRvd25sb2FkIHVybCBzdGF0dXMge3Jlcy5zdGF0dXNfY29kZX0iKQogICAgaWYgcmVzLnN0YXR1c19jb2RlID09IDIwMDoKICAgICAgICBqID0gcmVzLmpzb24oKQogICAgICAgIHByaW50KGYie2p9IikKICAgICAgICAjaWYgInVybCIgaW4gajoKICAgICAgICAgICAgI3JldHVybiBlbWJlZChqWyJ1cmwiXSkKCiAgICBwcmludCgiRW5kLiIpCgoKZGVmIGVtYmVkKHVybCk6CiAgICBQR19DT05OX1VSTCA9ICgKICAgICAgICBmInBvc3RncmVzcWwrcHN5Y29wZzovL3tQR19VU0VSfTp7UEdfUEFTU31Ae1BHX0hPU1R9OntQR19QT1JUfS97REJfTkFNRX0iCiAgICApCiAgICBwcmludChmInByb2Nlc3MgdXJsIHt1cmx9Li4uIikKICAgIGVtYmVkZGluZ19zZXJ2aWNlX3VybCA9IG9zLmVudmlyb25bIkVNQkVERElOR19TRVJWSUNFX1VSTCJdCiAgICBlbWJlZGRpbmdfbW9kZWxfbmFtZSA9IG9zLmVudmlyb25bIkVNQkVERElOR19NT0RFTF9OQU1FIl0KICAgIAogICAgY2xhc3MgQ0VtYmVkZGluZ3MoT3BlbkFJRW1iZWRkaW5ncyk6CiAgICAgICAgZGVmIGVtYmVkX2RvY3VtZW50cyhzZWxmLCBkb2NzKToKICAgICAgICAgICAgY2xpZW50ID0gT3BlbkFJKGFwaV9rZXk9Imlnbm9yZWQiLCBiYXNlX3VybD1mIntlbWJlZGRpbmdfc2VydmljZV91cmx9L3YxIikKICAgICAgICAgICAgZW1iX2FyciA9IFtdCiAgICAgICAgICAgIGZvciBkb2MgaW4gZG9jczoKICAgICAgICAgICAgICAgICNzYW5pdGl6ZSBzdHJpbmc6IHJlcGxhY2UgTlVMIHdpdGggc3BhY2VzCiAgICAgICAgICAgICAgICBkPWRvYy5yZXBsYWNlKCJceDAwIiwgIi0iKQogICAgICAgICAgICAgICAgZW1icyA9IGNsaWVudC5lbWJlZGRpbmdzLmNyZWF0ZSgKICAgICAgICAgICAgICAgICAgICBpbnB1dD1kLAogICAgICAgICAgICAgICAgICAgIG1vZGVsPWVtYmVkZGluZ19tb2RlbF9uYW1lCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICBlbWJfYXJyLmFwcGVuZChlbWJzLmRhdGFbMF0uZW1iZWRkaW5nKQogICAgICAgICAgICByZXR1cm4gZW1iX2FycgoKICAgIGN1c3RvbV9lbWJlZGRpbmdzID0gQ0VtYmVkZGluZ3MoYXBpX2tleT0iaWdub3JlIikKCiAgICB2ZWN0b3Jfc3RvcmUgPSBQR1ZlY3RvcigKICAgICAgICBlbWJlZGRpbmdzPWN1c3RvbV9lbWJlZGRpbmdzLAogICAgICAgIGNvbGxlY3Rpb25fbmFtZT1mIntlbWJlZGRpbmdfbW9kZWxfbmFtZX1fZG9jcyIsCiAgICAgICAgY29ubmVjdGlvbj1QR19DT05OX1VSTCwKICAgICkKCiAgICBsb2FkZXIgPSBXZWJCYXNlTG9hZGVyKAogICAgICAgIHdlYl9wYXRocz0odXJsLCksCiAgICAgICAgYnNfa3dhcmdzPWRpY3QoCiAgICAgICAgICAgIHBhcnNlX29ubHk9YnM0LlNvdXBTdHJhaW5lcigKICAgICAgICAgICAgICAgIGNsYXNzXz0oInBvc3QtY29udGVudCIpCiAgICAgICAgICAgICkKICAgICAgICApLAogICAgKSAgICAKICAgIGRvY3MgPSBsb2FkZXIubG9hZCgpCiAgICBwcmludChmImRvY3VtZW50IGxvYWRlZCwgZ2VuZXJhdGUgZW1iZWRkaW5ncy4uLiIpCgogICAgdGV4dF9zcGxpdHRlciA9IFJlY3Vyc2l2ZUNoYXJhY3RlclRleHRTcGxpdHRlcihjaHVua19zaXplPTEwMDAsIGNodW5rX292ZXJsYXA9MjAwKQogICAgYWxsX3NwbGl0cyA9IHRleHRfc3BsaXR0ZXIuc3BsaXRfZG9jdW1lbnRzKGRvY3MpCiAgICBwcmludChmInN0b3JlIGRvY3VtZW50cyBpbiB2ZWN0b3IgZGIuLi4iKQoKICAgIHZlY3Rvcl9zdG9yZS5hZGRfZG9jdW1lbnRzKGRvY3VtZW50cz1hbGxfc3BsaXRzKQogICAgcHJpbnQoIkRvbmUuIik=
+          lang: python
+    - kind: python
+      metadata:
+        name: rag-service
+        project: rag-text-serve
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.14"
+          - "type:service"
+          - "phase:utility"      
+      name: rag-service
+      project: rag-text-serve
+      spec:
+        requirements:
+          - transformers==4.50.3
+          - psycopg[binary]==3.2.10
+          - openai==1.109.1
+          - langchain==0.3.27
+          - langchain-core==0.3.76
+          - langchain-openai==0.3.27
+          - langchain-postgres==0.0.15
+          - langchain-huggingface==0.3.1
+          - langgraph==0.6.7
+          - filelock==3.19.1
+          - huggingface-hub==0.35.1
+          - beautifulsoup4>=4.13.0
+          - langchainhub==0.1.21
+        python_version: PYTHON3_10
+        source:
+          source: src/serve.py
+          handler: src.serve:serve
+          base64: aW1wb3J0IGJzNApmcm9tIGxhbmdjaGFpbl90ZXh0X3NwbGl0dGVycyBpbXBvcnQgUmVjdXJzaXZlQ2hhcmFjdGVyVGV4dFNwbGl0dGVyCmZyb20gbGFuZ2NoYWluX3Bvc3RncmVzIGltcG9ydCBQR1ZlY3RvcgppbXBvcnQgb3MKZnJvbSBsYW5nY2hhaW5fb3BlbmFpIGltcG9ydCBPcGVuQUlFbWJlZGRpbmdzCmZyb20gb3BlbmFpIGltcG9ydCBPcGVuQUkKCmZyb20gbGFuZ2NoYWluIGltcG9ydCBodWIKZnJvbSBsYW5nY2hhaW5fY29yZS5kb2N1bWVudHMgaW1wb3J0IERvY3VtZW50CmZyb20gdHlwaW5nX2V4dGVuc2lvbnMgaW1wb3J0IExpc3QsIFR5cGVkRGljdAoKZnJvbSBsYW5nZ3JhcGguZ3JhcGggaW1wb3J0IFNUQVJULCBTdGF0ZUdyYXBoCmZyb20gbGFuZ2NoYWluLmNoYXRfbW9kZWxzIGltcG9ydCBpbml0X2NoYXRfbW9kZWwKClBHX1VTRVIgPSBvcy5lbnZpcm9uWyJEQl9VU0VSTkFNRSJdClBHX1BBU1MgPSBvcy5lbnZpcm9uWyJEQl9QQVNTV09SRCJdClBHX0hPU1QgPSBvcy5lbnZpcm9uWyJEQl9IT1NUIl0KUEdfUE9SVCA9IG9zLmVudmlyb25bIkRCX1BPUlQiXQpEQl9OQU1FID0gb3MuZW52aXJvblsiREJfREFUQUJBU0UiXQpBQ0NFU1NfVE9LRU4gPSBvcy5lbnZpcm9uWyJESENPUkVfQUNDRVNTX1RPS0VOIl0KCmNsYXNzIFN0YXRlKFR5cGVkRGljdCk6CiAgICBxdWVzdGlvbjogc3RyCiAgICBjb250ZXh0OiBMaXN0W0RvY3VtZW50XQogICAgYW5zd2VyOiBzdHIKCgpkZWYgaW5pdChjb250ZXh0KToKICAgIGNoYXRfbW9kZWxfbmFtZSA9IG9zLmVudmlyb25bIkNIQVRfTU9ERUxfTkFNRSJdCiAgICBjaGF0X3NlcnZpY2VfdXJsID0gb3MuZW52aXJvblsiQ0hBVF9TRVJWSUNFX1VSTCJdCiAgICBlbWJlZGRpbmdfbW9kZWxfbmFtZSA9IG9zLmVudmlyb25bIkVNQkVERElOR19NT0RFTF9OQU1FIl0KICAgIGVtYmVkZGluZ19zZXJ2aWNlX3VybCA9IG9zLmVudmlyb25bIkVNQkVERElOR19TRVJWSUNFX1VSTCJdCgogICAgY2xhc3MgQ0VtYmVkZGluZ3MoT3BlbkFJRW1iZWRkaW5ncyk6CiAgICAgICAgZGVmIGVtYmVkX2RvY3VtZW50cyhzZWxmLCBkb2NzKToKICAgICAgICAgICAgY2xpZW50ID0gT3BlbkFJKGFwaV9rZXk9Imlnbm9yZWQiLCBiYXNlX3VybD1mIntlbWJlZGRpbmdfc2VydmljZV91cmx9L3YxIikKICAgICAgICAgICAgZW1iX2FyciA9IFtdCiAgICAgICAgICAgIGZvciBkb2MgaW4gZG9jczoKICAgICAgICAgICAgICAgIGVtYnMgPSBjbGllbnQuZW1iZWRkaW5ncy5jcmVhdGUoCiAgICAgICAgICAgICAgICAgICAgaW5wdXQ9ZG9jLAogICAgICAgICAgICAgICAgICAgIG1vZGVsPWVtYmVkZGluZ19tb2RlbF9uYW1lCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICBlbWJfYXJyLmFwcGVuZChlbWJzLmRhdGFbMF0uZW1iZWRkaW5nKQogICAgICAgICAgICByZXR1cm4gZW1iX2FycgoKICAgIGN1c3RvbV9lbWJlZGRpbmdzID0gQ0VtYmVkZGluZ3MoYXBpX2tleT0iaWdub3JlZCIpCiAgICBQR19DT05OX1VSTCA9ICgKICAgICAgICBmInBvc3RncmVzcWwrcHN5Y29wZzovL3tQR19VU0VSfTp7UEdfUEFTU31Ae1BHX0hPU1R9OntQR19QT1JUfS97REJfTkFNRX0iCiAgICApCiAgICB2ZWN0b3Jfc3RvcmUgPSBQR1ZlY3RvcigKICAgICAgICBlbWJlZGRpbmdzPWN1c3RvbV9lbWJlZGRpbmdzLAogICAgICAgIGNvbGxlY3Rpb25fbmFtZT1mIntlbWJlZGRpbmdfbW9kZWxfbmFtZX1fZG9jcyIsCiAgICAgICAgY29ubmVjdGlvbj1QR19DT05OX1VSTCwKICAgICkKICAgIAogICAgb3MuZW52aXJvblsiT1BFTkFJX0FQSV9LRVkiXSA9ICJpZ25vcmUiCgogICAgbGxtID0gaW5pdF9jaGF0X21vZGVsKGNoYXRfbW9kZWxfbmFtZSwgbW9kZWxfcHJvdmlkZXI9Im9wZW5haSIsIGJhc2VfdXJsPWYie2NoYXRfc2VydmljZV91cmx9L3YxLyIpCiAgICBwcm9tcHQgPSBodWIucHVsbCgicmxtL3JhZy1wcm9tcHQiKQoKICAgIGRlZiByZXRyaWV2ZShzdGF0ZTogU3RhdGUpOgogICAgICAgIHJldHJpZXZlZF9kb2NzID0gdmVjdG9yX3N0b3JlLnNpbWlsYXJpdHlfc2VhcmNoKHN0YXRlWyJxdWVzdGlvbiJdKQogICAgICAgIHJldHVybiB7ImNvbnRleHQiOiByZXRyaWV2ZWRfZG9jc30KICAgIAogICAgZGVmIGdlbmVyYXRlKHN0YXRlOiBTdGF0ZSk6CiAgICAgICAgZG9jc19jb250ZW50ID0gIlxuXG4iLmpvaW4oZG9jLnBhZ2VfY29udGVudCBmb3IgZG9jIGluIHN0YXRlWyJjb250ZXh0Il0pCiAgICAgICAgbWVzc2FnZXMgPSBwcm9tcHQuaW52b2tlKHsicXVlc3Rpb24iOiBzdGF0ZVsicXVlc3Rpb24iXSwgImNvbnRleHQiOiBkb2NzX2NvbnRlbnR9KQogICAgICAgIHJlc3BvbnNlID0gbGxtLmludm9rZShtZXNzYWdlcykKICAgICAgICByZXR1cm4geyJhbnN3ZXIiOiByZXNwb25zZS5jb250ZW50fQoKICAgIGdyYXBoX2J1aWxkZXIgPSBTdGF0ZUdyYXBoKFN0YXRlKS5hZGRfc2VxdWVuY2UoW3JldHJpZXZlLCBnZW5lcmF0ZV0pCiAgICBncmFwaF9idWlsZGVyLmFkZF9lZGdlKFNUQVJULCAicmV0cmlldmUiKQogICAgZ3JhcGggPSBncmFwaF9idWlsZGVyLmNvbXBpbGUoKQoKICAgIHNldGF0dHIoY29udGV4dCwgImdyYXBoIiwgZ3JhcGgpCgpkZWYgc2VydmUoY29udGV4dCwgZXZlbnQpOgogICAgZ3JhcGggPSBjb250ZXh0LmdyYXBoCiAgICBjb250ZXh0LmxvZ2dlci5pbmZvKGYiUmVjZWl2ZWQgZXZlbnQ6IHtldmVudH0iKQogICAgCiAgICBpZiBpc2luc3RhbmNlKGV2ZW50LmJvZHksIGJ5dGVzKToKICAgICAgICBib2R5ID0ganNvbi5sb2FkcyhldmVudC5ib2R5KQogICAgZWxzZToKICAgICAgICBib2R5ID0gZXZlbnQuYm9keQogICAgICAgIAogICAgcXVlc3Rpb24gPSBib2R5WyJxdWVzdGlvbiJdCiAgICByZXNwb25zZSA9IGdyYXBoLmludm9rZSh7InF1ZXN0aW9uIjogcXVlc3Rpb259KQogICAgcmV0dXJuIHsiYW5zd2VyIjogcmVzcG9uc2VbImFuc3dlciJdfQogICAg
+          lang: python
+          init_function: init
