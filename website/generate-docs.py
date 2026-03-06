@@ -152,7 +152,7 @@ def main():
                     if 'metadata' in structure_entry:
                         structure_entry['metadata']['path'] = f'{c}/{t}'
                         catalog_url = structure['catalog_url']
-                        structure_entry['metadata']['repository'] = f'{structure['catalog_url']}/{c}/{t}'
+                        structure_entry['metadata']['repository'] = f'{catalog_url}/{c}/{t}'
                         structure_entry['metadata']['relationships'] = [{'type': 'part_of', 'dest': hub_ref(c, t, structure_entry['metadata'])}]
                     structure_catalog[c].append(structure_entry)
 
