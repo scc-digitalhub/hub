@@ -8,15 +8,17 @@ templates_dir = '../catalog'
 definition_filename = 'definition.yaml'
 usage_filename = 'README.md'
 converted_notebook_filename = 'notebook.html'
-generated_json = 'data.json'
 
 gn_dir = 'generated'
 gn_docs_dir = f'{gn_dir}/docs'
 resources_dir = 'resources'
+base_json = f'{resources_dir}/base-data.json'
+generated_json = 'data.json'
 
-license = 'Apache-2.0'
-repo_catalog = 'https://github.com/scc-digitalhub/hub/tree/main/catalog'
 repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog'
+
+with open(base_json, 'r', encoding='utf-8') as f:
+    structure = json.load(f)
 
 # Remove pre-existing generated website and initialize the new one
 def initialize_website():
@@ -48,7 +50,7 @@ def template_page_metadata(metadata, category, template):
     # Interactive element in top right
     contents += '<div id=template-metadata-right>'
 
-    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{repo_catalog}/{category}/{template}">Repository</a>'
+    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{structure['catalog_url']}/{category}/{template}">Repository</a>'
     contents += f'<a class="md-cell-right" id=md-repo-definition target="_blank" href="{repo_definition_base}/{category}/{template}/{definition_filename}">Definition</a>'
 
     # Button to copy hub reference
@@ -117,18 +119,9 @@ def template_notebook(notebook_path):
         content += notebook_content
     return content + '</div>'
 
-def init_structure():
-    structure = {}
-    structure['catalog'] = {}
-    structure['license'] = license
-    structure['catalog_url'] = f'{repo_catalog}/'
-
-    return structure
-
-
 def main():
     initialize_website()
-    structure = init_structure()
+
     structure_catalog = structure['catalog']
 
     # Generate pages based on catalog directory
@@ -157,7 +150,7 @@ def main():
                     structure_entry = definition
                     if 'metadata' in structure_entry:
                         structure_entry['metadata']['path'] = f'{c}/{t}'
-                        structure_entry['metadata']['repository'] = f'{repo_catalog}/{c}/{t}'
+                        structure_entry['metadata']['repository'] = f'{structure['catalog_url']}/{c}/{t}'
                         structure_entry['metadata']['relationships'] = [{'type': 'part_of', 'dest': hub_ref(c, t, structure_entry['metadata'])}]
                     structure_catalog[c].append(structure_entry)
 

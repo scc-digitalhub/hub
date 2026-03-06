@@ -1,0 +1,8 @@
+{
+    "name": "Hub",
+    "description": "This is the hub where all of the platform's templates may be browsed.",
+    "repository": "https://github.com/scc-digitalhub/hub",
+    "catalog_url": "https://github.com/scc-digitalhub/hub/tree/main/catalog",
+    "license": "Apache-2.0",
+    "catalog": {}
+}
