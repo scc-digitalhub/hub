@@ -50,7 +50,8 @@ def template_page_metadata(metadata, category, template):
     # Interactive element in top right
     contents += '<div id=template-metadata-right>'
 
-    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{structure['catalog_url']}/{category}/{template}">Repository</a>'
+    catalog_url = structure['catalog_url']
+    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{catalog_url}/{category}/{template}">Repository</a>'
     contents += f'<a class="md-cell-right" id=md-repo-definition target="_blank" href="{repo_definition_base}/{category}/{template}/{definition_filename}">Definition</a>'
 
     # Button to copy hub reference
