@@ -54,15 +54,15 @@ A Python serving function that orchestrates the RAG pipeline, combining document
 
 ## Usage
 
-For a complete end-to-end example of deploying and using the RAG text service, refer to the [usage notebook](./notebook.ipynb). The notebook demonstrates:
+For a complete end-to-end example of deploying and using the RAG text service, refer to the usage notebook. The notebook demonstrates:
 
-    1. **Project initialization** with digital hub
-    2. **VLLM service deployment** for LLM inference
-    3. **Embedding service setup** for semantic search
-    4. **Text extraction** from PDF documents
-    5. **Document embedding generation** and vector storage
-    6. **RAG service deployment** with integrated retrieval and generation
-    7. **Query execution** against the deployed RAG service
+1. **Project initialization** with digital hub
+2. **VLLM service deployment** for LLM inference
+3. **Embedding service setup** for semantic search
+4. **Text extraction** from PDF documents
+5. **Document embedding generation** and vector storage
+6. **RAG service deployment** with integrated retrieval and generation
+7. **Query execution** against the deployed RAG service
 
 The notebook provides step-by-step instructions and code examples for the complete RAG pipeline workflow.
 
