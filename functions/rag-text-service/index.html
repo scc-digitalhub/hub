@@ -295,6 +295,100 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vllm-text-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vllm-text-serve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        embed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embedder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        embedder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rag-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rag-service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1.-Initialize-the-project" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -361,6 +455,77 @@
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="rag-text-service">Rag Text Service</h1>
+<p>This function implements a Retrieval-Augmented Generation (RAG) service that combines document retrieval with large language model inference to provide context-aware text generation. It enables users to query a knowledge base and receive answers grounded in retrieved documents. The service is containerized and runs on Kubernetes, supporting vector similarity search and integration with deployed LLM models.</p>
+<h2 id="features">Features</h2>
+<p>The <code>rag-text-service</code> function includes the following features:</p>
+<ul>
+<li><strong>Document retrieval</strong>: Semantic search across indexed document collections using vector embeddings</li>
+<li><strong>LLM integration</strong>: Combines retrieved context with language models for generating contextual responses</li>
+<li><strong>OpenAI-compatible API</strong>: Provides a REST API endpoint compatible with OpenAI's chat completion format</li>
+<li><strong>Vector database support</strong>: Efficient storage and retrieval of document embeddings</li>
+<li><strong>Configurable models</strong>: Deploy various open-source LLMs from Hugging Face Hub</li>
+<li><strong>Real-time inference</strong>: Stream generated responses based on retrieved context</li>
+<li><strong>Kubernetes-native</strong>: Containerized deployment with automatic scaling and health monitoring</li>
+<li><strong>Batch processing</strong>: Handle single and batched query requests efficiently</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<h3 id="vllm-text-serve">vllm-text-serve</h3>
+<p>A VLLM text serving function that deploys and manages large language model inference using the OpenAI-compatible API framework.</p>
+<p><strong>Key specifications:</strong>
+- Model: Qwen/Qwen2.5-0.5B-Instruct (from Hugging Face Hub)
+- Python version: 3.10
+- Purpose: Handles LLM inference requests with streaming support</p>
+<h3 id="embed">embed</h3>
+<p>A KubeAI text embedding function that generates vector embeddings for documents and queries.</p>
+<p><strong>Key specifications:</strong>
+- Model: gte-base (from Hugging Face Hub)
+- Engine: VLLM
+- Feature: TextEmbedding
+- Purpose: Converts text into semantic vector representations for similarity search</p>
+<h3 id="embedder">embedder</h3>
+<p>A Python batch processing function that prepares and indexes documents into the vector database.</p>
+<p><strong>Key specifications:</strong>
+- Python version: 3.10
+- Primary dependencies: LangChain, PostgreSQL, OpenAI SDK, BeautifulSoup4
+- Purpose: Loads web documents, splits them into chunks, generates embeddings, and stores them in PostgreSQL with pgvector extension</p>
+<h3 id="rag-service">rag-service</h3>
+<p>A Python serving function that orchestrates the RAG pipeline, combining document retrieval with LLM-based answer generation.</p>
+<p><strong>Key specifications:</strong>
+- Python version: 3.10
+- Handler: <code>src.serve:serve</code>
+- Primary dependencies: LangChain ecosystem, LangGraph, PostgreSQL, OpenAI SDK
+- Purpose: Implements the main RAG service with retrieval, prompt engineering, and response generation using an agentic graph workflow</p>
+<h2 id="usage">Usage</h2>
+<p>For a complete end-to-end example of deploying and using the RAG text service, refer to the usage notebook. The notebook demonstrates:</p>
+<ol>
+<li><strong>Project initialization</strong> with digital hub</li>
+<li><strong>VLLM service deployment</strong> for LLM inference</li>
+<li><strong>Embedding service setup</strong> for semantic search</li>
+<li><strong>Text extraction</strong> from PDF documents</li>
+<li><strong>Document embedding generation</strong> and vector storage</li>
+<li><strong>RAG service deployment</strong> with integrated retrieval and generation</li>
+<li><strong>Query execution</strong> against the deployed RAG service</li>
+</ol>
+<p>The notebook provides step-by-step instructions and code examples for the complete RAG pipeline workflow.</p>
+<h2 id="resources">Resources</h2>
+<p>These settings define the resource requests and limits for the runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU Type</strong></td>
+<td><code>V100</code> or <code>A100</code></td>
+<td>GPU accelerator for model inference.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>rag-text-service</code> function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <div>
