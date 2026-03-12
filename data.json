@@ -700,7 +700,10 @@
                     "model_name": "model",
                     "url": "hf://Qwen/Qwen2.5-0.5B-Instruct"
                 }
-            },
+            }
+        ],
+        "models": [],
+        "projects": [
             {
                 "name": "rag-text-serve",
                 "kind": "python+serve",
@@ -715,12 +718,12 @@
                         "type:service",
                         "phase:utility"
                     ],
-                    "path": "functions/rag-text-service",
-                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/rag-text-service",
+                    "path": "projects/rag-text-service",
+                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/rag-text-service",
                     "relationships": [
                         {
                             "type": "part_of",
-                            "dest": "hub://functions/rag-text-service:1.0.0"
+                            "dest": "hub://projects/rag-text-service:1.0.0"
                         }
                     ]
                 },
@@ -863,12 +866,12 @@
                         "type:service",
                         "phase:utility"
                     ],
-                    "path": "functions/text-extraction-service",
-                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/text-extraction-service",
+                    "path": "projects/text-extraction-service",
+                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/text-extraction-service",
                     "relationships": [
                         {
                             "type": "part_of",
-                            "dest": "hub://functions/text-extraction-service:1.0.0"
+                            "dest": "hub://projects/text-extraction-service:1.0.0"
                         }
                     ]
                 },
@@ -917,7 +920,6 @@
                     ]
                 }
             }
-        ],
-        "models": []
+        ]
     }
 }
