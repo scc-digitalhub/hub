@@ -33,10 +33,13 @@ A KubeAI text embedding function that generates vector embeddings for documents 
 - Model: gte-base (from Hugging Face Hub)
 - Engine: VLLM
 - Feature: TextEmbedding
-- Purpose: Converts text into semantic vector representations for similarity search
+- Token limit: The model accepts a maximum input of 512 tokens per request to generate embeddings.
 
 ### embedder
-A Python batch processing function that prepares and indexes documents into the vector database.
+
+This Python batch processing function is responsible for preparing and indexing documents into a vector store database, specifically utilizing PGVectorStore. PGVectorStore is a PostgreSQL extension that enables efficient storage and retrieval of vector embeddings, making it suitable for semantic search and similarity-based queries. The function processes input documents, generates their vector representations (embeddings), and stores them in the PGVectorStore database for subsequent retrieval and analysis.
+
+A Python batch processing function that prepares and indexes documents into the vector store database.
 
 **Key specifications:**
 - Python version: 3.10
