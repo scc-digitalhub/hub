@@ -2,6 +2,10 @@
 
 This function implements a Retrieval-Augmented Generation (RAG) service that combines document retrieval with large language model inference to provide context-aware text generation. It enables users to query a knowledge base and receive answers grounded in retrieved documents. The service is containerized and runs on Kubernetes, supporting vector similarity search and integration with deployed LLM models.
 
+## Workflow
+
+![RAG Text Service Workflow](./workflow.png)
+
 ## Features
 
 The `rag-text-service` function includes the following features:
