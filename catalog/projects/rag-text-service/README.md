@@ -4,7 +4,7 @@ This function implements a Retrieval-Augmented Generation (RAG) service that com
 
 ## Workflow
 
-![RAG Text Service Workflow](./workflow.png)
+![RAG Text Service Workflow](https://scc-digitalhub.github.io/hub/projects/rag-text-service/workflow.png)
 
 ## Features
 
