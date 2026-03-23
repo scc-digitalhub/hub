@@ -15,11 +15,11 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Document classifier serve example - DH Hub</title>
+        <title>Document classifier service - DH Hub</title>
       
     
     
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Document classifier serve example
+              Document classifier service
             
           </span>
         </div>
@@ -295,6 +295,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#definition" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -302,6 +313,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-classifier-train" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        document-classifier-train
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-classifier-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        document-classifier-serve
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -314,44 +353,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#start-the-service" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Start the service
+        Resources
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-a-request" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send a request
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#response" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -367,21 +378,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2--Generate-Model" class="md-nav__link">
+  <a href="#2.-Train" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2- Generate Model¶
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3.-Execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Execution¶
+        2. Train¶
       
     </span>
   </a>
@@ -409,210 +409,76 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Document Classifier Serve With Bert Model (Python Serve)</p>
+<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Document Classifier Service (Project)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-serve-example">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/document-classifier-serve-example/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/document-classifier-serve-example:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Document Classifier Serve With Bert Model (Python Serve)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>Document Classifier Serve With Bert Model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:model-serving</span><span class="md-label">inference:custom</span><span class="md-label">application:pa</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/document-classifier-service">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/projects/document-classifier-service/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://projects/document-classifier-service:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Document Classifier Service (Project)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This project demonstrates how to train and deploy a document classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">phase:utility</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="document-classifier-service">Document Classifier Service</h1>
-<p>This function demonstrates how a document classifier model can be operationalizes as a service based on serverless container runtime feature. The service is exposed as an API responding to POST message with the text input and returns the same text back — an echo.</p>
-<h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>from transformers import AutoTokenizer, AutoConfig, AutoModelForSequenceClassification
-import json
-import pandas as pd
-import numpy as np
-
-import torch
-from torch import nn
-from torch.utils.data import DataLoader
-from torch.optim import AdamW
-from torchmetrics.classification import MulticlassF1Score, Accuracy
-
-from transformers import AutoModelForSequenceClassification, AutoModel
-from transformers import PreTrainedModel
-from transformers.modeling_outputs import SequenceClassifierOutput
-
-class BertForSentenceClassification(PreTrainedModel):
-
-    &quot;&quot;&quot;
-    BERT architecture is intended to be from &quot;dbmdz/bert-base-italian-xxl-cased&quot;
-    but other models can be tried.
-    &quot;&quot;&quot;
-
-
-    def __init__(self, config, model_name, num_labels, class_weights=None):
-        super().__init__(config)
-        self.num_labels = num_labels
-        self.bert = AutoModel.from_pretrained(model_name)
-        self.classifier = nn.Linear(self.bert.config.hidden_size, num_labels)
-        self.class_weights = class_weights
-        self.accuracy = Accuracy(num_classes=num_labels, task=&#39;multiclass&#39;)
-        self.f1 = MulticlassF1Score(num_classes=num_labels, average=&#39;micro&#39;) # changed weight
-
-    def forward(self, input_ids, attention_mask=None, labels=None):
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
-        logits = self.classifier(outputs.last_hidden_state[:, 0, :])
-
-        loss = None
-        if labels is not None:
-
-            loss_fct = nn.CrossEntropyLoss(label_smoothing=0.1) #,weight=self.class_weights
-            loss = loss_fct(logits, labels)
-
-            f1_score = self.f1(logits.argmax(dim=1), labels)
-            accuracy_score = self.accuracy(logits.argmax(dim=1), labels)
-
-        return SequenceClassifierOutput(loss=loss, logits=logits)
-
-def init(context):
-    model_name = &quot;document-classifier&quot;
-
-    model = context.project.get_model(model_name)
-    local_path_model = model.download(overwrite=True)
-
-    tokenizer = AutoTokenizer.from_pretrained(local_path_model)
-    config = AutoConfig.from_pretrained(local_path_model)
-
-    mm = BertForSentenceClassification.from_pretrained(
-        local_path_model,
-        config=config,
-        model_name=&quot;dbmdz/bert-base-italian-xxl-cased&quot;,
-        num_labels=config.num_labels
-    ) 
-
-    label_mapping = {
-        0: 0,
-        1: 2,
-        2: 4,
-        3: 7,
-        4: 8,
-        5: 10,  
-        6: 11,
-        7: 15,
-        8: 16,
-        9: 17,
-        10: 20,
-        11: 22,
-        12: 25,
-        13: 27,
-        14: 28,
-        15: 29,
-        16: 36,
-        17: 39,
-        18: 45,
-        19: 50,
-        20: 51,
-        21: 53,
-        22: 54,
-        23: 55,
-        24: 56,
-        25: 57,
-        26: 61,
-        27: 62,
-        28: 63,
-        29: 64,
-        30: 65,
-        31: 67,
-        32: 68,
-        33: 69,
-        34: 72,
-        35: 74,
-        36: 81,
-        37: 88,
-        38: 89,
-        39: 91,
-        40: 96,
-        41: 102,
-        42: 107,
-        43: 108,
-        44: 109,
-        45: 112,
-        46: 113,
-        47: 115,
-        48: 116,
-        49: 119,
-        50: 120,
-        51: 126,
-        52: 130,
-        53: 133,
-        54: 134,
-        55: 195
-    }
-
-    setattr(context, &quot;model&quot;, mm)
-    setattr(context, &quot;tokenizer&quot;, tokenizer)
-    setattr(context, &quot;label_mapping&quot;, label_mapping)
-
-def serve(context, event):
-
-    context.logger.info(f&quot;Received event: {event}&quot;)
-
-    if isinstance(event.body, bytes):
-        body = json.loads(event.body)
-    else:
-        body = event.body
-
-    inference_input = body[&quot;inference_input&quot;]
-
-    pdf = pd.DataFrame(inference_input, index=[0])
-    k = int(pdf[&#39;k&#39;])
-    inputs = context.tokenizer(str(pdf[&#39;text&#39;]), return_tensors=&quot;pt&quot;, truncation=True, padding=True, return_token_type_ids=False)
-    context.logger.info(f&quot;k received: {k}&quot;)
-
-    with torch.no_grad():
-        logits = context.model(**inputs).logits
-        sigmoid = torch.nn.Sigmoid()
-        probs = sigmoid(logits.squeeze().cpu())
-        indices_above_threshold = (probs &gt;= 0.6).nonzero(as_tuple=True)[0]
-        probs_above_threshold = probs[indices_above_threshold]
-        sorted_indices = probs_above_threshold.argsort(descending=True)
-        top_k_indices = indices_above_threshold[sorted_indices][:k]
-        result = [context.label_mapping[int(idx)] + 1 for idx in top_k_indices]
-        context.logger.info(f&quot;result: {result}&quot;)
-
-    # Convert the result to a json string.
-    jsonstr = &#39;{&quot;results&quot;: &#39; + str(list(result)) + &#39;}&#39;
-
-    return json.loads(jsonstr)
-</code></pre></div>
-<p>The init(context) method is responsible for initializing the function’s execution context.</p>
-<p>The serve(context, event) method contains the core functionality of the service, including the incoming request handling and execution logic.</p>
-<h2 id="usage">Usage</h2>
-<p>The function demonstrates:</p>
+<p>This project implements a document classification service that trains and deploys a machine learning model to categorize text documents. It enables users to classify documents into predefined categories using a fine-tuned transformer model. The service is containerized and runs on Kubernetes, supporting both training and inference workflows.</p>
+<h2 id="features">Features</h2>
+<p>The <code>document-classifier-service</code> function includes the following features:</p>
 <ul>
-<li>How to define a simple serverless python functionfor document classification using BERT</li>
-<li>How to load a pre-trained model and tokenizer from the project</li>
-<li>How to implement custom model architecture with BertForSentenceClassification</li>
-<li>How to process inference requests with text input and return top-k predictions</li>
-<li>How to use label mapping for classification results</li>
-<li>How to expose the underlying function as an API</li>
-<li>How to initialize runtime service context</li>
-<li>How to generate and return output</li>
-<li>How to call the function</li>
+<li><strong>Model training</strong>: Fine-tune transformer-based models on custom document classification datasets</li>
+<li><strong>Configurable parameters</strong>: Adjust learning rate, batch size, epochs, and other hyperparameters</li>
+<li><strong>GPU acceleration</strong>: Optimized training with GPU support for faster model convergence</li>
+<li><strong>REST API inference</strong>: Deploy trained models as REST endpoints for real-time predictions</li>
+<li><strong>Kubernetes-native</strong>: Containerized deployment with automatic scaling and health monitoring</li>
+<li><strong>Model versioning</strong>: Trained models are automatically logged and versioned on the platform</li>
+<li><strong>Persistent storage</strong>: Support for persistent volumes to store training data and models</li>
+<li><strong>Custom environments</strong>: Configure Hugging Face cache and other environment variables</li>
 </ul>
-<h3 id="start-the-service">Start the service</h3>
-<div class="highlight"><pre><span></span><code>function_doc_serve = proj.get_function(&quot;document-classifier-serve&quot;)
-serve_run = function_doc_serve.run(
-    action=&quot;serve&quot;,
-    resources={&quot;mem&quot;: &quot;6Gi&quot;},
-    volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;train-volume&quot;,
-        &quot;mount_path&quot;: &quot;/shared&quot;,
-        &quot;spec&quot;: {
-            &quot;size&quot;: &quot;5Gi&quot;
-        }}],
-)
-</code></pre></div>
-<h3 id="send-a-request">Send a request</h3>
-<div class="highlight"><pre><span></span><code>inputs = {&quot;text&quot;: &#39;trasporto wifi &#39;, &quot;k&quot;: 1}
-serve_run.invoke(json={&quot;inference_input&quot;: inputs}).text
-</code></pre></div>
-<h3 id="response">Response:</h3>
-<div class="highlight"><pre><span></span><code>&#39;{&quot;results&quot;: [46]}&#39;
-</code></pre></div>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<h2 id="definition">Definition</h2>
+<h3 id="document-classifier-train">document-classifier-train</h3>
+<p>A Python batch processing function that trains a document classification model.</p>
+<p><strong>Key specifications:</strong>
+- Python version: 3.10
+- Handler: Model training using transformer-based architectures
+- Primary dependencies: Transformers, PyTorch, Hugging Face Hub
+- Purpose: Fine-tunes a model on document classification tasks with configurable training parameters</p>
+<h3 id="document-classifier-serve">document-classifier-serve</h3>
+<p>A Python serving function that deploys the trained classification model as a REST API.</p>
+<p><strong>Key specifications:</strong>
+- Python version: 3.10
+- Handler: <code>src.serve:serve</code>
+- Primary dependencies: Transformers, PyTorch, FastAPI
+- Purpose: Serves the trained model for real-time document classification inference</p>
+<h2 id="usage">Usage</h2>
+<p>For a complete end-to-end example of training and deploying the document classifier, refer to the usage notebook. The notebook demonstrates:</p>
+<ol>
+<li><strong>Project initialization</strong> with digital hub</li>
+<li><strong>Training function setup</strong> with custom hyperparameters</li>
+<li><strong>Model training execution</strong> with GPU resources</li>
+<li><strong>Model versioning</strong> and logging on the platform</li>
+<li><strong>Serving function deployment</strong> for inference</li>
+<li><strong>Classification predictions</strong> against the deployed service</li>
+</ol>
+<p>The notebook provides step-by-step instructions and code examples for the complete training and serving workflow.</p>
+<h2 id="resources">Resources</h2>
+<p>These settings define the resource requests and limits for the runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU Type</strong></td>
+<td><code>A100</code></td>
+<td>GPU accelerator for model training and inference.</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td><code>6Gi</code></td>
+<td>Memory allocation for training and serving operations.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>document-classifier-service</code> function recommends GPU acceleration for efficient model training and inference.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <div>
@@ -8464,19 +8330,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=71d0c9bf">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2--Generate-Model">2- Generate Model<a class="anchor-link" href="#2--Generate-Model">¶</a></h2><p>Please note that this function 'document-classifier-serve' depends on Document classifier Model, which must be trained and logged in to the project context(if not already). For more detailed information, please refer to the catalog function <a href="https://scc-digitalhub.github.io/hub/functions/document-classifier-train-example">document-classifier-train</a></p>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8485,7 +8338,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Execution">3. Execution<a class="anchor-link" href="#3.-Execution">¶</a></h2>
+<h2 id="2.-Train">2. Train<a class="anchor-link" href="#2.-Train">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8498,7 +8351,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "serve" operation in the project.</p>
+<p>Fetch the "train" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8511,7 +8364,37 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function_doc_serve</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-serve"</span><span class="p">)</span>
+<pre><span></span><span class="n">function_doc</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-train"</span><span class="p">)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Build the function as shown below.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3">
+<pre><span></span><span class="n">func_b</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8523,11 +8406,9 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function with default configuration</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Runt the built function as shown below.This will trigger the model training job on the platform and the model 'document-classifier' get logged on to the platform.</p>
 </div>
 </div>
 </div>
@@ -8540,21 +8421,85 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3">
-<pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_doc_serve</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/shared"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"5Gi"</span>
-        <span class="p">}}],</span>
-<span class="p">)</span>
-</pre>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fe257318">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run the function with default configuration</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=122e562c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+                     <span class="n">profile</span><span class="o">=</span><span class="s2">"1xa100"</span><span class="p">,</span>
+                     <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                         <span class="s2">"target_model_name"</span><span class="p">:</span> <span class="s2">"document-classifier"</span><span class="p">,</span>
+                         <span class="s2">"num_train_epochs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="s2">"per_device_train_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                         <span class="s2">"per_device_eval_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                         <span class="s2">"gradient_accumulation_steps"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                         <span class="s2">"weight_decay"</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
+                         <span class="s2">"learning_rate"</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span>
+                         <span class="s2">"lr_scheduler_type"</span><span class="p">:</span> <span class="s1">'linear'</span>
+                     <span class="p">},</span>
+                     <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
+                     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+                         <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+                         <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
+                         <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/local-data"</span><span class="p">,</span>
+                         <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
+                             <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"10Gi"</span>
+                         <span class="p">}}],</span>
+                     <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
+                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/local-data/huggingface"</span><span class="p">},</span>
+                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/local-data/huggingface"</span><span class="p">}</span>
+                     <span class="p">],</span>                     
+                     <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=618dcf07">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Configure-and-Run-with-Custom-Parameters">Configure and Run with Custom Parameters<a class="anchor-link" href="#Configure-and-Run-with-Custom-Parameters">¶</a></h3><p>The function can be executed with different parameters to customize the training process. Modify the parameters in the <code>run()</code> call above to adjust:</p>
+<ul>
+<li><strong>target_model_name</strong>: Name of the model to save</li>
+<li><strong>num_train_epochs</strong>: Number of training epochs</li>
+<li><strong>per_device_train_batch_size</strong>: Batch size for training</li>
+<li><strong>per_device_eval_batch_size</strong>: Batch size for evaluation</li>
+<li><strong>gradient_accumulation_steps</strong>: Number of steps to accumulate gradients</li>
+<li><strong>weight_decay</strong>: Weight decay for regularization</li>
+<li><strong>learning_rate</strong>: Learning rate for optimization</li>
+<li><strong>lr_scheduler_type</strong>: Type of learning rate scheduler</li>
+</ul>
+<p>You can also adjust resource allocation (mem, GPU profile) and storage (volumes) based on your requirements.</p>
 </div>
 </div>
 </div>
@@ -8570,18 +8515,80 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c63fb2fb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6acbc9fe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Test-the-service">4. Test the service<a class="anchor-link" href="#4.-Test-the-service">¶</a></h2>
+<h2 id="3.-Serve">3. Serve<a class="anchor-link" href="#3.-Serve">¶</a></h2><p>Fetch the "serve" operation in the project.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=42d829fd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_doc_serve</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-serve"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f01f099">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Run the function with default configuration</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=64e83a78">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_doc_serve</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
+    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
+        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/shared"</span><span class="p">,</span>
+        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"5Gi"</span>
+        <span class="p">}}],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c588bd1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Test">Test<a class="anchor-link" href="#Test">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1f0427b3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8596,7 +8603,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=dd29c7b3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
