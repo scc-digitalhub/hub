@@ -1,7 +1,7 @@
 kind: container
 metadata:
   name: Download Sentinel Data
-  description: Function for Sentinel image download and preprocessing
+  description: Function for Sentinel image download and preprocessing. Geo-spatial data is often large and complex, making it challenging to manage and process. This function addresses these challenges by providing a streamlined solution for downloading and preprocessing Sentinel satellite imagery. It enables users to efficiently acquire high-quality geospatial data, which can be used for various applications such as environmental monitoring, land use analysis, and disaster management. By automating the download and preprocessing steps, this function helps users save time and resources while ensuring they have access to the necessary data for their geospatial projects.
   version: 0.11.7
   labels:
     - 'license:apache-2.0'

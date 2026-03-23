@@ -2,7 +2,7 @@ kind: python
 metadata:
   name: Example Cancer Classifier Training With MLFLow (Python Job)
   version: 1.0.0
-  description: "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework."
+  description: Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework. Digital health workers can leverage this service to enhance their document processing workflows, ensuring accurate and timely classification of official documents.
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
     - "platform:0.14"

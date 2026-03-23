@@ -1,7 +1,7 @@
 kind: container
 metadata:
   name: Deforestation Analysis (Container Job)
-  description: Function to elaborate Sentinel-2 imagery data for deforestation analysis
+  description: Function to elaborate Sentinel-2 imagery data for deforestation analysis. Geo-spatial data is often large and complex, making it challenging to manage and process. This function addresses these challenges by providing a streamlined solution for elaborating Sentinel-2 satellite imagery data for deforestation analysis. It enables users to efficiently acquire high-quality geospatial data, which can be used for various applications such as environmental monitoring, land use analysis, and disaster management. By automating the elaboration steps, this function helps users save time and resources while ensuring they have access to the necessary data for their geospatial projects.
   version: 0.14.6  
   labels:
     - 'license:apache-2.0'
