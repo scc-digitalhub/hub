@@ -12,6 +12,16 @@ metadata:
     - "phase:utility"    
 name: rag-text-serve
 spec:
+  artifacts:
+    - kind: artifact
+      metadata:
+        name: document.pdf
+        project: rag-text-serve
+      name: document.pdf
+      project: rag-text-serve
+      name: document.pdf
+      spec:
+        path: https://raw.githubusercontent.com/scc-digitalhub/digitalhub-tutorials/master/s7-rag/resources/document.pdf
   functions:
     - kind: vllmserve-text
       metadata:
