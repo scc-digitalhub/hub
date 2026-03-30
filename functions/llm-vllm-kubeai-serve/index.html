@@ -454,7 +454,6 @@
 <p>The <code>vllm-kubeai-serve</code> function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
-<div>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -8328,7 +8327,8 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8349,10 +8349,8 @@ a.anchor-link {
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Alternatively, one can create new function</p>
 </div>
 </div>
@@ -8366,8 +8364,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3">
-<pre><span></span><span class="n">llm_vllm_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">llm_vllm_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
     <span class="n">name</span><span class="o">=</span><span class="s2">"vllm-kubeai-serve"</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">"kubeai-text"</span><span class="p">,</span>
     <span class="n">model_name</span><span class="o">=</span><span class="s2">"llm-vllm-model"</span><span class="p">,</span>
@@ -8375,8 +8372,7 @@ a.anchor-link {
     <span class="n">engine</span><span class="o">=</span><span class="s1">'VLLM'</span><span class="p">,</span>
     <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">'TextGeneration'</span><span class="p">]</span>
 <span class="p">)</span>
-</pre>
-</div>
+</pre></div>
 </div>
 </div>
 </div>
