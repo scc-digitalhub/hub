@@ -20,11 +20,14 @@ repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/ref
 with open(base_json, 'r', encoding='utf-8') as f:
     structure = json.load(f)
 
-# Remove pre-existing generated website and initialize the new one
+"""Remove any pre-existing generated website and initialize the new one.
+"""
 def initialize_website():
+    # Remove
     if os.path.isdir(gn_dir):
         shutil.rmtree(gn_dir)
 
+    # Initialize directories
     os.mkdir(gn_dir)
     os.mkdir(gn_docs_dir)
 
@@ -37,14 +40,45 @@ def initialize_website():
     shutil.copyfile(f'{resources_dir}/mkdocs.yml', f'{gn_dir}/mkdocs.yml')
     shutil.copyfile(f'{resources_dir}/homepage.md', f'{gn_docs_dir}/index.md')
 
+"""Form the string that references the template on the hub
+
+    Parameters
+    ----------
+    category : str
+        The category the template belongs to
+    template : str
+        Name of the template
+    metadata : str
+        Metadata object of the template
+
+    Returns
+    -------
+    str
+        Reference to the template on the hub
+"""
 def hub_ref(category, template, metadata):
     hr = f'hub://{category}/{template}'
     if 'version' in metadata:
         hr += f':{metadata["version"]}'
     return hr
 
-# Create metadata div for template page
-def template_page_metadata(metadata, category, template):
+"""Create metadata div for the template's page
+
+    Parameters
+    ----------
+    category : str
+        The category the template belongs to
+    template : str
+        Name of the template
+    metadata : str
+        Metadata object of the template
+
+    Returns
+    -------
+    str
+        Metadata div
+"""
+def template_page_metadata(category, template, metadata):
     contents = '<div id="template-metadata">'
 
     # Interactive element in top right
@@ -96,24 +130,45 @@ def template_page_metadata(metadata, category, template):
     contents += '</div>'
     return contents
 
-# Usage tab in template page
-def template_usage(title, usage_path):
+"""Create usage div for the template's page
+
+    Parameters
+    ----------
+    usag_path : str
+        Path to the file describing template usage
+
+    Returns
+    -------
+    str
+        Usage div
+"""
+def template_usage(usage_path):
     content = '<div class="template-info-tab" id="template-usage" markdown="1">'
     if os.path.isfile(usage_path):
         with open(usage_path, 'r', encoding='utf-8') as usage_file:
             usage = usage_file.read()
         content += usage
     else:
-        content += f'#{title}\n\n'
         content += 'This template is missing information on usage.'
     return content + '</div>'
 
-# Notebook tab in template page
+"""Create notebook div for the template's page
+
+    Parameters
+    ----------
+    notebook_path : str
+        Path to the notebook file
+
+    Returns
+    -------
+    str
+        Notebook div
+"""
 def template_notebook(notebook_path):
     content = '<div class="template-info-tab" id="template-notebook">'
-    content += '<div>'
     with open(notebook_path, 'r', encoding='utf-8') as notebook_file:
         notebook_lines = notebook_file.readlines()
+        # Some lines need to be removed, or they will disrupt MkDocs' structure
         notebook_content = ''.join(notebook_lines[6:-1])
         notebook_content = notebook_content.replace('<main>', '')
         notebook_content = notebook_content.replace('</main>', '')
@@ -170,7 +225,7 @@ def main():
 
                         # Metadata
                         if 'metadata' in definition:
-                            template_file.write(template_page_metadata(definition['metadata'], c, t))
+                            template_file.write(template_page_metadata(c, t, definition['metadata']))
 
                         # Tabs for usage and notebook
                         tab_toolbar = '<div id="template-tab-buttons">'
@@ -178,7 +233,7 @@ def main():
 
                         # Usage
                         usage_path = f'{templates_dir}/{c}/{t}/{usage_filename}'
-                        contents = template_usage(t, usage_path)
+                        contents = template_usage(usage_path)
 
                         # Notebook
                         notebook_path = f'{templates_dir}/{c}/{t}/{converted_notebook_filename}'
