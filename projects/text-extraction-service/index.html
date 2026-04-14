@@ -412,9 +412,11 @@
 <div class="template-info-tab" id="template-usage">
 <h1 id="text-extraction-service">Text Extraction Service</h1>
 <p>This project implements a text extraction service using Apache Tika and Python. It provides a REST API endpoint that accepts POST requests containing file artifacts and extracts text content from them.</p>
-<p>The service consists of two main components:
-- <strong>Tika Container</strong>: Apache Tika service for document text extraction
-- <strong>Python Function</strong>: Handler that orchestrates the extraction workflow, downloads artifacts, sends them to Tika, and logs the extracted output</p>
+<p>The service consists of two main components:</p>
+<ul>
+<li><strong>Tika Container</strong>: Apache Tika service for document text extraction</li>
+<li><strong>Python Function</strong>: Handler that orchestrates the extraction workflow, downloads artifacts, sends them to Tika, and logs the extracted output</li>
+</ul>
 <h2 id="definition">Definition</h2>
 <h3 id="extract">Extract</h3>
 <p>The <code>extract</code> function is a Python-based handler that processes document artifacts through Apache Tika for text extraction.</p>
@@ -438,58 +440,62 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><strong>Parameters</strong>:
-- <code>tika_url</code>: URL endpoint of the Tika service
-- <code>artifact</code>: The document file to be processed
-- <code>project</code>: Project context for logging results</p>
-<p><strong>Workflow</strong>:
-1. Downloads the artifact file
-2. Ensures proper HTTP URL formatting for Tika endpoint
-3. Sends the file to Tika via PUT request with <code>Accept: text/html</code> header
-4. On success (HTTP 200), writes extracted text to <code>/tmp/output.html</code>
-5. Logs the output artifact back to the project
-6. Raises exception on extraction failure</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>tika_url</code>: URL endpoint of the Tika service</li>
+<li><code>artifact</code>: The document file to be processed</li>
+<li><code>project</code>: Project context for logging results</li>
+</ul>
+<p><strong>Workflow</strong>:</p>
+<ol>
+<li>Downloads the artifact file</li>
+<li>Ensures proper HTTP URL formatting for Tika endpoint</li>
+<li>Sends the file to Tika via PUT request with <code>Accept: text/html</code> header</li>
+<li>On success (HTTP 200), writes extracted text to <code>/tmp/output.html</code></li>
+<li>Logs the output artifact back to the project</li>
+<li>Raises exception on extraction failure</li>
+</ol>
 <h3 id="tika">Tika</h3>
 <p>The Tika service is a containerized Apache Tika instance that provides document text extraction capabilities via REST API.</p>
 <p><strong>Container Image</strong>: <code>apache/tika:latest</code></p>
 <p><strong>Port</strong>: <code>9998</code></p>
 <p><strong>Endpoint</strong>: <code>PUT /tika/form</code></p>
-<p><strong>Request Headers</strong>:
-- <code>Accept: text/html</code> - Specifies HTML output format</p>
+<p><strong>Request Headers</strong>:</p>
+<ul>
+<li><code>Accept: text/html</code>: Specifies HTML output format</li>
+</ul>
 <p><strong>Response</strong>: Extracted text content from the document</p>
 <p><strong>Supported Formats</strong>: PDF, DOCX, XLSX, PPTX, images with OCR, and other common document types</p>
 <h2 id="usage">Usage</h2>
 <p>To use the text extraction service, follow these steps:</p>
 <ol>
-<li>
-<p><strong>Initialize the project and deploy Tika service</strong>:
-    <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+<li><strong>Initialize the project and deploy Tika service</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 <span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
 <span class="n">tika_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
 <span class="n">tika_run</span> <span class="o">=</span> <span class="n">tika_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">}],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">TIKA_URL</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">&quot;service&quot;</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Log a document artifact</strong>:
-    <div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;path/to/document.pdf&quot;</span><span class="p">)</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Run the extraction function</strong>:
-    <div class="highlight"><pre><span></span><code><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;extract&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Log a document artifact</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;path/to/document.pdf&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Run the extraction function</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;extract&quot;</span><span class="p">)</span>
 <span class="n">extract_run</span> <span class="o">=</span> <span class="n">extract_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;artifact&quot;</span><span class="p">:</span> <span class="n">artifact</span><span class="o">.</span><span class="n">key</span><span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tika_url&quot;</span><span class="p">:</span> <span class="n">TIKA_URL</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Retrieve the extracted output</strong>:
-    <div class="highlight"><pre><span></span><code><span class="n">output_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf_output.html&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li><strong>Retrieve the extracted output</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="n">output_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf_output.html&quot;</span><span class="p">)</span>
 <span class="n">output_artifact</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./artifact/output.html&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</code></pre></div></p>
-</li>
-</ol>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

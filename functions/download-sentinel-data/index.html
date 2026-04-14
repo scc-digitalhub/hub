@@ -402,13 +402,14 @@
 - Use relativeOrbitNumber to filter by specific orbit tracks when needed.
 - For Sentinel-2 searches you can also supply cloudCoverage thresholds; for Sentinel-1 specify polarization/product specifics.
 - Ensure valid Copernicus credentials are available to the runtime via secrets before launching jobs.</p>
-<p>Example parameter shape (illustrative):
-{
-    "satelliteParams": { "satelliteType": "Sentinel-1", "processingLevel": "LEVEL1", "productType": "SLC", "orbitDirection": "DESCENDING" },
-    "startDate": "2021-01-01", "endDate": "2021-01-15",
-    "geometry": "<WKT or GeoJSON>",
-    "artifact_name": "download_output"
-}</p>
+<p>Example parameter shape (illustrative):</p>
+<div class="highlight"><pre><span></span><code>{
+    &quot;satelliteParams&quot;: { &quot;satelliteType&quot;: &quot;Sentinel-1&quot;, &quot;processingLevel&quot;: &quot;LEVEL1&quot;, &quot;productType&quot;: &quot;SLC&quot;, &quot;orbitDirection&quot;: &quot;DESCENDING&quot; },
+    &quot;startDate&quot;: &quot;2021-01-01&quot;, &quot;endDate&quot;: &quot;2021-01-15&quot;,
+    &quot;geometry&quot;: &quot;&lt;WKT or GeoJSON&gt;&quot;,
+    &quot;artifact_name&quot;: &quot;download_output&quot;
+}
+</code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>The function is of kind container runtime that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image of sentinel-tools developed in the context of project which is a wrapper for the Sentinel download and preprocessing routine for the integration with the AIxPA platform. For more details <a href="https://github.com/tn-aixpa/sentinel-tools/">Click here</a>.</p>
 <p><div class="highlight"><pre><span></span><code><span class="n">string_dict_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;{</span>
@@ -430,11 +431,12 @@
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
-<p>The runtime environment of function consist of properties like
-- CDSETOOL_ESA_PASSWORD
-- CDSETOOL_ESA_USER</p>
-<p>Register to the open data space copernicus(if not already) and get your credentials.</p>
-<p>https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&amp;tab_id=FIiRPJeoiX4</p>
+<p>The runtime environment of function consist of properties like</p>
+<ul>
+<li><code>CDSETOOL_ESA_PASSWORD</code></li>
+<li><code>CDSETOOL_ESA_USER</code></li>
+</ul>
+<p><a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&amp;tab_id=FIiRPJeoiX4">Register to the open data space Copernicus</a> (if not already registered) and get your credentials.</p>
 <p>Log the credentials as project secret keys as shown below</p>
 <div class="highlight"><pre><span></span><code># THIS NEED TO BE EXECUTED JUST ONCE
 secret0 = proj.new_secret(name=&quot;CDSETOOL_ESA_USER&quot;, secret_value=&quot;esa_username&quot;)
@@ -451,7 +453,9 @@ secret1 = proj.new_secret(name=&quot;CDSETOOL_ESA_PASSWORD&quot;, secret_value=&
     }])
 </code></pre></div>
 <h2 id="resources">Resources</h2>
-<p>The resources for running this function varies as per the envisaged elaboration scenario requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace. It could happen that data download takes more time than usual due to various factors, including technical issues, data processing delays, and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions. The size of sentinal data payload in is normally large based on requirement of usecase scenario and requires a significant block of computing resources to executed which includes number of cpu, memory(Gi), and volume(Gi). The function performance improves with significant number of cpu and memory. In general, the recommended resources(cpu, memory) for running this function:</p>
+<p>The resources for running this function may vary as per the envisaged elaboration scenario requirements, which depend on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace.</p>
+<p>The data download may take more time than usual due factors such as technical issues, data processing delays and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions.</p>
+<p>The data payload size is based on the requirements of the use-case scenario and may need a significant block of computing resources to execute, including number of CPUs, memory(Gi), and volume(Gi). Performance improves with a higher number of CPUs and larger memory. In general, the recommended resources (CPU, memory) for running this function are:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;resources&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span>
@@ -464,7 +468,9 @@ secret1 = proj.new_secret(name=&quot;CDSETOOL_ESA_PASSWORD&quot;, secret_value=&
 - <strong>Multi-temporal series</strong>: Scales linearly with date range and area size
 - <strong>Large geographic areas</strong>: May require 10+ GB for month-long searches
 - <strong>Band math / preprocessing</strong>: Adds 20–30% overhead to storage needs</p>
-<p>In order to run this function, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the usage notebook, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.</p>
+<p>In order to run this function, a volume of type <code>persistent_volume_claim</code> is specified to ensure significant data space. For example, the scenarios based on environmental degradation use-cases like deforestation, vegetation loss are based on temporal analysis and require downloading large data over a period of time.</p>
+<p>On the other hand, the scenario based on natural disasters requires downloading different data payloads around a given event date and computing pre/post windows of data payloads for elaboration. Inside the usage notebook, you can find more fine-grained resource configurations for different kinds of data analysis.</p>
+<p>For example, in the flood scenario, the volume configuration for data payload (± 10 days) with respect to flood event date is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;volumes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
@@ -478,7 +484,7 @@ secret1 = proj.new_secret(name=&quot;CDSETOOL_ESA_PASSWORD&quot;, secret_value=&
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For more detailed usage for different kind of scenario, check the usage notebook.</p>
+<p>For more details on usage for a different kind of scenario, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

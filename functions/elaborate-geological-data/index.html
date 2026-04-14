@@ -418,15 +418,17 @@
 <h1 id="elaborate-geological-data">Elaborate Geological Data</h1>
 <p>This function performs a complete preprocessing and analysis on geological Sentinel satellite data to extract information relevant to terrain composition, structural features, and surface variability. It detects and monitor ground deformation associated with landslides using Sentinel-1 Level-2A imagery. 
 The function computes, for both ascending and descending directions, the interferometry between couples of images acquired every six days and derives the total displacement, coherence map, and local incident angle. It derives the horizontal and vertical displacement components from these products and merges them to obtain their cumulative sum and the displacement between each couple of images. The coherence maps are averaged, and the results are used to filter out the areas with the lowest coherence.</p>
-<p>The function output GeoTiff Raster files containing:
-- Cumulative sum and temporal variation of the horizontal displacement ;
-- Cumulative sum and temporal variation of the vertical displacement;
-- Cumulative sum and temporal variation of the total displacement of ascending and descending Sentinel-1 images;
-- Cumulative sum of the horizontal displacement of the areas whaere the cumulative sum of the ascending and descending displacements has an opposite sign;
-- Cumulative sum of the vertical displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;
-- Mean and temporal variation of the coherence maps;
-- Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;
-- Temporal variation of the C coefficient map representing the ratio of effective displacement computed in ascending and descending orbits;</p>
+<p>The function output GeoTiff Raster files containing:</p>
+<ul>
+<li>Cumulative sum and temporal variation of the horizontal displacement ;</li>
+<li>Cumulative sum and temporal variation of the vertical displacement;</li>
+<li>Cumulative sum and temporal variation of the total displacement of ascending and descending Sentinel-1 images;</li>
+<li>Cumulative sum of the horizontal displacement of the areas whaere the cumulative sum of the ascending and descending displacements has an opposite sign;</li>
+<li>Cumulative sum of the vertical displacement of the areas where the cumulative sum of the ascending and descending displacements has an opposite sign;</li>
+<li>Mean and temporal variation of the coherence maps;</li>
+<li>Mean and temporal variation of the coherence maps of ascending and descending Sentinel-1 images;</li>
+<li>Temporal variation of the C coefficient map representing the ratio of effective displacement computed in ascending and descending orbits;</li>
+</ul>
 <p>The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. </p>
 <h2 id="definition">Definition</h2>
 <p>The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel-1 data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.</p>
@@ -549,13 +551,15 @@ exit
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
-<p>The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA</p>
-<p><div class="highlight"><pre><span></span><code>function_elaborate.run(
+<p>The runtime environment of the function consists of properties which are configured in the bash script created in previous section:</p>
+<ul>
+<li><code>PATH</code></li>
+<li><code>PROJ_LIB</code></li>
+<li><code>GDAL_DATA</code></li>
+<li><code>GDAL_DRIVER_PATH</code></li>
+<li><code>PROJ_DATA</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>function_elaborate.run(
     action=&quot;job&quot;,
     fs_group=&#39;8877&#39;,
     resources={
@@ -583,7 +587,7 @@ Notes: For detailed usage see the usage notebook.</p>
     ]
 )
 </code></pre></div>
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
+<p>To avoid capacity issues, the environment variable <code>TMPDIR</code> for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (<code>fs_group='8877'</code>).</p>
 <h2 id="resources">Resources</h2>
 <p>These settings define the resource requests and limits for the container runtime.</p>
 <table>
@@ -639,7 +643,7 @@ To avoid capacity issues the environment variable "TMPDIR" for this function exe
 </tr>
 </tbody>
 </table>
-<p>'elaboration' consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.</p>
+<p><code>elaboration</code> consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

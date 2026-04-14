@@ -449,12 +449,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;example-etl&quot;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="run-the-function">Run the function</h3>
-<p>URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
-run = function.run(action="job", parameters={"url": URL, "output_table": "world-cities"}, wait=True)</p>
+<div class="highlight"><pre><span></span><code><span class="n">URL</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv&quot;</span>
+<span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span> <span class="s2">&quot;output_table&quot;</span><span class="p">:</span> <span class="s2">&quot;world-cities&quot;</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="access-the-data">Access the data</h3>
-<p>dataset_di = proj.get_dataitem("world-cities")
-dataset_di.as_df().head()
-```</p>
+<div class="highlight"><pre><span></span><code><span class="n">dataset_di</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_dataitem</span><span class="p">(</span><span class="s2">&quot;world-cities&quot;</span><span class="p">)</span>
+<span class="n">dataset_di</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">

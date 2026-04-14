@@ -417,14 +417,16 @@
 <div class="template-info-tab" id="template-usage">
 <h1 id="elaborate-flood-data">Elaborate Flood Data</h1>
 <p>This function performs flood analysis using Sentinel satellite data to assess flood extent and impact. It processes raw .SAFE or .zip Sentinel inputs, computes water indices, predicts water before and after a flood event, and outputs flood detection layer.</p>
-<p>The function provides complete workflow for
-- Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.
-- Perform elaboration
-- Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.
-- Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data
-- Combine both results from Sentinel-1 and Sentinel-2 to have one flood prediction layer.
-- Post-process change maps to improve the results by masking permanent water bodies.
-- Log results as GeoTIFF raster files Raster and vector outputs.</p>
+<p>The function provides complete workflow for:</p>
+<ul>
+<li>Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.</li>
+<li>Perform elaboration</li>
+<li>Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.</li>
+<li>Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data</li>
+<li>Combine both results from Sentinel-1 and Sentinel-2 to have one flood prediction layer.</li>
+<li>Post-process change maps to improve the results by masking permanent water bodies.</li>
+<li>Log results as GeoTIFF raster files Raster and vector outputs.</li>
+</ul>
 <p>The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. </p>
 <h2 id="definition">Definition</h2>
 <p>The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.</p>
@@ -613,13 +615,15 @@ exit
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
-<p>The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA</p>
-<p><div class="highlight"><pre><span></span><code>function_elaborate.run(
+<p>The runtime environment of the function consists in properties which are configured in the bash script created in previous section:</p>
+<ul>
+<li><code>PATH</code></li>
+<li><code>PROJ_LIB</code></li>
+<li><code>GDAL_DATA</code></li>
+<li><code>GDAL_DRIVER_PATH</code></li>
+<li><code>PROJ_DATA</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>function_elaborate.run(
     action=&quot;job&quot;,
     fs_group=&#39;8877&#39;,
     resources={
@@ -657,7 +661,7 @@ Notes: For detailed usage see the usage notebook.</p>
         ]
     )
 </code></pre></div>
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
+<p>To avoid capacity issues, the environment variable <code>TMPDIR</code> for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (<code>fs_group='8877'</code>).</p>
 <h2 id="resources">Resources</h2>
 <p>These settings define the resource requests and limits for the container runtime.</p>
 <table>
@@ -713,7 +717,7 @@ To avoid capacity issues the environment variable "TMPDIR" for this function exe
 </tr>
 </tbody>
 </table>
-<p>'elaboration' function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.</p>
+<p><code>elaboration</code> function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

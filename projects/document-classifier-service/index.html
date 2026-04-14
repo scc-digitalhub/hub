@@ -432,18 +432,22 @@
 <h2 id="definition">Definition</h2>
 <h3 id="document-classifier-train">document-classifier-train</h3>
 <p>A Python batch processing function that trains a document classification model.</p>
-<p><strong>Key specifications:</strong>
-- Python version: 3.10
-- Handler: Model training using transformer-based architectures
-- Primary dependencies: Transformers, PyTorch, Hugging Face Hub
-- Purpose: Fine-tunes a model on document classification tasks with configurable training parameters</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Python version: 3.10</li>
+<li>Handler: Model training using transformer-based architectures</li>
+<li>Primary dependencies: Transformers, PyTorch, Hugging Face Hub</li>
+<li>Purpose: Fine-tunes a model on document classification tasks with configurable training parameters</li>
+</ul>
 <h3 id="document-classifier-serve">document-classifier-serve</h3>
 <p>A Python serving function that deploys the trained classification model as a REST API.</p>
-<p><strong>Key specifications:</strong>
-- Python version: 3.10
-- Handler: <code>src.serve:serve</code>
-- Primary dependencies: Transformers, PyTorch, FastAPI
-- Purpose: Serves the trained model for real-time document classification inference</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Python version: 3.10</li>
+<li>Handler: <code>src.serve:serve</code></li>
+<li>Primary dependencies: Transformers, PyTorch, FastAPI</li>
+<li>Purpose: Serves the trained model for real-time document classification inference</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <p>For a complete end-to-end example of training and deploying the document classifier, refer to the usage notebook. The notebook demonstrates:</p>
 <ol>

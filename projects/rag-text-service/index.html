@@ -484,31 +484,39 @@
 <h2 id="definition">Definition</h2>
 <h3 id="vllm-text-serve">vllm-text-serve</h3>
 <p>A VLLM text serving function that deploys and manages large language model inference using the OpenAI-compatible API framework.</p>
-<p><strong>Key specifications:</strong>
-- Model: Qwen/Qwen2.5-0.5B-Instruct (from Hugging Face Hub)
-- Python version: 3.10
-- Purpose: Handles LLM inference requests with streaming support</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Model: Qwen/Qwen2.5-0.5B-Instruct (from Hugging Face Hub)</li>
+<li>Python version: 3.10</li>
+<li>Purpose: Handles LLM inference requests with streaming support</li>
+</ul>
 <h3 id="embed">embed</h3>
 <p>A KubeAI text embedding function that generates vector embeddings for documents and queries.</p>
-<p><strong>Key specifications:</strong>
-- Model: gte-base (from Hugging Face Hub)
-- Engine: VLLM
-- Feature: TextEmbedding
-- Token limit: The model accepts a maximum input of 512 tokens per request to generate embeddings.</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Model: gte-base (from Hugging Face Hub)</li>
+<li>Engine: VLLM</li>
+<li>Feature: TextEmbedding</li>
+<li>Token limit: The model accepts a maximum input of 512 tokens per request to generate embeddings.</li>
+</ul>
 <h3 id="embedder">embedder</h3>
 <p>This Python batch processing function is responsible for preparing and indexing documents into a vector store database, specifically utilizing PGVectorStore. PGVectorStore is a PostgreSQL extension that enables efficient storage and retrieval of vector embeddings, making it suitable for semantic search and similarity-based queries. The function processes input documents, generates their vector representations (embeddings), and stores them in the PGVectorStore database for subsequent retrieval and analysis.</p>
 <p>A Python batch processing function that prepares and indexes documents into the vector store database.</p>
-<p><strong>Key specifications:</strong>
-- Python version: 3.10
-- Primary dependencies: LangChain, PostgreSQL, OpenAI SDK, BeautifulSoup4
-- Purpose: Loads web documents, splits them into chunks, generates embeddings, and stores them in PostgreSQL with pgvector extension</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Python version: 3.10</li>
+<li>Primary dependencies: LangChain, PostgreSQL, OpenAI SDK, BeautifulSoup4</li>
+<li>Purpose: Loads web documents, splits them into chunks, generates embeddings, and stores them in PostgreSQL with pgvector extension</li>
+</ul>
 <h3 id="rag-service">rag-service</h3>
 <p>A Python serving function that orchestrates the RAG pipeline, combining document retrieval with LLM-based answer generation.</p>
-<p><strong>Key specifications:</strong>
-- Python version: 3.10
-- Handler: <code>src.serve:serve</code>
-- Primary dependencies: LangChain ecosystem, LangGraph, PostgreSQL, OpenAI SDK
-- Purpose: Implements the main RAG service with retrieval, prompt engineering, and response generation using an agentic graph workflow</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Python version: 3.10</li>
+<li>Handler: <code>src.serve:serve</code></li>
+<li>Primary dependencies: LangChain ecosystem, LangGraph, PostgreSQL, OpenAI SDK</li>
+<li>Purpose: Implements the main RAG service with retrieval, prompt engineering, and response generation using an agentic graph workflow</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <p>For a complete end-to-end example of deploying and using the RAG text service, refer to the usage notebook. The notebook demonstrates:</p>
 <ol>

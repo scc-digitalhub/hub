@@ -420,16 +420,18 @@
 <p>The workflow extracts vegetation and soil indicators, specifically the Normalized Difference Vegetation Index (NDVI) and the Bare Soil Index (BSI). These indices are interpolated to generate a monthly time series, enabling temporal consistency across acquisitions. Change detection is then performed using BFAST (Breaks For Additive Season and Trend) to identify structural breaks associated with deforestation events. The function produces change detection maps and deforestation probability maps as outputs.</p>
 <p>Processing is carried out per Sentinel tile, allowing independent handling of overlapping tiles within the AOI (e.g. T32TQS, T32TPR, T32TPS, T32TQR). Each tile is processed separately to preserve spatial consistency and reduce edge effects. A Python-based clipping procedure is applied to convert the downloaded index data into AOI-specific input files. The clipped tiles are then used as inputs for the deforestation analysis pipeline.</p>
 <p>This tile-based and AOI-focused approach ensures scalable, reproducible, and spatially accurate deforestation monitoring across heterogeneous regions.</p>
-<p>The function provides complete workflow for
-- Ingesting Sentinel-2 tile-specific temporal metadata.
-- Perform elaboration
-- Compute NDVI and BSI indices from RED, NIR, and SWIR1 bands.
-- Apply cloud/shadow masks from precomputed binary mask files (MASK.npy).
-- Interpolate data to generate a complete 24-month time series (12 months/year).
-- Fuse features and reshape data into pixel-wise time series.
-- Run BFAST to detect change points across time.
-- Post-process change maps to remove isolated pixels and fill gaps.
-- Log results as GeoTIFF raster files.</p>
+<p>The function provides complete workflow for</p>
+<ul>
+<li>Ingesting Sentinel-2 tile-specific temporal metadata.</li>
+<li>Perform elaboration</li>
+<li>Compute NDVI and BSI indices from RED, NIR, and SWIR1 bands.</li>
+<li>Apply cloud/shadow masks from precomputed binary mask files (MASK.npy).</li>
+<li>Interpolate data to generate a complete 24-month time series (12 months/year).</li>
+<li>Fuse features and reshape data into pixel-wise time series.</li>
+<li>Run BFAST to detect change points across time.</li>
+<li>Post-process change maps to remove isolated pixels and fill gaps.</li>
+<li>Log results as GeoTIFF raster files.</li>
+</ul>
 <p>The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. </p>
 <h2 id="definition">Definition</h2>
 <p>The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters include pre-downloaded Sentinel-2 indices for a specified Area of Interest (AOI) and temporal range, producing deforestation change and probability outputs. These arguments are passed to the container’s entrypoint script.</p>
@@ -524,13 +526,15 @@ exit
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
-<p>The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA</p>
-<p><div class="highlight"><pre><span></span><code>function_elaborate.un(
+<p>The runtime environment of function consists of properties which are configured in the bash script created in previous section:</p>
+<ul>
+<li><code>PATH</code></li>
+<li><code>PROJ_LIB</code></li>
+<li><code>GDAL_DATA</code></li>
+<li><code>GDAL_DRIVER_PATH</code></li>
+<li><code>PROJ_DATA</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>function_elaborate.un(
     action=&quot;job&quot;,
     fs_group=&#39;8877&#39;,
     resources={
@@ -552,7 +556,7 @@ Notes: For detailed usage see the usage notebook.</p>
     ]
 )
 </code></pre></div>
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')</p>
+<p>To avoid capacity issues, the environment variable <code>TMPDIR</code> for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (<code>fs_group='8877'</code>).</p>
 <h2 id="resources">Resources</h2>
 <p>These settings define the resource requests and limits for the container runtime.</p>
 <table>
@@ -608,7 +612,7 @@ To avoid capacity issues the environment variable "TMPDIR" for this function exe
 </tr>
 </tbody>
 </table>
-<p>'elaboration' consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.</p>
+<p><code>elaboration</code> consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
