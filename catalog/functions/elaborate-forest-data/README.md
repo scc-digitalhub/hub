@@ -9,6 +9,7 @@ Processing is carried out per Sentinel tile, allowing independent handling of ov
 This tile-based and AOI-focused approach ensures scalable, reproducible, and spatially accurate deforestation monitoring across heterogeneous regions.
 
 The function provides complete workflow for
+
 - Ingesting Sentinel-2 tile-specific temporal metadata.
 - Perform elaboration
 - Compute NDVI and BSI indices from RED, NIR, and SWIR1 bands.
@@ -61,7 +62,6 @@ run_el = function_rs.run(
         'deforestation_2018_19_tps'
     ]
 )
-
 ```
 
 ## Usage
@@ -102,12 +102,13 @@ Notes: For detailed usage see the usage notebook.
 
 ## Environment
 
-The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA
+The runtime environment of function consists of properties which are configured in the bash script created in previous section:
+
+- `PATH`
+- `PROJ_LIB`
+- `GDAL_DATA`
+- `GDAL_DRIVER_PATH`
+- `PROJ_DATA`
 
 
 ```
@@ -133,7 +134,8 @@ function_elaborate.un(
     ]
 )
 ```
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
+
+To avoid capacity issues, the environment variable `TMPDIR` for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (`fs_group='8877'`).
 
 
 ## Resources
@@ -155,4 +157,4 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `250Gi`                   | Allocated storage capacity.                                 |
 
 
-'elaboration' consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.
+`elaboration` consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.

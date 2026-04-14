@@ -2,7 +2,8 @@
 
 This function performs flood analysis using Sentinel satellite data to assess flood extent and impact. It processes raw .SAFE or .zip Sentinel inputs, computes water indices, predicts water before and after a flood event, and outputs flood detection layer.
 
-The function provides complete workflow for
+The function provides complete workflow for:
+
 - Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.
 - Perform elaboration
 - Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.
@@ -123,12 +124,13 @@ Notes: For detailed usage see the usage notebook.
 
 ## Environment
 
-The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA
+The runtime environment of the function consists in properties which are configured in the bash script created in previous section:
+
+- `PATH`
+- `PROJ_LIB`
+- `GDAL_DATA`
+- `GDAL_DRIVER_PATH`
+- `PROJ_DATA`
 
 
 ```
@@ -170,7 +172,8 @@ function_elaborate.run(
         ]
     )
 ```
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
+
+To avoid capacity issues, the environment variable `TMPDIR` for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (`fs_group='8877'`).
 
 
 ## Resources
@@ -192,4 +195,4 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `100Gi`                   | Allocated storage capacity.                                 |
 
 
-'elaboration' function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.
+`elaboration` function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.

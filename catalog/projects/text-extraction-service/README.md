@@ -3,6 +3,7 @@
 This project implements a text extraction service using Apache Tika and Python. It provides a REST API endpoint that accepts POST requests containing file artifacts and extracts text content from them.
 
 The service consists of two main components:
+
 - **Tika Container**: Apache Tika service for document text extraction
 - **Python Function**: Handler that orchestrates the extraction workflow, downloads artifacts, sends them to Tika, and logs the extracted output
 
@@ -36,11 +37,13 @@ def extract_text(tika_url, artifact, project):
 ```
 
 **Parameters**:
+
 - `tika_url`: URL endpoint of the Tika service
 - `artifact`: The document file to be processed
 - `project`: Project context for logging results
 
 **Workflow**:
+
 1. Downloads the artifact file
 2. Ensures proper HTTP URL formatting for Tika endpoint
 3. Sends the file to Tika via PUT request with `Accept: text/html` header
@@ -60,7 +63,8 @@ The Tika service is a containerized Apache Tika instance that provides document 
 **Endpoint**: `PUT /tika/form`
 
 **Request Headers**:
-- `Accept: text/html` - Specifies HTML output format
+
+- `Accept: text/html`: Specifies HTML output format
 
 **Response**: Extracted text content from the document
 
@@ -73,32 +77,36 @@ The Tika service is a containerized Apache Tika instance that provides document 
 To use the text extraction service, follow these steps:
 
 1. **Initialize the project and deploy Tika service**:
-    ```python
-    import digitalhub as dh
-    proj = dh.get_or_create_project("tika")
-    tika_function = proj.get_function("tika")
-    tika_run = tika_function.run("serve", service_ports=[{"port": 9998, "target_port": 9998}], wait=True)
-    TIKA_URL = tika_run.status.to_dict()["service"]["url"]
-    ```
+
+```python
+import digitalhub as dh
+proj = dh.get_or_create_project("tika")
+tika_function = proj.get_function("tika")
+tika_run = tika_function.run("serve", service_ports=[{"port": 9998, "target_port": 9998}], wait=True)
+TIKA_URL = tika_run.status.to_dict()["service"]["url"]
+```
 
 2. **Log a document artifact**:
-    ```python
-    artifact = proj.log_artifact("document.pdf", kind="artifact", source="path/to/document.pdf")
-    ```
+
+```python
+artifact = proj.log_artifact("document.pdf", kind="artifact", source="path/to/document.pdf")
+```
 
 3. **Run the extraction function**:
-    ```python
-    extract_function = proj.get_function("extract")
-    extract_run = extract_function.run("job", inputs={"artifact": artifact.key}, parameters={"tika_url": TIKA_URL}, wait=True)
-    ```
+
+```python
+extract_function = proj.get_function("extract")
+extract_run = extract_function.run("job", inputs={"artifact": artifact.key}, parameters={"tika_url": TIKA_URL}, wait=True)
+```
 
 4. **Retrieve the extracted output**:
-    ```python
-    output_artifact = proj.get_artifact("document.pdf_output.html")
-    output_artifact.download()
-    with open('./artifact/output.html', 'r') as f:
-         print(f.read())
-    ```
+
+```python
+output_artifact = proj.get_artifact("document.pdf_output.html")
+output_artifact.download()
+with open('./artifact/output.html', 'r') as f:
+        print(f.read())
+```
 
 
 

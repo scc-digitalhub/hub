@@ -30,12 +30,15 @@ Notes and tips:
 - Ensure valid Copernicus credentials are available to the runtime via secrets before launching jobs.
 
 Example parameter shape (illustrative):
+
+```
 {
     "satelliteParams": { "satelliteType": "Sentinel-1", "processingLevel": "LEVEL1", "productType": "SLC", "orbitDirection": "DESCENDING" },
     "startDate": "2021-01-01", "endDate": "2021-01-15",
     "geometry": "<WKT or GeoJSON>",
     "artifact_name": "download_output"
 }
+```
 
 ## Usage
 
@@ -64,12 +67,11 @@ Notes: For detailed usage see the usage notebook.
 ## Environment
 
 The runtime environment of function consist of properties like
-- CDSETOOL_ESA_PASSWORD
-- CDSETOOL_ESA_USER
 
-Register to the open data space copernicus(if not already) and get your credentials.
+- `CDSETOOL_ESA_PASSWORD`
+- `CDSETOOL_ESA_USER`
 
-https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&tab_id=FIiRPJeoiX4
+[Register to the open data space Copernicus](https://identity.dataspace.copernicus.eu/auth/realms/CDSE/login-actions/registration?client_id=cdse-public&tab_id=FIiRPJeoiX4) (if not already registered) and get your credentials.
 
 Log the credentials as project secret keys as shown below
 
@@ -94,7 +96,11 @@ function.run(
 
 ## Resources
 
-The resources for running this function varies as per the envisaged elaboration scenario requirements which depends on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace. It could happen that data download takes more time than usual due to various factors, including technical issues, data processing delays, and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions. The size of sentinal data payload in is normally large based on requirement of usecase scenario and requires a significant block of computing resources to executed which includes number of cpu, memory(Gi), and volume(Gi). The function performance improves with significant number of cpu and memory. In general, the recommended resources(cpu, memory) for running this function:
+The resources for running this function may vary as per the envisaged elaboration scenario requirements, which depend on many factors such as type of elaboration, data period, index, geometry etc. The download-sentinel-data function depends on Sentinel Hub dataspace.
+
+The data download may take more time than usual due factors such as technical issues, data processing delays and limitations in the data access infrastructure. Sentinel data has both temporal and spatial types, as it collects data over time (temporal) with specific spatial resolutions.
+
+The data payload size is based on the requirements of the use-case scenario and may need a significant block of computing resources to execute, including number of CPUs, memory(Gi), and volume(Gi). Performance improves with a higher number of CPUs and larger memory. In general, the recommended resources (CPU, memory) for running this function are:
 
 ```json
 {
@@ -111,7 +117,11 @@ Data volume requirements vary by scenario:
 - **Large geographic areas**: May require 10+ GB for month-long searches
 - **Band math / preprocessing**: Adds 20–30% overhead to storage needs
 
-In order to run this function, a volume of type 'persistent_volume_claim' is specified to ensure significant data space. For example, the scenarios based on environmental degradation usecases like deorestation, vegetation loss are based on temporal analysis and requires downloading of big data over a period of time. On the other hand, the scenario based on natural disasters events requires downloading of different data payloads around a given event date, compute pre/post windows of data payloads for elaboration. Inside the usage notebook, one can find more fine grained resource configurations for different kinds of data analysis for e.g. one such example is the flood scenario for which the volume configuration for data payload (± 10 days) with respect to flood event date is shown below.
+In order to run this function, a volume of type `persistent_volume_claim` is specified to ensure significant data space. For example, the scenarios based on environmental degradation use-cases like deforestation, vegetation loss are based on temporal analysis and require downloading large data over a period of time.
+
+On the other hand, the scenario based on natural disasters requires downloading different data payloads around a given event date and computing pre/post windows of data payloads for elaboration. Inside the usage notebook, you can find more fine-grained resource configurations for different kinds of data analysis.
+
+For example, in the flood scenario, the volume configuration for data payload (± 10 days) with respect to flood event date is shown below:
 
 ```json
 {
@@ -128,5 +138,5 @@ In order to run this function, a volume of type 'persistent_volume_claim' is spe
 }
 ```
 
-For more detailed usage for different kind of scenario, check the usage notebook.
+For more details on usage for a different kind of scenario, check the usage notebook.
 

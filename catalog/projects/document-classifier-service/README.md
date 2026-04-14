@@ -22,15 +22,18 @@ The `document-classifier-service` function includes the following features:
 A Python batch processing function that trains a document classification model.
 
 **Key specifications:**
+
 - Python version: 3.10
 - Handler: Model training using transformer-based architectures
 - Primary dependencies: Transformers, PyTorch, Hugging Face Hub
 - Purpose: Fine-tunes a model on document classification tasks with configurable training parameters
 
 ### document-classifier-serve
+
 A Python serving function that deploys the trained classification model as a REST API.
 
 **Key specifications:**
+
 - Python version: 3.10
 - Handler: `src.serve:serve`
 - Primary dependencies: Transformers, PyTorch, FastAPI

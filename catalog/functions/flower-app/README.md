@@ -209,5 +209,6 @@ This setup allows for efficient training on decentralized data while maintaining
     ```
 
 ## Notes
-- Ensure to replace `<YOUR_PROJECT_NAME>` with the actual name of your project.
+
+- Replace `<YOUR_PROJECT_NAME>` with the actual name of your project.
 - The server runs in insecure mode by default. For secure mode, specify the root certificates.

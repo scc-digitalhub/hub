@@ -1,6 +1,6 @@
 # Container Function
 
-The DigitalHub Platform  Container runtime enables launching pods, jobs and services on Kubernetes. It registers function kind 'container' and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to create and build a 'job' that can be run in a containerized environment using predefined base images. The function serves as a template for building custom container jobs within the platform. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
+The DigitalHub Platform  Container runtime enables launching pods, jobs and services on Kubernetes. It registers function kind `container` and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to create and build a `job` that can be run in a containerized environment using predefined base images. The function serves as a template for building custom container jobs within the platform. As a best practice, the container runtime is executed as non root user(`fs_group='8877'`).
 
 
 ## Features

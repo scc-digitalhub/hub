@@ -66,4 +66,4 @@ To utilize the `flower-client` function, follow these steps:
 
 Notes: For detailed usage, check the usage notebook. 
 
-In order to use the perform federated training using flower server with clients, please refer to the [flower-job](https://scc-digitalhub.github.io/hub/functions/flower-job) function in the hub. This section provides detailed instructions on how to configure and connect client nodes with server to perform federatd training.
+In order to perform federated training using flower server with clients, please refer to the [flower-job](https://scc-digitalhub.github.io/hub/functions/flower-job) function in the hub. This section provides detailed instructions on how to configure and connect client nodes with the server to perform federated training.

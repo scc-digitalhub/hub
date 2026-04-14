@@ -23,17 +23,21 @@ The `rag-text-service` function includes the following features:
 ## Definition
 
 ### vllm-text-serve
+
 A VLLM text serving function that deploys and manages large language model inference using the OpenAI-compatible API framework.
 
 **Key specifications:**
+
 - Model: Qwen/Qwen2.5-0.5B-Instruct (from Hugging Face Hub)
 - Python version: 3.10
 - Purpose: Handles LLM inference requests with streaming support
 
 ### embed
+
 A KubeAI text embedding function that generates vector embeddings for documents and queries.
 
 **Key specifications:**
+
 - Model: gte-base (from Hugging Face Hub)
 - Engine: VLLM
 - Feature: TextEmbedding
@@ -46,14 +50,17 @@ This Python batch processing function is responsible for preparing and indexing 
 A Python batch processing function that prepares and indexes documents into the vector store database.
 
 **Key specifications:**
+
 - Python version: 3.10
 - Primary dependencies: LangChain, PostgreSQL, OpenAI SDK, BeautifulSoup4
 - Purpose: Loads web documents, splits them into chunks, generates embeddings, and stores them in PostgreSQL with pgvector extension
 
 ### rag-service
+
 A Python serving function that orchestrates the RAG pipeline, combining document retrieval with LLM-based answer generation.
 
 **Key specifications:**
+
 - Python version: 3.10
 - Handler: `src.serve:serve`
 - Primary dependencies: LangChain ecosystem, LangGraph, PostgreSQL, OpenAI SDK

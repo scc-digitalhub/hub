@@ -4,6 +4,7 @@ This function performs a complete preprocessing and analysis on geological Senti
 The function computes, for both ascending and descending directions, the interferometry between couples of images acquired every six days and derives the total displacement, coherence map, and local incident angle. It derives the horizontal and vertical displacement components from these products and merges them to obtain their cumulative sum and the displacement between each couple of images. The coherence maps are averaged, and the results are used to filter out the areas with the lowest coherence.
 
 The function output GeoTiff Raster files containing:
+
 - Cumulative sum and temporal variation of the horizontal displacement ;
 - Cumulative sum and temporal variation of the vertical displacement;
 - Cumulative sum and temporal variation of the total displacement of ascending and descending Sentinel-1 images;
@@ -104,12 +105,13 @@ Notes: For detailed usage see the usage notebook.
 
 ## Environment
 
-The runtime environment of function consist of properties which are configured in the bash script created in previous section
-- PATH
-- PROJ_LIB
-- GDAL_DATA
-- GDAL_DRIVER_PATH
-- PROJ_DATA
+The runtime environment of the function consists of properties which are configured in the bash script created in previous section:
+
+- `PATH`
+- `PROJ_LIB`
+- `GDAL_DATA`
+- `GDAL_DRIVER_PATH`
+- `PROJ_DATA`
 
 
 ```
@@ -141,7 +143,8 @@ function_elaborate.run(
     ]
 )
 ```
-To avoid capacity issues the environment variable "TMPDIR" for this function execution is set to same path of volume mount. As a general confromance to best practice approach, the container runtime is executed as non root user(fs_group='8877')
+
+To avoid capacity issues, the environment variable `TMPDIR` for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (`fs_group='8877'`).
 
 
 ## Resources
@@ -163,4 +166,4 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `600Gi`                   | Allocated storage capacity.                                 |
 
 
-'elaboration' consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.
+`elaboration` consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.

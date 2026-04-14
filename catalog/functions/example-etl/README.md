@@ -37,6 +37,7 @@ function = project.new_function(
 ```
 
 ### Fetching the Function
+
 To use an existing ETL transform function as in this example, retrieve it from the project context.
 
 ```python
@@ -44,11 +45,16 @@ function = proj.get_function("example-etl")
 ```
 
 ### Run the function
+
+```python
 URL="https://raw.githubusercontent.com/datasets/world-cities/refs/heads/main/data/world-cities.csv"
 run = function.run(action="job", parameters={"url": URL, "output_table": "world-cities"}, wait=True)
+```
 
 
 ### Access the data
+
+```python
 dataset_di = proj.get_dataitem("world-cities")
 dataset_di.as_df().head()
 ```
