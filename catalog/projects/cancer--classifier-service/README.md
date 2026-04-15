@@ -28,33 +28,57 @@ A Python batch processing function that trains a cancer classification model.
 - Purpose: Trains an SVM classifier on cancer datasets with automatic logging
 
 ```
+import pandas as pd
+from sklearn.datasets import load_breast_cancer
+
 from digitalhub_runtime_python import handler
 
-from digitalhub import from_mlflow_run
-import mlflow
+from sklearn.model_selection import train_test_split
 
-from sklearn import datasets, svm
-from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
+from pickle import dump
+import sklearn.metrics
+import os
 
 @handler()
-def train(project):
-    mlflow.sklearn.autolog(log_datasets=True)
+def breast_cancer_generator(project):
+    """
+    A function which generates the breast cancer dataset
+    """
+    breast_cancer = load_breast_cancer()
+    df_cancer = pd.DataFrame(
+        data=breast_cancer.data, columns=breast_cancer.feature_names
+    )
+    breast_cancer_labels = pd.DataFrame(data=breast_cancer.target, columns=["target"])
+    df_cancer = pd.concat(
+        [df_cancer, breast_cancer_labels], axis=1
+    )
 
-    iris = datasets.load_iris()
-    parameters = {"kernel": ("linear", "rbf"), "C": [1, 10]}
-    svc = svm.SVC()
-    clf = GridSearchCV(svc, parameters)
+    X = df_cancer.drop(['target'],axis=1)
+    y = df_cancer['target']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state=5)
+    svc_model = SVC()
+    svc_model.fit(X_train, y_train)
+    y_predict = svc_model.predict(X_test)
 
-    clf.fit(iris.data, iris.target)
-    run_id = mlflow.last_active_run().info.run_id
+    if not os.path.exists("model"):
+        os.makedirs("model")
 
-    # utility to map mlflow run artifacts to model metadata
-    model_params = from_mlflow_run(run_id)
+    with open("model/cancer_classifier.pkl", "wb") as f:
+        dump(svc_model, f, protocol=5)
 
+    metrics = {
+        "f1_score": sklearn.metrics.f1_score(y_test, y_predict),
+        "accuracy": sklearn.metrics.accuracy_score(y_test, y_predict),
+        "precision": sklearn.metrics.precision_score(y_test, y_predict),
+        "recall": sklearn.metrics.recall_score(y_test, y_predict),
+    }
     project.log_model(
-        name="model-mlflow",
-        kind="mlflow",
-        **model_params
+            name="cancer_classifier",
+            kind="sklearn",
+            source="./model/",
+            metrics=metrics
+    )
 ```
 
 ## Usage
@@ -73,7 +97,7 @@ The function 'cancer-classifier-train' is registered inside to the platform core
 func = proj.get_function(name="cancer-classifier-train") 
 ```
 
-This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.
+This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the function import from the .yaml file.
 
 Then, the function can be executed on the digital hub platform or (locally) as a single job.
 
@@ -96,6 +120,9 @@ The `model.key` property represents the unique identifier or path to the trained
 
 In this context, `model.key` is passed to the `path` parameter when creating a new serving function, allowing the MLflow-based serving runtime to locate and load the correct model artifact for inference.
 
+```
+model = project.get_model("cancer_classifier")
+```
 
 ## Usage
 
