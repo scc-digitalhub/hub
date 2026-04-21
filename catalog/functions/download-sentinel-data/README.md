@@ -24,6 +24,7 @@ This function is implemented as a Docker container and executed at runtime with 
     - artifact_name: name used for storing the downloaded artifact in the project context.
 
 Notes and tips:
+
 - Date ranges should be chosen to limit result sets; large ranges may require increased compute and storage.
 - Use relativeOrbitNumber to filter by specific orbit tracks when needed.
 - For Sentinel-2 searches you can also supply cloudCoverage thresholds; for Sentinel-1 specify polarization/product specifics.
@@ -112,6 +113,7 @@ The data payload size is based on the requirements of the use-case scenario and 
 ```
 
 Data volume requirements vary by scenario:
+
 - **Single scene download**: 100–500 MB (Sentinel-1 GRD), 500–1000 MB (Sentinel-2 L2A)
 - **Multi-temporal series**: Scales linearly with date range and area size
 - **Large geographic areas**: May require 10+ GB for month-long searches
