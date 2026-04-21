@@ -397,11 +397,13 @@
 </ul>
 </li>
 </ul>
-<p>Notes and tips:
-- Date ranges should be chosen to limit result sets; large ranges may require increased compute and storage.
-- Use relativeOrbitNumber to filter by specific orbit tracks when needed.
-- For Sentinel-2 searches you can also supply cloudCoverage thresholds; for Sentinel-1 specify polarization/product specifics.
-- Ensure valid Copernicus credentials are available to the runtime via secrets before launching jobs.</p>
+<p>Notes and tips:</p>
+<ul>
+<li>Date ranges should be chosen to limit result sets; large ranges may require increased compute and storage.</li>
+<li>Use relativeOrbitNumber to filter by specific orbit tracks when needed.</li>
+<li>For Sentinel-2 searches you can also supply cloudCoverage thresholds; for Sentinel-1 specify polarization/product specifics.</li>
+<li>Ensure valid Copernicus credentials are available to the runtime via secrets before launching jobs.</li>
+</ul>
 <p>Example parameter shape (illustrative):</p>
 <div class="highlight"><pre><span></span><code>{
     &quot;satelliteParams&quot;: { &quot;satelliteType&quot;: &quot;Sentinel-1&quot;, &quot;processingLevel&quot;: &quot;LEVEL1&quot;, &quot;productType&quot;: &quot;SLC&quot;, &quot;orbitDirection&quot;: &quot;DESCENDING&quot; },
@@ -463,11 +465,13 @@ secret1 = proj.new_secret(name=&quot;CDSETOOL_ESA_PASSWORD&quot;, secret_value=&
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Data volume requirements vary by scenario:
-- <strong>Single scene download</strong>: 100–500 MB (Sentinel-1 GRD), 500–1000 MB (Sentinel-2 L2A)
-- <strong>Multi-temporal series</strong>: Scales linearly with date range and area size
-- <strong>Large geographic areas</strong>: May require 10+ GB for month-long searches
-- <strong>Band math / preprocessing</strong>: Adds 20–30% overhead to storage needs</p>
+<p>Data volume requirements vary by scenario:</p>
+<ul>
+<li><strong>Single scene download</strong>: 100–500 MB (Sentinel-1 GRD), 500–1000 MB (Sentinel-2 L2A)</li>
+<li><strong>Multi-temporal series</strong>: Scales linearly with date range and area size</li>
+<li><strong>Large geographic areas</strong>: May require 10+ GB for month-long searches</li>
+<li><strong>Band math / preprocessing</strong>: Adds 20–30% overhead to storage needs</li>
+</ul>
 <p>In order to run this function, a volume of type <code>persistent_volume_claim</code> is specified to ensure significant data space. For example, the scenarios based on environmental degradation use-cases like deforestation, vegetation loss are based on temporal analysis and require downloading large data over a period of time.</p>
 <p>On the other hand, the scenario based on natural disasters requires downloading different data payloads around a given event date and computing pre/post windows of data payloads for elaboration. Inside the usage notebook, you can find more fine-grained resource configurations for different kinds of data analysis.</p>
 <p>For example, in the flood scenario, the volume configuration for data payload (± 10 days) with respect to flood event date is shown below:</p>

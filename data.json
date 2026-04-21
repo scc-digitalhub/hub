@@ -8,32 +8,6 @@
         "datasets": [],
         "functions": [
             {
-                "kind": "sklearnserve",
-                "metadata": {
-                    "name": "Example Cancer classifier Serve (Sklearn Serve)",
-                    "version": "1.0.0",
-                    "description": "Cancer Classifier Sklearn Serve With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the \"serve\" task. Digital workers can utilize this API to classify documents based on their content, enabling efficient document management and retrieval. The model is trained on a dataset of official documents and can classify them into predefined categories, improving the organization and accessibility of information. \"Digital health workers can leverage this service to enhance their document processing workflows, ensuring accurate and timely classification of official documents.",
-                    "labels": [
-                        "license:apache-2.0",
-                        "platform:0.14",
-                        "type:service",
-                        "phase:model-serving",
-                        "framework:sklearn",
-                        "inference:custom"
-                    ],
-                    "path": "functions/cancer-classifier-serve-mlflow-example",
-                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-serve-mlflow-example",
-                    "relationships": [
-                        {
-                            "type": "part_of",
-                            "dest": "hub://functions/cancer-classifier-serve-mlflow-example:1.0.0"
-                        }
-                    ]
-                },
-                "name": "cancer-classifier-serve-mlflow-example",
-                "python_version": "PYTHON3_10"
-            },
-            {
                 "kind": "python",
                 "metadata": {
                     "name": "Example Cancer Classifier Training With MLFLow (Python Job)",
@@ -662,6 +636,75 @@
         ],
         "models": [],
         "projects": [
+            {
+                "name": "cancer-classifier-service",
+                "kind": "python+serve",
+                "metadata": {
+                    "name": "Cancer Classifier Service (Project)",
+                    "project": "cancer-classifier",
+                    "version": "1.0.0",
+                    "description": "This project demonstrates how to train and deploy a cancer classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the \"serve\" task.",
+                    "labels": [
+                        "license:apache-2.0",
+                        "platform:0.14",
+                        "type:service",
+                        "phase:utility"
+                    ],
+                    "path": "projects/cancer--classifier-service",
+                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/cancer--classifier-service",
+                    "relationships": [
+                        {
+                            "type": "part_of",
+                            "dest": "hub://projects/cancer--classifier-service:1.0.0"
+                        }
+                    ]
+                },
+                "spec": {
+                    "functions": [
+                        {
+                            "kind": "sklearnserve",
+                            "description": "Cancer Classifier Sklearn Serve With MLFlow. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the \"serve\" task. Digital workers can utilize this API to classify documents based on their content, enabling efficient document management and retrieval. The model is trained on a dataset of official documents and can classify them into predefined categories, improving the organization and accessibility of information. \"Digital health workers can leverage this service to enhance their document processing workflows, ensuring accurate and timely classification of official documents.",
+                            "labels": [
+                                "license:apache-2.0",
+                                "platform:0.14",
+                                "type:service",
+                                "phase:model-serving",
+                                "framework:sklearn",
+                                "inference:custom"
+                            ],
+                            "name": "cancer-classifier-service"
+                        },
+                        {
+                            "kind": "python",
+                            "metadata": {
+                                "name": "cancer-classifier-train",
+                                "project": "cancer-classifier",
+                                "labels": [
+                                    "license:apache-2.0",
+                                    "platform:0.14",
+                                    "type:job",
+                                    "phase:model-training",
+                                    "framework:sklearn",
+                                    "application:healthcare"
+                                ]
+                            },
+                            "name": "cancer-classifier-train",
+                            "spec": {
+                                "python_version": "PYTHON3_10",
+                                "requirements": [
+                                    "scikit-learn==1.2.2",
+                                    "numpy<2"
+                                ],
+                                "source": {
+                                    "handler": "breast_cancer_generator",
+                                    "base64": "aW1wb3J0IHBhbmRhcyBhcyBwZApmcm9tIHNrbGVhcm4uZGF0YXNldHMgaW1wb3J0IGxvYWRfYnJlYXN0X2NhbmNlcgoKZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgpmcm9tIHNrbGVhcm4ubW9kZWxfc2VsZWN0aW9uIGltcG9ydCB0cmFpbl90ZXN0X3NwbGl0Cgpmcm9tIHNrbGVhcm4uc3ZtIGltcG9ydCBTVkMKZnJvbSBwaWNrbGUgaW1wb3J0IGR1bXAKaW1wb3J0IHNrbGVhcm4ubWV0cmljcwppbXBvcnQgb3MKCkBoYW5kbGVyKCkKZGVmIGJyZWFzdF9jYW5jZXJfZ2VuZXJhdG9yKHByb2plY3QpOgogICAgIiIiCiAgICBBIGZ1bmN0aW9uIHdoaWNoIGdlbmVyYXRlcyB0aGUgYnJlYXN0IGNhbmNlciBkYXRhc2V0CiAgICAiIiIKICAgIGJyZWFzdF9jYW5jZXIgPSBsb2FkX2JyZWFzdF9jYW5jZXIoKQogICAgZGZfY2FuY2VyID0gcGQuRGF0YUZyYW1lKAogICAgICAgIGRhdGE9YnJlYXN0X2NhbmNlci5kYXRhLCBjb2x1bW5zPWJyZWFzdF9jYW5jZXIuZmVhdHVyZV9uYW1lcwogICAgKQogICAgYnJlYXN0X2NhbmNlcl9sYWJlbHMgPSBwZC5EYXRhRnJhbWUoZGF0YT1icmVhc3RfY2FuY2VyLnRhcmdldCwgY29sdW1ucz1bInRhcmdldCJdKQogICAgZGZfY2FuY2VyID0gcGQuY29uY2F0KAogICAgICAgIFtkZl9jYW5jZXIsIGJyZWFzdF9jYW5jZXJfbGFiZWxzXSwgYXhpcz0xCiAgICApCgogICAgWCA9IGRmX2NhbmNlci5kcm9wKFsndGFyZ2V0J10sYXhpcz0xKQogICAgeSA9IGRmX2NhbmNlclsndGFyZ2V0J10KICAgIFhfdHJhaW4sIFhfdGVzdCwgeV90cmFpbiwgeV90ZXN0ID0gdHJhaW5fdGVzdF9zcGxpdChYLCB5LCB0ZXN0X3NpemUgPSAwLjIwLCByYW5kb21fc3RhdGU9NSkKICAgIHN2Y19tb2RlbCA9IFNWQygpCiAgICBzdmNfbW9kZWwuZml0KFhfdHJhaW4sIHlfdHJhaW4pCiAgICB5X3ByZWRpY3QgPSBzdmNfbW9kZWwucHJlZGljdChYX3Rlc3QpCgogICAgaWYgbm90IG9zLnBhdGguZXhpc3RzKCJtb2RlbCIpOgogICAgICAgIG9zLm1ha2VkaXJzKCJtb2RlbCIpCgogICAgd2l0aCBvcGVuKCJtb2RlbC9jYW5jZXJfY2xhc3NpZmllci5wa2wiLCAid2IiKSBhcyBmOgogICAgICAgIGR1bXAoc3ZjX21vZGVsLCBmLCBwcm90b2NvbD01KQoKICAgIG1ldHJpY3MgPSB7CiAgICAgICAgImYxX3Njb3JlIjogc2tsZWFybi5tZXRyaWNzLmYxX3Njb3JlKHlfdGVzdCwgeV9wcmVkaWN0KSwKICAgICAgICAiYWNjdXJhY3kiOiBza2xlYXJuLm1ldHJpY3MuYWNjdXJhY3lfc2NvcmUoeV90ZXN0LCB5X3ByZWRpY3QpLAogICAgICAgICJwcmVjaXNpb24iOiBza2xlYXJuLm1ldHJpY3MucHJlY2lzaW9uX3Njb3JlKHlfdGVzdCwgeV9wcmVkaWN0KSwKICAgICAgICAicmVjYWxsIjogc2tsZWFybi5tZXRyaWNzLnJlY2FsbF9zY29yZSh5X3Rlc3QsIHlfcHJlZGljdCksCiAgICB9CiAgICBwcm9qZWN0LmxvZ19tb2RlbCgKICAgICAgICAgICAgbmFtZT0iY2FuY2VyX2NsYXNzaWZpZXIiLAogICAgICAgICAgICBraW5kPSJza2xlYXJuIiwKICAgICAgICAgICAgc291cmNlPSIuL21vZGVsLyIsCiAgICAgICAgICAgIG1ldHJpY3M9bWV0cmljcwogICAgKQ==",
+                                    "lang": "python"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
             {
                 "name": "document-classifier-service",
                 "kind": "python+serve",
