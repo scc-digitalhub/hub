@@ -10,7 +10,6 @@ metadata:
     - "platform:0.14"
     - "type:service"
     - "phase:utility"    
-kind: python+serve
 name: document-classifier-service
 spec:
   functions:

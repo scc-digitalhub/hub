@@ -55,7 +55,6 @@ spec:
       weight_decay: 0.005
       learning_rate: 0.00001
       lr_scheduler_type: linear
-  profile: 1xa100
   volumes:
     - name: train-volume
       spec:

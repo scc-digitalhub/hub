@@ -19,6 +19,5 @@ spec:
 kind: vllmserve-text+serve:run
 spec:
   model_name: model
-  profile: 1xV100
   url: hf://Qwen/Qwen2.5-0.5B-Instruct
   
