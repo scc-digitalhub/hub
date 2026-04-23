@@ -157,4 +157,8 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `250Gi`                   | Allocated storage capacity.                                 |
 
 
-`elaboration` consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.
+The elaboration consists of interpolation and post-processing steps, which are computationally heavy, since it is a pixel-based analysis. It is based on the python `joblib` library for optimizations of numpy arrays. With the use of more images, the interpolation will be shorter.
+
+The amount of Sentinel data is huge, hence why a volume of `250Gi` of type `persistent_volume_claim` is specified.
+
+On average, for 2 years of data (the default period), the TPS tiles take around 8-10 hours to complete with 16 CPUs and 64GB RAM.

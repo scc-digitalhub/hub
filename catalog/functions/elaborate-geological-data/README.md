@@ -166,4 +166,8 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `600Gi`                   | Allocated storage capacity.                                 |
 
 
-`elaboration` consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.
+The elaboration consists of a interferometry step (a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides) and a post-processing step, which are computationally heavy since it is a pixel-based analysis.
+
+The amount of Sentinel data may be huge, hence why a volume of `600Gi` of type `persistent_volume_claim` is specified. This configuration must be changed according to requirements. 
+
+In the example given in the notebook, an elaboration on two weeks of data is performed in about ~5 hours, using 16 CPUs and 64GB RAM.

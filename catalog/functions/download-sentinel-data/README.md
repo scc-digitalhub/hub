@@ -1,6 +1,6 @@
 # Download Sentinel Data
 
-This function is used to download Sentinel satellite data efficiently. This function serves as the base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized. 
+This function is used to download Sentinel satellite data efficiently and serves as a base for performing elaborations on different kinds of geospatial data processing tasks. Each elaboration comes with different sets of data requirements depending on the specific geospatial processing task and satellite data type being utilized.
 
 ## Definition
 

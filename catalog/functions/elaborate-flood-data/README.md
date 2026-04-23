@@ -2,19 +2,20 @@
 
 This function performs flood analysis using Sentinel satellite data to assess flood extent and impact. It processes raw .SAFE or .zip Sentinel inputs, computes water indices, predicts water before and after a flood event, and outputs flood detection layer.
 
-The function provides complete workflow for:
+The function provides a complete workflow for:
 
 - Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.
-- Perform elaboration
+- Perform elaboration.
 - Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.
-- Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data
+- Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data.
 - Combine both results from Sentinel-1 and Sentinel-2 to have one flood prediction layer.
 - Post-process change maps to improve the results by masking permanent water bodies.
-- Log results as GeoTIFF raster files Raster and vector outputs.
+- Log results as GeoTIFF raster files and vector outputs.
 
-The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. 
+The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre-configured. It further runs the launch instructions specified by the `launch.sh` file. 
 
 ## Definition
+
 The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.
 
 These arguments define inputs, geospatial filters, auxiliary data, processing parameters, and scenario metadata.
@@ -44,7 +45,7 @@ These arguments define inputs, geospatial filters, auxiliary data, processing pa
 | 21  | `val di fassa`            | Region name used for contextual labeling.                           |
 
 
-Example
+### Example
 
 The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.
 
@@ -90,7 +91,7 @@ run_el = function_rs.run(
 
 ## Usage
 
-The function expects an entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. 
+The function expects an entry point launch script, as shown below, giving the user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by the `launch.sh` file. 
 
 ```
 %#!/bin/bash
@@ -119,7 +120,8 @@ exit
 ```
 function_elaborate = proj.new_function("elaborate",kind="container", image="ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6", command="/bin/bash", code_src="launch.sh")
 ```
-Notes: For detailed usage see the usage notebook.
+
+Notes: For detailed usage, check the notebook.
 
 
 ## Environment
@@ -131,7 +133,6 @@ The runtime environment of the function consists in properties which are configu
 - `GDAL_DATA`
 - `GDAL_DRIVER_PATH`
 - `PROJ_DATA`
-
 
 ```
 function_elaborate.run(
@@ -173,7 +174,7 @@ function_elaborate.run(
     )
 ```
 
-To avoid capacity issues, the environment variable `TMPDIR` for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (`fs_group='8877'`).
+To avoid capacity issues, the environment variable `TMPDIR` for this function execution is set to the same path as volume mount. As a best-practice, the container runtime is executed as non-root user (`fs_group='8877'`).
 
 
 ## Resources
@@ -195,4 +196,8 @@ The job mounts a persistent storage volume used for reading/writing large datase
 | `size`        | `100Gi`                   | Allocated storage capacity.                                 |
 
 
-`elaboration` function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.
+The elaboration consists of interpolation and post-processing steps, which are computationally heavy, since it is a pixel-based analysis.
+
+The amount of Sentinel data is huge, hence why a volume of `100Gi` of type `persistent_volume_claim` is specified.
+
+The default window for data around the flood date (±20 days for Sentinel-2 data and ± 7days for Sentinel-1 data) may take several hours to process with 16 CPUs and 64GB RAM.
