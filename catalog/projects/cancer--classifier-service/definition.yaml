@@ -23,6 +23,7 @@ spec:
       - "framework:sklearn"
       - "inference:custom"
       name: cancer-classifier-service
+      path: store://cancer-classifier/model/sklearn/cancer_classifier
     - kind: python
       metadata:
         name: cancer-classifier-train
