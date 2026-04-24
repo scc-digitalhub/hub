@@ -1,6 +1,6 @@
 # Extract Transform Load Function
 
-This function demonstrates how to create an extract transform load procedure that downloads a CSV file from a remote URL, processes it using pandas, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your digitalhub project environment.
+This function demonstrates how to create an extrac-transform-load procedure that downloads a CSV file from a remote URL, processes it using `pandas`, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your project environment.
 
 ## Features
 
@@ -8,7 +8,7 @@ This function demonstrates how to create an extract transform load procedure tha
 - Processes data using pandas DataFrame operations
 - Automatically stores results as dataitems in your project
 - Demonstrates basic ETL pattern for data ingestion
-- Supports integration with digitalhub runtime environment
+- Supports integration with the platform's runtime environment
 
 
 ## Definition
@@ -59,4 +59,4 @@ dataset_di = proj.get_dataitem("world-cities")
 dataset_di.as_df().head()
 ```
 
-Notes: For detailed usage, check the usage notebook.
+For detailed usage, check the notebook.

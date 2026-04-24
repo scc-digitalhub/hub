@@ -1,6 +1,6 @@
 # Container Function
 
-The DigitalHub Platform  Container runtime enables launching services on Kubernetes. It registers function kind `container` and supports various actions for containerized workloads including jobs, services and builds. This function demonstrates how to serve a `job` that can be run in a containerized environment using predefined base images. The function act as a template for serving custom container within the platform. As a best practice, the container runtime is executed as non root user(`fs_group='8877'`).
+The **container** runtime enables launching services on Kubernetes. The function is registered with `container` as kind and supports various actions for containerized workloads, including jobs, services and builds. This function demonstrates how to serve a `job` that can be run in a containerized environment using predefined base images. This function acts as a template for serving a custom container within the platform. As a best-practice, the container runtime is executed as non root user(`fs_group='8877'`).
 
 
 ## Features
@@ -31,7 +31,9 @@ function = project.new_function(
 ## Usage
 
 
-The `serve` action starts a web server to host and serve your application or content. It accepts parameters to configure the deployment including the number of replicas, service ports for network access, a custom service name. The `port` is the external port exposed by the Kubernetes service for external access for incoming traffic to service, while `target_port` is the internal port where the container application is listening for requests i.e port numer where traffic routed to pod.
+The `serve` action starts a web server to host and serve your application or content. It accepts parameters to configure the deployment, including the number of replicas, service ports for network access and a custom service name.
+
+The `port` is the external port, exposed by the Kubernetes service for external access, to serve incoming traffic, while `target_port` is the internal port, where the container application is listening for requests (i.e. port numer where traffic is routed to the pod).
 
 ```python
 # Run the container function as a job
@@ -45,4 +47,4 @@ run = function.run(
 )
 ```
 
-Notes: For detailed usage, check the usage notebook.
+Notes: For detailed usage, check the notebook.

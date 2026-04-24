@@ -1,12 +1,12 @@
 # Extract Transform Load Function
 
-This function demonstrates how to validate tabular data using the DigitalHub platform. It performs data quality checks on a table to ensure consistency, completeness, and correctness, generating a comprehensive validation report that includes statistics about errors, warnings, fields, and rows. The function can be used with any table-type data item and provides detailed feedback on the validation status through a JSON report artifact.
+This function demonstrates how to validate tabular data using the platform. It performs data quality checks on a table to ensure consistency, completeness and correctness, generating a comprehensive validation report that includes statistics about errors, warnings, fields, and rows. The function can be used with any table-type data item and provides detailed feedback on the validation status through a JSON report artifact.
 
 ## Features
 
 - **Data Quality Validation**: Performs comprehensive checks on tabular data to ensure data integrity
 - **Detailed Reporting**: Generates JSON validation reports with error counts, warnings, and field-level statistics
-- **Flexible Input**: Works with any table-type data item in the DigitalHub platform
+- **Flexible Input**: Works with any table-type data item in the platform
 - **Error Detection**: Identifies inconsistencies, missing values, and data quality issues
 - **Validation Metrics**: Provides statistics on rows processed, fields validated, and errors encountered
 
@@ -68,4 +68,4 @@ report = run.output("report")
 report = proj.get_artifact("my-table-report.json")
 ```
 
-Notes: For detailed usage, check the usage notebook.
+For detailed usage, check the notebook.

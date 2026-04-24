@@ -1,14 +1,14 @@
 # DBT-Transform
-This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named 'employees'. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a foundational template for building more complex DBT transformations within your data workflows.
+
+This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named `employees`. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a template for building more complex DBT transformations within your data workflows.
 
 ## Features
 
 - Simple SQL-based data transformation using DBT
 - Filters employee records by department ID
-- Integrates with digitalhub dataitem management
+- Integrates with dataitem management
 - Supports parameterized inputs and outputs
 - Suitable as a template for complex ETL workflows
-
 
 ## Definition
 
@@ -36,9 +36,9 @@ function = project.new_function(
 
 The parameters are:
 
-- name is the identifier of the function.
-- kind is the type of the function. Must be dbt.
-- code contains the code that is the SQL we'll execute in the function.
+- `name` is the identifier of the function.
+- `kind` is the type of the function. Must be `dbt`.
+- `code` contains the SQL query we'll execute in the function.
 
 ## Fetching the Function
 
@@ -65,4 +65,4 @@ run = function_dbt.run(
 df = run.output("department-50").as_df()
 ```
 
-Notes: For detailed usage, check the usage notebook.
+For detailed usage, check the notebook.
