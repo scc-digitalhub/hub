@@ -303,6 +303,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -417,17 +434,17 @@
 <div class="template-info-tab" id="template-usage">
 <h1 id="elaborate-flood-data">Elaborate Flood Data</h1>
 <p>This function performs flood analysis using Sentinel satellite data to assess flood extent and impact. It processes raw .SAFE or .zip Sentinel inputs, computes water indices, predicts water before and after a flood event, and outputs flood detection layer.</p>
-<p>The function provides complete workflow for:</p>
+<p>The function provides a complete workflow for:</p>
 <ul>
 <li>Ingesting Sentinel-1 (scene-based) and Sentinel-2 (tile-based) data using product-specific metadata.</li>
-<li>Perform elaboration</li>
+<li>Perform elaboration.</li>
 <li>Compute NDWI indices from Sentinel-2 imagery to detect water bodies before and after the flood event.</li>
-<li>Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data</li>
+<li>Calculate flood extent by analyzing pre- and post-event backscatter differences from Sentinel-1 data.</li>
 <li>Combine both results from Sentinel-1 and Sentinel-2 to have one flood prediction layer.</li>
 <li>Post-process change maps to improve the results by masking permanent water bodies.</li>
-<li>Log results as GeoTIFF raster files Raster and vector outputs.</li>
+<li>Log results as GeoTIFF raster files and vector outputs.</li>
 </ul>
-<p>The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre configured. It further runs the launch instructions specified by 'launch.sh' file. </p>
+<p>The function is implemented as a container that allows you to deploy deployments, jobs and services on Kubernetes. It uses the base image with gdal, snapista, and scikit-learn libaries installed and pre-configured. It further runs the launch instructions specified by the <code>launch.sh</code> file. </p>
 <h2 id="definition">Definition</h2>
 <p>The function accepts a list of positional arguments that are passed directly to the Docker container. These parameters control Sentinel data selection, temporal configuration, output aritifact, and AOI geometry. These arguments are passed to the container’s entrypoint script.</p>
 <p>These arguments define inputs, geospatial filters, auxiliary data, processing parameters, and scenario metadata.</p>
@@ -547,7 +564,7 @@
 </tr>
 </tbody>
 </table>
-<p>Example</p>
+<h3 id="example">Example</h3>
 <p>The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.</p>
 <div class="highlight"><pre><span></span><code>run_el = function_rs.run(
     action=&quot;job&quot;,
@@ -588,7 +605,7 @@
     )
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<p>The function expects an entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. </p>
+<p>The function expects an entry point launch script, as shown below, giving the user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by the <code>launch.sh</code> file. </p>
 <div class="highlight"><pre><span></span><code>%#!/bin/bash
 ls -la /shared
 cd ~
@@ -611,9 +628,9 @@ cd /app
 python main.py &quot;{&#39;s1PreFlood&#39;:&#39;$1&#39;, &#39;s1PostFlood&#39;:&#39;$2&#39;, &#39;s2PreFlood&#39;:&#39;$3&#39;,&#39;s2PostFlood&#39;:&#39;$4&#39;,&#39;geomWKT&#39;:&#39;$5&#39;,&#39;slopeArtifact&#39;:&#39;$6&#39;,&#39;slopeFileName&#39;:&#39;$7&#39;,&#39;lakeShapeArtifactName&#39;:&#39;$8&#39;,&#39;lakeShapeFileName&#39;:&#39;$9&#39;,&#39;riverShapeArtifactName&#39;:&#39;${10}&#39;,&#39;riverShapeFileName&#39;:&#39;${11}&#39;,&#39;output&#39;:&#39;${12}&#39;,&#39;eventDate&#39;:&#39;${13}&#39;,&#39;targetCRS&#39;:&#39;${14}&#39;,&#39;polarization&#39;:${15},&#39;dem_threshold&#39;:${16},&#39;slope_threshold&#39;:${17},&#39;noise_min_pixels&#39;:${18},&#39;river_buffer_meters&#39;:${19}, &#39;aoi_name&#39;:&#39;${20}&#39;}&quot;
 exit
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function(&quot;elaborate&quot;,kind=&quot;container&quot;, image=&quot;ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6&quot;, command=&quot;/bin/bash&quot;, code_src=&quot;launch.sh&quot;)
+<div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function(&quot;elaborate&quot;,kind=&quot;container&quot;, image=&quot;ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6&quot;, command=&quot;/bin/bash&quot;, code_src=&quot;launch.sh&quot;)
 </code></pre></div>
-Notes: For detailed usage see the usage notebook.</p>
+<p>Notes: For detailed usage, check the notebook.</p>
 <h2 id="environment">Environment</h2>
 <p>The runtime environment of the function consists in properties which are configured in the bash script created in previous section:</p>
 <ul>
@@ -661,7 +678,7 @@ Notes: For detailed usage see the usage notebook.</p>
         ]
     )
 </code></pre></div>
-<p>To avoid capacity issues, the environment variable <code>TMPDIR</code> for this function execution is set to same path as volume mount. As a best practice, the container runtime is executed as non-root user (<code>fs_group='8877'</code>).</p>
+<p>To avoid capacity issues, the environment variable <code>TMPDIR</code> for this function execution is set to the same path as volume mount. As a best-practice, the container runtime is executed as non-root user (<code>fs_group='8877'</code>).</p>
 <h2 id="resources">Resources</h2>
 <p>These settings define the resource requests and limits for the container runtime.</p>
 <table>
@@ -717,7 +734,9 @@ Notes: For detailed usage see the usage notebook.</p>
 </tr>
 </tbody>
 </table>
-<p><code>elaboration</code> function consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. The amount of sentinal data is huge that is why a default volume of 100Gi of type 'persistent_volume_claim' is specified to ensure significant data spacetake several hours to complete with 16 CPUs and 64GB Ram for processing data window around flood event date (±20 days sentinel-2 data and ± 7days Sentinel-1 data) which is the default period.</p>
+<p>The elaboration consists of interpolation and post-processing steps, which are computationally heavy, since it is a pixel-based analysis.</p>
+<p>The amount of Sentinel data is huge, hence why a volume of <code>100Gi</code> of type <code>persistent_volume_claim</code> is specified.</p>
+<p>The default window for data around the flood date (±20 days for Sentinel-2 data and ± 7days for Sentinel-1 data) may take several hours to process with 16 CPUs and 64GB RAM.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

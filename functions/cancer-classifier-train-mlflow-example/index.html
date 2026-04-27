@@ -366,17 +366,15 @@
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="cancer-classifier-training-mlflow-example">Cancer classifier Training (MLFlow example)</h1>
-<p>This function demonstrates a minimal example of a how to train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework..</p>
+<p>This is a minimal example on how to train a cancer classifier, using the MLFlow framework to structure and represent the model data. The trained model can then be deployed with the MLFlowServe framework, or used for batch classifications with the MLFlow framework.</p>
 <h2 id="definition">Definition</h2>
 <div class="highlight"><pre><span></span><code>from digitalhub_runtime_python import handler
-
-from digitalhub import from_mlflow_run
+from urllib.parse import urlparse
 import mlflow
-
 from sklearn import datasets, svm
 from sklearn.model_selection import GridSearchCV
 
-@handler()
+@handler(outputs=[&quot;model&quot;])
 def train(project):
     mlflow.sklearn.autolog(log_datasets=True)
 
@@ -388,28 +386,125 @@ def train(project):
     clf.fit(iris.data, iris.target)
     run_id = mlflow.last_active_run().info.run_id
 
-    # utility to map mlflow run artifacts to model metadata
-    model_params = from_mlflow_run(run_id)
+    # Extract MLflow run artifacts and metadata for DigitalHub integration
+    model_params, metrics = _from_mlflow_run(run_id)
+
+    model = project.log_model(name=&quot;model-mlflow&quot;, kind=&quot;mlflow&quot;, **model_params)
+
 
     project.log_model(
         name=&quot;model-mlflow&quot;,
         kind=&quot;mlflow&quot;,
-        **model_params
+        **model_params)
+
+    model.log_metrics(metrics)
+
+    return model    
+
+
+
+def _from_mlflow_run(run_id: str) -&gt; dict:
+    &quot;&quot;&quot;
+    Extract from mlflow run spec for Digitalhub Model.
+
+    Parameters
+    ----------
+    run_id : str
+        The id of the mlflow run.
+
+    Returns
+    -------
+    dict
+        The extracted spec.
+    &quot;&quot;&quot;
+
+    # Get MLFlow run
+    run = mlflow.MlflowClient().get_run(run_id)
+
+    # Extract spec
+    data = run.data
+    parameters = data.params
+    source_path = urlparse(run.info.artifact_uri).path + &quot;/model&quot;
+    model_uri = f&quot;runs:/{run_id}/model&quot;
+    model = mlflow.pyfunc.load_model(model_uri=model_uri)
+    try:
+        model_config = model.model_config
+    except Exception:
+        model_config = {}
+    flavor = None
+    for f in model.metadata.flavors:
+        if f != &quot;python_function&quot;:
+            flavor = f
+            break
+
+    # Extract signature
+    try:
+        mlflow_signature = model.metadata.signature
+        signature = dict(
+            inputs=mlflow_signature.inputs.to_json()
+            if mlflow_signature.inputs
+            else None,
+            outputs=mlflow_signature.outputs.to_json()
+            if mlflow_signature.outputs
+            else None,
+            params=mlflow_signature.params.to_json()
+            if mlflow_signature.params
+            else None,
+        )
+    except Exception:
+        signature = None
+
+    # Extract datasets
+    datasets = []
+    try:
+        if run.inputs and run.inputs.dataset_inputs:
+            datasets = [
+                dict(
+                    name=d.dataset.name,
+                    digest=d.dataset.digest,
+                    profile=d.dataset.profile,
+                    dataset_schema=d.dataset.schema,
+                    source=d.dataset.source,
+                    source_type=d.dataset.source_type,
+                )
+                for d in run.inputs.dataset_inputs
+            ]
+    except Exception:
+        datasets = []
+
+    # Create model params
+    model_params = {}
+
+    # source path
+    model_params[&quot;source&quot;] = source_path
+
+    # common properties
+    model_params[&quot;framework&quot;] = flavor
+    model_params[&quot;parameters&quot;] = parameters
+
+    # specific to MLFlow
+    model_params[&quot;flavor&quot;] = flavor
+    model_params[&quot;model_config&quot;] = model_config
+    model_params[&quot;input_datasets&quot;] = datasets
+    model_params[&quot;signature&quot;] = signature
+
+    metrics = run.data.metrics
+
+    return model_params, metrics
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<p>The function demonstrates:</p>
-<p>Basic syntax of a python script used inside to the platform. It demonstrates</p>
+<p>The example demonstrates:</p>
 <ul>
-<li>How to define a function that takes as input 'project' object,  a context in which you can run functions and manage models,data, and artifacts.</li>
-<li>How to fetch input data and train model.</li>
-<li>How to save the trained model in project.</li>
+<li>how to define a function that takes as input a <code>project</code> object, a context in which you can run functions and manage models, data and artifacts.</li>
+<li>how to fetch input data and train the model.</li>
+<li>how to save the trained model into the project.</li>
 </ul>
-<p>The function 'mlflow-train-model' is registered inside to the platform core durig the import and it can be fetched and executed</p>
+<p>The function <code>mlflow-train-model</code> is registered inside the platform core during the import and it can be fetched and executed.</p>
 <div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classifier-train-mlflow-example&quot;) 
 </code></pre></div>
-<p>This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.</p>
-<p>Then, the function can be executed on the digital hub platform or (locally) as a single job.</p>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<p>This code fetches the created function that uses Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, code and handler are already embedded during the import from the .yaml file.</p>
+<p>Then, the function can be executed on the platform (or locally) as a single job.</p>
+<p>For more details, check the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8445,6 +8540,21 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c93e0610-9dbe-4711-b7a8-54c28eceaef2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pip</span> install 'scikit-learn&lt;1.8'
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e787fa42">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8466,6 +8576,21 @@ a.anchor-link {
 <span class="n">result</span> <span class="o">=</span> <span class="n">serve_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Prediction result:"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6fb3c7d3-f2a2-4f9e-85c1-f3659b05daad">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>

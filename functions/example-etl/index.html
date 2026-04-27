@@ -416,14 +416,14 @@
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="extract-transform-load-function">Extract Transform Load Function</h1>
-<p>This function demonstrates how to create an extract transform load procedure that downloads a CSV file from a remote URL, processes it using pandas, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your digitalhub project environment.</p>
+<p>This function demonstrates how to create an extrac-transform-load procedure that downloads a CSV file from a remote URL, processes it using <code>pandas</code>, and stores the result as a dataitem in your project. It showcases a basic ETL pattern for ingesting external data sources into your project environment.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Downloads CSV data from remote URLs</li>
 <li>Processes data using pandas DataFrame operations</li>
 <li>Automatically stores results as dataitems in your project</li>
 <li>Demonstrates basic ETL pattern for data ingestion</li>
-<li>Supports integration with digitalhub runtime environment</li>
+<li>Supports integration with the platform's runtime environment</li>
 </ul>
 <h2 id="definition">Definition</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># function.py</span>
@@ -456,7 +456,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">dataset_di</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_dataitem</span><span class="p">(</span><span class="s2">&quot;world-cities&quot;</span><span class="p">)</span>
 <span class="n">dataset_di</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<p>For detailed usage, check the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

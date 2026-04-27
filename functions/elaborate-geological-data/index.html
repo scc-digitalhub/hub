@@ -643,7 +643,9 @@ Notes: For detailed usage see the usage notebook.</p>
 </tr>
 </tbody>
 </table>
-<p><code>elaboration</code> consists of interferometry step which is a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides and post processing steps which are computationally heavy since it is pixel based analysis. In some cases, the amount of sentinal data is huge that is why a default volume of 600Gi of type 'persistent_volume_claim' is specified in example to ensure significant data space. This configuration must be change according to scenario requirement. In the example given in documentation usage notebook, an elaboration on two weeks data is performed which takes ~5 hours to complete with 16 CPUs and 64GB Ram.</p>
+<p>The elaboration consists of a interferometry step (a remote sensing technique that uses radar data to detect and monitor ground deformation associated with landslides) and a post-processing step, which are computationally heavy since it is a pixel-based analysis.</p>
+<p>The amount of Sentinel data may be huge, hence why a volume of <code>600Gi</code> of type <code>persistent_volume_claim</code> is specified. This configuration must be changed according to requirements. </p>
+<p>In the example given in the notebook, an elaboration on two weeks of data is performed in about ~5 hours, using 16 CPUs and 64GB RAM.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

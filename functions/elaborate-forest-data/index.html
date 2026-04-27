@@ -612,7 +612,9 @@ Notes: For detailed usage see the usage notebook.</p>
 </tr>
 </tbody>
 </table>
-<p><code>elaboration</code> consists of interpolation and post processing steps which are computationally heavy since it is pixel based analysis. It is based on python joblib library for optimizations of numpy arrays. With the use of more images the interpolation will be shorter. The amount of sentinal data is huge that is why a volume of 250Gi of type 'persistent_volume_claim' is specified to ensure significant data space. On average the TPS tiles takes around 8-10 hours to complete with 16 CPUs and 64GB Ram for 2 years of data which is the default period.</p>
+<p>The elaboration consists of interpolation and post-processing steps, which are computationally heavy, since it is a pixel-based analysis. It is based on the python <code>joblib</code> library for optimizations of numpy arrays. With the use of more images, the interpolation will be shorter.</p>
+<p>The amount of Sentinel data is huge, hence why a volume of <code>250Gi</code> of type <code>persistent_volume_claim</code> is specified.</p>
+<p>On average, for 2 years of data (the default period), the TPS tiles take around 8-10 hours to complete with 16 CPUs and 64GB RAM.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

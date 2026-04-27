@@ -19,7 +19,7 @@
     
     
       
-        <title>Flower client - DH Hub</title>
+        <title>Flower orchestrator - DH Hub</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flower-client" class="md-skip">
+        <a href="#flower-orchestrator" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flower client
+              Flower orchestrator
             
           </span>
         </div>
@@ -314,6 +314,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flower-serve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flower-serve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flower-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flower-client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flower-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        flower-app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -321,6 +360,17 @@
     <span class="md-ellipsis">
       
         Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
       
     </span>
   </a>
@@ -339,10 +389,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2.-Execution" class="md-nav__link">
+  <a href="#2.-Flower-Serve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Execution¶
+        2. Flower Serve¶
       
     </span>
   </a>
@@ -370,70 +420,83 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Flower Client (flower-client)</p>
+<p><a id="browse" href="./../..">&lt; Browse</a><div id="template-title">Flower Orchestrator (Project)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/flower-client">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/flower-client/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/flower-client:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Flower Client (flower-client)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates the Supernode client function to interact with the Flower server, how to build the corresponding image, and activates client nodes container with the dependencies and the node-specific configuration.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">framework:flower</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/flower-orchestrator">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/projects/flower-orchestrator/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://projects/flower-orchestrator:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Flower Orchestrator (Project)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This project demonstrates how to orchestrate flower-based workflows. Flower Federated Learning framework allows for running federated learning tasks where different client nodes perform local training and cooperatively create a more robust solution without exchanging the data but only the weight necessary to progress the training process.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label">license:apache-2.0</span><span class="md-label">platform:0.14</span><span class="md-label">type:service</span><span class="md-label">framework:flower</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="flower-client">Flower Client</h1>
-<p>The <code>flower-client</code> function is a federated learning client that connects to a Flower server to participate in collaborative model training. It enables distributed machine learning by allowing multiple clients to train models locally on their data partitions while only sharing model updates with the server, ensuring data privacy and reducing communication overhead. </p>
-<p>It is essential to set up the <code>flower-serve</code> function before deploying the client. The server acts as the central coordinator for the federated learning process, managing the communication between clients and ensuring that model updates are aggregated correctly. Proper configuration of the server is crucial for the successful operation of the client nodes, as they rely on the server to facilitate training and data privacy. Make sure to follow the setup instructions carefully to ensure a smooth deployment of the client following the hub function <a href="https://scc-digitalhub.github.io/hub/functions/flower-serve">flower-serve</a> function in the hub. This section provides detailed instructions on how to configure and deploy flower server node.</p>
+<h1 id="flower-orchestrator">Flower Orchestrator</h1>
+<p>This project implements a federated learning orchestration service using Flower (Floral). It coordinates distributed machine learning training across multiple clients and a central server, enabling collaborative model training while preserving data privacy. The service is containerized and runs on Kubernetes, supporting secure and insecure federation modes.</p>
 <h2 id="features">Features</h2>
-<p>The <code>flower-client</code> function includes the following features:</p>
+<p>The <code>flower-orchestrator</code> project includes the following features:</p>
 <ul>
-<li><strong>Scalability</strong>: Supports a growing number of clients without performance degradation.</li>
-<li><strong>Data Privacy</strong>: Ensures that only model updates are shared, keeping raw data secure.</li>
-<li><strong>Flexibility</strong>: Compatible with various machine learning frameworks and models.</li>
-<li><strong>Customizable Parameters</strong>: Allows users to adjust training parameters for optimal results.</li>
+<li><strong>Federated learning coordination</strong>: Orchestrate distributed training across multiple client nodes</li>
+<li><strong>Flower Server deployment</strong>: Central aggregation server for model updates</li>
+<li><strong>Flower Client nodes</strong>: Multiple participating clients for federated training</li>
+<li><strong>Flower App execution</strong>: Coordinate training rounds and model convergence</li>
+<li><strong>Configurable parameters</strong>: Adjust partition strategy, local epochs, and training rounds</li>
+<li><strong>GPU acceleration</strong>: Optimized training with GPU support across distributed nodes</li>
+<li><strong>Security modes</strong>: Support for both secure (TLS) and insecure modes</li>
+<li><strong>Node authentication</strong>: Optional public-private key-based node authentication</li>
+<li><strong>Model versioning</strong>: Trained models are automatically logged and versioned on the platform</li>
+<li><strong>REST API monitoring</strong>: Real-time access to server and client status</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>flower_client_function = project.new_function(
-    name=&quot;flower-client&quot;,
-    kind=&quot;flower-client&quot;,
-    requirements=[&quot;pandas==2.2.3&quot;, &quot;flwr-datasets[vision]==0.5.0&quot;]
-)
-</code></pre></div>
+<h3 id="flower-serve">flower-serve</h3>
+<p>A Flower server function that acts as the central aggregator for federated learning.</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Kind: <code>flower-server</code></li>
+<li>Primary dependencies: Pandas, Floral Datasets</li>
+<li>Purpose: Aggregates model updates from multiple clients</li>
+</ul>
+<h3 id="flower-client">flower-client</h3>
+<p>A Flower client function that participates in federated training.</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Kind: <code>flower-client</code></li>
+<li>Primary dependencies: Pandas, Floral Datasets</li>
+<li>Purpose: Trains local models and sends updates to the server</li>
+</ul>
+<h3 id="flower-app">flower-app</h3>
+<p>A Flower application function that orchestrates the federated learning execution.</p>
+<p><strong>Key specifications:</strong></p>
+<ul>
+<li>Purpose: Coordinates training rounds and manages the federation lifecycle</li>
+</ul>
 <h2 id="usage">Usage</h2>
-<p>To utilize the <code>flower-client</code> function, follow these steps:</p>
+<p>For a complete end-to-end example of setting up and running federated learning, refer to the usage notebook. The notebook demonstrates:</p>
 <ol>
-<li>
-<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
-</li>
-<li>
-<p><strong>Build the Client</strong>: Use the following code to build the server function.</p>
-<div class="highlight"><pre><span></span><code><span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong>Deploy the Client</strong>: Deploy the client after server is up and running. Fetch the server url and start the client using the following code.</p>
-<div class="highlight"><pre><span></span><code><span class="n">server_url</span> <span class="o">=</span> <span class="n">server_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:9092&#39;</span> 
-
-<span class="c1"># Deploy client 1</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
-        <span class="p">})</span>
-
-<span class="c1"># Deploy client 2</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
-         <span class="p">})</span>
-
-<span class="c1"># Deploy client 3</span>
-<span class="n">run</span> <span class="o">=</span> <span class="n">client_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;deploy&quot;</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">node_config</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;partition-id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;num-partitions&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s2">&quot;local-epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
-        <span class="p">})</span>
-</code></pre></div>
-</li>
+<li><strong>Project initialization</strong> with digital hub</li>
+<li><strong>Server deployment</strong> with insecure mode configuration</li>
+<li><strong>Client deployment</strong> with partition strategies</li>
+<li><strong>Federation execution</strong> with configurable hyperparameters</li>
+<li><strong>Status monitoring</strong> through service URLs and logs</li>
 </ol>
-<p>Notes: For detailed usage, check the usage notebook. </p>
-<p>In order to perform federated training using flower server with clients, please refer to the <a href="https://scc-digitalhub.github.io/hub/functions/flower-job">flower-job</a> function in the hub. This section provides detailed instructions on how to configure and connect client nodes with the server to perform federated training.</p>
+<h2 id="resources">Resources</h2>
+<p>These settings define the resource requests and limits for the runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Port</strong></td>
+<td><code>9092</code></td>
+<td>Service port for Flower superlink communication</td>
+</tr>
+<tr>
+<td><strong>API Port</strong></td>
+<td><code>9093</code></td>
+<td>Execution API port for application coordination</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8261,7 +8324,7 @@ a.anchor-link {
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
 <pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"flower-orchestrator"</span>
 <span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </pre>
 </div>
@@ -8292,7 +8355,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
+<h2 id="2.-Flower-Serve">2. Flower Serve<a class="anchor-link" href="#2.-Flower-Serve">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8305,7 +8368,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "flower-client" operation in the project.</p>
+<p>Fetch the "flower-serve" operation in the project.</p>
 </div>
 </div>
 </div>
@@ -8319,7 +8382,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'flower-client'</span><span class="p">)</span>
+<pre><span></span><span class="n">flower_serve_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'flower-serve'</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8346,9 +8409,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_serve_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"flower-serve"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"flower-server"</span><span class="p">,</span>
     <span class="n">requirements</span><span class="o">=</span><span class="p">[</span><span class="s2">"pandas==2.2.3"</span><span class="p">,</span> <span class="s2">"flwr-datasets[vision]==0.5.0"</span><span class="p">]</span>
 <span class="p">)</span>
 </pre></div>
@@ -8363,7 +8426,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Build the client function with default configuration. The following code cell builds the corresponding image, and activates the server container with the dependencies.</p>
+<p>Build the server function with default configuration. The following code cell builds the corresponding image, and activates the server container with the dependencies.</p>
 </div>
 </div>
 </div>
@@ -8376,7 +8439,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_serve_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8389,12 +8452,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>After building, deploy 3 client as shown in code cell below. Note that the server is started in insecure mode as no root certificate is provided. To enable secure mode, it is necessary to specify the root_certificates attribute to each run containing the body of the public root certificate.</p>
-<p>Also the node authentication is not enabled in this scenario. The node authentication allows for controlling which nodes are allowed to communicate with the server. To achieve this, it is necessary</p>
-<p>at each node define a public-private key pair and store the values in project secrets.
-pass the secret names as public_key_secret and private_key_secret parameters to the supernode spec
-ensure the public key is included in auth_public_keys field of the server Superlink node
-Each client is started with the own set of parameters (node_config) and a reference to the superlink pointing to the superlink address (port 9092 by default).</p>
+<p>After building, deploy the server as shown in code cell below. In secure mode the server will be equipped with a custom platform-level TLS certificate that should also be used by client SuperNode nodes.</p>
 </div>
 </div>
 </div>
@@ -8407,7 +8465,7 @@ Each client is started with the own set of parameters (node_config) and a refere
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">flower_serve_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8437,6 +8495,179 @@ Each client is started with the own set of parameters (node_config) and a refere
 </div>
 </div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=412f8b71">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">server_url</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">':9092'</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Server URL:"</span><span class="p">,</span> <span class="n">server_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07f745ee">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f6116714">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Flower-Client">3. Flower Client<a class="anchor-link" href="#3.-Flower-Client">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7af8e2af">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Fetch the "flower-client" operation in the project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e7f0b111">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'flower-client'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=09e615e3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Alternatively, one can create new function</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cd3590cf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"flower-client"</span><span class="p">,</span>
+    <span class="n">requirements</span><span class="o">=</span><span class="p">[</span><span class="s2">"pandas==2.2.3"</span><span class="p">,</span> <span class="s2">"flwr-datasets[vision]==0.5.0"</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=602aa45d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Build the client function with default configuration. The following code cell builds the corresponding image, and activates the server container with the dependencies.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2b4caed6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bfb0582f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>After building, deploy 3 client as shown in code cell below. Note that the server is started in insecure mode as no root certificate is provided. To enable secure mode, it is necessary to specify the root_certificates attribute to each run containing the body of the public root certificate.</p>
+<p>Also the node authentication is not enabled in this scenario. The node authentication allows for controlling which nodes are allowed to communicate with the server. To achieve this, it is necessary</p>
+<p>at each node define a public-private key pair and store the values in project secrets.
+pass the secret names as public_key_secret and private_key_secret parameters to the supernode spec
+ensure the public key is included in auth_public_keys field of the server Superlink node
+Each client is started with the own set of parameters (node_config) and a reference to the superlink pointing to the superlink address (port 9092 by default).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f351f6a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">=</span> <span class="n">flower_client_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"deploy"</span><span class="p">,</span> <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f0c1a2e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The server is started in insecure mode, meaning that no TLS verification is performed. While this is ok for the purpose of this tutorial, should not be used in a production federation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=20ece7f0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To fetch the deployed service URL, use the code cell below</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a31329a1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8480,13 +8711,94 @@ Each client is started with the own set of parameters (node_config) and a refere
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=07f745ee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fe04ceb8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ac9019d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="4.-Flower-App">4. Flower App<a class="anchor-link" href="#4.-Flower-App">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=de198ab6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Fetch the "flower-app" operation in the project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=180f8316">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">flower_app_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'flower-app'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=41fa98ba">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The execution of the application run is a single job that bundles the application and interacts with the superlink to deploy, activate, and coordinate the federated learning execution.</p>
+<p>Each execution requires the reference to the corresponding execution API of the Superlink (port 9093) and optionally a set of hyperparameters.</p>
+<p>Note that the server is started in insecure mode as no root certificate is provided. To enable secure mode, it is necessary to specify the root_certificates attribute to each run containing the body of the public root certificate.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=95d52a40">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">server_url</span> <span class="o">=</span> <span class="n">server_url</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">':9093'</span> 
+
+<span class="n">app_run</span> <span class="o">=</span> <span class="n">flower_app_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">superlink</span><span class="o">=</span><span class="n">server_url</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">"num-server-rounds"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+    <span class="s2">"fraction-sample"</span><span class="p">:</span> <span class="mf">1.0</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d66ce231">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The status and log of the execution may be obtained from the corresponding app run, e.g., through the Core Web UI.</p>
 </div>
 </div>
 </div>

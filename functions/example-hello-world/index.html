@@ -366,24 +366,25 @@
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="hello-world">Hello world</h1>
-<p>This function demonstrates a minimal example of a function whose sole purpose is to print the classic phrase “Hello, World!” in python. This type of function is traditionally used as an introductory exercise, as it demonstrates the most fundamental structure of a program: outputting text.</p>
+<p>This function demonstrates a minimal example of a function to print the classic phrase <em>“Hello, World!”</em> in python.</p>
 <h2 id="definition">Definition</h2>
 <div class="highlight"><pre><span></span><code>def main(param):
     print(f&quot;Hello {param}&quot;)
 </code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>The function demonstrates:</p>
-<p>Basic syntax of a python script used inside to the platform. It demonstrates
-- How to define a function that takes a parameter.
-- How to output Hello {parameter} message to the screen</p>
-<p>The function 'hello-world' is registered inside to the platform core durig the import and it can be fetched and executed</p>
+<ul>
+<li>How to define a function that takes a parameter</li>
+<li>How to print a <em>Hello {parameter}</em> message</li>
+</ul>
+<p>The <code>hello-world</code> function is registered into the platform core during the import and it can be fetched and executed:</p>
 <div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;hello-world&quot;,
                             kind=&quot;python&quot;,
                             python_version=&quot;PYTHON3_10&quot;) 
 </code></pre></div>
-<p>This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the funciton import from the .yaml file.</p>
-<p>Then, the function can be executed on the digital hub platform or (locally) as a single job.</p>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<p>This code fetches the created function with Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, the code and handler are already embedded during the import from the .yaml file.</p>
+<p>Then, the function can be executed on the platform (or locally) as a single job.</p>
+<p>For detailed usage, check the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">

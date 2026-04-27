@@ -388,12 +388,12 @@
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
 <h1 id="dbt-transform">DBT-Transform</h1>
-<p>This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named 'employees'. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a foundational template for building more complex DBT transformations within your data workflows.</p>
+<p>This function demonstrates how to create a DBT transformation job. It performs a simple SQL query on a sample dataitem named <code>employees</code>. It further processes the data to extract all records and filters them based on a specific department ID. The resulting dataset is logged for verification. This example serves as a template for building more complex DBT transformations within your data workflows.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Simple SQL-based data transformation using DBT</li>
 <li>Filters employee records by department ID</li>
-<li>Integrates with digitalhub dataitem management</li>
+<li>Integrates with dataitem management</li>
 <li>Supports parameterized inputs and outputs</li>
 <li>Suitable as a template for complex ETL workflows</li>
 </ul>
@@ -417,9 +417,9 @@ WHERE   tab.&quot;DEPARTMENT_ID&quot; = &#39;50&#39;
 </code></pre></div>
 <p>The parameters are:</p>
 <ul>
-<li>name is the identifier of the function.</li>
-<li>kind is the type of the function. Must be dbt.</li>
-<li>code contains the code that is the SQL we'll execute in the function.</li>
+<li><code>name</code> is the identifier of the function.</li>
+<li><code>kind</code> is the type of the function. Must be <code>dbt</code>.</li>
+<li><code>code</code> contains the SQL query we'll execute in the function.</li>
 </ul>
 <h2 id="fetching-the-function">Fetching the Function</h2>
 <p>To use an existing DBT transform function, retrieve it from the project context:</p>
@@ -438,7 +438,7 @@ WHERE   tab.&quot;DEPARTMENT_ID&quot; = &#39;50&#39;
 <span class="c1"># Access the transformed data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">run</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;department-50&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span>
 </code></pre></div>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<p>For detailed usage, check the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
