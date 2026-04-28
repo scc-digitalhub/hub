@@ -1,0 +1,120 @@
+# Document Classifier Training with Bert
+
+This function provides a machine learning function for training a document classification model using BERT (Bidirectional Encoder Representations from Transformers). The classifier can categorize documents into multiple classes based on their text contents.
+
+## Overview
+
+The function implements a multiclass sequence classifier fine-tuned on Italian text, designed to automatically assign taxonomy labels to documents based on their title, description, and objective.
+
+## Features
+
+This function demonstrates a minimal example of a multiclass sequence classifier based on BERT base Italian, fine-tuned on a test dataset. The classifier is trained to suggest one or more labels from the taxonomy needed to categorize documents. When given a title, a description, and an objective, the classifier can predict the appropriate label from the taxonomy in use. The model can be further fine-tuned on new data.
+
+The training data looks like following table:
+
+
+| |text| labels |
+|-|----|--------|
+|0|text1....| 11
+|1|text2....| 12
+
+You can use the provided [sample training dataset](https://raw.githubusercontent.com/tn-aixpa/document-classifier/refs/heads/main/src/train_data.csv). It is also used in the embedded script as training and validation dataset. Ensure that your dataset includes a `text` column containing the document's contents and a `labels` column with the corresponding category labels. The dataset should be balanced, meaning each label should have a similar number of examples, to avoid bias during training.
+
+
+## Definition
+
+The function is defined with the following key components:
+
+- **Handler**: train (The entry point method that processes training requests)
+- **Embedded**: The training logic is embedded directly in the function definition, including data preprocessing, model training and evaluation steps
+- **Parameters**:
+    - **target_model_name**: Name of the model to save
+    - **num_train_epochs**: Number of training epochs
+    - **per_device_train_batch_size**: Batch size for training
+    - **per_device_eval_batch_size**: Batch size for evaluation
+    - **gradient_accumulation_steps**: Number of steps to accumulate gradients
+    - **weight_decay**: Weight decay for regularization
+    - **learning_rate**: Learning rate for optimization
+    - **lr_scheduler_type**: Type of learning rate scheduler
+- **Outputs**: 
+    - Trained BERT-based classification model
+    - Training metrics and evaluation results
+
+## Usage
+
+To use this function for training a document classifier:
+
+  1. Prepare your dataset in CSV format with `text` and `labels` columns
+  2. Configure the training parameters according to your requirements
+  3. Call the function with your dataset and parameters
+  4. The function will output a trained model and evaluation metrics
+
+### Example
+
+```python
+    # Import the function
+   function_doc = proj.get_function("document-classifier-training-llm-example")
+```
+```python
+   func_b = function_doc.run(action='build')   
+```
+```python
+train_run = func_b.run(
+    action="job",
+    profile="1xa100",
+    parameters={
+        "target_model_name": "document-classifier",
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 16,
+        "per_device_eval_batch_size": 16,
+        "gradient_accumulation_steps": 2,
+        "weight_decay": 0.005,
+        "learning_rate": 1e-5,
+        "lr_scheduler_type": 'linear'
+    },
+    resources={"mem": "6Gi"},
+    volumes=[{
+        "volume_type": "persistent_volume_claim",
+        "name": "train-volume",
+        "mount_path": "/local-data",
+        "spec": {
+            "size": "10Gi"
+        }}],
+        envs=[
+            {"name": "HF_HOME", "value": "/local-data/huggingface"},
+            {"name": "TRANSFORMERS_CACHE", "value":  "/local-data/huggingface"}
+        ],
+        local_execution=False)
+```
+
+The trained model will be logged with the configured name `document-classifier` and can be used for classifying new documents into the predefined categories.
+
+
+## Resources
+
+The function requires the following computational resources for optimal training performance:
+
+| Resource   | Recommended | Description                                            |
+| ---------- | -----------| ------------------------------------------------------ |
+| **GPU**    | `1x A100`  | High-performance GPU for accelerated BERT training.    |
+| **Memory** | `6Gi`      | Memory allocated to the training job.                  |
+
+### Storage
+
+The function uses persistent storage for caching model weights and dependencies:
+
+| Field         | Value                     | Description                                                 |
+| ------------- | ------------------------- | ----------------------------------------------------------- |
+| `volume_type` | `persistent_volume_claim` | Persistent storage resource.                               |
+| `name`        | `train-volume`            | Volume identifier for training data and models.            |
+| `mount_path`  | `/local-data`             | Directory inside the container where the volume is mounted. |
+| `size`        | `10Gi`                    | Allocated storage capacity.                                |
+
+### Environment Variables
+
+The following environment variables are configured for efficient model caching:
+
+- **HF_HOME**: `/local-data/huggingface` - Hugging Face cache directory
+- **TRANSFORMERS_CACHE**: `/local-data/huggingface` - Transformers library cache directory
+
+These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.

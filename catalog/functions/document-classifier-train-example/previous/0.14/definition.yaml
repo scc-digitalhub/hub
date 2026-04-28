@@ -1,12 +1,12 @@
 kind: python
 metadata:
   name: Document Classifier Training With Bert Model (Python Job)
-  version: 1.0.1
+  version: 1.0.0
   description: "Document classifier relying on LLM implementations for different languages. This example uses Italian language BERT model (dbmdz/bert-base-italian-xxl-cased) for document classification. Built using HuggingFace transformers library."
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
     - "domain:nlp"
-    - "platform:0.15"
+    - "platform:0.14"
     - "type:job"
     - "phase:model-training"
     - "framework:pytorch"
