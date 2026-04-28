@@ -386,7 +386,7 @@ def train(project):
     clf.fit(iris.data, iris.target)
     run_id = mlflow.last_active_run().info.run_id
 
-    # Extract MLflow run artifacts and metadata for DigitalHub integration
+    # Extract MLflow run artifacts and metadata for platform integration
     model_params, metrics = _from_mlflow_run(run_id)
 
     model = project.log_model(name=&quot;model-mlflow&quot;, kind=&quot;mlflow&quot;, **model_params)
@@ -405,7 +405,7 @@ def train(project):
 
 def _from_mlflow_run(run_id: str) -&gt; dict:
     &quot;&quot;&quot;
-    Extract from mlflow run spec for Digitalhub Model.
+    Extract from mlflow run spec for platform Model.
 
     Parameters
     ----------
@@ -499,7 +499,7 @@ def _from_mlflow_run(run_id: str) -&gt; dict:
 <li>how to fetch input data and train the model.</li>
 <li>how to save the trained model into the project.</li>
 </ul>
-<p>The function <code>mlflow-train-model</code> is registered inside the platform core during the import and it can be fetched and executed.</p>
+<p>The <code>mlflow-train-model</code> function is registered inside the platform core during the import and it can be fetched and executed.</p>
 <div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classifier-train-mlflow-example&quot;) 
 </code></pre></div>
 <p>This code fetches the created function that uses Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, code and handler are already embedded during the import from the .yaml file.</p>
@@ -8318,7 +8318,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context for the Project, if it has not already been created. The project serves as a placeholder for the code, data, and management of data operations inside the Digitalhub platform.</p>
+<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context for the Project, if it has not already been created. The project serves as a placeholder for the code, data, and management of data operations inside the platform.</p>
 </div>
 </div>
 </div>
