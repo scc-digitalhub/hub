@@ -8,7 +8,7 @@ metadata:
     - "platform:0.14"
     - "type:service"
     - "phase:utility"    
-kind: python+serve
+kind: python
 spec:
   python_version: PYTHON3_10
   source: 
