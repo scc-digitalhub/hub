@@ -73,7 +73,6 @@ The Tika service is a containerized Apache Tika instance that provides document 
 
 ## Usage
 
-
 To use the text extraction service, follow these steps:
 
 1. **Initialize the project and deploy Tika service**:
@@ -107,6 +106,3 @@ output_artifact.download()
 with open('./artifact/output.html', 'r') as f:
         print(f.read())
 ```
-
-
-

@@ -1,6 +1,6 @@
 # VLLM Serve
 
-This function deploys a large language model (LLM) using the VLLM engine within the digitalhub platform. It provides an OpenAI-compatible API endpoint for text generation tasks. Users can submit prompts to the deployed model and receive generated completions in real-time. The deployment is containerized and runs on Kubernetes, supporting various optimization options such as dtype specification and resource profiles for efficient inference.
+This function deploys a large language model (LLM) using the VLLM engine within the platform. It provides an OpenAI-compatible API endpoint for text generation tasks. Users can submit prompts to the deployed model and receive generated completions in real-time. The deployment is containerized and runs on Kubernetes, supporting various optimization options such as dtype specification and resource profiles for efficient inference.
 
 
 ## Features

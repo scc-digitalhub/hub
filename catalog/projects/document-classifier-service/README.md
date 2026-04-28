@@ -43,7 +43,7 @@ A Python serving function that deploys the trained classification model as a RES
 
 For a complete end-to-end example of training and deploying the document classifier, refer to the usage notebook. The notebook demonstrates:
 
-1. **Project initialization** with digital hub
+1. **Project initialization** with the platform
 2. **Training function setup** with custom hyperparameters
 3. **Model training execution** with GPU resources
 4. **Model versioning** and logging on the platform

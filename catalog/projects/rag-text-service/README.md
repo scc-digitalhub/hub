@@ -70,7 +70,7 @@ A Python serving function that orchestrates the RAG pipeline, combining document
 
 For a complete end-to-end example of deploying and using the RAG text service, refer to the usage notebook. The notebook demonstrates:
 
-1. **Project initialization** with digital hub
+1. **Project initialization** with the platform
 2. **VLLM service deployment** for LLM inference
 3. **Embedding service setup** for semantic search
 4. **Text extraction** from PDF documents

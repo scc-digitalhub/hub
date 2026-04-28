@@ -1,6 +1,6 @@
 # Cancer Classifier Service
 
-This project implements a cancer classification service that trains and deploys a machine learning model to categorize cancer data. It enables users to classify cancer samples using a fine-tuned SVM model with MLflow integration. The service supports both training and inference workflows on the DigitalHub platform.
+This project implements a cancer classification service that trains and deploys a machine learning model to categorize cancer data. It enables users to classify cancer samples using a fine-tuned SVM model with MLflow integration. The service supports both training and inference workflows on the platform.
 
 ## Features
 
@@ -18,7 +18,7 @@ The `cancer-classifier-service` includes the following features:
 
 ### cancer-classifier-train
 
-A Python batch processing function that trains a cancer classification model.
+A Python batch-processing function that trains a cancer classification model.
 
 **Key specifications:**
 
@@ -85,30 +85,26 @@ def breast_cancer_generator(project):
 
 The function demonstrates:
 
-Basic syntax of a python script used inside to the platform. It demonstrates
-
-- How to define a function that takes as input 'project' object,  a context in which you can run functions and manage models,data, and artifacts.
+- how to define a function that takes as input a `project` object, a context in which you can run functions and manage models, data and artifacts.
 - How to fetch input data and train model.
 - How to save the trained model in project.
 
-The function 'cancer-classifier-train' is registered inside to the platform core durig the import and it can be fetched and executed
+The `cancer-classifier-train` function is registered inside the platform core during the import and it can be fetched and executed.
 
 ```
 func = proj.get_function(name="cancer-classifier-train") 
 ```
 
-This code fetch the created function that uses Python runtime (versione 3.10) pointing to the created file and the handler method that should be called. In this case, the code and hanlder is already embedded during the function import from the .yaml file.
+This code fetches the created function that uses Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, code and handler are already embedded during the import from the .yaml file.
 
-Then, the function can be executed on the digital hub platform or (locally) as a single job.
-
-Notes: For detailed usage, check the usage notebook.
-
+Then, the function can be executed on the platform (or locally) as a single job.
 
 ### cancer-classifier-serve
 
-This function demonstrates how to serve a trained model using Scikit-learn with the DigitalHub SDK. The function will deploy a model as a REST API service.
+This function demonstrates how to serve a trained model using Scikit-learn with the platform's SDK. The function will deploy a model as a REST API service.
 
 ## Definition
+
 ```
 serve_func = project.new_function(
     name="serve-classifier",
@@ -116,7 +112,8 @@ serve_func = project.new_function(
     path=model.key,
 )
 ```
-The `model.key` property represents the unique identifier or path to the trained model artifact in the DigitalHub project. It is used to reference the specific model version that will be deployed for serving.
+
+The `model.key` property represents the unique identifier or path to the trained model artifact in the project. It is used to reference the specific model version that will be deployed for serving.
 
 In this context, `model.key` is passed to the `path` parameter when creating a new serving function, allowing the MLflow-based serving runtime to locate and load the correct model artifact for inference.
 
@@ -140,6 +137,7 @@ serve_run = serve_func.run("serve", labels=["ml-service"], wait=True)
 ```
 
 ### Send a request
+
 ```
 import numpy as np
 
@@ -163,4 +161,4 @@ Prediction result:
 {'model_name': 'model', 'id': '40610225-83a3-41e5-86ff-e98873943313', 'parameters': {}, 'outputs': [{'name': 'predict', 'shape': [2, 1], 'datatype': 'INT64', 'parameters': {'content_type': 'np'}, 'data': [1, 1]}]}
 ```
 
-Notes: For detailed usage, check the usage notebook.
+For more details, check the notebook.

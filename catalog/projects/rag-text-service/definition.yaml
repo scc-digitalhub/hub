@@ -4,7 +4,7 @@ metadata:
   name: RAG Text Service (Project)
   project: rag-text-serve
   version: 1.0.0
-  description: This project demonstrates how to deploy a RAG text serving function using a Python function within the DigitalHub platform, which interacts with a VLLMServe text serving function and an embedding function to provide retrieval-augmented generation capabilities.
+  description: This project demonstrates how to deploy a RAG text serving function using a Python function within the platform, which interacts with a VLLMServe text serving function and an embedding function to provide retrieval-augmented generation capabilities.
   labels:
     - "license:apache-2.0"
     - "platform:0.14"
@@ -27,7 +27,7 @@ spec:
       metadata:
         name: LLM VLLM Serve (vllmserve-text)
         project: rag-text-serve
-        description: This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the DigitalHub platform.
+        description: This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.
         labels:
           - "license:apache-2.0"
           - "platform:0.14"

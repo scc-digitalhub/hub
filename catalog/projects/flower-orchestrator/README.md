@@ -51,7 +51,7 @@ A Flower application function that orchestrates the federated learning execution
 
 For a complete end-to-end example of setting up and running federated learning, refer to the usage notebook. The notebook demonstrates:
 
-1. **Project initialization** with digital hub
+1. **Project initialization** with the platform
 2. **Server deployment** with insecure mode configuration
 3. **Client deployment** with partition strategies
 4. **Federation execution** with configurable hyperparameters

@@ -1,6 +1,6 @@
 # LLM OLLAMA Serve
 
-This function demonstrates how to deploy and interact with the LLM model by sending a prompt and receiving a generated response inside the digitalhub platform. The function connects to the Ollama runtime, specifies the llama3.2 model, submits user input, and returns the model’s output, illustrating how applications can integrate local LLM intelligence for secure and efficient AI-powered features.
+This function demonstrates how to deploy and interact with the LLM model by sending a prompt and receiving a generated response inside the platform. The function connects to the Ollama runtime, specifies the llama3.2 model, submits user input, and returns the model’s output, illustrating how applications can integrate local LLM intelligence for secure and efficient AI-powered features.
 
 ## Features
 
@@ -10,7 +10,7 @@ The `llm-ollama-serve` function includes the following features:
 - **Model Customization**: Allows users to specify different models for varied outputs.
 - **Real-time Interaction**: Supports real-time requests and responses for dynamic applications.
 - **Integration Ready**: Easily integrates with existing applications and workflows.
-- **Secure Execution**: Runs within the digitalhub platform for enhanced security.
+- **Secure Execution**: Runs within the platform for enhanced security.
 
 
 ## Definition

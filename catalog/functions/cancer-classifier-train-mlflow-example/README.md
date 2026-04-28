@@ -23,7 +23,7 @@ def train(project):
     clf.fit(iris.data, iris.target)
     run_id = mlflow.last_active_run().info.run_id
 
-    # Extract MLflow run artifacts and metadata for DigitalHub integration
+    # Extract MLflow run artifacts and metadata for platform integration
     model_params, metrics = _from_mlflow_run(run_id)
     
     model = project.log_model(name="model-mlflow", kind="mlflow", **model_params)
@@ -42,7 +42,7 @@ def train(project):
 
 def _from_mlflow_run(run_id: str) -> dict:
     """
-    Extract from mlflow run spec for Digitalhub Model.
+    Extract from mlflow run spec for platform Model.
 
     Parameters
     ----------
@@ -139,7 +139,7 @@ The example demonstrates:
 - how to fetch input data and train the model.
 - how to save the trained model into the project.
 
-The function `mlflow-train-model` is registered inside the platform core during the import and it can be fetched and executed.
+The `mlflow-train-model` function is registered inside the platform core during the import and it can be fetched and executed.
 
 ```
 func = proj.get_function(name="cancer-classifier-train-mlflow-example") 
