@@ -10,6 +10,7 @@ metadata:
     - "phase:utility"
 name: example-container-job
 spec:
+  python_version: PYTHON3_10
   image: hello-world:latest  
 ---
 kind: "python+job"

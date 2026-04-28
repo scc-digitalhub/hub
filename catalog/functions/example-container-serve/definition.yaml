@@ -10,6 +10,7 @@ metadata:
     - "phase:utility"
 name: example-container-serve
 spec:
+  python_version: PYTHON3_10
   image: hashicorp/http-echo:latest
 ---
 kind: python+serve
