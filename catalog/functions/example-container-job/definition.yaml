@@ -1,4 +1,4 @@
-kind: python
+kind: container
 metadata:
   name: Example Container Job (Python Job)
   version: 1.0.0
@@ -13,6 +13,6 @@ spec:
   python_version: PYTHON3_10
   image: hello-world:latest  
 ---
-kind: "python+job"
+kind: "container+job"
 spec: 
   template:    
