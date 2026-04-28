@@ -1,4 +1,4 @@
-kind: python
+kind: container
 metadata:
   name: Example Container Serve (Python Serve)
   version: 1.0.0
@@ -13,7 +13,7 @@ spec:
   python_version: PYTHON3_10
   image: hashicorp/http-echo:latest
 ---
-kind: python+serve
+kind: container+serve
 spec:
   service_ports:
     - port: 5678
