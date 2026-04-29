@@ -3,7 +3,7 @@ kind: project
 metadata:
   name: LLM Nemo Guardrail (Project)
   version: 1.0.0
-  description: This project provides a guardrail for LLMs using Apache Tika to extract text from various file formats and ensure that the content is safe and appropriate for use with LLMs. It includes a containerized Tika service and a Python function to extract text and check for potential issues before feeding it into an LLM.
+  description: This project provides a guardrail for LLMs using Nemo Guardrails. It includes a function for serving a language model (LLM) and a containerized function for the Nemo Guardrail framework. The LLM function serves the Gemma3 model using the OLlama engine, while the Nemo Guardrail function provides a utility for implementing guardrails in LLM applications. This project is designed to enhance the safety and reliability of LLM deployments by integrating guardrail mechanisms.
   labels:
     - "license:apache-2.0"
     - "platform:0.15"
