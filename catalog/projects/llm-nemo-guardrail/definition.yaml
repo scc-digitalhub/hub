@@ -1,0 +1,43 @@
+name: llm-nemo-guardrail
+kind: project
+metadata:
+  name: LLM Nemo Guardrail (Project)
+  version: 1.0.0
+  description: This project provides a guardrail for LLMs using Apache Tika to extract text from various file formats and ensure that the content is safe and appropriate for use with LLMs. It includes a containerized Tika service and a Python function to extract text and check for potential issues before feeding it into an LLM.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.15"
+    - "type:service"
+    - "phase:utility"
+    - "framework:guardrail"
+name: llm-nemo-guardrail
+spec:
+  functions:
+    - kind: kubeai-text
+      metadata:
+        name: llm
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.15"
+          - "type:service"
+          - "phase:model-serving"
+          - "inference:openai"
+      name: llm
+      spec:
+        features:
+          - TextGeneration
+        model_name: gemma3
+        engine: OLlama
+        url: ollama://gemma3:latest
+    - kind: container
+      metadata:
+        name: nemo-guardrail
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.15"
+          - "type:service"
+          - "phase:utility"
+          - "framework:guardrail"
+      name: nemo-guardrail          
+      spec:
+        image: ghcr.io/scc-digitalhub/digitalhub-nemoguardrails:0.21.0-rootless  
