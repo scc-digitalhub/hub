@@ -2,7 +2,6 @@ name: document-classifier-service
 kind: project
 metadata:
   name: Document Classifier Service (Project)
-  project: document-classifier
   version: 1.0.0
   description: This project demonstrates how to train and deploy a document classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
@@ -16,7 +15,6 @@ spec:
     - kind: python
       metadata:
         name: document-classifier-service
-        project: document-classifier
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
@@ -44,7 +42,6 @@ spec:
     - kind: python
       metadata:
         name: document-classifier-train
-        project: document-classifier
         labels:
           - "license:apache-2.0"
           - "domain:nlp"
@@ -53,7 +50,6 @@ spec:
           - "phase:model-training"
           - "framework:pytorch"
           - "application:pa"
-        project: document-classifier
       name: document-classifier-train
       spec:
         python_version: PYTHON3_10

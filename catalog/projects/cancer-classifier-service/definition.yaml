@@ -2,7 +2,6 @@ name: cancer-classifier-service
 kind: project
 metadata:
   name: Cancer Classifier Service (Project)
-  project: cancer-classifier
   version: 1.0.0
   description: This project demonstrates how to train and deploy a cancer classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the "serve" task.
   labels:
@@ -30,7 +29,6 @@ spec:
     - kind: python
       metadata:
         name: cancer-classifier-train
-        project: cancer-classifier
         labels:
            - "license:apache-2.0"
            - "platform:0.14"
@@ -38,7 +36,6 @@ spec:
            - "phase:model-training"
            - "framework:sklearn"
            - "application:healthcare"
-        project: cancer-classifier
       name: cancer-classifier-train
       spec:
         python_version: PYTHON3_10

@@ -2,7 +2,6 @@ name: text-extraction-service
 kind: project
 metadata:
   name: Text Extraction Service (Project)
-  project: tika
   version: 1.0.0
   description: This project demonstrates how to deploy a text extraction service using Apache Tika in a container and a Python function to interact with it, all orchestrated within the platform.
   labels:
@@ -16,7 +15,6 @@ spec:
     - kind: container
       metadata:
         name: tika
-        project: tika
         labels:
           - "license:apache-2.0"
           - "domain:nlp"
@@ -29,14 +27,12 @@ spec:
     - kind: python
       metadata:
         name: extract
-        project: tika
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
           - "type:job"
           - "phase:utility"  
       name: extract
-      project: tika
       spec:
         python_version: PYTHON3_10
         source:
