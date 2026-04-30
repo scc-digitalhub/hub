@@ -2,7 +2,6 @@ name: rag-text-serve
 kind: project
 metadata:
   name: RAG Text Service (Project)
-  project: rag-text-serve
   version: 1.0.0
   description: This project demonstrates how to deploy a RAG text serving function using a Python function within the platform, which interacts with a VLLMServe text serving function and an embedding function to provide retrieval-augmented generation capabilities.
   labels:
@@ -16,9 +15,7 @@ spec:
     - kind: artifact
       metadata:
         name: document.pdf
-        project: rag-text-serve
-      name: document.pdf
-      project: rag-text-serve
+        description: This artifact represents a sample document that can be used for testing the RAG text service. It is stored as a file and can be accessed via a URL. The document contains text data that can be extracted and processed by the RAG text service to demonstrate its capabilities in handling and retrieving information from documents.
       name: document.pdf
       spec:
         path: https://raw.githubusercontent.com/scc-digitalhub/digitalhub-tutorials/master/s7-rag/resources/document.pdf
@@ -26,7 +23,6 @@ spec:
     - kind: vllmserve-text
       metadata:
         name: LLM VLLM Serve (vllmserve-text)
-        project: rag-text-serve
         description: This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.
         labels:
           - "license:apache-2.0"
@@ -42,7 +38,6 @@ spec:
     - kind: kubeai-text
       metadata:
         name: embed
-        project: rag-text-serve
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
@@ -50,7 +45,6 @@ spec:
           - "phase:model-serving"
           - "inference:openai"
       name: embed
-      project: rag-service
       spec:
         features:
           - TextEmbedding
@@ -60,14 +54,12 @@ spec:
     - kind: python
       metadata:
         name: embedder
-        project: rag-text-serve
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
           - "type:job"
           - "phase:utility"
       name: embedder
-      project: rag-text-serve
       spec:
         requirements:
           - transformers==4.50.3
@@ -90,14 +82,12 @@ spec:
     - kind: python
       metadata:
         name: rag-service
-        project: rag-text-serve
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
           - "type:service"
           - "phase:utility"      
       name: rag-service
-      project: rag-text-serve
       spec:
         requirements:
           - transformers==4.50.3

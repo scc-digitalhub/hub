@@ -2,7 +2,6 @@ name: flower-orchestrator
 kind: project
 metadata:
   name: Flower Orchestrator (Project)
-  project: flower-orchestrator
   version: 1.0.0
   description: This project demonstrates how to orchestrate flower-based workflows. Flower Federated Learning framework allows for running federated learning tasks where different client nodes perform local training and cooperatively create a more robust solution without exchanging the data but only the weight necessary to progress the training process.
   labels:
@@ -17,7 +16,6 @@ spec:
       metadata:
         name: Flower Client (flower-client)
         description: This function demonstrates the Supernode client function to interact with the Flower server, how to build the corresponding image, and activates client nodes container with the dependencies and the node-specific configuration.
-        project: flower-orchestrator
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
@@ -34,7 +32,6 @@ spec:
       metadata:
         name: Flower Server (flower-server)
         description: This function serves as a demonstration of the Flower Supernode server functionality. It builds the corresponding Docker image, and activate server node containers with the necessary dependencies and specific configurations tailored for each node.
-        project: flower-orchestrator
         labels:
           - "license:apache-2.0"
           - "platform:0.14"
@@ -49,7 +46,6 @@ spec:
       name: flower-app
       metadata:
         name: Flower App (flower-app)
-        project: flower-orchestrator
         description: This function implements a Flower client application that connects to a Flower server, fetches data partitions, and sends results back to the server. It includes a sample implementation of the client-side logic for handling data partitions and communicating with the server.
         labels:
           - "license:apache-2.0"
