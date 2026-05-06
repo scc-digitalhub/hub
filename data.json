@@ -11,11 +11,11 @@
                 "kind": "python",
                 "metadata": {
                     "name": "Example Cancer Classifier Training With MLFLow (Python Job)",
-                    "version": "1.0.0",
+                    "version": "1.0.1",
                     "description": "Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework. Digital health workers can leverage this service to enhance their document processing workflows, ensuring accurate and timely classification of official documents.",
                     "labels": [
                         "license:apache-2.0",
-                        "platform:0.14",
+                        "platform:0.15",
                         "type:job",
                         "phase:model-training",
                         "framework:sklearn",
@@ -26,7 +26,7 @@
                     "relationships": [
                         {
                             "type": "part_of",
-                            "dest": "hub://functions/cancer-classifier-train-mlflow-example:1.0.0"
+                            "dest": "hub://functions/cancer-classifier-train-mlflow-example:1.0.1"
                         }
                     ]
                 },
@@ -49,12 +49,12 @@
                 "kind": "python",
                 "metadata": {
                     "name": "Document Classifier Training With Bert Model (Python Job)",
-                    "version": "1.0.0",
+                    "version": "1.0.1",
                     "description": "Document classifier relying on LLM implementations for different languages. This example uses Italian language BERT model (dbmdz/bert-base-italian-xxl-cased) for document classification. Built using HuggingFace transformers library.",
                     "labels": [
                         "license:apache-2.0",
                         "domain:nlp",
-                        "platform:0.14",
+                        "platform:0.15",
                         "type:job",
                         "phase:model-training",
                         "framework:pytorch",
@@ -65,7 +65,7 @@
                     "relationships": [
                         {
                             "type": "part_of",
-                            "dest": "hub://functions/document-classifier-train-example:1.0.0"
+                            "dest": "hub://functions/document-classifier-train-example:1.0.1"
                         }
                     ]
                 },
@@ -548,7 +548,6 @@
                 "kind": "project",
                 "metadata": {
                     "name": "Cancer Classifier Service (Project)",
-                    "project": "cancer-classifier",
                     "version": "1.0.0",
                     "description": "This project demonstrates how to train and deploy a cancer classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the \"serve\" task.",
                     "labels": [
@@ -591,7 +590,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "cancer-classifier-train",
-                                "project": "cancer-classifier",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -623,7 +621,6 @@
                 "kind": "project",
                 "metadata": {
                     "name": "Document Classifier Service (Project)",
-                    "project": "document-classifier",
                     "version": "1.0.0",
                     "description": "This project demonstrates how to train and deploy a document classification service based on the BERT model. The model is deployed as a service to assist with automated annotation and classification of official documents. It exposes an API using the \"serve\" task.",
                     "labels": [
@@ -647,7 +644,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "document-classifier-service",
-                                "project": "document-classifier",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -682,7 +678,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "document-classifier-train",
-                                "project": "document-classifier",
                                 "labels": [
                                     "license:apache-2.0",
                                     "domain:nlp",
@@ -735,7 +730,6 @@
                 "kind": "project",
                 "metadata": {
                     "name": "Flower Orchestrator (Project)",
-                    "project": "flower-orchestrator",
                     "version": "1.0.0",
                     "description": "This project demonstrates how to orchestrate flower-based workflows. Flower Federated Learning framework allows for running federated learning tasks where different client nodes perform local training and cooperatively create a more robust solution without exchanging the data but only the weight necessary to progress the training process.",
                     "labels": [
@@ -760,7 +754,6 @@
                             "metadata": {
                                 "name": "Flower Client (flower-client)",
                                 "description": "This function demonstrates the Supernode client function to interact with the Flower server, how to build the corresponding image, and activates client nodes container with the dependencies and the node-specific configuration.",
-                                "project": "flower-orchestrator",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -783,7 +776,6 @@
                             "metadata": {
                                 "name": "Flower Server (flower-server)",
                                 "description": "This function serves as a demonstration of the Flower Supernode server functionality. It builds the corresponding Docker image, and activate server node containers with the necessary dependencies and specific configurations tailored for each node.",
-                                "project": "flower-orchestrator",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -804,7 +796,6 @@
                             "name": "flower-app",
                             "metadata": {
                                 "name": "Flower App (flower-app)",
-                                "project": "flower-orchestrator",
                                 "description": "This function implements a Flower client application that connects to a Flower server, fetches data partitions, and sends results back to the server. It includes a sample implementation of the client-side logic for handling data partitions and communicating with the server.",
                                 "labels": [
                                     "license:apache-2.0",
@@ -826,11 +817,77 @@
                 }
             },
             {
+                "name": "llm-nemo-guardrail",
+                "kind": "project",
+                "metadata": {
+                    "name": "LLM Nemo Guardrail (Project)",
+                    "version": "1.0.0",
+                    "description": "This project provides a guardrail for LLMs using Nemo Guardrails. It includes a function for serving a language model (LLM) and a containerized function for the Nemo Guardrail framework. The LLM function serves the Gemma3 model using the OLlama engine, while the Nemo Guardrail function provides a utility for implementing guardrails in LLM applications. This project is designed to enhance the safety and reliability of LLM deployments by integrating guardrail mechanisms.",
+                    "labels": [
+                        "license:apache-2.0",
+                        "platform:0.15",
+                        "type:service",
+                        "phase:utility",
+                        "framework:guardrail"
+                    ],
+                    "path": "projects/llm-nemo-guardrail",
+                    "repository": "https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/llm-nemo-guardrail",
+                    "relationships": [
+                        {
+                            "type": "part_of",
+                            "dest": "hub://projects/llm-nemo-guardrail:1.0.0"
+                        }
+                    ]
+                },
+                "spec": {
+                    "functions": [
+                        {
+                            "kind": "kubeai-text",
+                            "metadata": {
+                                "name": "llm",
+                                "labels": [
+                                    "license:apache-2.0",
+                                    "platform:0.15",
+                                    "type:service",
+                                    "phase:model-serving",
+                                    "inference:openai"
+                                ]
+                            },
+                            "name": "llm",
+                            "spec": {
+                                "features": [
+                                    "TextGeneration"
+                                ],
+                                "model_name": "gemma3",
+                                "engine": "OLlama",
+                                "url": "ollama://gemma3:latest"
+                            }
+                        },
+                        {
+                            "kind": "container",
+                            "metadata": {
+                                "name": "nemo-guardrail",
+                                "labels": [
+                                    "license:apache-2.0",
+                                    "platform:0.15",
+                                    "type:service",
+                                    "phase:utility",
+                                    "framework:guardrail"
+                                ]
+                            },
+                            "name": "nemo-guardrail",
+                            "spec": {
+                                "image": "ghcr.io/scc-digitalhub/digitalhub-nemoguardrails:0.21.0-rootless"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
                 "name": "rag-text-serve",
                 "kind": "project",
                 "metadata": {
                     "name": "RAG Text Service (Project)",
-                    "project": "rag-text-serve",
                     "version": "1.0.0",
                     "description": "This project demonstrates how to deploy a RAG text serving function using a Python function within the platform, which interacts with a VLLMServe text serving function and an embedding function to provide retrieval-augmented generation capabilities.",
                     "labels": [
@@ -854,10 +911,9 @@
                             "kind": "artifact",
                             "metadata": {
                                 "name": "document.pdf",
-                                "project": "rag-text-serve"
+                                "description": "This artifact represents a sample document that can be used for testing the RAG text service. It is stored as a file and can be accessed via a URL. The document contains text data that can be extracted and processed by the RAG text service to demonstrate its capabilities in handling and retrieving information from documents."
                             },
                             "name": "document.pdf",
-                            "project": "rag-text-serve",
                             "spec": {
                                 "path": "https://raw.githubusercontent.com/scc-digitalhub/digitalhub-tutorials/master/s7-rag/resources/document.pdf"
                             }
@@ -868,7 +924,6 @@
                             "kind": "vllmserve-text",
                             "metadata": {
                                 "name": "LLM VLLM Serve (vllmserve-text)",
-                                "project": "rag-text-serve",
                                 "description": "This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.",
                                 "labels": [
                                     "license:apache-2.0",
@@ -889,7 +944,6 @@
                             "kind": "kubeai-text",
                             "metadata": {
                                 "name": "embed",
-                                "project": "rag-text-serve",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -899,7 +953,6 @@
                                 ]
                             },
                             "name": "embed",
-                            "project": "rag-service",
                             "spec": {
                                 "features": [
                                     "TextEmbedding"
@@ -913,7 +966,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "embedder",
-                                "project": "rag-text-serve",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -922,7 +974,6 @@
                                 ]
                             },
                             "name": "embedder",
-                            "project": "rag-text-serve",
                             "spec": {
                                 "requirements": [
                                     "transformers==4.50.3",
@@ -950,7 +1001,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "rag-service",
-                                "project": "rag-text-serve",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -959,7 +1009,6 @@
                                 ]
                             },
                             "name": "rag-service",
-                            "project": "rag-text-serve",
                             "spec": {
                                 "requirements": [
                                     "transformers==4.50.3",
@@ -994,7 +1043,6 @@
                 "kind": "project",
                 "metadata": {
                     "name": "Text Extraction Service (Project)",
-                    "project": "tika",
                     "version": "1.0.0",
                     "description": "This project demonstrates how to deploy a text extraction service using Apache Tika in a container and a Python function to interact with it, all orchestrated within the platform.",
                     "labels": [
@@ -1018,7 +1066,6 @@
                             "kind": "container",
                             "metadata": {
                                 "name": "tika",
-                                "project": "tika",
                                 "labels": [
                                     "license:apache-2.0",
                                     "domain:nlp",
@@ -1036,7 +1083,6 @@
                             "kind": "python",
                             "metadata": {
                                 "name": "extract",
-                                "project": "tika",
                                 "labels": [
                                     "license:apache-2.0",
                                     "platform:0.14",
@@ -1045,7 +1091,6 @@
                                 ]
                             },
                             "name": "extract",
-                            "project": "tika",
                             "spec": {
                                 "python_version": "PYTHON3_10",
                                 "source": {
