@@ -107,3 +107,37 @@
     transition-property: opacity;
     transition-duration: 150ms;
 }
+
+/* Drop-down menu for template versions */
+
+#previous-menu {
+    display: inline-block;
+    width: 64px;
+    border-radius: 8px;
+    background-color: var(--md-typeset-a-color);
+    color: #fff;
+}
+
+.version-entry {
+    width: 64px;
+    padding: 4px 12px;
+}
+
+.version-entry:last-child {
+    border-radius: 0px 0px 8px 8px;
+}
+
+.version-other {
+    display: none;
+    float: left;
+    color: #fff;
+}
+
+#previous-menu:hover .version-other {
+    display: block;
+    color: #fff;
+}
+
+.version-other:hover {
+    background-color: var(--md-primary-fg-color--light);
+}
