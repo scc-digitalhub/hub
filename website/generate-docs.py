@@ -14,6 +14,7 @@ gn_docs_dir = f'{gn_dir}/docs'
 resources_dir = 'resources'
 base_json = f'{resources_dir}/base-data.json'
 generated_json = 'data.json'
+previous_dir = 'previous'
 
 repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog'
 
@@ -78,15 +79,18 @@ def hub_ref(category, template, metadata):
     str
         Metadata div
 """
-def template_page_metadata(category, template, metadata):
+def template_page_metadata(category, template, version, metadata, version_menu):
     contents = '<div id="template-metadata">'
 
     # Interactive element in top right
     contents += '<div id=template-metadata-right>'
 
+    contents += version_menu
+
     catalog_url = structure['catalog_url']
-    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{catalog_url}/{category}/{template}">Repository</a>'
-    contents += f'<a class="md-cell-right" id=md-repo-definition target="_blank" href="{repo_definition_base}/{category}/{template}/{definition_filename}">Definition</a>'
+    version_dir = f'/{previous_dir}/{version}' if version != 'latest' else ''
+    contents += f'<a class="md-cell-right" id=md-repo-directory target="_blank" href="{catalog_url}/{category}/{template}{version_dir}">Repository</a>'
+    contents += f'<a class="md-cell-right" id=md-repo-definition target="_blank" href="{repo_definition_base}/{category}/{template}{version_dir}/{definition_filename}">Definition</a>'
 
     # Button to copy hub reference
     contents += '<div id="hub-ref" class="md-cell-right">'
@@ -149,7 +153,7 @@ def template_usage(usage_path):
             usage = usage_file.read()
         content += usage
     else:
-        content += 'This template is missing information on usage.'
+        content += f'This template is missing information on usage. {usage_path}'
     return content + '</div>'
 
 """Create notebook div for the template's page
@@ -174,6 +178,145 @@ def template_notebook(notebook_path):
         notebook_content = notebook_content.replace('</main>', '')
         content += notebook_content
     return content + '</div>'
+
+def template_versions(c, t):
+    # Check if folder for previous versions exists
+    previous_path = f'{templates_dir}/{c}/{t}/{previous_dir}'
+    if not os.path.isdir(previous_path):
+        return []
+
+    # Each previous version should have its own subfolder
+    dir_contents = os.listdir(previous_path)
+    versions = []
+    for c in dir_contents:
+        if os.path.isdir(f'{previous_path}/{c}'):
+            versions.append(c)
+
+    if not versions:
+        return []
+
+    versions.sort()
+    return ['latest'] + versions
+
+
+"""Generates dropdown menu for previous versions, if necessary
+
+    Parameters
+    ----------
+    c : str
+        Name of the template's category
+    t : str
+        Template name
+
+    Returns
+    -------
+    str
+        Dropdown menu for previous versions
+"""
+def previous_menu(c, t, versions, vs):
+    if not versions:
+        return ''
+
+    # Build menu
+    menu = '<div id="previous-menu">'
+
+    # Plain text for the version being viewed
+    menu += f'<div class="version-entry" id="version-this">{vs}</div>'
+
+    for v in versions:
+        if v != vs:
+            if vs == 'latest':
+                v_path = f'./{v}'
+            else:
+                if v == 'latest':
+                    v_path = '..'
+                else:
+                    v_path = f'../{v}'
+            menu += f'<a class="version-entry version-other" href="{v_path}">{v}</a>'
+
+            # Build pages for other versions
+            if vs == 'latest':
+                previous_path = f'{templates_dir}/{c}/{t}/{previous_dir}'
+                definition_path = f'{previous_path}/{v}/{definition_filename}'
+                if os.path.isfile(definition_path):
+                    with open(definition_path, 'r', encoding='utf-8') as definition_file:
+                        definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
+
+                    # Create template's own page
+                    template_folder = f'./{gn_docs_dir}/{c}/{t}/{v}'
+                    os.mkdir(template_folder)
+                    template_path = f'{template_folder}/index.md'
+
+                    contents = page_contents(c, t, versions, v, definition)
+                    with open(template_path, 'w', encoding='utf-8') as template_file:
+                        template_file.write(contents)
+    menu += '</div>'
+
+    return menu
+
+"""Generates main contents for the template's page
+
+    Parameters
+    ----------
+    c : str
+        Name of the template's category
+    t : str
+        Template name
+    definition : dict
+        Definition of the template
+
+    Returns
+    -------
+    str
+        Main contents of the template's page
+"""
+def page_contents(c, t, versions, v, definition):
+    contents = ''
+
+    # Header section
+    contents += '<div id="template-content" markdown="1">'
+    browse_path = './../../'
+    if v:
+        browse_path += '..'
+    contents += f'<a id="browse" href="{browse_path}">< Browse</a>'
+    template_title = t
+    if 'metadata' in definition and 'name' in definition['metadata']:
+        template_title = definition['metadata']['name']
+    contents += f'<div id="template-title">{template_title}</div>'
+
+    version_menu = previous_menu(c, t, versions, v)
+
+    # Metadata section
+    if 'metadata' in definition:
+        contents += template_page_metadata(c, t, v, definition['metadata'], version_menu)
+
+    # Toolbar for tabs
+    tab_toolbar = '<div id="template-tab-buttons">'
+    tab_toolbar += '<button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab(\'usage\')">Usage</button>'
+    template_dir = f'{templates_dir}/{c}/{t}'
+    if v != 'latest':
+        template_dir += f'/{previous_dir}/{v}'
+
+    notebook_path = f'{template_dir}/{converted_notebook_filename}'
+    if os.path.isfile(notebook_path):
+        tab_toolbar += '<button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab(\'notebook\')">Notebook</button>'
+    tab_toolbar += '</div>'
+    contents += tab_toolbar
+
+    # Main contents of the page, containing usage and notebook
+    contents += '<div id="template-info" markdown="1">'
+
+    # Usage
+    usage_path = f'{template_dir}/{usage_filename}'
+    contents += template_usage(usage_path)
+
+    # Notebook
+    if os.path.isfile(notebook_path):
+        contents += template_notebook(notebook_path)
+    
+    contents += '</div></div>'
+
+    return contents
 
 def main():
     initialize_website()
@@ -212,44 +355,14 @@ def main():
                     structure_catalog[c].append(structure_entry)
 
                     # Create template's own page
-                    template_path = f'./{gn_docs_dir}/{c}/{t}.md'
+                    template_folder = f'./{gn_docs_dir}/{c}/{t}'
+                    os.mkdir(template_folder)
+                    template_path = f'{template_folder}/index.md'
 
-                    template_title = t
-                    if 'metadata' in definition and 'name' in definition['metadata']:
-                        template_title = definition['metadata']['name']
-
+                    versions = template_versions(c, t)
+                    contents = page_contents(c, t, versions, 'latest', definition)
                     with open(template_path, 'w', encoding='utf-8') as template_file:
-                        template_file.write('<div id="template-content" markdown="1">')
-                        template_file.write('<a id="browse" href="./../..">< Browse</a>')
-                        template_file.write(f'<div id="template-title">{template_title}</div>')
-
-                        # Metadata
-                        if 'metadata' in definition:
-                            template_file.write(template_page_metadata(c, t, definition['metadata']))
-
-                        # Tabs for usage and notebook
-                        tab_toolbar = '<div id="template-tab-buttons">'
-                        tab_toolbar += '<button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab(\'usage\')">Usage</button>'
-
-                        # Usage
-                        usage_path = f'{templates_dir}/{c}/{t}/{usage_filename}'
-                        contents = template_usage(usage_path)
-
-                        # Notebook
-                        notebook_path = f'{templates_dir}/{c}/{t}/{converted_notebook_filename}'
-                        if os.path.isfile(notebook_path):
-                            tab_toolbar += '<button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab(\'notebook\')">Notebook</button>'
-                            contents += template_notebook(notebook_path)
-
-                        tab_toolbar += '</div>'
-
-                        # Write tab toolbar and tabs
-                        template_file.write(tab_toolbar)
-                        template_file.write('<div id="template-info" markdown="1">')
                         template_file.write(contents)
-                        
-                        template_file.write('</div>')
-                        template_file.write('</div>')
 
     # Write JSON structure to file
     with open(f'{gn_docs_dir}/{generated_json}', 'w', encoding='utf-8') as json_file:
