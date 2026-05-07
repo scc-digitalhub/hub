@@ -279,7 +279,7 @@ def page_contents(c, t, versions, v, definition):
     # Header section
     contents += '<div id="template-content" markdown="1">'
     browse_path = './../../'
-    if v:
+    if v != 'latest':
         browse_path += '..'
     contents += f'<a id="browse" href="{browse_path}">< Browse</a>'
     template_title = t
