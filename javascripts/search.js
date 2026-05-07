@@ -31,7 +31,7 @@ function mergeAllCategories(json) {
   for (const [category, templatesArray] of Object.entries(json)) {
     for (const template of templatesArray) {
       template["category"] = category;
-      template.metadata.labels.push("category:" + category);
+      template.metadata.combined_labels.push("category:" + category);
       allData.push(template);
     }
   }
@@ -143,9 +143,10 @@ function renderResults(results) {
       ${fn.metadata.version ? `<span class="version-badge">v${fn.metadata.version}</span>` : ""}
       <div class="subtitle">${fn.name}</div>
       <p>${fn.metadata.description}</p>
-      ${fn.metadata.labels.map(l => {
+      ${fn.metadata.combined_labels.map(l => {
         const [k, v] = l.split(":");
-        return k === "category" ? "" : `<span class="chip ${selectedLabels[k]?.includes(v) ? "match" : ""}">${v}</span>`;
+        const kSpan = `<span class="chip-category">${k}:</span>`;
+        return k === "category" ? "" : `<span class="chip ${selectedLabels[k]?.includes(v) ? "match" : ""}">${kSpan}${v}</span>`;
       }).join("")}
     </div>
   `).join("");

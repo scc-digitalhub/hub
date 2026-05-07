@@ -28,6 +28,15 @@
                             "type": "part_of",
                             "dest": "hub://functions/cancer-classifier-train-mlflow-example:1.0.1"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:healthcare",
+                        "framework:sklearn",
+                        "license:apache-2.0",
+                        "phase:model-training",
+                        "platform:0.14",
+                        "platform:0.15",
+                        "type:job"
                     ]
                 },
                 "name": "cancer-classifier-train-mlflow-example",
@@ -67,6 +76,16 @@
                             "type": "part_of",
                             "dest": "hub://functions/document-classifier-train-example:1.0.1"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:pa",
+                        "domain:nlp",
+                        "framework:pytorch",
+                        "license:apache-2.0",
+                        "phase:model-training",
+                        "platform:0.14",
+                        "platform:0.15",
+                        "type:job"
                     ]
                 },
                 "name": "document-classifier-train",
@@ -124,6 +143,14 @@
                             "type": "part_of",
                             "dest": "hub://functions/download-sentinel-data:0.14.6"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:pa",
+                        "domain:geo",
+                        "license:apache-2.0",
+                        "phase:data-preparation",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "download-sentinel-data",
@@ -151,6 +178,12 @@
                             "type": "part_of",
                             "dest": "hub://functions/echo-service:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "kind": "python",
@@ -185,6 +218,14 @@
                             "type": "part_of",
                             "dest": "hub://functions/elaborate-flood-data:0.14.6"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:pa",
+                        "domain:geo",
+                        "license:apache-2.0",
+                        "phase:feature-extraction",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "elaborate-flood-data",
@@ -218,6 +259,14 @@
                             "type": "part_of",
                             "dest": "hub://functions/elaborate-forest-data:0.14.6"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:pa",
+                        "domain:geo",
+                        "license:apache-2.0",
+                        "phase:feature-extraction",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "elaborate-forest-data",
@@ -251,6 +300,14 @@
                             "type": "part_of",
                             "dest": "hub://functions/elaborate-geological-data:0.14.6"
                         }
+                    ],
+                    "combined_labels": [
+                        "application:pa",
+                        "domain:geo",
+                        "license:apache-2.0",
+                        "phase:feature-extraction",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "elaborate-geological-data",
@@ -282,6 +339,12 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-container-job:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "example-container-job",
@@ -309,6 +372,12 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-container-serve:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "name": "example-container-serve",
@@ -337,6 +406,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-dbt-transform:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "domain:tabular",
+                        "license:apache-2.0",
+                        "phase:data-preparation",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "dbt-transform",
@@ -368,6 +444,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-etl:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "domain:tabular",
+                        "license:apache-2.0",
+                        "phase:data-preparation",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "example-etl",
@@ -398,6 +481,12 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-hello-world:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "hello-world",
@@ -430,6 +519,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/example-validate-table:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "domain:tabular",
+                        "license:apache-2.0",
+                        "phase:data-preparation",
+                        "platform:0.14",
+                        "type:job"
                     ]
                 },
                 "name": "example-validate-table",
@@ -465,6 +561,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/llm-ollama-serve:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "inference:openai",
+                        "license:apache-2.0",
+                        "phase:model-serving",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "name": "llm-ollama-serve",
@@ -498,6 +601,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/llm-vllm-kubeai-serve:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "inference:openai",
+                        "license:apache-2.0",
+                        "phase:model-serving",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "name": "vllm-kubeai-serve",
@@ -531,6 +641,13 @@
                             "type": "part_of",
                             "dest": "hub://functions/llm-vllm-text-serve:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "inference:openai",
+                        "license:apache-2.0",
+                        "phase:model-serving",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "name": "vllm-text-serve",
@@ -563,6 +680,12 @@
                             "type": "part_of",
                             "dest": "hub://projects/cancer-classifier-service:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "spec": {
@@ -636,6 +759,12 @@
                             "type": "part_of",
                             "dest": "hub://projects/document-classifier-service:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "spec": {
@@ -745,6 +874,12 @@
                             "type": "part_of",
                             "dest": "hub://projects/flower-orchestrator:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "framework:flower",
+                        "license:apache-2.0",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "spec": {
@@ -837,6 +972,13 @@
                             "type": "part_of",
                             "dest": "hub://projects/llm-nemo-guardrail:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "framework:guardrail",
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.15",
+                        "type:service"
                     ]
                 },
                 "spec": {
@@ -903,6 +1045,12 @@
                             "type": "part_of",
                             "dest": "hub://projects/rag-text-service:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "spec": {
@@ -1058,6 +1206,12 @@
                             "type": "part_of",
                             "dest": "hub://projects/text-extraction-service:1.0.0"
                         }
+                    ],
+                    "combined_labels": [
+                        "license:apache-2.0",
+                        "phase:utility",
+                        "platform:0.14",
+                        "type:service"
                     ]
                 },
                 "spec": {
