@@ -5,7 +5,7 @@ export function getLabelGroups(functions) {
     const groups = {};
 
     functions.forEach(fn => {
-        fn.metadata.labels.forEach(label => {
+        fn.metadata.combined_labels.forEach(label => {
             const [key, value] = label.split(":");
             if (!groups[key]) groups[key] = new Set();
             groups[key].add(value);
@@ -50,7 +50,7 @@ export function filterByLabels(functions, selected) {
 
             // Search keys in labels:
             //  ["license:apache-2.0","domain:geo",...
-            const fnValues = fn.metadata.labels
+            const fnValues = fn.metadata.combined_labels
                 .filter(l => l.startsWith(key + ":"))
                 .map(l => l.split(":")[1]);
 

@@ -21,6 +21,10 @@ repo_definition_base = 'https://raw.githubusercontent.com/scc-digitalhub/hub/ref
 with open(base_json, 'r', encoding='utf-8') as f:
     structure = json.load(f)
 
+def load_yaml_file(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        return next(yaml.load_all(f, Loader=yaml.SafeLoader))
+
 """Remove any pre-existing generated website and initialize the new one.
 """
 def initialize_website():
@@ -196,7 +200,7 @@ def template_versions(c, t):
         return []
 
     versions.sort()
-    return ['latest'] + versions
+    return versions
 
 
 """Generates dropdown menu for previous versions, if necessary
@@ -239,8 +243,7 @@ def previous_menu(c, t, versions, vs):
                 previous_path = f'{templates_dir}/{c}/{t}/{previous_dir}'
                 definition_path = f'{previous_path}/{v}/{definition_filename}'
                 if os.path.isfile(definition_path):
-                    with open(definition_path, 'r', encoding='utf-8') as definition_file:
-                        definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
+                    definition = load_yaml_file(definition_path)
 
                     # Create template's own page
                     template_folder = f'./{gn_docs_dir}/{c}/{t}/{v}'
@@ -318,6 +321,28 @@ def page_contents(c, t, versions, v, definition):
 
     return contents
 
+def combine_labels(template_path, versions):
+    combined_labels = []
+
+    # Labels from latest version
+    definition_path = f'{template_path}/{definition_filename}'
+    if os.path.isfile(definition_path):
+        definition = load_yaml_file(definition_path)
+        if 'metadata' in definition and 'labels' in definition['metadata']:
+            combined_labels = definition['metadata']['labels']
+
+    # Labels from previous version
+    for v in versions:
+        definition_path = f'{template_path}/{previous_dir}/{v}/{definition_filename}'
+        if os.path.isfile(definition_path):
+            definition = load_yaml_file(definition_path)
+            if 'metadata' in definition and 'labels' in definition['metadata']:
+                combined_labels += definition['metadata']['labels']
+
+    combined_labels = list(set(combined_labels))
+    combined_labels.sort()
+    return combined_labels
+
 def main():
     initialize_website()
 
@@ -342,8 +367,7 @@ def main():
                 # Ensure template has a definition file before proceeding
                 definition_path = f'{templates_dir}/{c}/{t}/{definition_filename}'
                 if os.path.isfile(definition_path):
-                    with open(definition_path, 'r', encoding='utf-8') as definition_file:
-                        definition = next(yaml.load_all(definition_file, Loader=yaml.SafeLoader))
+                    definition = load_yaml_file(definition_path)
 
                     # Entry for JSON structure file
                     structure_entry = definition
@@ -360,7 +384,8 @@ def main():
                     template_path = f'{template_folder}/index.md'
 
                     versions = template_versions(c, t)
-                    contents = page_contents(c, t, versions, 'latest', definition)
+                    structure_entry['metadata']['combined_labels'] = combine_labels(f'{templates_dir}/{c}/{t}', versions)
+                    contents = page_contents(c, t, ['latest'] + versions, 'latest', definition)
                     with open(template_path, 'w', encoding='utf-8') as template_file:
                         template_file.write(contents)
 
