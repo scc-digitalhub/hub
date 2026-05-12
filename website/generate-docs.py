@@ -130,7 +130,9 @@ def template_page_metadata(category, template, version, metadata, version_menu):
         contents += '<div class=md-cell-title>Labels</div>'
         contents += '<div class=md-cell-content id=md-labels>'
         for label in metadata['labels']:
-            contents += f'<span class="md-label">{label}</span>'
+            k, v = label.split(":")
+            kSpan = f'<span class="md-label-category">{k}:</span>'
+            contents += f'<span class="md-label">{kSpan}{v}</span>'
         contents += '</div>'
         contents += '</div>'
     contents += '</div>'
