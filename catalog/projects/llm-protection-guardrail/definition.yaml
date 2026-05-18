@@ -1,0 +1,52 @@
+name: llm-protection-guardrail
+kind: project
+metadata:
+  name: LLM Protection Guardrail (Project)
+  version: 1.0.0
+  description: This project shows how to protect LLMs with Guardrails using the digital hub platform Envoy Gateway infrastructure configured for guardrails management. The platform Envoy Gateway provides a robust framework for implementing guardrails in LLM applications.
+  labels:
+    - "license:apache-2.0"
+    - "platform:0.15"
+    - "type:service"
+    - "phase:utility"
+    - "framework:guardrail"
+name: llm-protection-guardrail
+spec:
+  functions:
+    - kind: kubeai-text
+      metadata:
+        name: llm
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.15"
+          - "type:service"
+          - "phase:model-serving"
+          - "inference:openai"
+      name: llm
+      spec:
+        features:
+          - TextGeneration
+        model_name: gemma3
+        engine: OLlama
+        url: ollama://gemma3:latest
+    - kind: guardrail
+      metadata:
+        name: toxic-guardrail
+        labels:
+          - "license:apache-2.0"
+          - "platform:0.15"
+          - "type:service"
+          - "phase:utility"
+          - "framework:guardrail"
+      name: toxic-guardrail          
+      spec:
+        requirements:
+          - guardrails-ai==0.5.0
+          - transformers==4.42.0
+        python_version: PYTHON3_10
+        processing_mode: preprocessor
+        source:
+          handler: handler_serve
+          base64: CmltcG9ydCBudWNsaW9fc2RrCmltcG9ydCBvcwppbXBvcnQganNvbgpmcm9tIGd1YXJkcmFpbHMgaW1wb3J0IEd1YXJkLCBPbkZhaWxBY3Rpb24KCmRlZiBpbml0X2NvbnRleHQoY29udGV4dDogbnVjbGlvX3Nkay5Db250ZXh0KToKICAgIGNvbnRleHQubG9nZ2VyLmluZm8oIkluaXRpYWxpemluZyBndWFyZHJhaWxzLi4uIikKICAgIGZyb20gZ3VhcmRyYWlscy5odWIgaW1wb3J0IFRveGljTGFuZ3VhZ2UKICAgIGd1YXJkID0gR3VhcmQoKS51c2UoCiAgICAgICAgVG94aWNMYW5ndWFnZSwgdGhyZXNob2xkPTAuNSwgdmFsaWRhdGlvbl9tZXRob2Q9InNlbnRlbmNlIiwgb25fZmFpbD0iZXhjZXB0aW9uIgogICAgKQogICAgc2V0YXR0cihjb250ZXh0LCAiZ3VhcmQiLCBndWFyZCkKCmRlZiBoYW5kbGVyX3NlcnZlKGNvbnRleHQ6IG51Y2xpb19zZGsuQ29udGV4dCwgZXZlbnQ6IG51Y2xpb19zZGsuRXZlbnQpOgogICAgaWYgaXNpbnN0YW5jZShldmVudC5ib2R5LCBieXRlcyk6CiAgICAgICAgYm9keSA9IGpzb24ubG9hZHMoZXZlbnQuYm9keSkKICAgIGVsc2U6CiAgICAgICAgYm9keSA9IGV2ZW50LmJvZHkKCiAgICBwcm9tcHQgPSBib2R5Wydwcm9tcHQnXSBpZiAncHJvbXB0JyBpbiBib2R5IGVsc2UgTm9uZQogICAgY29udGV4dC5sb2dnZXIuaW5mbygnUmVjZWl2ZWQ6ICcsIGJvZHkpCiAgICBpZiBwcm9tcHQ6CiAgICAgICAgdHJ5OgogICAgICAgICAgICBndWFyZC52YWxpZGF0ZShwcm9tcHQpIAogICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZToKICAgICAgICAgICAgcmV0dXJuIGNvbnRleHQuUmVzcG9uc2UoYm9keT0iVG94aWMgbGFuZ3VhZ2UgdXNlZCIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWFkZXJzPXt9LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgY29udGVudF90eXBlPSd0ZXh0L3BsYWluJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0YXR1c19jb2RlPTQwMCkKCiAgICByZXR1cm4gZXZlbnQuYm9keQo=
+          lang: python
+          init_function: init_context
