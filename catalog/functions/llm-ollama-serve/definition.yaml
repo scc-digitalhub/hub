@@ -18,13 +18,3 @@ spec:
   model_name: model
   engine: OLlama
   url: ollama://llama3.2:1b
----
-kind: kubeai-text+serve:run
-spec:
-  scaling:
-    replicas: 1
-    min_replicas: 1
-    autoscaling_disabled: false
-    target_requests: 100
-    scale_down_delay_seconds: 30
-  

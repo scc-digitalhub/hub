@@ -18,17 +18,3 @@ spec:
   model_name: model
   engine: VLLM
   url: hf://Qwen/Qwen2.5-0.5B-Instruct
----
-kind: kubeai-text+serve:run
-spec:
-  args:
-    - --dtype=float16
-  scaling:
-    replicas: 1
-    min_replicas: 1
-    autoscaling_disabled: false
-    target_requests: 100
-    scale_down_delay_seconds: 30
-    load_balancing:
-      strategy: LeastLoad
-  model_name: model
