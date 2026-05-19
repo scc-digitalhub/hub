@@ -73,4 +73,33 @@ train_run = function_train.run(
 - **Logging Integration**: Weights & Biases (wandb) support for experiment tracking
 - **GPU Optimized**: Automatic CUDA acceleration
 
+## Resources
+
+The function requires the following computational resources for optimal training performance:
+
+| Resource   | Recommended | Description                                            |
+| ---------- | -----------| ------------------------------------------------------ |
+| **GPU**    | `1xA5000`  | High-performance GPU for accelerated BERT training.    |
+
+### Storage
+
+The function uses persistent storage for caching model weights and dependencies:
+
+| Field         | Value                     | Description                                                 |
+| ------------- | ------------------------- | ----------------------------------------------------------- |
+| `volume_type` | `persistent_volume_claim` | Persistent storage resource.                               |
+| `name`        | `volume-llmpa`            | Volume identifier for training data and models.            |
+| `mount_path`  | `/app/local-data`             | Directory inside the container where the volume is mounted. |
+| `size`        | `20Gi`                    | Allocated storage capacity.                                |
+
+### Environment Variables
+
+The following environment variables are configured for efficient model caching:
+
+- **HF_HOME**: `/app/local-data/huggingface` - Hugging Face cache directory
+- **TRANSFORMERS_CACHE**: `/app/local-data/huggingface` - Transformers library cache directory
+
+These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.
+
+
 For more detailed usage see the notebook.
