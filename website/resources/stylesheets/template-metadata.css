@@ -46,16 +46,23 @@
 
 /* Drop-down menu for template versions */
 
+#version-text {
+    display: inline-block;
+    padding-right: 6px;
+    color: #aaa;
+}
+
 #previous-menu {
     display: inline-block;
-    width: 64px;
+    width: 72px;
     border-radius: 8px;
-    background-color: #00000090;
+    background-color: hsla(0, 0%, 0%, 0.565);
+    text-align: center;
     color: #fff;
 }
 
 .version-entry {
-    width: 64px;
+    width: 72px;
     padding: 4px 12px;
 }
 

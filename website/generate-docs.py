@@ -224,7 +224,8 @@ def previous_menu(c, t, versions, vs):
         return ''
 
     # Build menu
-    menu = '<div id="previous-menu">'
+    menu = '<div id="version-text">Version:</div>'
+    menu += '<div id="previous-menu">'
 
     # Plain text for the version being viewed
     menu += f'<div class="version-entry" id="version-this">{vs}</div>'
@@ -342,6 +343,10 @@ def combine_labels(template_path, versions):
                 combined_labels += definition['metadata']['labels']
 
     combined_labels = list(set(combined_labels))
+
+    # Remove platform labels
+    combined_labels = [l for l in combined_labels if not l.startswith('platform:')]
+
     combined_labels.sort()
     return combined_labels
 
