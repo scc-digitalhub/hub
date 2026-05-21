@@ -130,11 +130,25 @@ function renderActiveFilters() {
   `).join("");
 }
 
+function sortResults(a, b) {
+  if ( a.metadata.name.toLowerCase() < b.metadata.name.toLowerCase() ){
+    return -1;
+  }
+  if ( a.metadata.name.toLowerCase() > b.metadata.name.toLowerCase() ){
+    return 1;
+  }
+  return 0;
+}
+
+
 function renderResults(results) {
   if (!results.length) {
     resultsEl.innerHTML = `<div class="no-results">No results found.</div>`;
     return;
   }
+
+  // Sort
+  results.sort(sortResults);
 
   resultsEl.innerHTML = results.map(fn => `
     <div class="result-card">

@@ -14,7 +14,7 @@
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -45,17 +45,17 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/colors.css">
+      <link rel="stylesheet" href="../../stylesheets/colors.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/overrides.css">
+      <link rel="stylesheet" href="../../stylesheets/overrides.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/search.css">
+      <link rel="stylesheet" href="../../stylesheets/search.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/template-metadata.css">
+      <link rel="stylesheet" href="../../stylesheets/template-metadata.css">
     
-      <link rel="stylesheet" href="../../../stylesheets/template-page.css">
+      <link rel="stylesheet" href="../../stylesheets/template-page.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#document-classifier-training-with-bert" class="md-skip">
+        <a href="#llm-protection-guardrail" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="DH Hub" class="md-header__button md-logo" aria-label="DH Hub" data-md-component="logo">
+    <a href="../.." title="DH Hub" class="md-header__button md-logo" aria-label="DH Hub" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -218,7 +218,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="DH Hub" class="md-nav__button md-logo" aria-label="DH Hub" data-md-component="logo">
+    <a href="../.." title="DH Hub" class="md-nav__button md-logo" aria-label="DH Hub" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -248,7 +248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -306,10 +306,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Key Features
       
     </span>
   </a>
@@ -317,10 +317,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
+  <a href="#definitions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Definition
+        Definitions
       
     </span>
   </a>
@@ -340,10 +340,54 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#1-initialize-the-project" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example
+        1. Initialize the Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-set-up-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Set Up LLM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-up-guardrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Set Up Guardrail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-protect-llm-with-guardrail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Protect LLM with Guardrail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-protected-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test Protected Service
       
     </span>
   </a>
@@ -356,22 +400,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resources
+        Configuration
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Resources">
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage
+        Environment Variables
       
     </span>
   </a>
@@ -379,10 +423,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#guardrail-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Variables
+        Guardrail Settings
       
     </span>
   </a>
@@ -406,10 +450,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2.-Execution" class="md-nav__link">
+  <a href="#2.-Setting-up-LLM" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Execution¶
+        2. Setting up LLM¶
       
     </span>
   </a>
@@ -437,168 +481,126 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../../..">&lt; Browse</a><div id="template-title">Document Classifier Training With Bert Model (Python Job)</p>
+<p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM Protection Guardrail (Project)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><div id="previous-menu"><div class="version-entry" id="version-this">0.14</div><a class="version-entry version-other" href="..">latest</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/document-classifier-train-example/previous/0.14">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/document-classifier-train-example/previous/0.14/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/document-classifier-train-example:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Document Classifier Training With Bert Model (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>Document classifier relying on LLM implementations for different languages. This example uses Italian language BERT model (dbmdz/bert-base-italian-xxl-cased) for document classification. Built using HuggingFace transformers library.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">domain:</span>nlp</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">framework:</span>pytorch</span><span class="md-label"><span class="md-label-category">application:</span>pa</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest</div></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/projects/llm-protection-guardrail">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/projects/llm-protection-guardrail/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://projects/llm-protection-guardrail:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Protection Guardrail (Project)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This project shows how to protect LLMs with Guardrails using the digital hub platform Envoy Gateway infrastructure configured for guardrails management. The platform Envoy Gateway provides a robust framework for implementing guardrails in LLM applications.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.15</span><span class="md-label"><span class="md-label-category">type:</span>service</span><span class="md-label"><span class="md-label-category">phase:</span>utility</span><span class="md-label"><span class="md-label-category">framework:</span>guardrail</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="document-classifier-training-with-bert">Document Classifier Training with Bert</h1>
-<p>This function provides a machine learning function for training a document classification model using BERT (Bidirectional Encoder Representations from Transformers). The classifier can categorize documents into multiple classes based on their text contents.</p>
+<h1 id="llm-protection-guardrail">LLM Protection Guardrail</h1>
+<p>This project demonstrates how to protect Large Language Models (LLMs) with Guardrails using the Digital Hub platform's Envoy Gateway infrastructure configured for guardrails management.</p>
 <h2 id="overview">Overview</h2>
-<p>The function implements a multiclass sequence classifier fine-tuned on Italian text, designed to automatically assign taxonomy labels to documents based on their title, description, and objective.</p>
-<h2 id="features">Features</h2>
-<p>This function demonstrates a minimal example of a multiclass sequence classifier based on BERT base Italian, fine-tuned on a test dataset. The classifier is trained to suggest one or more labels from the taxonomy needed to categorize documents. When given a title, a description, and an objective, the classifier can predict the appropriate label from the taxonomy in use. The model can be further fine-tuned on new data.</p>
-<p>The training data looks like following table:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>text</th>
-<th>labels</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>text1....</td>
-<td>11</td>
-</tr>
-<tr>
-<td>1</td>
-<td>text2....</td>
-<td>12</td>
-</tr>
-</tbody>
-</table>
-<p>You can use the provided <a href="https://raw.githubusercontent.com/tn-aixpa/document-classifier/refs/heads/main/src/train_data.csv">sample training dataset</a>. It is also used in the embedded script as training and validation dataset. Ensure that your dataset includes a <code>text</code> column containing the document's contents and a <code>labels</code> column with the corresponding category labels. The dataset should be balanced, meaning each label should have a similar number of examples, to avoid bias during training.</p>
-<h2 id="definition">Definition</h2>
-<p>The function is defined with the following key components:</p>
+<p>The platform provides a robust framework for implementing guardrails in LLM applications. This project uses the GuardrailsAI framework with predefined validators to enforce constraints on LLM outputs, specifically blocking inappropriate requests using the Toxic Language validator.</p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><strong>Handler</strong>: train (The entry point method that processes training requests)</li>
-<li><strong>Embedded</strong>: The training logic is embedded directly in the function definition, including data preprocessing, model training and evaluation steps</li>
-<li><strong>Parameters</strong>:<ul>
-<li><strong>target_model_name</strong>: Name of the model to save</li>
-<li><strong>num_train_epochs</strong>: Number of training epochs</li>
-<li><strong>per_device_train_batch_size</strong>: Batch size for training</li>
-<li><strong>per_device_eval_batch_size</strong>: Batch size for evaluation</li>
-<li><strong>gradient_accumulation_steps</strong>: Number of steps to accumulate gradients</li>
-<li><strong>weight_decay</strong>: Weight decay for regularization</li>
-<li><strong>learning_rate</strong>: Learning rate for optimization</li>
-<li><strong>lr_scheduler_type</strong>: Type of learning rate scheduler</li>
+<li><strong>LLM Serving</strong>: Deploy any LLM with OpenAI-compatible API support</li>
+<li><strong>Guardrail Protection</strong>: Implement pre/post-processing logic using Envoy Gateway extensions</li>
+<li><strong>Toxic Language Detection</strong>: Block responses containing toxic language</li>
+<li><strong>Easy Integration</strong>: Seamless integration with Digital Hub platform</li>
 </ul>
-</li>
-<li><strong>Outputs</strong>: <ul>
-<li>Trained BERT-based classification model</li>
-<li>Training metrics and evaluation results</li>
-</ul>
-</li>
-</ul>
-<h2 id="usage">Usage</h2>
-<p>To use this function for training a document classifier:</p>
+<h2 id="definitions">Definitions</h2>
 <ol>
-<li>Prepare your dataset in CSV format with <code>text</code> and <code>labels</code> columns</li>
-<li>Configure the training parameters according to your requirements</li>
-<li>Call the function with your dataset and parameters</li>
-<li>The function will output a trained model and evaluation metrics</li>
+<li><strong>LLM Function</strong> (<code>llm</code>)</li>
+<li>Text generation service using Gemma3 model</li>
+<li>Serves models via OpenAI-compatible API</li>
+<li>
+<p>Engine: OLlama</p>
+</li>
+<li>
+<p><strong>Guardrail Function</strong> (<code>toxic-guardrail</code>)</p>
+</li>
+<li>GuardrailsAI-based guardrail implementation</li>
+<li>Validates input prompts for toxic language</li>
+<li>
+<p>Prevents harmful content from being processed</p>
+</li>
+<li>
+<p><strong>Envoy Gateway</strong></p>
+</li>
+<li>Routes traffic through the guardrail service</li>
+<li>Implements ExtProc extension for traffic control</li>
+<li>Provides protected endpoint for model access</li>
 </ol>
-<h3 id="example">Example</h3>
-<p><div class="highlight"><pre><span></span><code>    <span class="c1"># Import the function</span>
-   <span class="n">function_doc</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;document-classifier-training-llm-example&quot;</span><span class="p">)</span>
+<h2 id="usage">Usage</h2>
+<h3 id="1-initialize-the-project">1. Initialize the Project</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>   <span class="n">func_b</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">)</span>   
+<h3 id="2-set-up-llm">2. Set Up LLM</h3>
+<div class="highlight"><pre><span></span><code><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">)</span>
+<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get the base URL and test the LLM</span>
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">openai</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+
+<span class="c1"># Test LLM is running</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/completions&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span> <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xa100&quot;</span><span class="p">,</span>
-    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;target_model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;document-classifier&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_train_epochs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;per_device_train_batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;per_device_eval_batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;gradient_accumulation_steps&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;weight_decay&quot;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
-        <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span>
-        <span class="s2">&quot;lr_scheduler_type&quot;</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span>
-    <span class="p">},</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mem&quot;</span><span class="p">:</span> <span class="s2">&quot;6Gi&quot;</span><span class="p">},</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train-volume&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/local-data&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;10Gi&quot;</span>
-        <span class="p">}}],</span>
-        <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HF_HOME&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;/local-data/huggingface&quot;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;TRANSFORMERS_CACHE&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>  <span class="s2">&quot;/local-data/huggingface&quot;</span><span class="p">}</span>
-        <span class="p">],</span>
-        <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div></p>
-<p>The trained model will be logged with the configured name <code>document-classifier</code> and can be used for classifying new documents into the predefined categories.</p>
-<h2 id="resources">Resources</h2>
-<p>The function requires the following computational resources for optimal training performance:</p>
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Recommended</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GPU</strong></td>
-<td><code>1x A100</code></td>
-<td>High-performance GPU for accelerated BERT training.</td>
-</tr>
-<tr>
-<td><strong>Memory</strong></td>
-<td><code>6Gi</code></td>
-<td>Memory allocated to the training job.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="storage">Storage</h3>
-<p>The function uses persistent storage for caching model weights and dependencies:</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>volume_type</code></td>
-<td><code>persistent_volume_claim</code></td>
-<td>Persistent storage resource.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>train-volume</code></td>
-<td>Volume identifier for training data and models.</td>
-</tr>
-<tr>
-<td><code>mount_path</code></td>
-<td><code>/local-data</code></td>
-<td>Directory inside the container where the volume is mounted.</td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td><code>10Gi</code></td>
-<td>Allocated storage capacity.</td>
-</tr>
-</tbody>
-</table>
+<h3 id="3-set-up-guardrail">3. Set Up Guardrail</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add Guardrails API Key as a secret</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;GUARDRAILS_API_KEY&quot;</span><span class="p">,</span> <span class="n">secret_value</span><span class="o">=</span><span class="s2">&quot;&lt;YOUR_API_KEY&gt;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get guardrail function</span>
+<span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;toxic-guardrail&quot;</span><span class="p">)</span>
+
+<span class="c1"># Build and serve guardrail with required dependencies</span>
+<span class="n">build_run</span> <span class="o">=</span> <span class="n">guardrail_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GUARDRAILS_API_KEY&quot;</span><span class="p">],</span>
+    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;/opt/nuclio/uv/uv pip install --system typer==0.9.0 click==8.1.7 guardrails-ai==0.5.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;apt-get update &amp;&amp; apt-get install -y git&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--mount=type=secret,id=GUARDRAILS_API_KEY,env=GUARDRAILS_API_KEY guardrails configure --enable-metrics --enable-remote-inferencing --token $GUARDRAILS_API_KEY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;guardrails hub install hub://guardrails/toxic_language&quot;</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">guardrail_run</span> <span class="o">=</span> <span class="n">build_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-protect-llm-with-guardrail">4. Protect LLM with Guardrail</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Deploy LLM with Envoy Gateway extension for guardrail protection</span>
+<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[{</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;envoygw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;guardrails&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">guardrail_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]]</span>
+    <span class="p">}</span>
+<span class="p">}])</span>
+
+<span class="c1"># Get protected endpoint</span>
+<span class="n">PROTECTED_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">gatewayInfo</span><span class="p">[</span><span class="s1">&#39;gatewayEndpoint&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/v1&quot;</span>
+</code></pre></div>
+<h3 id="5-test-protected-service">5. Test Protected Service</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test with toxic language (will be blocked)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;My landlord is an asshole!&quot;</span>
+<span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PROTECTED_ENDPOINT</span><span class="si">}</span><span class="s2">/completions&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Should be blocked by guardrail</span>
+</code></pre></div>
+<p>For detailed step-by-step walkthrough, see the usage notebook.</p>
+<h2 id="configuration">Configuration</h2>
 <h3 id="environment-variables">Environment Variables</h3>
-<p>The following environment variables are configured for efficient model caching:</p>
 <ul>
-<li><strong>HF_HOME</strong>: <code>/local-data/huggingface</code> - Hugging Face cache directory</li>
-<li><strong>TRANSFORMERS_CACHE</strong>: <code>/local-data/huggingface</code> - Transformers library cache directory</li>
+<li><code>MAIN_MODEL_BASE_URL</code>: Base URL of the LLM API</li>
+<li><code>OPENAI_API_KEY</code>: API key for OpenAI-compatible API access</li>
+<li><code>GUARDRAILS_API_KEY</code>: API key for Guardrails AI hub access</li>
 </ul>
-<p>These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.</p>
+<h3 id="guardrail-settings">Guardrail Settings</h3>
+<ul>
+<li><strong>Validator</strong>: Toxic Language</li>
+<li><strong>Threshold</strong>: 0.5</li>
+<li><strong>Validation Mode</strong>: Sentence-level</li>
+<li><strong>On Failure</strong>: Exception (blocks request)</li>
+</ul>
+<p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8404,7 +8406,7 @@ a.anchor-link {
 
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db437dfe">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5a28328-e3d0-427a-81ea-4da7370f3308">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8412,22 +8414,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context for the Project, if it has not already been created. The project serves as a placeholder for the code, data, and management of data operations inside the platform.</p>
+<h2 id="1.-Initialize-the-project">1. Initialize the project<a class="anchor-link" href="#1.-Initialize-the-project">¶</a></h2><p>Create the working context for the Project, if it has not already been created. The project serves as a placeholder for the code, data, and management of data operations inside the Digitalhub platform.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22976efc-003a-4170-bcf0-6a33ac84e76a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3f4ab329-2cf3-4c85-a510-e0f31261853f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
 <pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 <span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8436,7 +8438,7 @@ a.anchor-link {
 </div>
 </body>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f207c763">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9483c7a1-c071-4f36-9ca1-b29377de6866">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8449,7 +8451,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=84810d26-ca0c-41c4-ad99-1cc57afe2fd8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8457,25 +8459,12 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
+<h2 id="2.-Setting-up-LLM">2. Setting up LLM<a class="anchor-link" href="#2.-Setting-up-LLM">¶</a></h2><p>NeMo guardrails can be used with any LLM that supports the OpenAI-compatible APIs. It is possible to use external LLM API or deploy a custom LLM using the LLM Serving Runtimes. Fetch the "llm" operation in the project.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98bc1125">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">
-</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "train" operation in the project.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e326e2ee">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8484,7 +8473,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">function_doc</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-train"</span><span class="p">)</span>
+<pre><span></span><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"llm"</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8492,18 +8481,33 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=35fcd50e-29cc-45f7-b385-e5807ebc87b4">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4003c0d4-e78b-4c0b-bde2-1c5b57e2de4d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Build the function as shown below.</p>
+<p>Check the function is up and running: see the model exposed.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9fd6a0b7-c20d-40a3-baef-7dfc4dfb7692">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8511,122 +8515,281 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s2">"url"</span><span class="p">]</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/models"</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=35051946-62d2-4940-9eda-c0507ff28b22">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Runt the built function as shown below.This will trigger the model training job on the platform and the model 'document-classifier' get logged on to the platform.</p>
+<p>You should see the list of models exposed by Kube AI including the deployed model.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fe257318">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run the function with default configuration</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=122e562c">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'job'</span><span class="p">,</span>
-                     <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span>
-                     <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
-                         <span class="s2">"target_model_name"</span><span class="p">:</span> <span class="s2">"document-classifier"</span><span class="p">,</span>
-                         <span class="s2">"num_train_epochs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                         <span class="s2">"per_device_train_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                         <span class="s2">"per_device_eval_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-                         <span class="s2">"gradient_accumulation_steps"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                         <span class="s2">"weight_decay"</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
-                         <span class="s2">"learning_rate"</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span>
-                         <span class="s2">"lr_scheduler_type"</span><span class="p">:</span> <span class="s1">'linear'</span>
-                     <span class="p">},</span>
-                     <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
-                     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-                         <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-                         <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
-                         <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/local-data"</span><span class="p">,</span>
-                         <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-                             <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"10Gi"</span>
-                         <span class="p">}}],</span>
-                     <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
-                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/local-data/huggingface"</span><span class="p">},</span>
-                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/local-data/huggingface"</span><span class="p">}</span>
-                     <span class="p">],</span>                     
-                     <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c15aa6f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b933f2f9-8a5a-48df-82c8-e44b199d15e0">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Configure-and-Run-with-Custom-Parameters">Configure and Run with Custom Parameters<a class="anchor-link" href="#Configure-and-Run-with-Custom-Parameters">¶</a></h2><p>The function can be executed with different parameters to customize the training process. Modify the parameters in the <code>run()</code> call above to adjust:</p>
+<p>Test the function is up and running: make a completion call</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0cb8e9b7-7770-4380-ac59-755f17417f8c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">openai</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"Hello"</span>
+  <span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/completions"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=11e267ee-8499-4c0a-aee8-c5cf21f6314b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="3.-Setting-up-the-Guardrail">3. Setting up the Guardrail<a class="anchor-link" href="#3.-Setting-up-the-Guardrail">¶</a></h2><p>We will use a Guardrail implementation based on GuardrailsAI framework. The framework targets LLM applications and provides a collection of predefined validators that can be used to enforce constraints on the output of the LLM.</p>
+<p>Specifically, the function uses Toxic Language validator and blocks the inappropriate requests.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9ddf93f1-76a1-4c46-bbc9-188a4bf2e007">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"toxic-guardrail"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e887e2a-fda8-46e2-b8e4-6f872680381b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Note that the deployment relies on the environment that defines the details of the LLM. We use OpenAI compatible API so the model engine is set to openai. We also use the MAIN_MODEL_BASE_URL to define the base URL of the LLM API. Finally, we use the OPENAI_API_KEY to define the API key to access the OpenAI API (necessary for the API to work correctly).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f68073a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="4.-Build-the-function-image">4. Build the function image<a class="anchor-link" href="#4.-Build-the-function-image">¶</a></h2><p>The GuardrailsAI library is based on predefined or custom guardrail validators. Predefined validators may be obtained from the Guardrails AI hub, downloaded and deployed. In this scenario, we will use predefined guardrails that should be integrated in the service. To make it efficient, the guardrails should be integrated in the underlying container image and we will build it for this function.</p>
+<p>First, we need an API KEY from Guardrails AI to access the hub. We will add to the project as a secret.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b06369b2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">secret</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"GUARDRAILS_API_KEY"</span><span class="p">,</span> <span class="n">secret_value</span><span class="o">=</span><span class="s2">"value"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74d18833">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To build the image for the function we will need to add some instructions to use Git, to authenticate to the hub, and to install the specific validator (toxic_language).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2fac3413-9025-4514-ab38-6f7234008030">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">build_run</span> <span class="o">=</span> <span class="n">guardrail_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span> 
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"GUARDRAILS_API_KEY"</span><span class="p">],</span>
+    <span class="n">instructions</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">"/opt/nuclio/uv/uv pip install --system  typer==0.9.0 click==8.1.7 guardrails-ai==0.5.0"</span><span class="p">,</span>
+        <span class="s2">"apt-get update &amp;&amp; apt-get install -y git"</span><span class="p">,</span>
+        <span class="s2">"--mount=type=secret,id=GUARDRAILS_API_KEY,env=GUARDRAILS_API_KEY guardrails configure --enable-metrics --enable-remote-inferencing --token $GUARDRAILS_API_KEY"</span><span class="p">,</span>
+        <span class="s2">"guardrails hub install hub://guardrails/toxic_language"</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6f6d3650-2c62-41cc-99a8-2124ed27eed9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Check the function is up and running. Then, we need to deploy the guard and protect LLM with it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8e3b81d4-38f9-4c84-9b18-cb79fca83c2e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">guardrail_run</span> <span class="o">=</span> <span class="n">build_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c4eab65-9d6c-4963-ba6f-7cb9bd5d187d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="5.-Use-the-Guardrail-to-Protect-the-API">5. Use the Guardrail to Protect the API<a class="anchor-link" href="#5.-Use-the-Guardrail-to-Protect-the-API">¶</a></h2><p>To protect the service instance with guardrails, we rely on the corresponding gateway and use Envoy Gateway extension for the runs. Specifically, when the service enable the extension, we obtain:</p>
 <ul>
-<li><strong>target_model_name</strong>: Name of the model to save</li>
-<li><strong>num_train_epochs</strong>: Number of training epochs</li>
-<li><strong>per_device_train_batch_size</strong>: Batch size for training</li>
-<li><strong>per_device_eval_batch_size</strong>: Batch size for evaluation</li>
-<li><strong>gradient_accumulation_steps</strong>: Number of steps to accumulate gradients</li>
-<li><strong>weight_decay</strong>: Weight decay for regularization</li>
-<li><strong>learning_rate</strong>: Learning rate for optimization</li>
-<li><strong>lr_scheduler_type</strong>: Type of learning rate scheduler</li>
+<li>the service exposed also behind the preconfigured service Envoy gateway (see the gatewayInfo in service status);</li>
+<li>if the guardrails are configured, the gateway controls the traffic using the ExtProc extension that interacts with the guardrails to implement pre/post processing logic.</li>
 </ul>
-<p>You can also adjust resource allocation (mem, GPU profile) and storage (volumes) based on your requirements.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f98cd22">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fa2af1ba-e182-495a-b29a-40d904c0a5c9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[{</span>
+    <span class="s2">"kind"</span><span class="p">:</span> <span class="s2">"envoygw"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"gw"</span><span class="p">,</span>
+    <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"guardrails"</span><span class="p">:</span> <span class="p">[</span><span class="n">guardrail_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]]</span>
+    <span class="p">}</span>
+<span class="p">}])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9febfbba">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
+<p>The protected endpoint of model gateway may be obtained as follows:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=dbec8cc9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">PROTECTED_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"http://</span><span class="si">{</span><span class="n">run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">gatewayInfo</span><span class="p">[</span><span class="s1">'gatewayEndpoint'</span><span class="p">]</span><span class="si">}</span><span class="s2">/v1"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd4d9c2f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Test the protected service:</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a704eb47">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">openai</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"My landlord is an asshole!"</span>
+  <span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"http://</span><span class="si">{</span><span class="n">PROTECTED_ENDPOINT</span><span class="si">}</span><span class="s2">/completions"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">res</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -8683,12 +8846,12 @@ a.anchor-link {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

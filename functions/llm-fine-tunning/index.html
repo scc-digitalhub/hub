@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm-ollama-serve" class="md-skip">
+        <a href="#llm-fine-tuning-function" class="md-skip">
           Skip to content
         </a>
       
@@ -295,6 +295,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialize-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initialize Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deploy-training-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Training Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-training-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Training Job
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Configuration Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#features" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -306,24 +389,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Definition
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        Environment Variables
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -339,10 +439,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2.-Execution" class="md-nav__link">
+  <a href="#Prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Execution¶
+        Prerequisites¶
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2.-Deploy-Training-Function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Training Function¶
       
     </span>
   </a>
@@ -370,58 +481,175 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM Ollama Serve (Kubeai-Text Serve)</p>
+<p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM Fine-Tuning (Python Job)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest</div></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-ollama-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-ollama-serve/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-ollama-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Ollama Serve (Kubeai-Text Serve)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates how to deploy and interact with the Llama 3.2 model using Ollama inside the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>service</span><span class="md-label"><span class="md-label-category">phase:</span>model-serving</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest</div><a class="version-entry version-other" href="./1.0.0">1.0.0</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-fine-tunning">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-fine-tunning/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-fine-tunning:1.0.1</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Fine-Tuning (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function serves as a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It provides a structured approach to training and logging LLMs, allowing users to easily customize the training process with their own datasets and configurations. The function is designed to be flexible and scalable, making it suitable for various fine-tuning tasks in natural language processing.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.1</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="llm-ollama-serve">LLM OLLAMA Serve</h1>
-<p>This function demonstrates how to deploy and interact with the LLM model by sending a prompt and receiving a generated response inside the platform. The function connects to the Ollama runtime, specifies the llama3.2 model, submits user input, and returns the model’s output, illustrating how applications can integrate local LLM intelligence for secure and efficient AI-powered features.</p>
-<h2 id="features">Features</h2>
-<p>The <code>llm-ollama-serve</code> function includes the following features:</p>
-<ul>
-<li><strong>Text Generation</strong>: Generates human-like text based on the provided prompt.</li>
-<li><strong>Model Customization</strong>: Allows users to specify different models for varied outputs.</li>
-<li><strong>Real-time Interaction</strong>: Supports real-time requests and responses for dynamic applications.</li>
-<li><strong>Integration Ready</strong>: Easily integrates with existing applications and workflows.</li>
-<li><strong>Secure Execution</strong>: Runs within the platform for enhanced security.</li>
-</ul>
-<h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>llm_OLlama_func = project.new_function(
-    name=&quot;llm-ollama-serve&quot;,
-    kind=&quot;kubeai-text&quot;,
-    model_name=&quot;llm-ollama-model&quot;,
-    url=&quot;ollama://llama3.2:1b&quot;,
-    engine=&#39;OLlama&#39;,
-    features=[&#39;TextGeneration&#39;]
-)
-</code></pre></div>
-<h2 id="usage">Usage</h2>
-<p>To use the <code>llm-ollama-serve</code> function, follow these steps:</p>
+<h1 id="llm-fine-tuning-function">LLM Fine-Tuning Function</h1>
+<h2 id="overview">Overview</h2>
+<p>This function provides a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It enables structured training and logging of LLMs, allowing you to customize the training process with your own datasets and configurations.</p>
+<h2 id="prerequisites">Prerequisites</h2>
 <ol>
-<li>
-<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
-</li>
-<li>
-<p><strong>Start the Serve</strong>: Use the following code to start</p>
-<div class="highlight"><pre><span></span><code><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong>Invoke the Function</strong>: Use the following code to send a request to the function and receive a response.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
-
-<span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;Describe MLOps&#39;</span><span class="p">}</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/v1/completions&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:&quot;</span><span class="p">)</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</li>
+<li><strong>Hugging Face Token</strong>: Create a token at <a href="https://huggingface.co/settings/tokens">Hugging Face Settings → Access Tokens</a></li>
+<li><strong>Store as Secret</strong>: Save the token as a project secret named <code>HF_TOKEN</code></li>
+<li><strong>GPU Resource</strong>: Ensure sufficient GPU resources (e.g., 1xV100) are available</li>
 </ol>
-<p>Notes: For detailed usage, check the usage notebook.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="1-initialize-project">1. Initialize Project</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
+
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-deploy-training-function">2. Deploy Training Function</h3>
+<div class="highlight"><pre><span></span><code><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;train-llm&quot;</span><span class="p">)</span>
+<span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-run-training-job">3. Run Training Job</h3>
+<div class="highlight"><pre><span></span><code><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xV100&quot;</span><span class="p">,</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;model_id&quot;</span><span class="p">:</span> <span class="s2">&quot;meta-llama/Llama-3.1-8B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;llmpa-tracked&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hf_dataset_name&quot;</span><span class="p">:</span> <span class="s2">&quot;team-bay/data-science-qa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;train_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dev_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;num_epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HF_TOKEN&quot;</span><span class="p">],</span>
+    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;volume-llmpa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/local_data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;50Gi&quot;</span><span class="p">}</span>
+    <span class="p">}]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="key-configuration-parameters">Key Configuration Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_id</code></td>
+<td>str</td>
+<td>-</td>
+<td>Hugging Face model identifier</td>
+</tr>
+<tr>
+<td><code>num_epochs</code></td>
+<td>int</td>
+<td>10</td>
+<td>Number of training epochs</td>
+</tr>
+<tr>
+<td><code>learning_rate</code></td>
+<td>float</td>
+<td>5e-5</td>
+<td>Learning rate for optimization</td>
+</tr>
+<tr>
+<td><code>lora_rank</code></td>
+<td>int</td>
+<td>16</td>
+<td>LoRA rank for adapter training</td>
+</tr>
+<tr>
+<td><code>quantization</code></td>
+<td>int</td>
+<td>4</td>
+<td>0=none, 4=4-bit quantization</td>
+</tr>
+<tr>
+<td><code>train_batch_size</code></td>
+<td>int</td>
+<td>3</td>
+<td>Training batch size</td>
+</tr>
+<tr>
+<td><code>eval_batch_size</code></td>
+<td>int</td>
+<td>2</td>
+<td>Evaluation batch size</td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>LoRA Adaptation</strong>: Efficient fine-tuning with Low-Rank Adapters</li>
+<li><strong>Quantization Support</strong>: 4-bit quantization for memory efficiency</li>
+<li><strong>Early Stopping</strong>: Prevents overfitting with configurable patience</li>
+<li><strong>Logging Integration</strong>: Weights &amp; Biases (wandb) support for experiment tracking</li>
+<li><strong>GPU Optimized</strong>: Automatic CUDA acceleration</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p>The function requires the following computational resources for optimal training performance:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Recommended</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU</strong></td>
+<td><code>1xA5000</code></td>
+<td>High-performance GPU for accelerated BERT training.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storage">Storage</h3>
+<p>The function uses persistent storage for caching model weights and dependencies:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>volume_type</code></td>
+<td><code>persistent_volume_claim</code></td>
+<td>Persistent storage resource.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>volume-llmpa</code></td>
+<td>Volume identifier for training data and models.</td>
+</tr>
+<tr>
+<td><code>mount_path</code></td>
+<td><code>/app/local-data</code></td>
+<td>Directory inside the container where the volume is mounted.</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>20Gi</code></td>
+<td>Allocated storage capacity.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>The following environment variables are configured for efficient model caching:</p>
+<ul>
+<li><strong>HF_HOME</strong>: <code>/app/local-data/huggingface</code> - Hugging Face cache directory</li>
+<li><strong>TRANSFORMERS_CACHE</strong>: <code>/app/local-data/huggingface</code> - Transformers library cache directory</li>
+</ul>
+<p>These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.</p>
+<p>For more detailed usage see the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8227,7 +8455,7 @@ a.anchor-link {
 
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db437dfe">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5b4ce7f-4f95-4c61-b2d4-c14fa177d6e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8239,7 +8467,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22976efc-003a-4170-bcf0-6a33ac84e76a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=882d4d7e-cbf4-49f7-81ef-be5c15fc93c5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8259,7 +8487,7 @@ a.anchor-link {
 </div>
 </body>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f207c763">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d19cfce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8272,7 +8500,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62998a6a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8280,12 +8508,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
+<h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h2><p>Before running the dataset creation and fine-tuning jobs, create a Hugging Face access token and store it as a project secret named <code>HF_TOKEN</code>.</p>
+<ol>
+<li>Open <a href="https://huggingface.co/settings/tokens">Hugging Face Settings → Access Tokens</a>.</li>
+<li>Generate a new token.</li>
+<li>Assign the required permissions for model and dataset access.</li>
+<li>Copy the token value.</li>
+<li>In the current project, create a secret named <code>HF_TOKEN</code> and paste the token as its value.</li>
+</ol>
+<blockquote>
+<p>The jobs below use <code>HF_TOKEN</code> to authenticate against Hugging Face. Do not hardcode the token in the notebook or source files.</p>
+</blockquote>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98bc1125">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=042ae423-444c-4367-a805-47dd3ff83609">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8293,12 +8531,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "llm-ollama-serve" operation in the project.</p>
+<h2 id="2.-Deploy-Training-Function">2. Deploy Training Function<a class="anchor-link" href="#2.-Deploy-Training-Function">¶</a></h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f47b0e5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Fetch the "train" operation in the project. Train function is a python job that performs LLM fine tuning from a predefined HuggingFace model and dataset.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fb51b4cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8307,7 +8558,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">llm_OLlama_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s1">'llm-ollama-serve'</span><span class="p">)</span>
+<pre><span></span><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"train-llm"</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8315,51 +8566,28 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca54356f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63fb316c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Alternatively, one can create new function</p>
+<p>Build the function as shown below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bf8a78eb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">llm_OLlama_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"llm-ollama-serve"</span><span class="p">,</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"kubeai-text"</span><span class="p">,</span>
-    <span class="n">model_name</span><span class="o">=</span><span class="s2">"model"</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="s2">"ollama://llama3.2:1b"</span><span class="p">,</span>
-    <span class="n">engine</span><span class="o">=</span><span class="s1">'OLlama'</span><span class="p">,</span>
-    <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">'TextGeneration'</span><span class="p">]</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce9a3a72">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function with default configuration</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c222c97d">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=24354440">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8367,25 +8595,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e1d0475f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=263657cf-b9d7-420c-be26-acfa08844072">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Wait for job to finish. The state of 'serve' run can be viewed running the cell below.</p>
+<h2 id="3.-Perform-Training">3. Perform Training<a class="anchor-link" href="#3.-Perform-Training">¶</a></h2><p>Training parameters define the model and dataset to be used. Training run refers to HF_TOKEN secret and expects a volume to be created of an appropriate size.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3fa217ef">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5aaa2f3b-55cf-4c55-b0c7-f02aa2520476">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8393,228 +8621,27 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Service status:"</span><span class="p">,</span> <span class="n">service</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=412f8b71">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)[</span><span class="s1">'status'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Model status:"</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6fab3f8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Runs' menu , select the corresponding 'run' instance and inspect the logs using 'Logs' tab.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dba63fb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To fetch the deployed service URL and model ID, you can access the relevant fields from the <code>llm_run</code> object after the function has been run. The service URL is available under the <code>service</code> key, and the model ID can be found under the <code>openai</code> key in the status dictionary. Use the following code to retrieve and print these values:</p>
-<ul>
-<li><code>CHAT_URL</code> will contain the service URL.</li>
-<li><code>CHAT_MODEL</code> will contain the model ID.</li>
-</ul>
-<p>These variables can then be used for making API requests or further testing.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce9e1e1a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">CHAT_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
-<span class="n">CHAT_MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"openai"</span><span class="p">][</span><span class="s2">"model"</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"service </span><span class="si">{</span><span class="n">CHAT_URL</span><span class="si">}</span><span class="s2"> with model </span><span class="si">{</span><span class="n">CHAT_MODEL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c63fb2fb">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Test-the-API">3. Test the API<a class="anchor-link" href="#3.-Test-the-API">¶</a></h2>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a362369b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To invoke the deployed API, you need to provide the model identifier and a prompt. This is done by constructing a JSON payload with the required fields and sending it to the service endpoint.</p>
-<p><strong>Steps:</strong></p>
-<ol>
-<li><p>Retrieve the model name and prepare the JSON payload:</p>
-<ul>
-<li><code>model</code>: The model ID obtained from the deployment.</li>
-<li><code>prompt</code>: The text prompt you want the model to complete or respond to.</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
-</pre></div>
-</li>
-<li><p>Invoke the API using the service URL and payload:</p>
-<ul>
-<li>Use the <code>.invoke()</code> method with the <code>json</code> argument and the appropriate endpoint.</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</pre></div>
-</li>
-<li><p>Process and display the response as needed.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Response:"</span><span class="p">)</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6731bb57">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">Response</span><span class="p">:</span>
-<span class="p">{</span> <span class="s1">'choices'</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s1">'finish_reason'</span><span class="p">:</span> <span class="s1">'stop'</span><span class="p">,</span>
-                 <span class="s1">'index'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                 <span class="s1">'text'</span><span class="p">:</span> <span class="s1">'MLOps (Machine Learning Operand Model) refers to the '</span>
-                         <span class="s1">'practice of turning machine learning models into '</span>
-                         <span class="s1">'deployable components that can be easily integrated '</span>
-                         <span class="s1">'into various applications, processes, and systems. '</span>
-                         <span class="s1">'The term "operand" implies the idea of operations or '</span>
-                         <span class="s1">'actions that can be performed on data.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'In the context of machine learning, MLOps involves a '</span>
-                         <span class="s1">'series of steps that transform a predictive model '</span>
-                         <span class="s1">'into a ready-to-apply solution:</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'1. **Model definition**: Defining the algorithm, '</span>
-                         <span class="s1">'architecture, and hyperparameters of the machine '</span>
-                         <span class="s1">'learning model.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'2. **Data preparation**: Collecting, preprocessing, '</span>
-                         <span class="s1">'and preparing the data required for training and '</span>
-                         <span class="s1">'testing the model.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'3. **Model training**: Training the machine learning '</span>
-                         <span class="s1">'model using the prepared data.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'4. **Model deployment**: Deploying the trained model '</span>
-                         <span class="s1">'into a production-ready environment, such as a cloud '</span>
-                         <span class="s1">'platform, on-premises infrastructure, or edge '</span>
-                         <span class="s1">'device.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'5. **Model monitoring**: Monitoring the performance '</span>
-                         <span class="s1">'of the deployed model in real-time and making '</span>
-                         <span class="s1">'adjustments as needed.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'6. **Model updates**: Updating the model with new '</span>
-                         <span class="s1">'data, techniques, or algorithms to improve its '</span>
-                         <span class="s1">'accuracy and performance.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'The benefits of MLOps include:</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Improved collaboration: By breaking down machine '</span>
-                         <span class="s1">'learning into smaller, manageable tasks, teams can '</span>
-                         <span class="s1">'work together more efficiently.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Faster development: MLOps enables rapid '</span>
-                         <span class="s1">'prototyping, testing, and deployment of models, '</span>
-                         <span class="s1">'reducing the time-to-market for new applications.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Increased model transparency: MLOps data flows are '</span>
-                         <span class="s1">'easily configurable and visible, making it easier to '</span>
-                         <span class="s1">'understand how the model works.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'*Reduced training time: Automated pipelines can '</span>
-                         <span class="s1">'automate many data preparation tasks, saving time '</span>
-                         <span class="s1">'and increasing productivity.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s2">"To implement MLOps effectively, you'll need:</span><span class="se">\n</span><span class="s2">"</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Good domain expertise in machine learning</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Tools like Jupyter Notebooks, TensorFlow, PyTorch, '</span>
-                         <span class="s1">'or scikit-learn</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Infrastructure for model deployment (e.g., Google '</span>
-                         <span class="s1">'Cloud AI Platform, Amazon SageMaker)</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'* Containerization technologies (e.g., Docker) to '</span>
-                         <span class="s1">'package models and their dependencies.</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span>
-                         <span class="s1">'By embracing MLOps principles, you can streamline '</span>
-                         <span class="s1">'your machine learning process, improve model '</span>
-                         <span class="s1">'performance, and accelerate time-to-market for new '</span>
-                         <span class="s1">'applications.'</span><span class="p">}],</span>
-  <span class="s1">'created'</span><span class="p">:</span> <span class="mi">1770724462</span><span class="p">,</span>
-  <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'cmpl-766'</span><span class="p">,</span>
-  <span class="s1">'model'</span><span class="p">:</span> <span class="s1">'model-b7f7d64f6b924b659845e9620405f86f'</span><span class="p">,</span>
-  <span class="s1">'object'</span><span class="p">:</span> <span class="s1">'text_completion'</span><span class="p">,</span>
-  <span class="s1">'system_fingerprint'</span><span class="p">:</span> <span class="s1">'fp_ollama'</span><span class="p">,</span>
-  <span class="s1">'usage'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'completion_tokens'</span><span class="p">:</span> <span class="mi">431</span><span class="p">,</span> <span class="s1">'prompt_tokens'</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span> <span class="s1">'total_tokens'</span><span class="p">:</span> <span class="mi">460</span><span class="p">}}</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+                       <span class="n">profile</span><span class="o">=</span><span class="s2">"1xA5000"</span><span class="p">,</span>
+                       <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                         <span class="s2">"model_id"</span><span class="p">:</span> <span class="s2">"meta-llama/Llama-3.1-8B"</span><span class="p">,</span>
+                         <span class="s2">"model_name"</span><span class="p">:</span> <span class="s2">"llmpa-tracked"</span><span class="p">,</span>
+                         <span class="s2">"hf_dataset_name"</span><span class="p">:</span> <span class="s2">"team-bay/data-science-qa"</span><span class="p">,</span>
+                         <span class="s2">"train_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+                         <span class="s2">"dev_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+                         <span class="s2">"num_epochs"</span><span class="p">:</span> <span class="mi">2</span>
+                         <span class="p">},</span>
+                       <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"HF_TOKEN"</span><span class="p">],</span>
+                       <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
+                          <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/app/local_data/huggingface"</span><span class="p">},</span>
+                          <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/app/local_data/huggingface"</span><span class="p">}</span>
+                          <span class="p">],</span>
+                       <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+                          <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+                          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-llmpa"</span><span class="p">,</span>
+                          <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/local_data"</span><span class="p">,</span>
+                          <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"20Gi"</span> <span class="p">}}]</span>
+                    <span class="p">)</span>
 </pre></div>
 </div>
 </div>

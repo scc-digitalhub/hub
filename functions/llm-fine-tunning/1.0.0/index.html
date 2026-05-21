@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cancer-classifier-training-mlflow-example" class="md-skip">
+        <a href="#llm-fine-tuning-function" class="md-skip">
           Skip to content
         </a>
       
@@ -295,10 +295,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Definition
+        Overview
       
     </span>
   </a>
@@ -306,13 +306,124 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usage
+        Prerequisites
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialize-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Initialize Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deploy-training-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Training Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-training-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Training Job
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Configuration Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -328,10 +439,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2.-Execution" class="md-nav__link">
+  <a href="#Prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Execution¶
+        Prerequisites¶
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2.-Deploy-Training-Function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deploy Training Function¶
       
     </span>
   </a>
@@ -359,56 +481,175 @@
 
 
 <div id="template-content">
-<p><a id="browse" href="./../../..">&lt; Browse</a><div id="template-title">Example Cancer Classifier Training With MLFLow (Python Job)</p>
+<p><a id="browse" href="./../../..">&lt; Browse</a><div id="template-title">LLM Fine-Tuning (Python Job)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><div id="previous-menu"><div class="version-entry" id="version-this">0.14</div><a class="version-entry version-other" href="..">latest</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/cancer-classifier-train-mlflow-example/previous/0.14">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/cancer-classifier-train-mlflow-example/previous/0.14/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/cancer-classifier-train-mlflow-example:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>Example Cancer Classifier Training With MLFLow (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>Train a cancer classifier ML model using MLFlow framework to structure and represent the model data. The trained model then can be deployed with the MLFlowServe framework or used for batch classifications loading it using the MLFlow framework. Digital health workers can leverage this service to enhance their document processing workflows, ensuring accurate and timely classification of official documents.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">framework:</span>sklearn</span><span class="md-label"><span class="md-label-category">application:</span>healthcare</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">1.0.0</div><a class="version-entry version-other" href="..">latest</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-fine-tunning/previous/1.0.0">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-fine-tunning/previous/1.0.0/definition.yaml">Definition</a><div id="hub-ref" class="md-cell-right"><button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-fine-tunning:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Fine-Tuning (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function serves as a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It provides a structured approach to training and logging LLMs, allowing users to easily customize the training process with their own datasets and configurations. The function is designed to be flexible and scalable, making it suitable for various fine-tuning tasks in natural language processing.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="cancer-classifier-training-mlflow-example">Cancer classifier Training (MLFlow example)</h1>
-<p>This is a minimal example on how to train a cancer classifier, using the MLFlow framework to structure and represent the model data. The trained model can then be deployed with the MLFlowServe framework, or used for batch classifications with the MLFlow framework.</p>
-<h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>from digitalhub_runtime_python import handler
+<h1 id="llm-fine-tuning-function">LLM Fine-Tuning Function</h1>
+<h2 id="overview">Overview</h2>
+<p>This function provides a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It enables structured training and logging of LLMs, allowing you to customize the training process with your own datasets and configurations.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li><strong>Hugging Face Token</strong>: Create a token at <a href="https://huggingface.co/settings/tokens">Hugging Face Settings → Access Tokens</a></li>
+<li><strong>Store as Secret</strong>: Save the token as a project secret named <code>HF_TOKEN</code></li>
+<li><strong>GPU Resource</strong>: Ensure sufficient GPU resources (e.g., 1xV100) are available</li>
+</ol>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="1-initialize-project">1. Initialize Project</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 
-from digitalhub import from_mlflow_run
-import mlflow
-
-from sklearn import datasets, svm
-from sklearn.model_selection import GridSearchCV
-
-@handler()
-def train(project):
-    mlflow.sklearn.autolog(log_datasets=True)
-
-    iris = datasets.load_iris()
-    parameters = {&quot;kernel&quot;: (&quot;linear&quot;, &quot;rbf&quot;), &quot;C&quot;: [1, 10]}
-    svc = svm.SVC()
-    clf = GridSearchCV(svc, parameters)
-
-    clf.fit(iris.data, iris.target)
-    run_id = mlflow.last_active_run().info.run_id
-
-    # utility to map mlflow run artifacts to model metadata
-    model_params = from_mlflow_run(run_id)
-
-    project.log_model(
-        name=&quot;model-mlflow&quot;,
-        kind=&quot;mlflow&quot;,
-        **model_params
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="usage">Usage</h2>
-<p>The example demonstrates:</p>
+<h3 id="2-deploy-training-function">2. Deploy Training Function</h3>
+<div class="highlight"><pre><span></span><code><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;train-llm&quot;</span><span class="p">)</span>
+<span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-run-training-job">3. Run Training Job</h3>
+<div class="highlight"><pre><span></span><code><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xV100&quot;</span><span class="p">,</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;model_id&quot;</span><span class="p">:</span> <span class="s2">&quot;meta-llama/Llama-3.1-8B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;llmpa-tracked&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hf_dataset_name&quot;</span><span class="p">:</span> <span class="s2">&quot;team-bay/data-science-qa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;train_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dev_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;num_epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">},</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HF_TOKEN&quot;</span><span class="p">],</span>
+    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;volume-llmpa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/local_data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;50Gi&quot;</span><span class="p">}</span>
+    <span class="p">}]</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="key-configuration-parameters">Key Configuration Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_id</code></td>
+<td>str</td>
+<td>-</td>
+<td>Hugging Face model identifier</td>
+</tr>
+<tr>
+<td><code>num_epochs</code></td>
+<td>int</td>
+<td>10</td>
+<td>Number of training epochs</td>
+</tr>
+<tr>
+<td><code>learning_rate</code></td>
+<td>float</td>
+<td>5e-5</td>
+<td>Learning rate for optimization</td>
+</tr>
+<tr>
+<td><code>lora_rank</code></td>
+<td>int</td>
+<td>16</td>
+<td>LoRA rank for adapter training</td>
+</tr>
+<tr>
+<td><code>quantization</code></td>
+<td>int</td>
+<td>4</td>
+<td>0=none, 4=4-bit quantization</td>
+</tr>
+<tr>
+<td><code>train_batch_size</code></td>
+<td>int</td>
+<td>3</td>
+<td>Training batch size</td>
+</tr>
+<tr>
+<td><code>eval_batch_size</code></td>
+<td>int</td>
+<td>2</td>
+<td>Evaluation batch size</td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
 <ul>
-<li>how to define a function that takes as input a <code>project</code> object, a context in which you can run functions and manage models, data and artifacts.</li>
-<li>how to fetch input data and train the model.</li>
-<li>how to save the trained model into the project.</li>
+<li><strong>LoRA Adaptation</strong>: Efficient fine-tuning with Low-Rank Adapters</li>
+<li><strong>Quantization Support</strong>: 4-bit quantization for memory efficiency</li>
+<li><strong>Early Stopping</strong>: Prevents overfitting with configurable patience</li>
+<li><strong>Logging Integration</strong>: Weights &amp; Biases (wandb) support for experiment tracking</li>
+<li><strong>GPU Optimized</strong>: Automatic CUDA acceleration</li>
 </ul>
-<p>The <code>mlflow-train-model</code> function is registered inside the platform core during the import and it can be fetched and executed.</p>
-<div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classifier-train-mlflow-example&quot;) 
-</code></pre></div>
-<p>This code fetches the created function that uses Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, code and handler are already embedded during the import from the .yaml file.</p>
-<p>Then, the function can be executed on the platform (or locally) as a single job.</p>
-<p>For more details, check the notebook.</p>
+<h2 id="resources">Resources</h2>
+<p>The function requires the following computational resources for optimal training performance:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Recommended</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPU</strong></td>
+<td><code>1xA5000</code></td>
+<td>High-performance GPU for accelerated BERT training.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storage">Storage</h3>
+<p>The function uses persistent storage for caching model weights and dependencies:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>volume_type</code></td>
+<td><code>persistent_volume_claim</code></td>
+<td>Persistent storage resource.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>volume-llmpa</code></td>
+<td>Volume identifier for training data and models.</td>
+</tr>
+<tr>
+<td><code>mount_path</code></td>
+<td><code>/app/local-data</code></td>
+<td>Directory inside the container where the volume is mounted.</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>20Gi</code></td>
+<td>Allocated storage capacity.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>The following environment variables are configured for efficient model caching:</p>
+<ul>
+<li><strong>HF_HOME</strong>: <code>/app/local-data/huggingface</code> - Hugging Face cache directory</li>
+<li><strong>TRANSFORMERS_CACHE</strong>: <code>/app/local-data/huggingface</code> - Transformers library cache directory</li>
+</ul>
+<p>These settings ensure cached models and dependencies persist across training runs, reducing download times for subsequent executions.</p>
+<p>For more detailed usage see the notebook.</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8214,7 +8455,7 @@ a.anchor-link {
 
 </head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db437dfe">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5b4ce7f-4f95-4c61-b2d4-c14fa177d6e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8226,7 +8467,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=22976efc-003a-4170-bcf0-6a33ac84e76a">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=882d4d7e-cbf4-49f7-81ef-be5c15fc93c5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8246,7 +8487,7 @@ a.anchor-link {
 </div>
 </body>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f207c763">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d19cfce">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8259,7 +8500,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=43ac45be">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=62998a6a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8267,12 +8508,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-Execution">2. Execution<a class="anchor-link" href="#2.-Execution">¶</a></h2>
+<h2 id="Prerequisites">Prerequisites<a class="anchor-link" href="#Prerequisites">¶</a></h2><p>Before running the dataset creation and fine-tuning jobs, create a Hugging Face access token and store it as a project secret named <code>HF_TOKEN</code>.</p>
+<ol>
+<li>Open <a href="https://huggingface.co/settings/tokens">Hugging Face Settings → Access Tokens</a>.</li>
+<li>Generate a new token.</li>
+<li>Assign the required permissions for model and dataset access.</li>
+<li>Copy the token value.</li>
+<li>In the current project, create a secret named <code>HF_TOKEN</code> and paste the token as its value.</li>
+</ol>
+<blockquote>
+<p>The jobs below use <code>HF_TOKEN</code> to authenticate against Hugging Face. Do not hardcode the token in the notebook or source files.</p>
+</blockquote>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98bc1125">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=042ae423-444c-4367-a805-47dd3ff83609">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8280,12 +8531,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">
 </div>
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Fetch the "hello-world" operation in the project.</p>
+<h2 id="2.-Deploy-Training-Function">2. Deploy Training Function<a class="anchor-link" href="#2.-Deploy-Training-Function">¶</a></h2>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3223f0ad">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7f47b0e5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">
+</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Fetch the "train" operation in the project. Train function is a python job that performs LLM fine tuning from a predefined HuggingFace model and dataset.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fb51b4cd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8294,7 +8558,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
-<pre><span></span><span class="n">func_mlflow_train_model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"cancer-classifier-train-mlflow-example"</span><span class="p">)</span> 
+<pre><span></span><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"train-llm"</span><span class="p">)</span>
 </pre>
 </div>
 </div>
@@ -8302,18 +8566,28 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c7074d82">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63fb316c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Run the function as shown below. This will trigger the model training job on the platform and the model 'model-mlflow' get logged on to the platform.</p>
+<p>Build the function as shown below.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8397e0d0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ce9a3a72">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=24354440">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8321,25 +8595,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_mlflow_train_model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'job'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">,</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b7181c1">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=263657cf-b9d7-420c-be26-acfa08844072">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Now, one can fetch the trained model saved in project.</p>
+<h2 id="3.-Perform-Training">3. Perform Training<a class="anchor-link" href="#3.-Perform-Training">¶</a></h2><p>Training parameters define the model and dataset to be used. Training run refers to HF_TOKEN secret and expects a volume to be created of an appropriate size.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=99268427">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5aaa2f3b-55cf-4c55-b0c7-f02aa2520476">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8347,154 +8621,27 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="s2">"model-mlflow"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d89beca8">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Note: Alternatively, using the Core Management UI, one can navigate to 'Model' menu to see the generated model.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a2de9bc">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Serve">Serve<a class="anchor-link" href="#Serve">¶</a></h3>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f5b9fc78">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>The 'serve' action deploys MLflow ML models as services on Kubernetes. A Task is created by calling run() on the Function; task parameters are passed through that call.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c69f0911">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">"serve-mlflow-model"</span><span class="p">,</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">"mlflowserve"</span><span class="p">,</span>
-    <span class="n">model_name</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-    <span class="n">path</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2f98cd22">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">serve_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e31e6c36">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Test-the-model">Test the model<a class="anchor-link" href="#Test-the-model">¶</a></h4>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=79643a8f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Let's test our deployed MLflow model by making a prediction request with sample Iris data:</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c93e0610-9dbe-4711-b7a8-54c28eceaef2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">pip</span> install 'scikit-learn&lt;1.8'
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e787fa42">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">datasets</span>
-
-<span class="c1"># Load some test data from the Iris dataset</span>
-<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"inputs"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"input-0"</span><span class="p">,</span> <span class="s2">"shape"</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">"datatype"</span><span class="p">:</span> <span class="s2">"FP64"</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">data</span><span class="p">}]</span>
-<span class="p">}</span>
-
-<span class="c1"># Make prediction</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">serve_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Prediction result:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6fb3c7d3-f2a2-4f9e-85c1-f3659b05daad">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+                     <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span>
+                     <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+                         <span class="s2">"model_id"</span><span class="p">:</span> <span class="s2">"meta-llama/Llama-3.1-8B"</span><span class="p">,</span>
+                         <span class="s2">"model_name"</span><span class="p">:</span> <span class="s2">"llmpa-tracked"</span><span class="p">,</span>
+                         <span class="s2">"hf_dataset_name"</span><span class="p">:</span> <span class="s2">"team-bay/data-science-qa"</span><span class="p">,</span>
+                         <span class="s2">"train_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+                         <span class="s2">"dev_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+                         <span class="s2">"num_epochs"</span><span class="p">:</span> <span class="mi">2</span>
+                     <span class="p">},</span>
+                     <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"HF_TOKEN"</span><span class="p">],</span>
+                     <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
+                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/app/local_data/huggingface"</span><span class="p">},</span>
+                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/app/local_data/huggingface"</span><span class="p">}</span>
+                     <span class="p">],</span>
+                     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+                        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+                        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-llmpa"</span><span class="p">,</span>
+                        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/local_data"</span><span class="p">,</span>
+                        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span> <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"50Gi"</span> <span class="p">}}]</span>
+                    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
