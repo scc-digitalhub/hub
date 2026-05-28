@@ -6,7 +6,7 @@ metadata:
   description: This function serves as a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It provides a structured approach to training and logging LLMs, allowing users to easily customize the training process with their own datasets and configurations. The function is designed to be flexible and scalable, making it suitable for various fine-tuning tasks in natural language processing.
   labels:
     - "license:apache-2.0"
-    - "platform:0.14"
+    - "platform:0.15"
     - "type:job"
     - "phase:model-training"
     - "inference:openai"
