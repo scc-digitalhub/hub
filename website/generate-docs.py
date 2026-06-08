@@ -97,8 +97,8 @@ def template_page_metadata(category, template, version, metadata, version_menu):
     contents += f'<a class="md-cell-right" id=md-repo-definition target="_blank" href="{repo_definition_base}/{category}/{template}{version_dir}/{definition_filename}">Definition</a>'
 
     # Button to copy hub reference
-    contents += '<div id="hub-ref" class="md-cell-right">'
-    contents += '<button id="hub-ref-text" class="hub-ref-button" onclick="toggleRef()">Reference <span id="hub-ref-icon">&#x25BC;</span></button>'
+    contents += '<div id="hub-ref">'
+    contents += '<div id="hub-ref-text" class="hub-ref-button">Reference <span class="triangle-icon">&#x25BC;</span></div>'
 
     hr = hub_ref(category, template, metadata)
     copy_button_contents = '<span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span>'
@@ -228,7 +228,11 @@ def previous_menu(c, t, versions, vs):
     menu += '<div id="previous-menu">'
 
     # Plain text for the version being viewed
-    menu += f'<div class="version-entry" id="version-this">{vs}</div>'
+    this_content = f'<div class="version-entry" id="version-this">{vs}'
+    if len(versions) > 1:
+        this_content += ' <span class="triangle-icon">&#x25BC;</span>'
+    this_content += '</div>'
+    menu += this_content
 
     for v in versions:
         if v != vs:
