@@ -53,7 +53,7 @@ def initialize_website():
         The category the template belongs to
     template : str
         Name of the template
-    metadata : str
+    metadata : dict
         Metadata object of the template
 
     Returns
@@ -75,8 +75,12 @@ def hub_ref(category, template, metadata):
         The category the template belongs to
     template : str
         Name of the template
-    metadata : str
+    version: str
+        Version of the template, if not latest
+    metadata : dict
         Metadata object of the template
+    version_menu: str
+        The HTML menu for template versions
 
     Returns
     -------
@@ -98,14 +102,13 @@ def template_page_metadata(category, template, version, metadata, version_menu):
 
     # Button to copy hub reference
     contents += '<div id="hub-ref">'
-    contents += '<div id="hub-ref-text" class="hub-ref-button">Reference <span class="triangle-icon">&#x25BC;</span></div>'
+    contents += '<div id="hub-ref-button">Reference <span class="expand-icon">&#x25BC;</span></div>'
 
     hr = hub_ref(category, template, metadata)
     copy_button_contents = '<span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span>'
     contents += f'<div id="hub-ref-link"><span id=hub-ref-link-text>{hr}</span><button id=hub-ref-link-button onclick="copyRef()">{copy_button_contents}</button></div>'
     
     contents += '</div>'
-
     contents += '</div>'
     
     # Main metadata
@@ -185,6 +188,20 @@ def template_notebook(notebook_path):
         content += notebook_content
     return content + '</div>'
 
+"""Generate list of previous versions of the template
+
+    Parameters
+    ----------
+    c : str
+        Name of the template's category
+    t : str
+        Template name
+
+    Returns
+    -------
+    list
+        List of previous versions of the template
+"""
 def template_versions(c, t):
     # Check if folder for previous versions exists
     previous_path = f'{templates_dir}/{c}/{t}/{previous_dir}'
@@ -213,13 +230,17 @@ def template_versions(c, t):
         Name of the template's category
     t : str
         Template name
+    versions: list
+        List of available versions of this template
+    version_this: str
+        Version this page is being created for
 
     Returns
     -------
     str
         Dropdown menu for previous versions
 """
-def previous_menu(c, t, versions, vs):
+def previous_menu(c, t, versions, version_this):
     if not versions:
         return ''
 
@@ -228,15 +249,15 @@ def previous_menu(c, t, versions, vs):
     menu += '<div id="previous-menu">'
 
     # Plain text for the version being viewed
-    this_content = f'<div class="version-entry" id="version-this">{vs}'
+    this_content = f'<div class="version-entry" id="version-this">{version_this}'
     if len(versions) > 1:
-        this_content += ' <span class="triangle-icon">&#x25BC;</span>'
+        this_content += ' <span class="expand-icon">&#x25BC;</span>'
     this_content += '</div>'
     menu += this_content
 
     for v in versions:
-        if v != vs:
-            if vs == 'latest':
+        if v != version_this:
+            if version_this == 'latest':
                 v_path = f'./{v}'
             else:
                 if v == 'latest':
@@ -246,7 +267,7 @@ def previous_menu(c, t, versions, vs):
             menu += f'<a class="version-entry version-other" href="{v_path}">{v}</a>'
 
             # Build pages for other versions
-            if vs == 'latest':
+            if version_this == 'latest':
                 previous_path = f'{templates_dir}/{c}/{t}/{previous_dir}'
                 definition_path = f'{previous_path}/{v}/{definition_filename}'
                 if os.path.isfile(definition_path):
@@ -272,6 +293,10 @@ def previous_menu(c, t, versions, vs):
         Name of the template's category
     t : str
         Template name
+    versions: list
+        List of available versions of this template
+    version_this: str
+        Version this page is being created for
     definition : dict
         Definition of the template
 
@@ -280,13 +305,13 @@ def previous_menu(c, t, versions, vs):
     str
         Main contents of the template's page
 """
-def page_contents(c, t, versions, v, definition):
+def page_contents(c, t, versions, version_this, definition):
     contents = ''
 
     # Header section
     contents += '<div id="template-content" markdown="1">'
     browse_path = './../../'
-    if v != 'latest':
+    if version_this != 'latest':
         browse_path += '..'
     contents += f'<a id="browse" href="{browse_path}">< Browse</a>'
     template_title = t
@@ -294,18 +319,18 @@ def page_contents(c, t, versions, v, definition):
         template_title = definition['metadata']['name']
     contents += f'<div id="template-title">{template_title}</div>'
 
-    version_menu = previous_menu(c, t, versions, v)
+    version_menu = previous_menu(c, t, versions, version_this)
 
     # Metadata section
     if 'metadata' in definition:
-        contents += template_page_metadata(c, t, v, definition['metadata'], version_menu)
+        contents += template_page_metadata(c, t, version_this, definition['metadata'], version_menu)
 
     # Toolbar for tabs
     tab_toolbar = '<div id="template-tab-buttons">'
     tab_toolbar += '<button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab(\'usage\')">Usage</button>'
     template_dir = f'{templates_dir}/{c}/{t}'
-    if v != 'latest':
-        template_dir += f'/{previous_dir}/{v}'
+    if version_this != 'latest':
+        template_dir += f'/{previous_dir}/{version_this}'
 
     notebook_path = f'{template_dir}/{converted_notebook_filename}'
     if os.path.isfile(notebook_path):
@@ -328,6 +353,20 @@ def page_contents(c, t, versions, v, definition):
 
     return contents
 
+"""Generates a list containing labels from all versions of the template
+
+    Parameters
+    ----------
+    template_path : str
+        Template path
+    versions: list
+        List of available versions of this template
+
+    Returns
+    -------
+    str
+        List of all labels
+"""
 def combine_labels(template_path, versions):
     combined_labels = []
 
