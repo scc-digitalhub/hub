@@ -1,6 +1,6 @@
 #template-metadata {
     position: relative;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 20px;
     border-radius: 12px;
     background-color: #f7f7f7;
@@ -8,12 +8,13 @@
 
 #template-metadata-right {
     position: absolute;
-    right: 12px;
+    right: 10px;
     text-align: right;
 }
 
 #template-metadata-left {
     width: 85%;
+    padding: 8px;
 }
 
 .md-cell {
@@ -21,7 +22,8 @@
 }
 
 .md-cell-right {
-    padding: 14px 0px 0px 36px;
+    margin: 12px 0px 0px 34px;
+    padding: 2px;
 }
 
 .md-cell-title {
