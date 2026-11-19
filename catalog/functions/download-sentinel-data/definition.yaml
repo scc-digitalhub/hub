@@ -7,12 +7,12 @@ metadata:
     - 'license:apache-2.0'
     - 'domain:geo'
     - 'application:pa'
-    - 'platform:0.14'
+    - 'platform:0.16'
     - 'type:job'
     - 'phase:data-preparation'    
 name: download-sentinel-data
 spec:
-  image: ghcr.io/tn-aixpa/sentinel-tools:0.14.6
+  image: ghcr.io/tn-aixpa/sentinel-tools:0.15.7
   command: python
 ---
 kind: container+job

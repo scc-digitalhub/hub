@@ -1,0 +1,45 @@
+kind: container
+metadata:
+  name: Download Sentinel Data (Container Job)
+  description: Function for Sentinel image download and preprocessing. Geo-spatial data is often large and complex, making it challenging to manage and process. This function addresses these challenges by providing a streamlined solution for downloading and preprocessing Sentinel satellite imagery. It enables users to efficiently acquire high-quality geospatial data, which can be used for various applications such as environmental monitoring, land use analysis, and disaster management. By automating the download and preprocessing steps, this function helps users save time and resources while ensuring they have access to the necessary data for their geospatial projects.
+  version: 0.14.6
+  labels:
+    - 'license:apache-2.0'
+    - 'domain:geo'
+    - 'application:pa'
+    - 'platform:0.14'
+    - 'type:job'
+    - 'phase:data-preparation'    
+name: download-sentinel-data
+spec:
+  image: ghcr.io/tn-aixpa/sentinel-tools:0.14.6
+  command: python
+---
+kind: container+job
+spec:
+  template:
+    args:
+      - main.py
+      - >-
+        {"satelliteParams":{"satelliteType": "Sentinel2","processingLevel":
+        "S2MSI2A","bandmath": ["NDWI"]},"startDate":"2018-10-27","endDate":
+        "2018-11-17","geometry": "POLYGON ((11.123570406000056
+        45.89602853500003, 11.123570406000056 46.35080675000006,
+        11.833650907000049 46.35080675000006, 11.833650907000049
+        45.89602853500003, 11.123570406000056 45.89602853500003))","cloudCover":
+        "[0,20]","area_sampling": "True","artifact_name":
+        "sentinel2_post_flood_val_di_fassa_oct_2018","preprocess_data_only":
+        "false"}
+  volumes:
+    - name: volume-flood
+      spec:
+        size: 100Gi
+      volume_type: persistent_volume_claim
+      mount_path: /app/files
+  envs:
+    - name: TMPDIR
+      value: /app/files
+  resources:
+    cpu: '6'
+    mem: 32Gi
+  fs_group: 8877
