@@ -23,17 +23,11 @@ def train(project):
     clf.fit(iris.data, iris.target)
     run_id = mlflow.last_active_run().info.run_id
 
-    # Extract MLflow run artifacts and metadata for platform integration
+    # Extract MLflow run artifacts and metadata for DigitalHub integration
     model_params, metrics = _from_mlflow_run(run_id)
     
-    model = project.log_model(name="model-mlflow", kind="mlflow", **model_params)
-    
-
-    project.log_model(
-        name="model-mlflow",
-        kind="mlflow",
-        **model_params)
-        
+    # Register the model in DigitalHub.
+    model = project.log_mlflow(name="model-mlflow", **model_params)
     model.log_metrics(metrics)
     
     return model    
@@ -42,7 +36,7 @@ def train(project):
 
 def _from_mlflow_run(run_id: str) -> dict:
     """
-    Extract from mlflow run spec for platform Model.
+    Extract from mlflow run spec for Digitalhub Model.
 
     Parameters
     ----------
