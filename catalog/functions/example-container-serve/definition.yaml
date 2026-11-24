@@ -13,11 +13,11 @@ spec:
   python_version: PYTHON3_10
   image: hashicorp/http-echo:latest
 ---
-kind: container+serve
 spec:
+  image: hashicorp/http-echo:latest
   service_ports:
     - port: 5678
-    - target_port: 5678
+      target_port: 5678
   service_type: ClusterIP
   service_name: http-echo
   replicas: 2

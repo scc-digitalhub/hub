@@ -6,7 +6,7 @@ metadata:
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
     - "domain:tabular"
-    - "platform:0.14"
+    - "platform:0.16"
     - "type:job"
     - "phase:data-preparation"
 name: dbt-transform
