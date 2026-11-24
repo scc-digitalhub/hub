@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -508,41 +508,41 @@ import os
 
 @handler()
 def breast_cancer_generator(project):
-    &quot;&quot;&quot;
+    """
     A function which generates the breast cancer dataset
-    &quot;&quot;&quot;
+    """
     breast_cancer = load_breast_cancer()
     df_cancer = pd.DataFrame(
         data=breast_cancer.data, columns=breast_cancer.feature_names
     )
-    breast_cancer_labels = pd.DataFrame(data=breast_cancer.target, columns=[&quot;target&quot;])
+    breast_cancer_labels = pd.DataFrame(data=breast_cancer.target, columns=["target"])
     df_cancer = pd.concat(
         [df_cancer, breast_cancer_labels], axis=1
     )
 
-    X = df_cancer.drop([&#39;target&#39;],axis=1)
-    y = df_cancer[&#39;target&#39;]
+    X = df_cancer.drop(['target'],axis=1)
+    y = df_cancer['target']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state=5)
     svc_model = SVC()
     svc_model.fit(X_train, y_train)
     y_predict = svc_model.predict(X_test)
 
-    if not os.path.exists(&quot;model&quot;):
-        os.makedirs(&quot;model&quot;)
+    if not os.path.exists("model"):
+        os.makedirs("model")
 
-    with open(&quot;model/cancer_classifier.pkl&quot;, &quot;wb&quot;) as f:
+    with open("model/cancer_classifier.pkl", "wb") as f:
         dump(svc_model, f, protocol=5)
 
     metrics = {
-        &quot;f1_score&quot;: sklearn.metrics.f1_score(y_test, y_predict),
-        &quot;accuracy&quot;: sklearn.metrics.accuracy_score(y_test, y_predict),
-        &quot;precision&quot;: sklearn.metrics.precision_score(y_test, y_predict),
-        &quot;recall&quot;: sklearn.metrics.recall_score(y_test, y_predict),
+        "f1_score": sklearn.metrics.f1_score(y_test, y_predict),
+        "accuracy": sklearn.metrics.accuracy_score(y_test, y_predict),
+        "precision": sklearn.metrics.precision_score(y_test, y_predict),
+        "recall": sklearn.metrics.recall_score(y_test, y_predict),
     }
     project.log_model(
-            name=&quot;cancer_classifier&quot;,
-            kind=&quot;sklearn&quot;,
-            source=&quot;./model/&quot;,
+            name="cancer_classifier",
+            kind="sklearn",
+            source="./model/",
             metrics=metrics
     )
 </code></pre></div>
@@ -554,7 +554,7 @@ def breast_cancer_generator(project):
 <li>How to save the trained model in project.</li>
 </ul>
 <p>The <code>cancer-classifier-train</code> function is registered inside the platform core during the import and it can be fetched and executed.</p>
-<div class="highlight"><pre><span></span><code>func = proj.get_function(name=&quot;cancer-classifier-train&quot;) 
+<div class="highlight"><pre><span></span><code>func = proj.get_function(name="cancer-classifier-train") 
 </code></pre></div>
 <p>This code fetches the created function that uses Python runtime (version 3.10), pointing to the created file and the handler method that should be called. In this case, code and handler are already embedded during the import from the .yaml file.</p>
 <p>Then, the function can be executed on the platform (or locally) as a single job.</p>
@@ -562,14 +562,14 @@ def breast_cancer_generator(project):
 <p>This function demonstrates how to serve a trained model using Scikit-learn with the platform's SDK. The function will deploy a model as a REST API service.</p>
 <h2 id="definition_1">Definition</h2>
 <div class="highlight"><pre><span></span><code>serve_func = project.new_function(
-    name=&quot;serve-classifier&quot;,
-    kind=&quot;sklearnserve&quot;,
+    name="serve-classifier",
+    kind="sklearnserve",
     path=model.key,
 )
 </code></pre></div>
 <p>The <code>model.key</code> property represents the unique identifier or path to the trained model artifact in the project. It is used to reference the specific model version that will be deployed for serving.</p>
 <p>In this context, <code>model.key</code> is passed to the <code>path</code> parameter when creating a new serving function, allowing the MLflow-based serving runtime to locate and load the correct model artifact for inference.</p>
-<div class="highlight"><pre><span></span><code>model = project.get_model(&quot;cancer_classifier&quot;)
+<div class="highlight"><pre><span></span><code>model = project.get_model("cancer_classifier")
 </code></pre></div>
 <h2 id="usage_1">Usage</h2>
 <p>The function demonstrates:</p>
@@ -580,7 +580,7 @@ def breast_cancer_generator(project):
 <li><strong>Resource configuration</strong>: Specifying memory and storage requirements for the service</li>
 </ul>
 <h3 id="start-the-service">Start the service</h3>
-<div class="highlight"><pre><span></span><code>serve_run = serve_func.run(&quot;serve&quot;, labels=[&quot;ml-service&quot;], wait=True)
+<div class="highlight"><pre><span></span><code>serve_run = serve_func.run("serve", labels=["ml-service"], wait=True)
 </code></pre></div>
 <h3 id="send-a-request">Send a request</h3>
 <div class="highlight"><pre><span></span><code>import numpy as np
@@ -588,17 +588,17 @@ def breast_cancer_generator(project):
 # Generate sample data for prediction
 data = np.random.rand(2, 30).tolist()
 json_payload = {
-    &quot;inputs&quot;: [{&quot;name&quot;: &quot;input-0&quot;, &quot;shape&quot;: [2, 30], &quot;datatype&quot;: &quot;FP32&quot;, &quot;data&quot;: data}]
+    "inputs": [{"name": "input-0", "shape": [2, 30], "datatype": "FP32", "data": data}]
 }
 
 # Make prediction
 result = serve_run.refresh().invoke(json=json_payload).json()
-print(&quot;Prediction result:&quot;)
+print("Prediction result:")
 print(result)
 </code></pre></div>
 <h3 id="response">Response:</h3>
 <div class="highlight"><pre><span></span><code>Prediction result:
-{&#39;model_name&#39;: &#39;model&#39;, &#39;id&#39;: &#39;40610225-83a3-41e5-86ff-e98873943313&#39;, &#39;parameters&#39;: {}, &#39;outputs&#39;: [{&#39;name&#39;: &#39;predict&#39;, &#39;shape&#39;: [2, 1], &#39;datatype&#39;: &#39;INT64&#39;, &#39;parameters&#39;: {&#39;content_type&#39;: &#39;np&#39;}, &#39;data&#39;: [1, 1]}]}
+{'model_name': 'model', 'id': '40610225-83a3-41e5-86ff-e98873943313', 'parameters': {}, 'outputs': [{'name': 'predict', 'shape': [2, 1], 'datatype': 'INT64', 'parameters': {'content_type': 'np'}, 'data': [1, 1]}]}
 </code></pre></div>
 <p>For more details, check the notebook.</p>
 </div>
@@ -8746,7 +8746,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

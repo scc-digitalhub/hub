@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -567,40 +567,40 @@
 <h3 id="example">Example</h3>
 <p>The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.</p>
 <div class="highlight"><pre><span></span><code>run_el = function_rs.run(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;6&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "6",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-flood&quot;,
-        &quot;mount_path&quot;: &quot;/app/data&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;100Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-flood",
+        "mount_path": "/app/data",
+        "spec": { "size": "100Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;sentinel1_GRD_preflood&#39;,
-        &#39;sentinel1_GRD_postflood&#39;,
-        &#39;sentinel2_pre_flood&#39;,
-        &#39;sentinel2_post_flood&#39;,
-        &#39;POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))&#39;,
-        &#39;Slopes_TN&#39;,
-        &#39;trentino_slope_map.tif&#39;,
-        &#39;Lakes_TN&#39;,
-        &#39;idrspacq.shp&#39;,
-        &#39;Rivers_TN&#39;,
-        &#39;cif_pta2022_v.shp&#39;,
-        &#39;garda_oct_2020&#39;,
-        &#39;2020-10-02&#39;,
-        &#39;EPSG:25832&#39;,
-        &quot;[&#39;VV&#39;,&#39;VH&#39;]&quot;,
-        &#39;700&#39;,
-        &#39;7&#39;,
-        &#39;15&#39;,
-        &#39;2&#39;,
-        &#39;val di fassa&#39;
+        '/shared/launch.sh',
+        'sentinel1_GRD_preflood',
+        'sentinel1_GRD_postflood',
+        'sentinel2_pre_flood',
+        'sentinel2_post_flood',
+        'POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))',
+        'Slopes_TN',
+        'trentino_slope_map.tif',
+        'Lakes_TN',
+        'idrspacq.shp',
+        'Rivers_TN',
+        'cif_pta2022_v.shp',
+        'garda_oct_2020',
+        '2020-10-02',
+        'EPSG:25832',
+        "['VV','VH']",
+        '700',
+        '7',
+        '15',
+        '2',
+        'val di fassa'
         ]
     )
 </code></pre></div>
@@ -611,26 +611,26 @@ ls -la /shared
 cd ~
 pwd
 source .bashrc
-export PATH=&quot;/home/nonroot/miniforge3/snap/bin:$PATH&quot;
+export PATH="/home/nonroot/miniforge3/snap/bin:$PATH"
 export PROJ_LIB=/home/nonroot/miniforge3/share/proj
 export GDAL_DATA=/home/nonroot/miniforge3/share/gdal
 export GDAL_DRIVER_PATH=/home/nonroot/miniforge3/lib/gdalplugins
 export PROJ_DATA=/home/nonroot/miniforge3/share/proj
 gdal-config --version
 python --version
-echo &quot;GDAL DATA AFTER EXPORT:&quot;
+echo "GDAL DATA AFTER EXPORT:"
 echo $GDAL_DATA
-echo &quot;PROJ_LIB AFTER EXPORT&quot;
+echo "PROJ_LIB AFTER EXPORT"
 echo $PROJ_LIB
-echo &quot;Running flood mapping script with parameters:&quot;
-echo &quot;{&#39;s1PreFlood&#39;: &#39;$1&#39;, &#39;s1PostFlood&#39;:&#39;$2&#39;, &#39;s2PreFlood&#39;:&#39;$3&#39;,&#39;s2PostFlood&#39;:&#39;$4&#39;,&#39;geomWKT&#39;:&#39;$5&#39;,&#39;slopeArtifact&#39;:&#39;$6&#39;,&#39;slopeFileName&#39;:&#39;$7&#39;,&#39;lakeShapeArtifactName&#39;:&#39;$8&#39;,&#39;lakeShapeFileName&#39;:&#39;$9&#39;,&#39;riverShapeArtifactName&#39;:&#39;${10}&#39;,&#39;riverShapeFileName&#39;:&#39;${11}&#39;,&#39;output&#39;:&#39;${12}&#39;,&#39;eventDate&#39;:&#39;${13}&#39;,
-&#39;targetCRS&#39;:&#39;${14}&#39;,&#39;polarization&#39;:${15},&#39;dem_threshold&#39;:${16},&#39;slope_threshold&#39;:${17},&#39;noise_min_pixels&#39;:${18},&#39;river_buffer_meters&#39;:${19}}, &#39;aoi_name&#39;:&#39;${20}&#39;}&quot;
+echo "Running flood mapping script with parameters:"
+echo "{'s1PreFlood': '$1', 's1PostFlood':'$2', 's2PreFlood':'$3','s2PostFlood':'$4','geomWKT':'$5','slopeArtifact':'$6','slopeFileName':'$7','lakeShapeArtifactName':'$8','lakeShapeFileName':'$9','riverShapeArtifactName':'${10}','riverShapeFileName':'${11}','output':'${12}','eventDate':'${13}',
+'targetCRS':'${14}','polarization':${15},'dem_threshold':${16},'slope_threshold':${17},'noise_min_pixels':${18},'river_buffer_meters':${19}}, 'aoi_name':'${20}'}"
 cd /app
-python main.py &quot;{&#39;s1PreFlood&#39;:&#39;$1&#39;, &#39;s1PostFlood&#39;:&#39;$2&#39;, &#39;s2PreFlood&#39;:&#39;$3&#39;,&#39;s2PostFlood&#39;:&#39;$4&#39;,&#39;geomWKT&#39;:&#39;$5&#39;,&#39;slopeArtifact&#39;:&#39;$6&#39;,&#39;slopeFileName&#39;:&#39;$7&#39;,&#39;lakeShapeArtifactName&#39;:&#39;$8&#39;,&#39;lakeShapeFileName&#39;:&#39;$9&#39;,&#39;riverShapeArtifactName&#39;:&#39;${10}&#39;,&#39;riverShapeFileName&#39;:&#39;${11}&#39;,&#39;output&#39;:&#39;${12}&#39;,&#39;eventDate&#39;:&#39;${13}&#39;,
-&#39;targetCRS&#39;:&#39;${14}&#39;,&#39;polarization&#39;:${15},&#39;dem_threshold&#39;:${16},&#39;slope_threshold&#39;:${17},&#39;noise_min_pixels&#39;:${18},&#39;river_buffer_meters&#39;:${19}, &#39;aoi_name&#39;:&#39;${20}&#39;}&quot;
+python main.py "{'s1PreFlood':'$1', 's1PostFlood':'$2', 's2PreFlood':'$3','s2PostFlood':'$4','geomWKT':'$5','slopeArtifact':'$6','slopeFileName':'$7','lakeShapeArtifactName':'$8','lakeShapeFileName':'$9','riverShapeArtifactName':'${10}','riverShapeFileName':'${11}','output':'${12}','eventDate':'${13}',
+'targetCRS':'${14}','polarization':${15},'dem_threshold':${16},'slope_threshold':${17},'noise_min_pixels':${18},'river_buffer_meters':${19}, 'aoi_name':'${20}'}"
 exit
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function(&quot;elaborate&quot;,kind=&quot;container&quot;, image=&quot;ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6&quot;, command=&quot;/bin/bash&quot;, code_src=&quot;launch.sh&quot;)
+<div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function("elaborate",kind="container", image="ghcr.io/tn-aixpa/rs-flood-mapping:0.14.6", command="/bin/bash", code_src="launch.sh")
 </code></pre></div>
 <p>Notes: For detailed usage, check the notebook.</p>
 <h2 id="environment">Environment</h2>
@@ -643,40 +643,40 @@ exit
 <li><code>PROJ_DATA</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>function_elaborate.run(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;6&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "6",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-flood&quot;,
-        &quot;mount_path&quot;: &quot;/app/data&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;100Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-flood",
+        "mount_path": "/app/data",
+        "spec": { "size": "100Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;sentinel1_GRD_preflood&#39;,
-        &#39;sentinel1_GRD_postflood&#39;,
-        &#39;sentinel2_pre_flood&#39;,
-        &#39;sentinel2_post_flood&#39;,
-        &#39;POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))&#39;,
-        &#39;Slopes_TN&#39;,
-        &#39;trentino_slope_map.tif&#39;,
-        &#39;Lakes_TN&#39;,
-        &#39;idrspacq.shp&#39;,
-        &#39;Rivers_TN&#39;,
-        &#39;cif_pta2022_v.shp&#39;,
-        &#39;garda_oct_2020&#39;,
-        &#39;2020-10-02&#39;,
-        &#39;EPSG:25832&#39;,
-        &quot;[&#39;VV&#39;,&#39;VH&#39;]&quot;,
-        &#39;700&#39;,
-        &#39;7&#39;,
-        &#39;15&#39;,
-        &#39;2&#39;,
-        &#39;val di fassa&#39;
+        '/shared/launch.sh',
+        'sentinel1_GRD_preflood',
+        'sentinel1_GRD_postflood',
+        'sentinel2_pre_flood',
+        'sentinel2_post_flood',
+        'POLYGON ((10.644988646837982 45.85539621678084, 10.644988646837982 46.06780100571985, 10.991744628283294 46.06780100571985, 10.991744628283294 45.85539621678084, 10.644988646837982 45.85539621678084))',
+        'Slopes_TN',
+        'trentino_slope_map.tif',
+        'Lakes_TN',
+        'idrspacq.shp',
+        'Rivers_TN',
+        'cif_pta2022_v.shp',
+        'garda_oct_2020',
+        '2020-10-02',
+        'EPSG:25832',
+        "['VV','VH']",
+        '700',
+        '7',
+        '15',
+        '2',
+        'val di fassa'
         ]
     )
 </code></pre></div>
@@ -8994,7 +8994,7 @@ The first argument is the bash script executed when the container starts, while 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

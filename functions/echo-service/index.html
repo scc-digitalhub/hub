@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -410,8 +410,8 @@
 <div class="highlight"><pre><span></span><code>import json
 
 def init(context):
-    print(&quot;some initialization function&quot;)
-    setattr(context, &quot;value&quot;, &quot;some value&quot;)
+    print("some initialization function")
+    setattr(context, "value", "some value")
 
 def serve(context, event):
 
@@ -419,10 +419,10 @@ def serve(context, event):
         body = json.loads(event.body)
     else:
         body = event.body
-    context.logger.info(f&quot;Received event: {body}&quot;)
-    text = body[&quot;text&quot;]
+    context.logger.info(f"Received event: {body}")
+    text = body["text"]
 
-    return {&quot;result&quot;: f&quot;hello {text} from &#39;{context.value}&#39;&quot;}
+    return {"result": f"hello {text} from '{context.value}'"}
 </code></pre></div>
 <p>The init(context) method is responsible for initializing the function’s execution context.</p>
 <p>The serve(context, event) method contains the core functionality of the service, including the incoming request handling and execution logic.</p>
@@ -436,17 +436,17 @@ def serve(context, event):
 <li>How to call the function</li>
 </ul>
 <h3 id="start-the-service">Start the service</h3>
-<div class="highlight"><pre><span></span><code>serve_run = function_echoservice.run(action=&#39;serve&#39;, wait=True)
+<div class="highlight"><pre><span></span><code>serve_run = function_echoservice.run(action='serve', wait=True)
 </code></pre></div>
 <h3 id="send-a-request">Send a request</h3>
 <div class="highlight"><pre><span></span><code>json = {
-    &quot;text&quot;:&quot;DigitalHub!&quot;
+    "text":"DigitalHub!"
 }
 serve_run.invoke(json=json)
 result.json()
 </code></pre></div>
 <h3 id="response">Response:</h3>
-<div class="highlight"><pre><span></span><code>{&#39;result&#39;: &quot;hello DigitalHub! from &#39;some value&#39;&quot;}
+<div class="highlight"><pre><span></span><code>{'result': "hello DigitalHub! from 'some value'"}
 </code></pre></div>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
@@ -8511,7 +8511,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -389,12 +389,12 @@
 </ul>
 <h2 id="definition">Definition</h2>
 <div class="highlight"><pre><span></span><code>llm_OLlama_func = project.new_function(
-    name=&quot;llm-ollama-serve&quot;,
-    kind=&quot;kubeai-text&quot;,
-    model_name=&quot;llm-ollama-model&quot;,
-    url=&quot;ollama://llama3.2:1b&quot;,
-    engine=&#39;OLlama&#39;,
-    features=[&#39;TextGeneration&#39;]
+    name="llm-ollama-serve",
+    kind="kubeai-text",
+    model_name="llm-ollama-model",
+    url="ollama://llama3.2:1b",
+    engine='OLlama',
+    features=['TextGeneration']
 )
 </code></pre></div>
 <h2 id="usage">Usage</h2>
@@ -405,18 +405,18 @@
 </li>
 <li>
 <p><strong>Start the Serve</strong>: Use the following code to start</p>
-<div class="highlight"><pre><span></span><code><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_OLlama_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Invoke the Function</strong>: Use the following code to send a request to the function and receive a response.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
 
-<span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Model&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">&#39;prompt&#39;</span><span class="p">:</span> <span class="s1">&#39;Describe MLOps&#39;</span><span class="p">}</span>
+<span class="n">model_name</span> <span class="o">=</span><span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
+<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
 <span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/v1/completions&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response:&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Response:"</span><span class="p">)</span>
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre></div>
 </li>
@@ -8676,7 +8676,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

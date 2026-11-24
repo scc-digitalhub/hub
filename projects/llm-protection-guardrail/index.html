@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -525,64 +525,64 @@
 <h3 id="1-initialize-the-project">1. Initialize the Project</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-set-up-llm">2. Set Up LLM</h3>
-<div class="highlight"><pre><span></span><code><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">)</span>
-<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"llm"</span><span class="p">)</span>
+<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">)</span>
 
 <span class="c1"># Get the base URL and test the LLM</span>
-<span class="n">BASE_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
-<span class="n">MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">openai</span><span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">]</span>
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s2">"url"</span><span class="p">]</span>
+<span class="n">MODEL</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">openai</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
 
 <span class="c1"># Test LLM is running</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/completions&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span> <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello&quot;</span><span class="p">})</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/completions"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span> <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"Hello"</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </code></pre></div>
 <h3 id="3-set-up-guardrail">3. Set Up Guardrail</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Add Guardrails API Key as a secret</span>
-<span class="n">secret</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;GUARDRAILS_API_KEY&quot;</span><span class="p">,</span> <span class="n">secret_value</span><span class="o">=</span><span class="s2">&quot;&lt;YOUR_API_KEY&gt;&quot;</span><span class="p">)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_secret</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"GUARDRAILS_API_KEY"</span><span class="p">,</span> <span class="n">secret_value</span><span class="o">=</span><span class="s2">"&lt;YOUR_API_KEY&gt;"</span><span class="p">)</span>
 
 <span class="c1"># Get guardrail function</span>
-<span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;toxic-guardrail&quot;</span><span class="p">)</span>
+<span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"toxic-guardrail"</span><span class="p">)</span>
 
 <span class="c1"># Build and serve guardrail with required dependencies</span>
 <span class="n">build_run</span> <span class="o">=</span> <span class="n">guardrail_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GUARDRAILS_API_KEY&quot;</span><span class="p">],</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"build"</span><span class="p">,</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"GUARDRAILS_API_KEY"</span><span class="p">],</span>
     <span class="n">instructions</span><span class="o">=</span><span class="p">[</span>
-        <span class="s2">&quot;/opt/nuclio/uv/uv pip install --system typer==0.9.0 click==8.1.7 guardrails-ai==0.5.0&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;apt-get update &amp;&amp; apt-get install -y git&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;--mount=type=secret,id=GUARDRAILS_API_KEY,env=GUARDRAILS_API_KEY guardrails configure --enable-metrics --enable-remote-inferencing --token $GUARDRAILS_API_KEY&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;guardrails hub install hub://guardrails/toxic_language&quot;</span>
+        <span class="s2">"/opt/nuclio/uv/uv pip install --system typer==0.9.0 click==8.1.7 guardrails-ai==0.5.0"</span><span class="p">,</span>
+        <span class="s2">"apt-get update &amp;&amp; apt-get install -y git"</span><span class="p">,</span>
+        <span class="s2">"--mount=type=secret,id=GUARDRAILS_API_KEY,env=GUARDRAILS_API_KEY guardrails configure --enable-metrics --enable-remote-inferencing --token $GUARDRAILS_API_KEY"</span><span class="p">,</span>
+        <span class="s2">"guardrails hub install hub://guardrails/toxic_language"</span>
     <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">guardrail_run</span> <span class="o">=</span> <span class="n">build_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">)</span>
+<span class="n">guardrail_run</span> <span class="o">=</span> <span class="n">build_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="4-protect-llm-with-guardrail">4. Protect LLM with Guardrail</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Deploy LLM with Envoy Gateway extension for guardrail protection</span>
-<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[{</span>
-    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;envoygw&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;gw&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;guardrails&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">guardrail_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]]</span>
+<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[{</span>
+    <span class="s2">"kind"</span><span class="p">:</span> <span class="s2">"envoygw"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"gw"</span><span class="p">,</span>
+    <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"guardrails"</span><span class="p">:</span> <span class="p">[</span><span class="n">guardrail_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]]</span>
     <span class="p">}</span>
 <span class="p">}])</span>
 
 <span class="c1"># Get protected endpoint</span>
-<span class="n">PROTECTED_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">gatewayInfo</span><span class="p">[</span><span class="s1">&#39;gatewayEndpoint&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">/v1&quot;</span>
+<span class="n">PROTECTED_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"http://</span><span class="si">{</span><span class="n">llm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">gatewayInfo</span><span class="p">[</span><span class="s1">'gatewayEndpoint'</span><span class="p">]</span><span class="si">}</span><span class="s2">/v1"</span>
 </code></pre></div>
 <h3 id="5-test-protected-service">5. Test Protected Service</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Test with toxic language (will be blocked)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
-    <span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;My landlord is an asshole!&quot;</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"My landlord is an asshole!"</span>
 <span class="p">}</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PROTECTED_ENDPOINT</span><span class="si">}</span><span class="s2">/completions&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PROTECTED_ENDPOINT</span><span class="si">}</span><span class="s2">/completions"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Should be blocked by guardrail</span>
 </code></pre></div>
 <p>For detailed step-by-step walkthrough, see the usage notebook.</p>
@@ -8849,7 +8849,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

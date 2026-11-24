@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -423,22 +423,22 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">extract_text</span><span class="p">(</span><span class="n">tika_url</span><span class="p">,</span> <span class="n">artifact</span><span class="p">,</span> <span class="n">project</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading artifact </span><span class="si">{</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading artifact </span><span class="si">{</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
     <span class="n">fp</span> <span class="o">=</span> <span class="n">artifact</span><span class="o">.</span><span class="n">as_file</span><span class="p">()</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">tika_url</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;http&quot;</span><span class="p">:</span> 
-        <span class="n">tika_url</span> <span class="o">=</span> <span class="s2">&quot;http://&quot;</span><span class="o">+</span><span class="n">tika_url</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">tika_url</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>    
-    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">tika_url</span><span class="o">+</span><span class="s2">&quot;/tika&quot;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Accept&quot;</span><span class="p">:</span><span class="s2">&quot;text/html&quot;</span><span class="p">},</span> <span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">tika_url</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"http"</span><span class="p">:</span> 
+        <span class="n">tika_url</span> <span class="o">=</span> <span class="s2">"http://"</span><span class="o">+</span><span class="n">tika_url</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sending </span><span class="si">{</span><span class="n">fp</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">tika_url</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>    
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">tika_url</span><span class="o">+</span><span class="s2">"/tika"</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Accept"</span><span class="p">:</span><span class="s2">"text/html"</span><span class="p">},</span> <span class="n">data</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="s1">'rb'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Extracted text with success&quot;</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;/tmp/output.html&quot;</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tf</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Extracted text with success"</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">"/tmp/output.html"</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">tf</span><span class="p">:</span>
             <span class="n">tf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-        <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">&quot;_output.html&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">project</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">"artifact"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s2">"_output.html"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Received error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"Error"</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Parameters</strong>:</p>
 <ul>
@@ -472,28 +472,28 @@
 <li><strong>Initialize the project and deploy Tika service</strong>:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
-<span class="n">tika_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;tika&quot;</span><span class="p">)</span>
-<span class="n">tika_run</span> <span class="o">=</span> <span class="n">tika_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span> <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">9998</span><span class="p">}],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">TIKA_URL</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">&quot;service&quot;</span><span class="p">][</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">"tika"</span><span class="p">)</span>
+<span class="n">tika_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"tika"</span><span class="p">)</span>
+<span class="n">tika_run</span> <span class="o">=</span> <span class="n">tika_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">9998</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">9998</span><span class="p">}],</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">TIKA_URL</span> <span class="o">=</span> <span class="n">tika_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
 </code></pre></div>
 <ol>
 <li><strong>Log a document artifact</strong>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;artifact&quot;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">&quot;path/to/document.pdf&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">log_artifact</span><span class="p">(</span><span class="s2">"document.pdf"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"artifact"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s2">"path/to/document.pdf"</span><span class="p">)</span>
 </code></pre></div>
 <ol>
 <li><strong>Run the extraction function</strong>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;extract&quot;</span><span class="p">)</span>
-<span class="n">extract_run</span> <span class="o">=</span> <span class="n">extract_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;job&quot;</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;artifact&quot;</span><span class="p">:</span> <span class="n">artifact</span><span class="o">.</span><span class="n">key</span><span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tika_url&quot;</span><span class="p">:</span> <span class="n">TIKA_URL</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">extract_function</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"extract"</span><span class="p">)</span>
+<span class="n">extract_run</span> <span class="o">=</span> <span class="n">extract_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"job"</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">"artifact"</span><span class="p">:</span> <span class="n">artifact</span><span class="o">.</span><span class="n">key</span><span class="p">},</span> <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="s2">"tika_url"</span><span class="p">:</span> <span class="n">TIKA_URL</span><span class="p">},</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <ol>
 <li><strong>Retrieve the extracted output</strong>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="n">output_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">&quot;document.pdf_output.html&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">output_artifact</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_artifact</span><span class="p">(</span><span class="s2">"document.pdf_output.html"</span><span class="p">)</span>
 <span class="n">output_artifact</span><span class="o">.</span><span class="n">download</span><span class="p">()</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./artifact/output.html&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'./artifact/output.html'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
 </div>
@@ -8619,7 +8619,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

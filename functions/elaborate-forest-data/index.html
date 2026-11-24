@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -475,24 +475,24 @@
 <p>Example</p>
 <p>The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.</p>
 <div class="highlight"><pre><span></span><code>run_el = function_rs.run(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;12&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-deforestation&quot;,
-        &quot;mount_path&quot;: &quot;/app/files&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;250Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-deforestation",
+        "mount_path": "/app/files",
+        "spec": { "size": "250Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;Shapes_AOI&#39;,
-        &#39;data_s2_2018_19_tps&#39;,
-        &quot;[2018,2019]&quot;,
-        &#39;deforestation_2018_19_tps&#39;
+        '/shared/launch.sh',
+        'Shapes_AOI',
+        'data_s2_2018_19_tps',
+        "[2018,2019]",
+        'deforestation_2018_19_tps'
     ]
 )
 </code></pre></div>
@@ -503,26 +503,26 @@ ls -la /shared
 cd ~
 pwd
 source .bashrc
-echo &quot;GDAL version:&quot;
+echo "GDAL version:"
 gdal-config --version
 python --version
-echo &quot;GDAL DATA:&quot;
+echo "GDAL DATA:"
 echo $GDAL_DATA
-echo &quot;PROJ_LIB&quot;
+echo "PROJ_LIB"
 echo $PROJ_LIB
 cd /app
-echo &quot;{&#39;shapeArtifactName&#39;: &#39;$1&#39;, &#39;dataArtifactName&#39;: &#39;$2&#39;, &#39;years&#39;:$3, &#39;outputArtifactName&#39;: &#39;$4&#39;}&quot;
+echo "{'shapeArtifactName': '$1', 'dataArtifactName': '$2', 'years':$3, 'outputArtifactName': '$4'}"
 export PROJ_LIB=/home/nonroot/miniforge3/share/proj
 export GDAL_DATA=/home/nonroot/miniforge3/share/gdal
-#export PATH=&quot;/home/nonroot/miniforge3/snap/.snap/auxdata/gdal/gdal-3-0-0/bin/:$PATH&quot;
-echo &quot;GDAL DATA AFTER EXPORT:&quot;
+#export PATH="/home/nonroot/miniforge3/snap/.snap/auxdata/gdal/gdal-3-0-0/bin/:$PATH"
+echo "GDAL DATA AFTER EXPORT:"
 echo $GDAL_DATA
-echo &quot;PROJ_LIB AFTER EXPORT&quot;
+echo "PROJ_LIB AFTER EXPORT"
 echo $PROJ_LIB
-python main.py &quot;{&#39;shapeArtifactName&#39;: &#39;$1&#39;, &#39;dataArtifactName&#39;: &#39;$2&#39;, &#39;years&#39;:$3, &#39;outputArtifactName&#39;: &#39;$4&#39;}&quot;
+python main.py "{'shapeArtifactName': '$1', 'dataArtifactName': '$2', 'years':$3, 'outputArtifactName': '$4'}"
 exit
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function(&quot;elaborate&quot;,kind=&quot;container&quot;, image=&quot;ghcr.io/tn-aixpa/rs-deforestation:0.14.6&quot;, command=&quot;/bin/bash&quot;, code_src=&quot;launch.sh&quot;)
+<p><div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function("elaborate",kind="container", image="ghcr.io/tn-aixpa/rs-deforestation:0.14.6", command="/bin/bash", code_src="launch.sh")
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
@@ -535,24 +535,24 @@ Notes: For detailed usage see the usage notebook.</p>
 <li><code>PROJ_DATA</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>function_elaborate.un(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;12&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-deforestation&quot;,
-        &quot;mount_path&quot;: &quot;/app/files&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;250Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-deforestation",
+        "mount_path": "/app/files",
+        "spec": { "size": "250Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;Shapes_AOI&#39;,
-        &#39;data_s2_2018_19_tps&#39;,
-        &quot;[2018,2019]&quot;,
-        &#39;deforestation_2018_19_tps&#39;
+        '/shared/launch.sh',
+        'Shapes_AOI',
+        'data_s2_2018_19_tps',
+        "[2018,2019]",
+        'deforestation_2018_19_tps'
     ]
 )
 </code></pre></div>
@@ -8698,7 +8698,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

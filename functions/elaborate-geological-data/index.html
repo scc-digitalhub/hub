@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -497,57 +497,57 @@ The function computes, for both ascending and descending directions, the interfe
 <p>Example</p>
 <p>The following command launches the elaborate function as a containerized job, providing compute resources, storage volumes, and runtime arguments.</p>
 <div class="highlight"><pre><span></span><code>run_el = function_rs.run(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;12&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-land&quot;,
-        &quot;mount_path&quot;: &quot;/app/files&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;600Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": { "size": "600Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;s1_ascending&#39;,
-        &#39;s1_descending&#39;,
-        &#39;2021-03-01&#39;,
-        &#39;2021-07-30&#39;,
-        &#39;landslide_2020-11-01_2020-11-14&#39;,
-        &#39;Shapes_AOI&#39;,
-        &#39;ammprv_v.shp&#39;,
-        &#39;Map&#39;,
-        &#39;POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
-                   10.595369 45.945838, 10.595369 45.923394))&#39;
+        '/shared/launch.sh',
+        's1_ascending',
+        's1_descending',
+        '2021-03-01',
+        '2021-07-30',
+        'landslide_2020-11-01_2020-11-14',
+        'Shapes_AOI',
+        'ammprv_v.shp',
+        'Map',
+        'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
+                   10.595369 45.945838, 10.595369 45.923394))'
     ]
 )
 </code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>The function expect a entry point launch script as shown below giving user the possibility to configure the runtime environment prior to elaboration. It further runs the launch instructions specified by 'launch.sh' file. </p>
-<div class="highlight"><pre><span></span><code>%%writefile &quot;launch.sh&quot;
+<div class="highlight"><pre><span></span><code>%%writefile "launch.sh"
 #!/bin/bash
 ls -la /shared
 cd ~
 pwd
 source .bashrc
-export PATH=&quot;/home/nonroot/miniforge3/snap/bin:$PATH&quot;
+export PATH="/home/nonroot/miniforge3/snap/bin:$PATH"
 export PROJ_LIB=/home/nonroot/miniforge3/share/proj
 export GDAL_DATA=/home/nonroot/miniforge3/share/gdal
 export GDAL_DRIVER_PATH=/home/nonroot/miniforge3/lib/gdalplugins
 export PROJ_DATA=/home/nonroot/miniforge3/share/proj
 cd /app
-echo &quot;{&#39;s1_ascending&#39;: &#39;$1&#39;, &#39;s1_descending&#39;: &#39;$2&#39;, &#39;startDate&#39;:&#39;$3&#39;, &#39;endDate&#39;:&#39;$4&#39;, &#39;outputArtifactName&#39;: &#39;$5&#39;, &#39;shapeArtifactName&#39;: &#39;$6&#39;, &#39;shapeFileName&#39;: &#39;$7&#39;, &#39;mapArtifactName&#39;: &#39;$8&#39;, &#39;geomWKT&#39;:&#39;$9&#39;}&quot;
-#export PATH=&quot;/home/nonroot/miniforge3/snap/.snap/auxdata/gdal/gdal-3-0-0/bin/:$PATH&quot;
-echo &quot;GDAL DATA AFTER EXPORT:&quot;
+echo "{'s1_ascending': '$1', 's1_descending': '$2', 'startDate':'$3', 'endDate':'$4', 'outputArtifactName': '$5', 'shapeArtifactName': '$6', 'shapeFileName': '$7', 'mapArtifactName': '$8', 'geomWKT':'$9'}"
+#export PATH="/home/nonroot/miniforge3/snap/.snap/auxdata/gdal/gdal-3-0-0/bin/:$PATH"
+echo "GDAL DATA AFTER EXPORT:"
 echo $GDAL_DATA
-echo &quot;PROJ_LIB AFTER EXPORT&quot;
+echo "PROJ_LIB AFTER EXPORT"
 echo $PROJ_LIB
-python main.py &quot;{&#39;s1_ascending&#39;: &#39;$1&#39;, &#39;s1_descending&#39;: &#39;$2&#39;, &#39;startDate&#39;:&#39;$3&#39;, &#39;endDate&#39;:&#39;$4&#39;, &#39;outputArtifactName&#39;: &#39;$5&#39;, &#39;shapeArtifactName&#39;: &#39;$6&#39;, &#39;shapeFileName&#39;: &#39;$7&#39;, &#39;mapArtifactName&#39;: &#39;$8&#39;, &#39;geomWKT&#39;:&#39;$9&#39;}&quot;
+python main.py "{'s1_ascending': '$1', 's1_descending': '$2', 'startDate':'$3', 'endDate':'$4', 'outputArtifactName': '$5', 'shapeArtifactName': '$6', 'shapeFileName': '$7', 'mapArtifactName': '$8', 'geomWKT':'$9'}"
 exit
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function(&quot;elaborate&quot;,kind=&quot;container&quot;, image=&quot;ghcr.io/tn-aixpa/rs-landslide-monitoring:0.14.6&quot;, command=&quot;/bin/bash&quot;, code_src=&quot;launch.sh&quot;)
+<p><div class="highlight"><pre><span></span><code>function_elaborate = proj.new_function("elaborate",kind="container", image="ghcr.io/tn-aixpa/rs-landslide-monitoring:0.14.6", command="/bin/bash", code_src="launch.sh")
 </code></pre></div>
 Notes: For detailed usage see the usage notebook.</p>
 <h2 id="environment">Environment</h2>
@@ -560,30 +560,30 @@ Notes: For detailed usage see the usage notebook.</p>
 <li><code>PROJ_DATA</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>function_elaborate.run(
-    action=&quot;job&quot;,
-    fs_group=&#39;8877&#39;,
+    action="job",
+    fs_group='8877',
     resources={
-         &quot;cpu&quot;: &quot;12&quot;,
-         &quot;mem&quot;: &quot;64Gi&quot;
+         "cpu": "12",
+         "mem": "64Gi"
     },
     volumes=[{
-        &quot;volume_type&quot;: &quot;persistent_volume_claim&quot;,
-        &quot;name&quot;: &quot;volume-land&quot;,
-        &quot;mount_path&quot;: &quot;/app/files&quot;,
-        &quot;spec&quot;: { &quot;size&quot;: &quot;600Gi&quot; }
+        "volume_type": "persistent_volume_claim",
+        "name": "volume-land",
+        "mount_path": "/app/files",
+        "spec": { "size": "600Gi" }
     }],
     args=[
-        &#39;/shared/launch.sh&#39;,
-        &#39;s1_ascending&#39;,
-        &#39;s1_descending&#39;,
-        &#39;2021-03-01&#39;,
-        &#39;2021-07-30&#39;,
-        &#39;landslide_2020-11-01_2020-11-14&#39;,
-        &#39;Shapes_AOI&#39;,
-        &#39;ammprv_v.shp&#39;,
-        &#39;Map&#39;,
-        &#39;POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
-                   10.595369 45.945838, 10.595369 45.923394))&#39;
+        '/shared/launch.sh',
+        's1_ascending',
+        's1_descending',
+        '2021-03-01',
+        '2021-07-30',
+        'landslide_2020-11-01_2020-11-14',
+        'Shapes_AOI',
+        'ammprv_v.shp',
+        'Map',
+        'POLYGON ((10.595369 45.923394, 10.644894 45.923394, 10.644894 45.945838, \
+                   10.595369 45.945838, 10.595369 45.923394))'
     ]
 )
 </code></pre></div>
@@ -8785,7 +8785,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

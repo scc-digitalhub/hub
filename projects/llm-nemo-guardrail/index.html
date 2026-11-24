@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -476,22 +476,22 @@
 <h2 id="usage">Usage</h2>
 <h3 id="1-initialize-the-project">1. Initialize the Project</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-deploy-the-llm">2. Deploy the LLM</h3>
-<div class="highlight"><pre><span></span><code><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;llm&quot;</span><span class="p">)</span>
-<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">llm_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"llm"</span><span class="p">)</span>
+<span class="n">llm_run</span> <span class="o">=</span> <span class="n">llm_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="3-deploy-nemo-guardrails">3. Deploy NeMo Guardrails</h3>
-<div class="highlight"><pre><span></span><code><span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;nemo-guardrail&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">guardrail_function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"nemo-guardrail"</span><span class="p">)</span>
 <span class="n">guardrail_run</span> <span class="o">=</span> <span class="n">guardrail_function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">8000</span><span class="p">}],</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
+    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">8000</span><span class="p">}],</span>
     <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MAIN_MODEL_ENGINE&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;openai&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MAIN_MODEL_BASE_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;http://kubeai:80/openai/v1&quot;</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;somekey&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"MAIN_MODEL_ENGINE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"openai"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"MAIN_MODEL_BASE_URL"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"http://kubeai:80/openai/v1"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"OPENAI_API_KEY"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"somekey"</span><span class="p">},</span>
     <span class="p">],</span>
     <span class="n">run_as_user</span><span class="o">=</span><span class="mi">8877</span><span class="p">,</span>
     <span class="n">run_as_group</span><span class="o">=</span><span class="mi">8877</span>
@@ -499,12 +499,12 @@
 </code></pre></div>
 <h3 id="4-use-the-guardrailed-llm">4. Use the Guardrailed LLM</h3>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
-    <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;Your prompt here&quot;</span><span class="p">}],</span>
-    <span class="s2">&quot;guardrails&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;config_id&quot;</span><span class="p">:</span> <span class="s2">&quot;hello_world&quot;</span><span class="p">}</span>
+    <span class="s2">"model"</span><span class="p">:</span> <span class="n">MODEL</span><span class="p">,</span>
+    <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Your prompt here"</span><span class="p">}],</span>
+    <span class="s2">"guardrails"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"config_id"</span><span class="p">:</span> <span class="s2">"hello_world"</span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">GUARDRAIL_URL</span><span class="si">}</span><span class="s2">/v1/chat/completions&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">GUARDRAIL_URL</span><span class="si">}</span><span class="s2">/v1/chat/completions"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <p>Notes: For detailed usage, check the usage notebook.</p>
 </div>
@@ -8659,7 +8659,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

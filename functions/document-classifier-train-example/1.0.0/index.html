@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -504,34 +504,34 @@
 </ol>
 <h3 id="example">Example</h3>
 <p><div class="highlight"><pre><span></span><code>    <span class="c1"># Import the function</span>
-   <span class="n">function_doc</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;document-classifier-training-llm-example&quot;</span><span class="p">)</span>
+   <span class="n">function_doc</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-training-llm-example"</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>   <span class="n">func_b</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">)</span>   
+<div class="highlight"><pre><span></span><code>   <span class="n">func_b</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">)</span>   
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xa100&quot;</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">"1xa100"</span><span class="p">,</span>
     <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;target_model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;document-classifier&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_train_epochs&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;per_device_train_batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;per_device_eval_batch_size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
-        <span class="s2">&quot;gradient_accumulation_steps&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">&quot;weight_decay&quot;</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
-        <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span>
-        <span class="s2">&quot;lr_scheduler_type&quot;</span><span class="p">:</span> <span class="s1">&#39;linear&#39;</span>
+        <span class="s2">"target_model_name"</span><span class="p">:</span> <span class="s2">"document-classifier"</span><span class="p">,</span>
+        <span class="s2">"num_train_epochs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"per_device_train_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s2">"per_device_eval_batch_size"</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s2">"gradient_accumulation_steps"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">"weight_decay"</span><span class="p">:</span> <span class="mf">0.005</span><span class="p">,</span>
+        <span class="s2">"learning_rate"</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span>
+        <span class="s2">"lr_scheduler_type"</span><span class="p">:</span> <span class="s1">'linear'</span>
     <span class="p">},</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mem&quot;</span><span class="p">:</span> <span class="s2">&quot;6Gi&quot;</span><span class="p">},</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;train-volume&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/local-data&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;10Gi&quot;</span>
+        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
+        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/local-data"</span><span class="p">,</span>
+        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"10Gi"</span>
         <span class="p">}}],</span>
         <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HF_HOME&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;/local-data/huggingface&quot;</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;TRANSFORMERS_CACHE&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span>  <span class="s2">&quot;/local-data/huggingface&quot;</span><span class="p">}</span>
+            <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/local-data/huggingface"</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/local-data/huggingface"</span><span class="p">}</span>
         <span class="p">],</span>
         <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></p>
@@ -8686,7 +8686,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../javascripts/extra.js"></script>
       

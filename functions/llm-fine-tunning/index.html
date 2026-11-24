@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -483,7 +483,7 @@
 <div id="template-content">
 <p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM Fine-Tuning (Python Job)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest <span class="expand-icon">&#x25BC;</span></div><a class="version-entry version-other" href="./1.0.0">1.0.0</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-fine-tunning">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-fine-tunning/definition.yaml">Definition</a><div id="hub-ref"><div id="hub-ref-button">Reference <span class="expand-icon">&#x25BC;</span></div><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-fine-tunning:1.0.1</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Fine-Tuning (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function serves as a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It provides a structured approach to training and logging LLMs, allowing users to easily customize the training process with their own datasets and configurations. The function is designed to be flexible and scalable, making it suitable for various fine-tuning tasks in natural language processing.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.1</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.15</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest <span class="expand-icon">&#x25BC;</span></div><a class="version-entry version-other" href="./0.15">0.15</a><a class="version-entry version-other" href="./1.0.0">1.0.0</a></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-fine-tunning">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-fine-tunning/definition.yaml">Definition</a><div id="hub-ref"><div id="hub-ref-button">Reference <span class="expand-icon">&#x25BC;</span></div><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-fine-tunning:1.0.1</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM Fine-Tuning (Python Job)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function serves as a template for fine-tuning large language models (LLMs) using the Hugging Face Transformers library. It provides a structured approach to training and logging LLMs, allowing users to easily customize the training process with their own datasets and configurations. The function is designed to be flexible and scalable, making it suitable for various fine-tuning tasks in natural language processing.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.1</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.16</span><span class="md-label"><span class="md-label-category">type:</span>job</span><span class="md-label"><span class="md-label-category">phase:</span>model-training</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
@@ -500,31 +500,31 @@
 <h3 id="1-initialize-project">1. Initialize Project</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 
-<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">&quot;&lt;YOUR_PROJECT_NAME&gt;&quot;</span>
+<span class="n">PROJECT_NAME</span> <span class="o">=</span> <span class="s2">"&lt;YOUR_PROJECT_NAME&gt;"</span>
 <span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="n">PROJECT_NAME</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="2-deploy-training-function">2. Deploy Training Function</h3>
-<div class="highlight"><pre><span></span><code><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">&quot;train-llm&quot;</span><span class="p">)</span>
-<span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">function_train</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"train-llm"</span><span class="p">)</span>
+<span class="n">func_b</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">'build'</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="3-run-training-job">3. Run Training Job</h3>
 <div class="highlight"><pre><span></span><code><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
-    <span class="n">profile</span><span class="o">=</span><span class="s2">&quot;1xV100&quot;</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span>
     <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
-        <span class="s2">&quot;model_id&quot;</span><span class="p">:</span> <span class="s2">&quot;meta-llama/Llama-3.1-8B&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;llmpa-tracked&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;hf_dataset_name&quot;</span><span class="p">:</span> <span class="s2">&quot;team-bay/data-science-qa&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;train_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;dev_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num_epochs&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="s2">"model_id"</span><span class="p">:</span> <span class="s2">"meta-llama/Llama-3.1-8B"</span><span class="p">,</span>
+        <span class="s2">"model_name"</span><span class="p">:</span> <span class="s2">"llmpa-tracked"</span><span class="p">,</span>
+        <span class="s2">"hf_dataset_name"</span><span class="p">:</span> <span class="s2">"team-bay/data-science-qa"</span><span class="p">,</span>
+        <span class="s2">"train_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+        <span class="s2">"dev_data_path"</span><span class="p">:</span> <span class="s2">"DataScienceDataset.csv"</span><span class="p">,</span>
+        <span class="s2">"num_epochs"</span><span class="p">:</span> <span class="mi">2</span>
     <span class="p">},</span>
-    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HF_TOKEN&quot;</span><span class="p">],</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">"HF_TOKEN"</span><span class="p">],</span>
     <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;volume-llmpa&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/local_data&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;50Gi&quot;</span><span class="p">}</span>
+        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"volume-llmpa"</span><span class="p">,</span>
+        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/app/local_data"</span><span class="p">,</span>
+        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"size"</span><span class="p">:</span> <span class="s2">"50Gi"</span><span class="p">}</span>
     <span class="p">}]</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -8603,6 +8603,33 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6dc84bfd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Select-a-GPU-profile">Select a GPU profile<a class="anchor-link" href="#Select-a-GPU-profile">¶</a></h3><p>The <code>profile</code> list above contains the resource profiles available through the platform API. Select a GPU profile for the training job; this run uses <code>1xrtx5000</code>. Check that the selected profile is available to your project before submitting the job.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cea453e2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_k8s_resource_profiles</span><span class="p">()</span>
+<span class="n">profile</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5aaa2f3b-55cf-4c55-b0c7-f02aa2520476">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8612,7 +8639,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-                       <span class="n">profile</span><span class="o">=</span><span class="s2">"1xA5000"</span><span class="p">,</span>
+                       <span class="n">profile</span><span class="o">=</span><span class="s2">"1xrtx5000"</span><span class="p">,</span>
                        <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
                          <span class="s2">"model_id"</span><span class="p">:</span> <span class="s2">"meta-llama/Llama-3.1-8B"</span><span class="p">,</span>
                          <span class="s2">"model_name"</span><span class="p">:</span> <span class="s2">"llmpa-tracked"</span><span class="p">,</span>
@@ -8693,7 +8720,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       

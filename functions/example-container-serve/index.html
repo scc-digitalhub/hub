@@ -15,7 +15,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -391,13 +391,13 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">digitalhub</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dh</span>
 
 <span class="c1"># Initialize project</span>
-<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;my-project&quot;</span><span class="p">)</span>
+<span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">"my-project"</span><span class="p">)</span>
 
 <span class="c1"># Create function</span>
 <span class="n">function</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
-    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;my_container_function_serve&quot;</span><span class="p">,</span>
-    <span class="n">image</span><span class="o">=</span><span class="s2">&quot;hashicorp/http-echo:latest&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"my_container_function_serve"</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="s2">"hashicorp/http-echo:latest"</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <h2 id="usage">Usage</h2>
@@ -405,11 +405,11 @@
 <p>The <code>port</code> is the external port, exposed by the Kubernetes service for external access, to serve incoming traffic, while <code>target_port</code> is the internal port, where the container application is listening for requests (i.e. port numer where traffic is routed to the pod).</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run the container function as a job</span>
 <span class="n">run</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;serve&quot;</span><span class="p">,</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
     <span class="n">replicas</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">&quot;target_port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
-    <span class="n">service_name</span><span class="o">=</span><span class="s2">&quot;http-echo&quot;</span><span class="p">,</span>
-    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">&quot;8877&quot;</span><span class="p">,</span>
+    <span class="n">service_ports</span><span class="o">=</span><span class="p">[{</span><span class="s2">"port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span> <span class="s2">"target_port"</span><span class="p">:</span> <span class="mi">5678</span><span class="p">}],</span>
+    <span class="n">service_name</span><span class="o">=</span><span class="s2">"http-echo"</span><span class="p">,</span>
+    <span class="n">run_as_user</span><span class="o">=</span><span class="s2">"8877"</span><span class="p">,</span>
     <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -8478,7 +8478,7 @@ a.anchor-link {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../javascripts/extra.js"></script>
       
