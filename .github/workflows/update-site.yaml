@@ -2,8 +2,8 @@ name: update-site
 run-name: Update site
 on:
   push:
-    tags:        
-      - '*'
+    branches:
+      - main
 concurrency:
   group: update-site
   cancel-in-progress: false
