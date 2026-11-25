@@ -6,14 +6,15 @@ metadata:
   labels: # key-value pairs to classify the function
     - "license:apache-2.0"
     - "domain:tabular"
-    - "platform:0.14"
+    - "platform:0.16"
     - "type:job"
     - "phase:data-preparation"
 name: example-etl
 spec:
   python_version: PYTHON3_10
   source:
-    base64: aW1wb3J0IHBhbmRhcyBhcyBwZApmcm9tIGRpZ2l0YWxodWJfcnVudGltZV9weXRob24gaW1wb3J0IGhhbmRsZXIKCiMgVVJMPSJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZGF0YXNldHMvd29ybGQtY2l0aWVzL3JlZnMvaGVhZHMvbWFpbi9kYXRhL3dvcmxkLWNpdGllcy5jc3YiCgpAaGFuZGxlcigpI291dHB1dHM9WyJ3b3JsZC1jaXRpZXMiXQpkZWYgZG93bmxvYWRfYW5kX3Byb2Nlc3MocHJvamVjdCwgdXJsLCBvdXRwdXRfdGFibGUpOgogICAgZGYgPSBwZC5yZWFkX2Nzdih1cmwpCiAgICBkZi5yZXNldF9pbmRleChpbnBsYWNlPVRydWUpCiAgICBwcm9qZWN0LmxvZ19kYXRhaXRlbShuYW1lPW91dHB1dF90YWJsZSwga2luZD0ndGFibGUnLCBkYXRhPWRmKQogICAgI3JldHVybiBkZg==
+    handler: download_and_process
+    base64: aW1wb3J0IHBhbmRhcyBhcyBwZAoKZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCgoKQGhhbmRsZXIoKQpkZWYgZG93bmxvYWRfYW5kX3Byb2Nlc3MocHJvamVjdCwgdXJsLCBvdXRwdXRfdGFibGUpOgogICAgZGYgPSBwZC5yZWFkX2Nzdih1cmwpCiAgICBkZi5yZXNldF9pbmRleChpbnBsYWNlPVRydWUpCiAgICBwcm9qZWN0LmxvZ190YWJsZShuYW1lPW91dHB1dF90YWJsZSwgZGF0YT1kZik=
     lang: python
 ---
 kind: "python+job"
