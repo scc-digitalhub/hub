@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#vllm-serve" class="md-skip">
+        <a href="#1.-Initialize-the-project" class="md-skip">
           Skip to content
         </a>
       
@@ -285,58 +285,12 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resources
-      
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#1.-Initialize-the-project" class="md-nav__link">
@@ -380,6 +334,8 @@
   
 
 
+  <h1>Index</h1>
+
 <div id="template-content">
 <p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM VLLM Serve (vllmserve-text)</p>
 </div>
@@ -387,68 +343,7 @@
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
-<h1 id="vllm-serve">VLLM Serve</h1>
-<p>This function deploys a large language model (LLM) using the VLLM engine within the platform. It provides an OpenAI-compatible API endpoint for text generation tasks. Users can submit prompts to the deployed model and receive generated completions in real-time. The deployment is containerized and runs on Kubernetes, supporting various optimization options such as dtype specification and resource profiles for efficient inference.</p>
-<h2 id="features">Features</h2>
-<p>The <code>vllm-text-serve</code> function includes the following features:</p>
-<ul>
-<li><strong>OpenAI-compatible API</strong>: Provides a REST API endpoint compatible with OpenAI's text completion format</li>
-<li><strong>Multiple model support</strong>: Deploy various open-source LLMs from Hugging Face Hub</li>
-<li><strong>Performance optimization</strong>: Configurable dtype (float16, float32) and quantization options</li>
-<li><strong>Resource flexibility</strong>: Support for different GPU profiles (1xV100, 2xA100, etc.) based on deployment needs</li>
-<li><strong>Real-time inference</strong>: Stream generated text completions as they are produced</li>
-<li><strong>Kubernetes-native</strong>: Containerized deployment with automatic scaling and health monitoring</li>
-<li><strong>Batch processing</strong>: Handle single and batched requests efficiently</li>
-</ul>
-<h2 id="definition">Definition</h2>
-<div class="highlight"><pre><span></span><code>llm_vllm_func = project.new_function(
-    name="vllm-text-serve",
-    kind="vllmserve-text",
-    model_name="model",
-    url="hf://Qwen/Qwen2.5-0.5B-Instruct"    
-)
-</code></pre></div>
-<h2 id="usage">Usage</h2>
-<p>To use the <code>vllm-text-serve</code> function, follow these steps:</p>
-<ol>
-<li>
-<p><strong>Initialize the Project</strong>: Ensure that you have created the project and initialized the function as shown in the definition section.</p>
-</li>
-<li>
-<p><strong>Start the Serve</strong>: Use the following code to start. </p>
-<div class="highlight"><pre><span></span><code><span class="n">vllm_run</span> <span class="o">=</span> <span class="n">llm_vllm_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-</li>
-<li>
-<p><strong>Invoke the Function</strong>: Use the following code to send a request to the function and receive a response.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
-<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">json</span><span class="o">=</span><span class="n">json_payload</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">service</span><span class="p">[</span><span class="s1">'url'</span><span class="p">]</span><span class="o">+</span><span class="s1">'/v1/completions'</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Response:"</span><span class="p">)</span>
-<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-</code></pre></div>
-</li>
-</ol>
-<p>Notes: For detailed usage, check the usage notebook.</p>
-<h2 id="resources">Resources</h2>
-<p>These settings define the resource requests and limits for the runtime.</p>
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GPU Type</strong></td>
-<td><code>V100</code> or <code>A100</code></td>
-<td>GPU accelerator for model inference.</td>
-</tr>
-</tbody>
-</table>
-<p>The <code>vllm-text-serve</code> function requires GPU acceleration to operationalize large language models efficiently. GPU is mandatory for model inference and cannot be replaced by CPU-only computation.</p>
+<p>This template is missing information on usage. ../catalog/functions/llm-vllm-text-serve/README.md</p>
 </div>
 <div class="template-info-tab" id="template-notebook">
 <style type="text/css">
@@ -8330,7 +8225,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3">
@@ -8635,7 +8530,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOPs'</span><span class="p">}</span>
@@ -8650,7 +8545,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>{'model': 'model', 'prompt': 'Describe MLOPs'}</pre>
 </div>
@@ -8663,7 +8558,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
