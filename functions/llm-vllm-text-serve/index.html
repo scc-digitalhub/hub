@@ -383,7 +383,7 @@
 <div id="template-content">
 <p><a id="browse" href="./../../">&lt; Browse</a><div id="template-title">LLM VLLM Serve (vllmserve-text)</p>
 </div>
-<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest</div></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-vllm-text-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-vllm-text-serve/definition.yaml">Definition</a><div id="hub-ref"><div id="hub-ref-button">Reference <span class="expand-icon">&#x25BC;</span></div><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-vllm-text-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM VLLM Serve (vllmserve-text)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.14</span><span class="md-label"><span class="md-label-category">type:</span>service</span><span class="md-label"><span class="md-label-category">phase:</span>model-serving</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
+<div id="template-metadata"><div id=template-metadata-right><div id="version-text">Version:</div><div id="previous-menu"><div class="version-entry" id="version-this">latest</div></div><a class="md-cell-right" id=md-repo-directory target="_blank" href="https://github.com/scc-digitalhub/hub/tree/main/catalog/functions/llm-vllm-text-serve">Repository</a><a class="md-cell-right" id=md-repo-definition target="_blank" href="https://raw.githubusercontent.com/scc-digitalhub/hub/refs/heads/main/catalog/functions/llm-vllm-text-serve/definition.yaml">Definition</a><div id="hub-ref"><div id="hub-ref-button">Reference <span class="expand-icon">&#x25BC;</span></div><div id="hub-ref-link"><span id=hub-ref-link-text>hub://functions/llm-vllm-text-serve:1.0.0</span><button id=hub-ref-link-button onclick="copyRef()"><span id=hub-ref-copy-clipboard>&#10064;</span><span id=hub-ref-copy-copied>&#10003;</span><span id=hub-ref-copy-space>&#10064;</span></button></div></div></div><div id=template-metadata-left><div class=md-cell><div class=md-cell-title>Name</div><div class=md-cell-content id=md-name>LLM VLLM Serve (vllmserve-text)</div></div><div class=md-cell><div class=md-cell-title>Description</div><div class=md-cell-content id=md-description>This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.</div></div><div class=md-cell><div class=md-cell-title>Version</div><div class=md-cell-content id=md-version>1.0.0</div></div><div class=md-cell><div class=md-cell-title>Labels</div><div class=md-cell-content id=md-labels><span class="md-label"><span class="md-label-category">license:</span>apache-2.0</span><span class="md-label"><span class="md-label-category">platform:</span>0.16</span><span class="md-label"><span class="md-label-category">type:</span>service</span><span class="md-label"><span class="md-label-category">phase:</span>model-serving</span><span class="md-label"><span class="md-label-category">inference:</span>openai</span></div></div></div></div>
 <div id="template-tab-buttons"><button class="tab-button tab-button-selected" id="tab-button-usage" onclick="openTab('usage')">Usage</button><button class="tab-button tab-button-not-selected" id="tab-button-notebook" onclick="openTab('notebook')">Notebook</button></div>
 <div id="template-info">
 <div class="template-info-tab" id="template-usage">
@@ -8354,7 +8354,18 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0b569142">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2e30cfd3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-1-%E2%80%93-Register-the-model-in-the-platform-catalog">Step 1 – Register the model in the platform catalog<a class="anchor-link" href="#Step-1-%E2%80%93-Register-the-model-in-the-platform-catalog">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bb7b41b6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8362,9 +8373,25 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_model</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"model"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"huggingface"</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">"hf://Qwen/Qwen2.5-0.5B-Instruct"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_model</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">"base-model"</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">"huggingface"</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">"hf://Qwen/Qwen2.5-7B-Instruct"</span>
+<span class="p">)</span>
+<span class="n">base_model</span><span class="o">.</span><span class="n">key</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ddd05a9b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Step-2-%E2%80%93-Serve-the-model-using-vllmserve-text">Step 2 – Serve the model using vllmserve-text<a class="anchor-link" href="#Step-2-%E2%80%93-Serve-the-model-using-vllmserve-text">¶</a></h3>
 </div>
 </div>
 </div>
@@ -8381,7 +8408,7 @@ a.anchor-link {
     <span class="n">name</span><span class="o">=</span><span class="s2">"vllm-text-serve"</span><span class="p">,</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">"vllmserve-text"</span><span class="p">,</span>
     <span class="n">model_name</span><span class="o">=</span><span class="s2">"model"</span><span class="p">,</span>
-    <span class="n">url</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">key</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">key</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -8390,6 +8417,33 @@ a.anchor-link {
 </div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ede40b55">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Select-a-GPU-profile">Select a GPU profile<a class="anchor-link" href="#Select-a-GPU-profile">¶</a></h3><p>To deploy the model, we use a GPU profile to accelerate the generation. Fetch the profile list as shown below to retrieve the resource profiles available through the platform API. Select a GPU profile for the training job; this run uses 1xV100. Before submitting the job, ensure that the selected profile is available to your project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e37eaf98">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_k8s_resource_profiles</span><span class="p">()</span>
+<span class="n">profile</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9a993045">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8408,7 +8462,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">vllm_run</span> <span class="o">=</span> <span class="n">llm_vllm_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">"serve"</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="s2">"1xV100"</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">vllm_run</span> <span class="o">=</span> <span class="n">llm_vllm_func</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="s2">"1xa40-shared"</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s2">"--gpu_memory_utilization"</span><span class="p">,</span> <span class="s2">"0.95"</span><span class="p">],</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"24Gi"</span><span class="p">,</span> <span class="s2">"disk"</span><span class="p">:</span> <span class="s2">"20Gi"</span><span class="p">},</span>
+    <span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8479,12 +8537,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2920de67">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=2920de67">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">service</span>
@@ -8494,19 +8552,45 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce9e1e1a">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Service status: {'name': 's-vllmserve-textserve-7b572d2d589744fc8197d42e3f3974c7', 'namespace': 'dev-platform', 'type': 'ClusterIP', 'clusterIP': '172.30.61.165', 'ports': [{'appProtocol': 'openai', 'name': 'port8000', 'port': 8000, 'protocol': 'TCP', 'targetPort': 8000}], 'url': 's-vllmserve-textserve-7b572d2d589744fc8197d42e3f3974c7.dev-platform:8000', 'urls': [{'url': 's-vllmserve-textserve-7b572d2d589744fc8197d42e3f3974c7.dev-platform:8000', 'port': 8000, 'app_protocol': 'openai'}], 'aliases': ['s-h-n-18-vllm-text-serve-latest.dev-platform:8000']}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=ce9e1e1a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">CHAT_URL</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"service"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">]</span>
 <span class="n">CHAT_MODEL</span> <span class="o">=</span> <span class="n">vllm_run</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s2">"openai"</span><span class="p">][</span><span class="s2">"model"</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"service </span><span class="si">{</span><span class="n">CHAT_URL</span><span class="si">}</span><span class="s2"> with model </span><span class="si">{</span><span class="n">CHAT_MODEL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>service s-vllmserve-textserve-7b572d2d589744fc8197d42e3f3974c7.dev-platform:8000 with model model
+</pre>
 </div>
 </div>
 </div>
@@ -8532,15 +8616,6 @@ a.anchor-link {
 <p>To invoke the deployed API, you need to provide the model identifier and a prompt. This is done by constructing a JSON payload with the required fields and sending it to the service endpoint.</p>
 <p><strong>Steps:</strong></p>
 <ol>
-<li><p>Retrieve the model name and prepare the JSON payload:</p>
-<ul>
-<li><code>model</code>: The model ID obtained from the deployment.</li>
-<li><code>prompt</code>: The text prompt you want the model to complete or respond to.</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="n">llm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOps'</span><span class="p">}</span>
-</pre></div>
-</li>
 <li><p>Invoke the API using the service URL and payload:</p>
 <ul>
 <li>Use the <code>.invoke()</code> method with the <code>json</code> argument and the appropriate endpoint.</li>
@@ -8555,7 +8630,7 @@ a.anchor-link {
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de72a2ac">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=de72a2ac">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8563,16 +8638,27 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">model_name</span> <span class="o">=</span><span class="n">vllm_run</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">k8s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span>
-<span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOPs'</span><span class="p">}</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">json_payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'model'</span><span class="p">:</span> <span class="n">CHAT_MODEL</span><span class="p">,</span> <span class="s1">'prompt'</span><span class="p">:</span> <span class="s1">'Describe MLOPs'</span><span class="p">}</span>
 <span class="n">json_payload</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e2467399">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>{'model': 'model', 'prompt': 'Describe MLOPs'}</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e2467399">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8587,6 +8673,48 @@ a.anchor-link {
 <span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Response:
+{ 'choices': [ { 'finish_reason': 'length',
+                 'index': 0,
+                 'logprobs': None,
+                 'prompt_logprobs': None,
+                 'prompt_token_ids': None,
+                 'stop_reason': None,
+                 'text': ' and the role of a MLOps engineer. MLOps, or Machine',
+                 'token_ids': None}],
+  'created': 1795690666,
+  'id': 'cmpl-71e78210-74b3-4c2f-bde6-308c54e53b03',
+  'kv_transfer_params': None,
+  'model': 'model',
+  'object': 'text_completion',
+  'service_tier': None,
+  'system_fingerprint': None,
+  'usage': { 'completion_tokens': 16,
+             'prompt_tokens': 4,
+             'prompt_tokens_details': None,
+             'total_tokens': 20}}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0e504759">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 </div>
 </div>
 </div>

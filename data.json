@@ -495,7 +495,7 @@
                     "labels": [
                         "license:apache-2.0",
                         "domain:tabular",
-                        "platform:0.14",
+                        "platform:0.16",
                         "type:job",
                         "phase:data-preparation"
                     ],
@@ -522,6 +522,7 @@
                         "frictionless[parquet]"
                     ],
                     "source": {
+                        "handler": "main",
                         "base64": "aW1wb3J0IGRpZ2l0YWxodWIgYXMgZGgKZnJvbSBkaWdpdGFsaHViX3J1bnRpbWVfcHl0aG9uIGltcG9ydCBoYW5kbGVyCmZyb20gZnJpY3Rpb25sZXNzIGltcG9ydCBDaGVja2xpc3QsIHZhbGlkYXRlCmltcG9ydCBvcwoKQGhhbmRsZXIob3V0cHV0cz1bInJlcG9ydCJdKQpkZWYgbWFpbihwcm9qZWN0LCBkaSk6CiAgICAjIGRvd25sb2FkIGFzIGxvY2FsIGZpbGUKICAgIHBhdGggPSBkaS5kb3dubG9hZChvdmVyd3JpdGU9VHJ1ZSkKICAgICMgdmFsaWRhdGUKICAgIHJlcG9ydCA9IHZhbGlkYXRlKHBhdGgpCiAgICAjIHVwZGF0ZSBhcnRpZmFjdCB3aXRoIGxhYmVsICAgIAogICAgbGFiZWwgPSAiVkFMSUQiIGlmIHJlcG9ydC52YWxpZCBlbHNlICJJTlZBTElEIgogICAgZGkubWV0YWRhdGEubGFiZWxzID0gZGkubWV0YWRhdGEubGFiZWxzLmFwcGVuZChsYWJlbCkgaWYgZGkubWV0YWRhdGEubGFiZWxzIGVsc2UgW2xhYmVsXQogICAgZGkuc2F2ZSh1cGRhdGU9VHJ1ZSkgICAgCiAgICAjY2xlYW51cAogICAgb3MucmVtb3ZlKHBhdGgpIAoKICAgIHdpdGggb3BlbigicmVwb3J0Lmpzb24iLCAidyIpIGFzIGY6CiAgICAgIGYud3JpdGUocmVwb3J0LnRvX2pzb24oKSkKCiAgICBwcm9qZWN0LmxvZ19hcnRpZmFjdChraW5kPSJhcnRpZmFjdCIsIG5hbWU9ZiJ7ZGkubmFtZX1fdmFsaWRhdGlvbi1yZXBvcnQuanNvbiIsIHNvdXJjZT0icmVwb3J0Lmpzb24iKQogICAgICAgIAogICAgIyBwZXJzaXN0IHJlcG9ydAogICAgcmV0dXJuIHJlcG9ydC50b19qc29uKCk=",
                         "lang": "python"
                     }
@@ -706,7 +707,7 @@
                     "description": "This function demonstrates how to deploy and interact with the VLLM model using the openAI Text Serving framework inside the platform.",
                     "labels": [
                         "license:apache-2.0",
-                        "platform:0.14",
+                        "platform:0.16",
                         "type:service",
                         "phase:model-serving",
                         "inference:openai"
@@ -729,8 +730,7 @@
                 "name": "vllm-text-serve",
                 "python_version": "PYTHON3_10",
                 "spec": {
-                    "model_name": "model",
-                    "url": "hf://Qwen/Qwen2.5-0.5B-Instruct"
+                    "model_name": "model"
                 }
             }
         ],
