@@ -8421,14 +8421,36 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">func_b</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">funcb</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fe257318">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=293eb32e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Run">Run<a class="anchor-link" href="#Run">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=925f05a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Select-a-GPU-profile">Select a GPU profile<a class="anchor-link" href="#Select-a-GPU-profile">¶</a></h3><p>Fetch the profile list as shown below to retrieve the resource profiles available through the platform API. Select a GPU profile for the training job; this run uses 1xrtx5000. Before submitting the job, ensure that the selected profile is available to your project.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8d1d5b84">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8436,7 +8458,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Run the function with default configuration</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_k8s_resource_profiles</span><span class="p">()</span>
+<span class="n">profile</span>
 </pre></div>
 </div>
 </div>
@@ -8451,8 +8474,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">func_b</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
-                     <span class="n">profile</span><span class="o">=</span><span class="s2">"1xa100"</span><span class="p">,</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">train_run</span> <span class="o">=</span> <span class="n">function_doc</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s2">"job"</span><span class="p">,</span>
+                     <span class="n">profile</span><span class="o">=</span><span class="s2">"1xa40-shared"</span><span class="p">,</span>
                      <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
                          <span class="s2">"target_model_name"</span><span class="p">:</span> <span class="s2">"document-classifier"</span><span class="p">,</span>
                          <span class="s2">"num_train_epochs"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -8473,7 +8496,7 @@ a.anchor-link {
                          <span class="p">}}],</span>
                      <span class="n">envs</span><span class="o">=</span><span class="p">[</span>
                         <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"HF_HOME"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span> <span class="s2">"/local-data/huggingface"</span><span class="p">},</span>
-                        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"TRANSFORMERS_CACHE"</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">:</span>  <span class="s2">"/local-data/huggingface"</span><span class="p">}</span>
+                        <span class="c1"># {"name": "TRANSFORMERS_CACHE", "value":  "/local-data/huggingface"}</span>
                      <span class="p">],</span>                     
                      <span class="n">local_execution</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -8534,7 +8557,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_doc_serve</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-classifier-serve"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">function_serve</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">get_function</span><span class="p">(</span><span class="s2">"document-serve"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=fcb40aed">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">build</span> <span class="o">=</span> <span class="n">function_serve</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8560,16 +8598,13 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_doc_serve</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">serve_run</span> <span class="o">=</span> <span class="n">function_serve</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
     <span class="n">action</span><span class="o">=</span><span class="s2">"serve"</span><span class="p">,</span>
-    <span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"6Gi"</span><span class="p">},</span>
-    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">"volume_type"</span><span class="p">:</span> <span class="s2">"persistent_volume_claim"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"train-volume"</span><span class="p">,</span>
-        <span class="s2">"mount_path"</span><span class="p">:</span> <span class="s2">"/shared"</span><span class="p">,</span>
-        <span class="s2">"spec"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"size"</span><span class="p">:</span> <span class="s2">"5Gi"</span>
-        <span class="p">}}],</span>
+    <span class="n">resources</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"cpu"</span><span class="p">:</span> <span class="s2">"4"</span><span class="p">,</span>
+        <span class="s2">"mem"</span><span class="p">:</span> <span class="s2">"4Gi"</span><span class="p">,</span>
+        <span class="s2">"disk"</span><span class="p">:</span> <span class="s2">"4Gi"</span>
+    <span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
 </div>
